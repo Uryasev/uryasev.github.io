@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  PROBLEM 1: maximizing the expected return subject to bounded negative expectile risk  Maximize Avg_g (maximizing the expected retur">
+    <title>Case study: Portfolio Optimization with Expectiles — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case study: Portfolio Optimization with Expectiles</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 1: maximizing the expected return subject to bounded negative expectile risk</strong>
+
+Maximize Avg_g (maximizing the expected return of financial instruments)nsubject tonexpectile &lt;= Const1 (constraint on the negative expectile risk of the portfolio)
+Linear = Const2 (budget constraint)
+Box constraints (box constraints for individual positions)
+——————————————————————–
+Avg_g = Average GainnBox constraints = constraints on individual decision variablesn——<span style="font-size: inherit;">—————————————————————</span>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset 1</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">10000</th>
+<th style="width: 113px; height: 19px;">0.00094986</th>
+<th style="width: 220px; height: 19px;">0.06</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_1.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/max_return_expectiles_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/max_return_expectiles_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_max_return_expectiles_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_max_return_expectiles_subroutine.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_max_return_expectiles_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/max_return_expectiles_R_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>PROBLEM 2: minimizing expectile risk subject to bounded from below expected returns</strong>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+Minimize expectile (minimize negative expectile risk of the portfolio)nsubject tonAvg_g &gt;= Const1 (constraint on the expected return of financial instruments)
+Linear = Const2 (budget constraint)
+Box constraints (box constraints for individual positions)
+——————————————————————–
+Avg_g = Average GainnBox constraints = constraints on individual decision variables
+——————————————————————–
+n</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset 1</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">10000</th>
+<th style="width: 113px; height: 19px;">0.02447960</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_hmm_discrete.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/min_risk_expectiles_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/min_risk_expectiles_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_min_risk_expectiles_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_min_risk_expectiles_subroutine.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/problem_min_risk_expectiles_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/min_risk_expectiles_Rdata.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>PROBLEM 3: maximizing the expected return subject to bounded negative expectile risk</strong>
+
+</div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Maximize Avg_g (maximizing the expected return of financial instruments)nsubject tonexpectile &lt;= Const1 (constraint on the negative expectile risk of the portfolio)
+Linear = Const2 (budget constraint)
+Box constraints (box constraints for individual positions)
+——————————————————————–
+Avg_g = Average GainnBox constraints = constraints on individual decision variables
+——————————————————————–
+n</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/expectiles_problem_max_return.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/02/max_return_expectiles_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/max_return_expectiles_solution.zip">Solution</a></td>
+<td>4</td>
+<td>10000</td>
+<td>9.49104E-04</td>
+<td>0.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 4: minimizing expectile risk subject to bounded from below expected returns</strong>
+
+Minimize expectile (minimize negative expectile risk of the portfolio)nsubject tonAvg_g &gt;= Const1 (constraint on the expected return of financial instruments)
+Linear = Const2 (budget constraint)
+Box constraints (box constraints for individual positions)
+——————————————————————–
+Avg_g = Average GainnBox constraints = constraints on individual decision variables
+——————————————————————–
+n</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/expectiles_problem_min_risk.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/02/min_expectiles_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/min_expectiles_solution.zip">Solution</a></td>
+<td>4</td>
+<td>10000</td>
+<td>2.52517E-02</td>
+<td>0.72</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARY</strong>
+This case study demonstrates portfolio optimization problem when risk is measured by negative expectile risk. Two cases of formulation when risk is minimized and bounded subject to expected return of financial instruments are considered. Results are obtained using PSG external functions interface in MATLAB.</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

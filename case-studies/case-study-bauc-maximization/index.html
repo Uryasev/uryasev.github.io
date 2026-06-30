@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Subr">
+    <title>Case Study: Classification by Buffered AUC (bAUC) Maximization — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Classification by Buffered AUC (bAUC) Maximization</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/12/Maximization_bAUC.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">——————————————————————–———————————————————————————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">At the link below, a Python script is available for calculating bAUC and plotting the bROC curve as described in "Maximization of AUC and Buffered AUC in Binary Classification", by Matthew Norton &amp; Stan Uryasev.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">The Python script has the following dependencies (any recent versions of these packages will work):</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Numpy, Gurobi, Gurobipy, Matplotlib, Scikit-Learn</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/10/code_for_websitebAUC.zip"><em><strong>Click Here For Python Script</strong></em></a></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">——————————————————————–———————————————————————————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">&nbsp;At the link below, a MATLAB script is available which demonstrates how to optimize bAUC as well as calculate bAUC using the same artificial data set used in Section 4.5.2 of "Maximization of AUC and Buffered AUC in Binary Classification."</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/10/PSG_Code_for_website.zip"><span style="text-decoration: underline;"><em><strong>Click Here for MATLAB Script</strong></em></span></a></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">——————————————————————–———————————————————————————</div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Additional instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">——————————————————————–———————————————————————————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM1: problem_bAUC_1 </strong>
+Minimizing Pm_pen (Buffered Probability of Exceedance)
+——————————————————————–——————
+Pm_pen = Partial Moment Penalty for Loss
+——————————————————————–——————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">6</th>
+<th style="width: 101px; height: 19px;">3990*2788=11,124,120</th>
+<th style="width: 113px; height: 19px;">0.7354</th>
+<th style="width: 220px; height: 19px;">0.13</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bAUC_1_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/data_problem_bAUC_1_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/solution_problem_bAUC_1_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_bAUC_1_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bAUC_1_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_bAUC_1_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_bAUC_1_short.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM2: problem_bAUC_2 </strong>
+Minimizing C1*Pm_pen_g + C2*Pm_pen (cost function)
+——————————————————————–——————
+Pm_pen = Partial Moment Penalty for LossnPm_pen_g = Partial Moment Penalty for Gain
+——————————————————————–——————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1</th>
+<th style="width: 101px; height: 19px;">3990*2788=11,124,120</th>
+<th style="width: 113px; height: 19px;">1.7397</th>
+<th style="width: 220px; height: 19px;">&lt;1</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bAUC_2_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/data_problem_bAUC_2_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/solution_problem_bAUC_2_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_bAUC_2_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bAUC_2_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_bAUC_2_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_bAUC_2_short.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM3: problem_bAUC_3</strong>
+Solve problem for 7 values of alfaMinimizing C1*Pm_pen_g + C2*Pm_pen (cost function)nsubject tonPm_pen &lt;= 1-alpha (constraint on bAUC)
+——————————————————————–——————
+Pm_pen = Partial Moment Penalty for LossnPm_pen_g = Partial Moment Penalty for Gain
+——————————————————————–——————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">7</th>
+<th style="width: 101px; height: 19px;">3990*2788=11,124,120</th>
+<th style="width: 113px; height: 19px;">0.7354</th>
+<th style="width: 220px; height: 19px;">0.22</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_alpha_op_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/data_problem_bAUC_3_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/02/solution_problem_bAUC_3_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_bAUC_3_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bAUC_3_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_bAUC_3_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_alpha_op_short.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study considers buffered version (bAUC) of classification criteria Area Under the Receiver Operating Characteristic Curve (AUC). Two optimization settings: 1) maximizing bAUC and then finding intercept by minimizing some cost function; 2) Construction of "Efficient Frontier" by minimizing cost function with several constraints on bAUC.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+References</strong>
+• Norton, M. and S. Uryasev. Maximization of AUC and Buffered AUC in Classification. Research Report 2014-2, ISE Dept., University of Florida, October 2014.</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Cash Matching Bond Portfolio — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Cash Matching Bond Portfolio</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/CS_Cash_Matching_Bond_Portfolio_Linear_Linearmulti_Max_risk_.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<strong>
+
+</strong><strong></strong><strong></strong><strong>PROBLEM 1: (Linear Programming) Surplus (extra cash) is not reinvested.</strong>
+Minimize Linear (minimizing portfolio cost)nsubject tonLinearmulti &lt; = 0 (constraints assuring zero underperformance of replicating portfolio)
+Box constraints (lower bounds on positions)
+
+</div>
+——————————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">10</th>
+<th style="width: 101px; height: 19px;">6</th>
+<th style="width: 113px; height: 19px;">2,381.14</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_cash_matching_lin_prog__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/01/data_problem_cash_matching_carryover_lin_prog_1.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/01/solution_problem_cash_matching_carryover_lin_prog_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cash_matching_carryover_lin_prog_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cash_matching_carryover_lin_prog_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_cash_matching_carryover_lin_prog_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>PROBLEM 2: (Using Maximum Risk, max_risk, PSG function) Surplus (extra cash) is not reinvested. This problem is equivalent to Problem 1.
+</strong>
+Minimize Linear (minimizing portfolio cost)nsubject tonMax_risk &lt; = 0 (constraints assuring zero underperformance of replicating portfolio)
+Box constraints (lower bounds on positions)
+——————————————————————
+n</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">10</th>
+<th style="width: 101px; height: 19px;">6</th>
+<th style="width: 113px; height: 19px;">2,381.14</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_cash_matching_maxrisk__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/data_problem_cs_cash_matching_maxrisk__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/solution_problem_cs_cash_matching_maxrisk__short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cs_cash_matching_maxrisk__short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_cash_matching_maxrisk__short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_cs_cash_matching_maxrisk__short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cs_cash_matching_maxrisk.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>PROBLEM 3: (Linear Programming) Extra cash is carried forward at interest r.</strong>
+Minimize Linear (minimizing portfolio cost)nsubject tonLinearmulti = 0 (cash balance constraints)
+Box constraints (lower bounds on positions)
+
+</div>
+——————————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">16</th>
+<th style="width: 101px; height: 19px;">6</th>
+<th style="width: 113px; height: 19px;">2,299.81</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cash_matching_carryover_lin_prog__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/data_problem_cash_matching_carryover_lin_prog__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/solution_problem_cash_matching_carryover_lin_prog__short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cash_matching_carryover_lin_prog_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cash_matching_carryover_lin_prog_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cash_matching_carryover_lin_prog_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cash_matching_carryover_lin_prog.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+<strong>PROBLEM 4: (Using Maximum Risk, max_risk, PSG function ) Extra cash is carried forward at interest r.
+</strong>
+Minimize Linear (minimizing portfolio cost)nsubject tonMax_risk &lt; = 0 (constraints assuring zero underperformance of replicating portfolio)
+Box constraints (lower bounds on positions)
+
+</div>
+——————————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">16</th>
+<th style="width: 101px; height: 19px;">6</th>
+<th style="width: 113px; height: 19px;">2,299.81</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cash_matching_carryover_maxrisk__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/data_problem_cash_matching_carryover_maxrisk__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/solution_problem_cash_matching_carryover_maxrisk__short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cash_matching_carryover_maxrisk__short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cash_matching_carryover_maxrisk__short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_cash_matching_carryover_maxrisk__short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cash_matching_carryover_maxrisk.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>CASE STUDY SUMMARY</strong>
+
+This case study demonstrates several optimization setups for a simple cash matching problem described in Luenberger (1998), p.108. The model matches cash obligations over some periods with payments from a portfolio of bonds. Bonds of various maturities pay coupons as well as face values at different time periods. We design a portfolio providing cash flows to cover liabilities at all periods and minimizing the initial portfolio cost. Four optimization problems are formulated. The first and the second problems disregard surplus cash at every time period, i.e., surplus is not reinvested. The first problem is a Linear Programming problem. The second problem, which is equivalent to the first problem, is formulated with PSG nonlinear function max_risk. The third and the fourth problems carry forward extra cash with some interest. This carry-over is done with additional carry-over variables which can be interpreted as artificial bonds. The third problem is a Linear Programming problem. The fourth problem, which is equivalent to the third problem, is formulated with the PSG nonlinear function max_risk.
+<strong>References</strong>
+
+• Luenberger, D.G. (1998): Investment Science, Oxford University Press, 494 p.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

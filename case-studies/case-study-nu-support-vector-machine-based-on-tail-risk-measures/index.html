@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, &amp;nbsp;PSG MATLAB Toolbox, PSG MATLA">
+    <title>Case Study: Support Vector Machines Based on Tail Risk Measures — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Support Vector Machines Based on Tail Risk Measures</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/CS_Nu_Suport_Vector_Machine.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, &nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf">PSG MATLAB Toolbox</a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+Problem 1a: Nu-SVM </strong>
+Minimize quadratic + cvar_risk
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnCvar_risk = Conditional Value-at-Risk specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_nu_svm__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_nu_svm__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_nu_svm_short.zip">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>0.0</td>
+<td>0.03</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_nu_svm.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_nu_svm.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_nu_svm.txt">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>0.0</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 1a’: Cross Validation for Nu-SVM </strong>
+2-fold crossvalidationnMinimize quadratic + cvar_risk
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnCvar_risk = Conditional Value-at-Risk specified by a matrix of scenarios
+——————————————————————–
+Download Problem Datan<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_nu_svm_CV.txt">Cycle statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/data_problem_nu_svm__CV.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_nu_svm__CV.zip">Solution</a></td>
+<td>25</td>
+<td>150</td>
+<td>-0.00249</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td></td>
+<td></td>
+<td></td>
+<td>25</td>
+<td>150</td>
+<td>-0.00175</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; width: 850px;">Cross-Validation shows model performance on two pairs of in-sample and out-of-sample datasets.
+For the first pair of datasets (file “solution_problem_1.txt”) :
+<table>
+<tbody>
+<tr>
+<td>In-sample CVaR = cvar_risk(0.5,cutout(1,2,matrix_prior_scenarios)) = -9.9e-003</td>
+</tr>
+<tr>
+<td>Out-of-sample CVaR = cvar_risk(0.5,takein(1,2,matrix_prior_scenarios)) = 1.85e-002</td>
+</tr>
+</tbody>
+</table>
+For the second pair of datasets (file “solution_problem_2.txt”) :
+<table>
+<tbody>
+<tr>
+<td>In-sample CVaR = cvar_risk(0.5,cutout(2,2,matrix_prior_scenarios)) = -7.02e-003</td>
+</tr>
+<tr>
+<td>Out-of-sample cvar_risk(0.5,takein(2,2,matrix_prior_scenarios)) = 9.15e-003</td>
+</tr>
+</tbody>
+</table>
+CVaRs in-sample and CVaR out-of-sample are significantly different, i.e., there is a significant over-fitting of the model.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> Problem 1b: Nu-SVM with VaR Measure </strong>
+Minimize quadratic + var_risk
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnVar_risk = Value-at-Risk specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_var_nu_svm__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_var_nu_svm__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_var_nu_svm_short.zip">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-707.78409</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_var_nu_svm.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_var_nu_svm.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_var_nu_svm.txt">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-707.238</td>
+<td>0.03</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 2a: Extended Nu-SVM </strong>
+Minimize cvar_risknSubject tonQuadratic = 1 (unity constraint)
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnCvar_risk = Conditional Value-at-Risk specified by a matrix of scenarios
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">25</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">0.056529</th>
+<th style="width: 220px; height: 19px;">0.40</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_extended_nu_svm_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_extended_nu_svm_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_extended_nu_svm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_extended_nu_svm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_extended_nu_svm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_extended_nu_svm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_extended_nu_svm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> Problem 2b: Extended Nu-SVM with VaR Measure </strong>
+Minimize var_risknSubject tonQuadratic = 1 (unity constraint)
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnVar_risk = Value-at-Risk specified by a matrix of scenarios
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">25</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">-1053.893608</th>
+<th style="width: 220px; height: 19px;">5.08</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_extended_var_nu_svm_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_extended_var_nu_svm_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_extended_var_nu_svm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_extended_var_nu_svm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_extended_var_nu_svm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_extended_var_nu_svm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_extended_var_nu_svm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 3a: Robust Nu-SVM</strong>
+Minimize quadratic + max_cvar_risk
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnMax_cvar_risk = Maximum of Conditional Value-at-Risk functions specified by a set of matrices of scenarios
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">25</th>
+<th style="width: 101px; height: 19px;">134</th>
+<th style="width: 113px; height: 19px;">0.0</th>
+<th style="width: 220px; height: 19px;">0.08</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_robust_svm__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_robust_svm__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_robust_svm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_robust_svm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_robust_svm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_robust_svm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_robust_svm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 3b: Robust Nu-SVM with VaR Measure</strong>
+Minimize quadratic + max_var_risk
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixnMax_var_risk = Maximum of Value-at-Risk functions specified by a set of matrices of scenarios
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">25</th>
+<th style="width: 101px; height: 19px;">134</th>
+<th style="width: 113px; height: 19px;">-1,434.071147</th>
+<th style="width: 220px; height: 19px;">0.55</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_robust_var_svm__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_robust_var_svm__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_robust_var_svm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_robust_var_svm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_robust_var_svm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_robust_var_svm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_robust_var_svm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 3c: Regularized Weighted Difference of CVaRs </strong>
+Minimize quadratic + cvar_difference
+——————————————————————–
+Quadratic = quadratic function specified by a unit matrixncvar_difference = weighted difference of two CVaR functions specified by a set of matrices of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/problem_difference_cvar_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/data_problem_difference_cvar_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/solution_problem_difference_cvar_short.txt">Solution</a></td>
+<td>7</td>
+<td>230</td>
+<td>-9.41966E-04</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/problem_difference_cvar.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/MATLAB_difference_cvar__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/03/MATLAB_solution_difference_CVaR.txt">Solution</a></td>
+<td>7</td>
+<td>230</td>
+<td>-9.41966E-04</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 4a (Primal): Nu-SVM with CVaR in Objective and L_Infinity Norm in Constraint </strong>
+Minimize cvar_risknSubject tonL_Infinity_Norm &lt;=1
+——————————————————————–
+Cvar_risk = Conditional Value-at-Risk specified by a matrix of scenariosnL_infinity_norm = L_infinity norm
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4a_primal_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_4a_primal_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_4a_primal_short.zip">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.318631</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_4a_primal.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_4a_primal.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_4a_primal.txt">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.318631</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 4b (Dual): Nu-SVM with L1 Norm in Objective and Envelope Constraint </strong>
+maximize - L1_NormnSubject tonLinear = 0,
+Envelope Constraint
+——————————————————————–
+L1_norm = L1 normnEnvelope Constraint = CVaR envelop set of constraints
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">-0.318631</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4b_dual_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_4b_dual_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_4b_dual_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_4b_dual_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4b_dual_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_4b_dual_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_4b_dual.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 5a (Primal): Nu-SVM with CVaR in Objective and Deltoidal (Mixture of L1 and L_Infinity) Norm in Constraint </strong>Minimize cvar_risknSubject tonDeltoidal_norm &lt;=1
+——————————————————————–
+Cvar_risk = Conditional Value-at-Risk specified by a matrix of scenariosnDeltoidal_norm = Mixture of L1 and L_infinity norm
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5a_primal__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_5a_primal__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_5a_primal_short.zip">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.119276</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">&gt;Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_5a_primal.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_5a_primal.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_5a_primal.txt">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.119276</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 5b (Dual): Nu-SVM with Dual Deltoidal Norm in Objective and Envelope Constraint </strong>
+Maximize -Dual_Deltoidal_NormnSubject tonLinear = 0,
+Envelope Constraint
+——————————————————————–
+Dual_deltoidal_norm = Norm dual to mixture of L1 and L_infinity normsnEnvelope constraint = CVaR envelop set of constraints
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1025</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">-0.119278</th>
+<th style="width: 220px; height: 19px;">0.28</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5b_dual_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_5b_dual_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/solution_problem_5b_dual_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_5b_dual_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5b_dual_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_5b_dual_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_5b_dual.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 6a (Primal): Nu-SVM with CVaR in Objective and CVaR Norm in Constraint </strong>Subject tonCVaR_Norm &lt;=1
+——————————————————————–
+Cvar_risk = Conditional Value-at-Risk specified by a matrix of scenariosnCVaR_norm = Conditional Value-at-Risk specified on a point components
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6a_primal_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_6a_primal_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_6a_primal_short.zip">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.074699</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_6a_primal.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_6a_primal.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_6a_primal.txt">Solution</a></td>
+<td>25</td>
+<td>1,000</td>
+<td>-0.074699</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>Problem 6b (Dual): Nu-SVM with Dual CVaR Norm in Objective and Envelope Constraint </strong>
+Maximize -Dual_CVaR_NormnSubject tonLinear = 0,
+Envelope Constraint
+——————————————————————–
+Dual_CVaR_norm = maximum from L1 and L_Infinity NormsnEnvelope constraint = CVaR envelop set of constraints
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1025</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">-0.073899</th>
+<th style="width: 220px; height: 19px;">0.08</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6b_dual__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_6b_dual__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_6b_dual_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_6b_dual_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6b_dual_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_6b_dual_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_6b_dual.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study illustrates the application of the CVaR methodology to the Support Vector Machine (SVM) classification problem.
+Given a training data <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image001.gif" alt="" width="141" height="21">, where <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image002.gif" alt="" width="46" height="21"> are features and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image003.gif" alt="" width="76" height="25">are class labels, the basic idea of SVM is to find an optimal separating hyper-plane (in the features space) maximizing a margin between two classes. Cortes et al. (1995) proposed to solve SVM classification problem using quadratic programming. An alternative formulation, known as nu-SVM, was suggested by Scholkopf, et al. (2000). Takeda and Sugiyama (2008) proposed to use the CVaR risk measure in classification and formulated the SVM learning problem as a CVaR minimization problem. Wang (2009) proposed robust nu -Support Vector Machine based on worst-case CVaR Minimization.
+Tsyurmasto and Uryasev (2012) proposed Support Vector Machines based on Value-at-Risk (VaR) Measures. They obtained new SVM classifiers based on VaR risk measure for the following CVaR-based SVMs: Nu-SVM, Extended Nu-SVM, Robust Nu-SVM.
+Case study contains the following problem formulations: 1) regularized CVaR, 2) regularized VaR, 3) CVaR minimization with unity constraint, 4) VaR minimization with unity constraint, 5) regularized robust CVaR minimization, 6) regularized robust VaR minimization. Problems 1,2,5,6 include additional quadratic regularization term.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+References</strong>
+• Tsyurmasto, P., Uryasev, S. (2012): Support Vector Machine Based on Value-at-Risk Measure. Working Paper.
+Cortes, C. and V. Vapnik (1995): Support-vector networks, Machine Learning 20, 273-297.n• Scholkopf, B., Smola, A., Williamson, R., and P. Bartlett (2000): New support vector algorithms, Neural Computation 12, 1207-1245.n• Takeda A. and M. Sugiyama (2008): Nu-support vector machine as conditional value-at-risk minimization, in Proceedings 25th International Conference on Machine Learning, Morgan Kaufmann, Montreal, Quebec, Canada, 1056-1063.n• Tsyurmasto, P., Uryasev, S. (2012): Advanced Risk Measures in Estimation and Classification. Conference Proceedings, Vilnius, Lithuania, July, 2012.n• Wang, Y. (2009): Robust nu-Support Vector Machine Based on Worst-case Conditional Value-at-Risk Minimization. College of Finance, Zhejiang Gongshang University, Hangzhou 3100018, Zhejiang, China. Optimization Methods and
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

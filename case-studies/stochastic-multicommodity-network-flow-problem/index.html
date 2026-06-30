@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Stochastic Multicommodity Network Flow Problem — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Stochastic Multicommodity Network Flow Problem</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Stochastic_Network_Optimization.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Run_File_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_p_multicomm</strong>
+Minimize Linear (minimizing network cost)nsubject tonLinearmulti = Const1 (network flow constraints for every commodity and scenario)
+Prmulti_pen ≤ Const2 (constraint on probability that flow in at least one ark exceeds capacity)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Linearmulti = Linear MultiplenPrmulti_pen = Probability Exceeding Penalty for Loss MultiplenBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">17,654</th>
+<th style="width: 101px; height: 19px;">63</th>
+<th style="width: 113px; height: 19px;">27,668</th>
+<th style="width: 220px; height: 19px;">18.53</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_p_multicomm__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_p_multicomm_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_p_multicomm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_p_multicomm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_p_multicomm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_p_multicomm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_p_multicomm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>NOTE:</strong> Problem statement can be simplified using MultiConstraint.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_c_multicomm</strong>
+Minimize Linear (minimizing network cost)nsubject tonCardn_neg ≤ Const3 (constraint on the&nbsp; number of scenarios on which flow in some ark may exceed capacity)
+Linearmulti ≤ Const4 (constraint on probability that flow in at least one ark exceeds capacity)
+Linearmulti = 0 (network flow constraints for every commodity and scenario with varying demands)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Cardn_neg = Cardinality NegativenLinearmulti = Linear MultiplenBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">17,717</th>
+<th style="width: 101px; height: 19px;">63</th>
+<th style="width: 113px; height: 19px;">27,652</th>
+<th style="width: 220px; height: 19px;">163.77</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_c_multicomm_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_c_multicomm_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_c_multicomm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_c_multicomm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_c_multicomm_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_c_multicomm_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_c_multicomm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>NOTE:</strong> Problem statement can be simplified using MultiConstraint.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_2st_multicomm</strong>
+Minimize Linear (minimizing network cost)nsubject tonPr_pen(Q) ≤ Const2 (constraint on probability that random recourse function exceeds 0)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Pr_pen(Q) = Probability Exceeding Penalty for RecoursenBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%;
+<div style=" font-family:="" calibri;="" font-size:="" medium;="" line-height:="" 120%;="" color:="" #000000;="" width:="" 850px;"="">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">14 + 280</th>
+<th style="width: 101px; height: 19px;">63</th>
+<th style="width: 113px; height: 19px;">26,636</th>
+<th style="width: 220px; height: 19px;">25.88</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2st_multicomm_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_2st_multicomm_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/11/solution_problem_2st_multicomm_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_2st_multicomm_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2st_multicomm_short_subrtine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_2st_multicomm_short_subrtine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_2st_multicomm.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+CASE STUDY SUMMARYn</strong>
+This case study optimizes a stochastic multi-commodity network flow problem. The stochastic multi-commodity network flow problem is formulated as a stochastic programming problem with a probabilistic constraint based on discrete scenarios. For every commodity a pair of source and absorption vertices is defined. Demands in absorption vertices are considered to be random. As a result flows from the source to absorption vertices are random too. The problem finds optimal capacities of arcs in the network by minimizing the total cost of the network subject to constraints. The joint distribution of demands for all commodities is given by a set of scenarios. The flow through an arc is defined as the sum of flows of all commodities through this arc. The total cost of arcs is a linear function of arc capacities. The objective of the optimization is to find capacities of arcs minimizing the total cost of the network and satisfying the random flow constraint with prescribed probability (i.e., a specified probability will be assured that flows in all arcs will not exceed the capacity). A random flow constraint is a chance constraint. We formulate three variants of this constraint: 1) constraint on probability of insufficient capacity at least one arc; 2) constraint on a fraction of scenarios on which network flows may exceed capacities; 3) constraint on probability that random recourse function exceeds 0. Therefore three formulations of the problem are considered.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+References</strong>
+• Ruszczynski, A. (2002): Probabilistic programming with discrete distributions and precedence constrained knapsack polyhedra. <em> Math. Programming</em>, Ser. A 93, pp. 195–215.n• Prekopa, A. (1995): Stochastic Programming. Kluwer, Dordrecht.</div>
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Portfolio Credit-Risk Optimization Modeled by Scenarios and Mixtures of Normal Distributions — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Credit-Risk Optimization Modeled by Scenarios and Mixtures of Normal Distributions</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Portfolio_Credit-Risk_Optimization.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<strong>
+PROBLEM 1: problem_var_LLN</strong>
+Minimize Var_risk (minimizing Value-at-Risk)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Var = VaR Risk for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,000</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">2.808627866</th>
+<th style="width: 220px; height: 19px;">18.57</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_var_lln_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problems_1_4_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_var_lln_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_avg_cvar_CLT_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_cvar_CLT_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_avg_cvar_CLT_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_avg_cvar_CLT.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 2: problem_cvar_LLN </strong>
+Minimize Cvar_risk (minimizing Conditional Value-at-Risk)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Cvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,000</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.41392772129</th>
+<th style="width: 220px; height: 19px;">1.16</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_lln_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problems_1_4_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_cvar_lln_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_cvar_lln_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_lln_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_cvar_lln_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cvar_lln.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 3: problem_avg_var_CLT</strong>
+Minimize Avg_var_risk_ni (minimizing Average Value-at-Risk for Normal Independent Distribution)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Avg_var_risk_ni = Average Value-at-Risk for Multivariate Normal Independent DistributionnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,000</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.13761873657</th>
+<th style="width: 220px; height: 19px;">371.68</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_var_clt_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problems_1_4_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_avg_var_clt_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_avg_var_CLT_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_var_CLT_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_avg_var_CLT_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_avg_var_CLT.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 4: problem_avg_cvar_CLT</strong>
+Minimize Avg_cvar (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Avg_cvar_risk_ni = Average Conditional Value-at-Risk for Multivariate Normal Independent DistributionnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,000</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.648889845209</th>
+<th style="width: 220px; height: 19px;">241.56</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_cvar_clt_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problems_1_4_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_avg_cvar_clt_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_avg_cvar_CLT_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_cvar_CLT_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_avg_cvar_CLT_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cs_cash_matching_maxrisk.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 5: problem_avg_var_CLT (alternative formulation)</strong>
+Minimize Xvar (minimizing Average Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 3)nsubject tonLinear = 1 (budget constraint)
+Avg_pr_pen_ni ≤ 1-α (probability constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Xvar = additional variable which is equal to VaR at optimalitynAvg_pr_pen_ni = Average Probability Exceeding Penalty for Loss Normal IndependentnBox constraints = constraints on individual decision variablesnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,001</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.13761873657</th>
+<th style="width: 220px; height: 19px;">371.68</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_var_clt_alt_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_5-6_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_avg_var_clt_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_avg_var_CLT_alt_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_var_CLT_alt_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_avg_var_CLT_alt_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cs_cash_matching_maxrisk.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 6: problem_avg_cvar_CLT (alternative formulation)</strong>
+Minimize Xvar + 1/(1-α )*Avg_pm_pen_ni (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 4)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (portfolio return constraint)
+Box constraints (bounds on decision variables)
+——————————————————————–
+Xvar = additional variable which is equal to VaR at optimalitynAvg_pm_pen_ni = Average Partial Moment Penalty for Loss Normal IndependentnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">3,001</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.648903768121</th>
+<th style="width: 220px; height: 19px;">192.91</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_cvar_clt_alt_short_.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_5-6_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_avg_cvar_clt_alt_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_avg_cvar_CLT_alt_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_avg_cvar_CLT_alt_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_avg_cvar_CLT_alt_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARY</strong>
+
+This case study evaluates several alternative formulations of optimization problems for minimizing credit risk of a portfolio of financial contracts with different counterparties. The formulations and numerical runs (both models and data) are motivated by paper Iscoe et al. (2009). This paper considers various approximations to the conditional portfolio loss distribution and formulate VaR and CVaR minimization problems for each case. Formulations exploit the conditional independence of counterparties under a structural credit risk model. The case studies consider the “conventional” scenarios and the mixture of normal distribution approaches for modeling the conditional loss distribution.
+Similar to Iscoe et al. (2009) we find four optimal portfolios for minimization problems with different but closely risk measures. Problems 1,2 consider quantile-based risk measures, var_risk, cvar_risk with “conventional” scenarios and Problems 3,4 consider avg_var_risk_ni, avg_cvar_risk_ni calculating mixtures of normal independent distributions.
+Additionally, Problems 3,4 involving avg_var_risk_ni and avg_cvar_risk_ni were equivalently reformulated with functions avg_pr_pen_ni, avg_pm_pen_ni. These formulations help to understand relation between “avg_...” functions.
+Case study demonstrates that PSG optimization provides results comparable to Iscoe, I., et al. (2009).
+
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

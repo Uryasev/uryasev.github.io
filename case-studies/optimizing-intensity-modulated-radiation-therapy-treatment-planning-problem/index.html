@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R.">
+    <title>Case Study: Optimizing Intensity-Modulated Radiation Therapy Treatment Planning Problem — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Optimizing Intensity-Modulated Radiation Therapy Treatment Planning Problem</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/10/CS_Optimizing_Radiation_Therapy_PM2.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Run_File_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM: problem_men</strong>
+Minimizing Pm2_pen_g (minimizing partial moment two penalty function)nsubject tonBox constraints (bounds on variables)
+—————————————————————–——–———–—
+Pm2_pen_g = Partial Moment Two Penalty for GainnBox constraints = constraints on individual decision variables
+——————————————————————–——–——–—
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_men_short_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_men_short__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_men_short__short.zip">Solution</a></td>
+<td>10</td>
+<td>10</td>
+<td>0.000350097</td>
+<td>&lt;0.01</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_men1_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_men1_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_1.zip">Solution</a></td>
+<td>1,113</td>
+<td>20,859</td>
+<td>15.49063333</td>
+<td>312.76</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_men2_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_men2_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_men2_short.zip">Solution</a></td>
+<td>2,736</td>
+<td>44,362</td>
+<td>5.379941523</td>
+<td>879.34</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_men3_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_men3_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_men3_short.zip">Solution</a></td>
+<td>2,055</td>
+<td>37,794</td>
+<td>3.875103565</td>
+<td>103.19</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_men_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/data_problem_men_short_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/Mat_solution_problem_men_short.txt">Solution</a></td>
+<td>10</td>
+<td>10</td>
+<td>0.000350098</td>
+<td>&lt;0.01</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_men1.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/data_problem_men1_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/Mat_solution_problem_men1.txt">Solution</a></td>
+<td>1,113</td>
+<td>20,859</td>
+<td>15.4906</td>
+<td>306.52</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_men2.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/data_problem_men2_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/Mat_solution_problem_men2.txt">Solution</a></td>
+<td>2,736</td>
+<td>44,362</td>
+<td>5.37994</td>
+<td>864.84</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_men3.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/data_problem_men3_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/Mat_solution_problem_men3.txt">Solution</a></td>
+<td>2,055</td>
+<td>37,794</td>
+<td>3.87768</td>
+<td>91.27</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_men1_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_men1.zip">Data</a></td>
+<td></td>
+<td>10</td>
+<td>10</td>
+<td>0.000350098</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study solves an intensity-modulated radiation therapy (IMRT) treatment planning problem. The problem statement is presented in the paper “An exact approach to direct aperture optimization in IMRT treatment planning” by Men et al., (2007). In the original case study, the sum of squares of penalties is minimized to reduce the radiation therapy damage. PSG uses the "partial moment two penalty" (pm2_pen) function, which is the average of sum of squares of penalties. Therefore, the optimal point obtained with PSG is the same as in the original case study; however, the PSG objective value differs from the original objective value by a fixed multiplier.
+The scenarios matrices in radiation therapy case studies are sparse (few non-zero elements). Therefore, packed matrix format (pmatrix) is quite beneficial for these problems. We solve four problems which differ only by the dataset (all problems have the same mathematical formulation). Dataset1 has no connections with real life problems: it is demonstrative, the rest three dataset are of the big size and represent real life problems.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Therefore problem is solved using 4 datasets:n• Dataset1 for “short case study” including 10 variables and matrix of scenarios with 10 scenarios;n• Dataset2 including 1,113 variables and matrix of scenarios with 20,859 scenarios;n• Dataset3 including 2,736 variables and matrix of scenarios with 44,362 scenarios;n• Dataset4 including 2,055 variables and matrix of scenarios with 37,794 scenarios.
+
+<strong>References</strong>
+• Men, C., Romeijn, E., Taskin, C. and J. Dempsey, (2007): An Exact Approach to Direct Aperture Optimization in IMRT Treatment Planning, in Physics in Medicine and Biology, Vol. 52 , pp. 7333–7352.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

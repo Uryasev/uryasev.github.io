@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations  Problem 1a: L2-norm geometric margin minimization formulation of Var-SVM for {solve">
+    <title>Case Study: Value-at-Risk Support Vector Machine (Var-SVM) — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Value-at-Risk Support Vector Machine (Var-SVM)</h1>
+
+<a href="https://www.ise.ufl.edu/uryasev/research/testproblems/">Back to main page</a>
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/VaR-SVM_Case_Study.pdf"><strong> Case study background and problem formulations</strong></a>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong> Problem 1a: L2-norm geometric margin minimization formulation of Var-SVM</strong>
+for {solver_exp} = {CAR}, {VAN}, {BULDOZER}, {TANK}nminimize quadraticnsubject tonvar_risknlinearmultinsolver: solver_exp, precision = 9, stages = 30nend for
+——————————————————————–
+quadratic = quadratic function specified by a unit matrixnvar_risk = Value-at-Risk specified by a matrix of scenariosnlinearmulti = set of linear functions specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value (BULDOZER)</th>
+<th>Solving Time (BULDOZER), PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L2_margin_2_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L2_margin_2_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L2_margin_2_features.zip">Solution</a></td>
+<td>2</td>
+<td>100</td>
+<td>18.702062913380</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L2_margin_3_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L2_margin_3_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L2_margin_3_features.zip">Solution</a></td>
+<td>3</td>
+<td>100</td>
+<td>4.012808007875</td>
+<td>0.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong> Problem 1b: L2-norm structural risk minimization formulation of Var-SVM</strong>
+for {solver_exp} = {CAR}, {VAN}, {BULDOZER}, {TANK}nminimize quadratic + varnsubject tonlinearmultinsolver: solver_exp, precision = 9, stages = 30nend for
+——————————————————————–
+quadratic = quadratic function specified by a unit matrixnvar_risk = Value-at-Risk specified by a matrix of scenariosnlinearmulti = set of linear functions specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value (BULDOZER)</th>
+<th>Solving Time (BULDOZER), PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L2_structural_risk_2_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L2_structural_risk_2_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L2_structural_risk_2_features.zip">Solution</a></td>
+<td>2</td>
+<td>100</td>
+<td>-0.013367514210</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L2_structural_risk_3_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L2_structural_risk_3_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L2_structural_risk_3_features.zip">Solution</a></td>
+<td>3</td>
+<td>100</td>
+<td>-0.062300476773</td>
+<td>0.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong> Problem 2a: L1-norm geometric margin minimization formulation of Var-SVM</strong>
+for {solver_exp} = {CAR}, {VAN}, {BULDOZER}, {TANK}nminimize polynom_absnsubject tonvar_risknlinearmultinsolver: solver_exp, precision = 9, stages = 30nend for
+——————————————————————–
+polynom_abs = L1-norm functionnvar_risk = Value-at-Risk specified by a matrix of scenariosnlinearmulti = set of linear functions specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value (BULDOZER)</th>
+<th>Solving Time (BULDOZER), PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L1_margin_2_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L1_margin_2_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L1_margin_2_features.zip">Solution</a></td>
+<td>2</td>
+<td>100</td>
+<td>6.115910927534</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L1_margin_3_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L1_margin_3_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L1_margin_3_features.zip">Solution</a></td>
+<td>3</td>
+<td>100</td>
+<td>4.100144111911</td>
+<td>0.24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong> Problem 2b: L1-norm structural risk minimization formulation of Var-SVM</strong>
+for {solver_exp} = {CAR}, {VAN}, {BULDOZER}, {TANK}nminimize polynom_abs + var_risknsubject tonlinearmultinsolver: solver_exp, precision = 9, stages = 30nend for
+——————————————————————–
+polynom_abs = L1-norm functionnvar_risk = Value-at-Risk specified by a matrix of scenariosnlinearmulti = set of linear functions specified by a matrix of scenarios
+——————————————————————–
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value (BULDOZER)</th>
+<th>Solving Time (BULDOZER), PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L1_structural_risk_2_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L1_structural_risk_2_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L1_structural_risk_2_features.zip">Solution</a></td>
+<td>2</td>
+<td>100</td>
+<td>-8.259128038970</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2014/11/problem_var_svm_L1_structural_risk_3_features.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/data_var_svm_L1_structural_risk_3_features.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/solution_var_svm_L1_structural_risk_3_features.zip">Solution</a></td>
+<td>3</td>
+<td>100</td>
+<td>-26.654598309919</td>
+<td>0.27</td>
+</tr>
+</tbody>
+</table>
+</div>
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000;width: 850px"><strong>CASE STUDY SUMMARY</strong>
+This case study compares performance of several software packages for finding a solution to the Value-at-Risk Support Vector Machine (Var-SVM) classification problem. Given a training dataset <img class="alignnone size-medium wp-image-16170" style="vertical-align: middle" src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/dataset-300x33.png" alt="dataset" height="33" />, consisting of Q points with feature vectors <img class="alignnone size-medium wp-image-16172" style="vertical-align: middle" src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/xi.png" alt="xi" height="33" /> and class labels <img class="alignnone size-medium wp-image-16174" style="vertical-align: middle" src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/y-300x32.png" alt="y" height="33" />, an SVM classification problem is to build a hyperplain <img class="alignnone size-medium wp-image-16176" style="vertical-align: middle" src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/11/hyperplain-300x33.png" alt="hyperplain" height="33" /> in the feature space, that maximizes the geometric margin between the classes and the hyperplain. The original SVM was introduced by Vapnik [1979] for the case of maximization of an L2-norm margin and further reduced to a convex quadratic programming problem (QP) as long as the data set was separable. Nowadays, this formulation is known as a hard-margin SVM. In the case of a non-separable data set Cortes and Vapnik [1995] introduced the so-called soft-margin SVM, which can be viewed as a structural risk minimization problem, i.e., as a trade-off between an empirical classication error term and a regularization term, which is added to control overtting. Tsyurmasto et al. [2013] considers a generalization of the maximum margin approach corresponding to a particular choice of an empirical risk functional and provides a set of examples for such generalizations including hard- and soft-margin SVMs and nu-SVM. They also show, that for a positive homogeneous empirical risk functional both maximum margin and minimum structural risk L2-norm formulations provide the same solution, i.e., the same separating hyperplane. Zdanovskaya et al. [2014] provide an extension of this result for the case of L1-norm. Tsyurmasto et al. [2014] proposed a Var-SVM which corresponds to a positive homogeneous Value-at-Risk (VaR) empirical risk function. The main advantage of the Var-SVM is that it is stable to data outliers. The main disadvantage of the Var-SVM is that the problem is nonconvex and therefore is hard to solve. In this case study we consider four different formulations of Var-SVMs: 1a) maximum margin in L1-norm formulation, 1b) minimum structural risk in L1-norm formulation, 2a) maximum margin in L2-norm formulation, 2b) minimum structural risk in L2-norm formulation. To find a heuristic solution of the above Var-SVMs we use Portfolio Safeguard (PSG), since it has a preprogrammed Value-at-Risk function (VaR). In order to find an optimal solution of the above Var-SVMs we employ a mixed-integer linear programming representation (MILP representation) of VaR empirical risk functional proposed in Zdanovskaya et al. [2014]. This MILP representation is known to be NP-hard (see Benati and Rizzi [2007]). We further use such commercial solvers as Gurobi and Xpress to solve the derived Var-SVMs problems via the Branch&amp;Bound algorithm. Our computational experiments show, that it may take Gurobi and Xpress up to several hours to find an optimal solution of Var-SVMs even for small datasets. Whereas it takes less than a second for PSG to find a corresponding heuristic solution.</div>
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000;width: 850px">
+
+<strong>References</strong>
+	<li>Stefano Benati and Romeo Rizzi. A mixed integer linear programming formulation of the optimal mean/value-at-risk portfolio problem. European Journal of Operational Research, 176(1):423-434, 2007.</li>
+	<li>Corinna Cortes and Vladimir Vapnik. Support-vector networks. Machine learning, 20(3):273-297, 1995.</li>
+
+	<li>Nicklas Larsen, Helmut Mausser, and Stanislav Uryasev. Algorithms for optimization of value-at-risk. In Panos M. Pardalos and Vassilis K. Tsitsiringos, editors, Financial Engineering, E-commerce and Supply Chain, volume 70 of Applied Optimization, pages 19-46. Springer US, 2002.</li>
+	<li>Peter Tsyurmasto, J Gotoh, and S Uryasev. Support vector classication with positive homogeneous risk functionals. Technical report, Research Report 2013-4, Department of Industrial and Systems Engineering, University of Florida.(Downloadable from <a title="www.ise.ufl.edu/uryasev/publications" href="www.ise.ufl.edu/uryasev/publications">www.ise.ufl.edu/uryasev/publications</a>), 2013.</li>
+	<li>Peter Tsyurmasto, Michael Zabarankin, and Stan Uryasev. Value-at-risk support vector machine: stability to outliers. Journal of Combinatorial Optimization, 28(1):218-232, 2014.</li>
+	<li>Vladimir Vapnik. Estimation of Dependences Based on Empirical Data [in Russian]. Nauka, Moscow, 1979. (English translation: Springer Verlag, New York, 1982).</li>
+	<li>Victoria Zdanovskaya, Konstantin Pavlikov, and Stan Uryasev. Value-at-risk support vector machine: Mixed integer programming formulation and equivalence of problem statements, 2014.</li>
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File,&amp;nbsp;PSG MATLAB Subroutines and">
+    <title>Case Study: Portfolio Optimization, CVaR vs. ST_DEV — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Optimization, CVaR vs. ST_DEV</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Portfolio_Optimization_CVaR_vs_ST_DEV.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>,&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>
+PROBLEM 1: problem_min_cvar_dev_2p9</strong>
+Minimize Cvar_dev (minimizing portfolio Cvar deviation)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (constraint on the portfolio rate of return)
+Box constraints (lower bounds on weights)
+——————————————————————–
+Cvar_dev = CVaR Deviation for LossnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_min_cvar_dev_2p9_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_min_cvar_dev_2p9_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_min_cvar_dev_2p9_short.zip">Solution</a></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.03631774</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_min_cvar_dev_2p9.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_min_cvar_dev_2p9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_min_cvar_dev_2p9.txt">Solution</a></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.0363177</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_min_cvar_dev_2p9_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_min_cvar_dev_2p9.zip">Data</a></td>
+<td></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.0363177</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>
+PROBLEM 2: problem_st_dev_covariances_2p9</strong>
+Minimize Sqrt_quadratic (minimizing risk measured by standard deviation calculated with the covariance matrix))nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (constraint on the portfolio rate of return)
+Box constraints (lower bounds on weights)
+——————————————————————–
+Sqrt_quadratic = PSG function which implements Standard Deviation calculated with covariance matrixnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_sqrt_quadratic_covariances_2p9_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/data_problem_sqrt_quadratic_covariances_2p9_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/04/solution_problem_sqrt_quadratic_covariances_2p9_short.zip">Solution</a></td>
+<td>10</td>
+<td>10 * 10</td>
+<td>0.00874964</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_st_dev_scenarios_2p9.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/problem_sqrt_quadratic_covariances_2p9_short_example.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_st_dev_covariances_2p9.txt">Solution</a></td>
+<td>10</td>
+<td>10 * 10</td>
+<td>0.00874964</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_covariances_2p9_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_st_dev_covariances_2p9.zip">Data</a></td>
+<td></td>
+<td>10</td>
+<td>10 * 10</td>
+<td>0.00874964</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM 3: problem_st_dev_scenarios_2p9</strong>
+Minimize St_dev (minimizing risk measured by standard deviation calculated with the matrix of scenarios)nsubject tonLinear = 1 (budget constraint)
+Linear ≥ Const (constraint on the portfolio rate of return)
+Box constraints (lower bounds on weights)
+——————————————————————–
+St_dev = Standard DeviationnBox constraints = constraints on individual decision variables</div>
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_scenarios_2p9_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_st_dev_scenarios_2p9__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_st_dev_scenarios_2p9__short.zip">Solution</a></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.008749650</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_st_dev_scenarios_2p9.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_st_dev_scenarios_2p9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_st_dev_scenarios_2p9.txt">Solution</a></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.008749650</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_scenarios_2p9_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_st_dev_scenarios_2p9.zip">Data</a></td>
+<td></td>
+<td>10</td>
+<td>1,000</td>
+<td>0.008749650</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study compares three setups of a single-period portfolio optimization problem when risk is measured by CVaR Deviation, Standard Deviation calculated with the matrix of scenarios, and Standard Deviation calculated with the covariance matrix. In the third setup we use sqrt_quadratic PSG function. The second and the third setups are equivalent representations of the Markowitz (1952) problem trading-off mean and variance of portfolio return. The original Markowitz problem finds a minimum-variance portfolio under restriction on mean return. Here we keep a similar setup but with the CVaR deviation as a replacement to the Standard deviation.</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

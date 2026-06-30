@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page Case study background and problem formulations  Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Subr">
+    <title>Case Study: Sparse Reconstruction Problems from SPARCO Toolbox — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Sparse Reconstruction Problems from SPARCO Toolbox</h1>
+
+<p><a href="/research/testproblems/">Back to main page</a><br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Sparse_Reconstruction_Sparco.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+
+<p><strong>PROBLEM: L1 Relaxed</strong><br>Minimize Meanabs_pen (minimizing L1-error of regression)<br>subject to<br>Polynom_abs ≤ Const2 (constraint on the sum of absolute values of the components of decision vector)<br>Box constraints (bounds on variables)<br>——————————————————————–<br>Meanabs_pen = Mean Absolute Penalty<br>Polynom_abs = Polynomial Absolute<br>Box constraints = constraints on individual decision variables<br>——————————————————————–</p>
+<p><strong>Problem "problem_601_Relaxed"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">3200</th>
+<th style="width: 113px; height: 19px;">6.48E+00</th>
+<th style="width: 220px; height: 19px;">55.33</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_Relaxed_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_601_Relaxed_100.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_601_Relaxed_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_601_Relaxed_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_601_Relaxed_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/problem_601_Relaxed_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/R_code_problem_601_Relaxed_100.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/R_data_problem_601_Relaxed_100.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.: A new camera<br>architecture based on optical-domain compression. In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging:<br>Computational Imaging, vol. 6065 (2006).</span></li>
+</ul>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_Relaxed_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_601_Relaxed_200.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_601_Relaxed_200.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>2.78E+00</td>
+<td>1965.0</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_Relaxed_300.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_601_Relaxed_300.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_601_Relaxed_300.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>8.42E-01</td>
+<td>2894.0</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_Relaxed_400.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/data_problem_601_Relaxed_400.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/solution_problem_601_Relaxed_400.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>9.18E-08</td>
+<td>509.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br>Problem "problem_602_Relaxed"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">3200</th>
+<th style="width: 113px; height: 19px;">6.80E+00</th>
+<th style="width: 220px; height: 19px;">190.26</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_Relaxed200.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/solution_problem_602Relaxed.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_Relaxed_200_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_Relaxed_200_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_Relaxed_200_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/R_code_problem_601_Relaxed_100.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/R_data_problem_601_Relaxed_100.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.: A new camera<br>architecture based on optical-domain compression. In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging:<br>Computational Imaging, vol. 6065 (2006).</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_Relaxed_400.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_Relaxed_400.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>2.99E+00</td>
+<td>2906.6</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_Relaxed_600.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_Relaxed_600.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>3.60E-01</td>
+<td>2982.0</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_Relaxed_700.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_Relaxed_700.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>9.71E-05</td>
+<td>272.6</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>PROBLEM: L1 Relaxed D</strong><br>Minimize Meanabs_pen (minimizing L1-error of regression)<br>subject to<br>Linear ≤ Const1 (constraint on sum of components of decision vector)<br>Box constraints (bounds on variables)<br>——————————————————————–
+<p>Meanabs_pen = Mean Absolute Penalty<br>Box constraints = constraints on individual decision variables</p>
+<p>——————————————————————–<br><strong>Problem "problem_2_Relaxed_Double" </strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">1.22E+00</th>
+<th style="width: 220px; height: 19px;">0.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_Relaxed_Double_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_Relaxed_Double_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_Relaxed_Double_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_Relaxed_Double_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_Relaxed_Double_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Buckheit, J., Donoho, D.L.: Wavelets and Statistics, chap. Wavelab and reproducible research.<br>Springer-Verlag, Berlin, New York (1995). URL <a href="https://citeseer.ist.psu.edu/article/buckheit95wavelab.html">https://citeseer.ist.psu.edu/article/buckheit95wavelab.html</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),<br>33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_Relaxed_Double_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_Relaxed_Double_200.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>6.63E-01</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_Relaxed_Double_400.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_Relaxed_Double_400.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.42E-02</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_Relaxed_Double_500.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_Relaxed_Double_500.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.24E-014</td>
+<td>2.8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_3_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">6.38E-01</th>
+<th style="width: 220px; height: 19px;">0.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_Relaxed_Double_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_Relaxed_Double_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_Relaxed_Double_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_Relaxed_Double_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_Relaxed_Double_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:<br>Sparco: A testing framework for sparse reconstruction.<br>Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver (2007)</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_Relaxed_Double_140.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_Relaxed_Double_140.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>8.03E-02</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_Relaxed_Double_220.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_Relaxed_Double_220.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>2.27E-03</td>
+<td>130.3</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_Relaxed_Double_240.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_Relaxed_Double_240.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>4.58E-14</td>
+<td>460.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_5_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">300</th>
+<th style="width: 113px; height: 19px;">1.00E+00</th>
+<th style="width: 220px; height: 19px;">0.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_Relaxed_Double_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_Relaxed_Double_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_Relaxed_Double_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_Relaxed_Double_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_Relaxed_Double_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:<br>Sparco: A testing framework for sparse reconstruction.<br>Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver (2007)</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_Relaxed_Double_140.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_Relaxed_Double_140.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>2.71E-01</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_Relaxed_Double_170.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_Relaxed_Double_170.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>5.79E-02</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_Relaxed_Double_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_Relaxed_Double_200.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>2.43E-14</td>
+<td>1.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_6_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">1.41E+02</th>
+<th style="width: 220px; height: 19px;">1.4</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_Relaxed_Double_170.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_Relaxed_Double_170.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_Relaxed_Double_170_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_Relaxed_Double_170_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_Relaxed_Double_170_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Candes, E.J., Romberg, J.: Practical signal recovery from random projections. In: Wavelet Applications<br>in Signal and Image Processing XI, Proc. SPIE Conf. 5914. (2004) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_Relaxed_Double_800.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_Relaxed_Double_800.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>6.62E+01</td>
+<td>56.5</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_Relaxed_Double_1700.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_Relaxed_Double_1700.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>1.59E+00</td>
+<td>185.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_Relaxed_Double_2000.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_Relaxed_Double_2000.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>3.77E-12</td>
+<td>30.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_7_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2560</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">5.81E-02</th>
+<th style="width: 220px; height: 19px;">2.3</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_Relaxed_Double_3.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_Relaxed_Double_3.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_Relaxed_Double_3_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_Relaxed_Double_3_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_Relaxed_Double_3_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/ </a> (2007) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_Relaxed_Double_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_Relaxed_Double_10.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>3.39E-02</td>
+<td>7.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_Relaxed_Double_17.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_Relaxed_Double_17.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.02E-02</td>
+<td>12.8</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_Relaxed_Double_20.txt">ProblemStatemen</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_Relaxed_Double_20.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.37E-13</td>
+<td>1.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_8_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2560</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">4.94E-02</th>
+<th style="width: 220px; height: 19px;">6.0</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_Relaxed_Double_5.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_Relaxed_Double_5.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_Relaxed_Double_5_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_Relaxed_Double_5_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_Relaxed_Double_5_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/</a> (2007) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_Relaxed_Double_15.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_Relaxed_Double_15.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.64E-02</td>
+<td>11.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_Relaxed_Double_19.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_Relaxed_Double_19.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>3.29E-03</td>
+<td>11.6</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_Relaxed_Double_20.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_Relaxed_Double_20.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.36E-13</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_9_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">128</th>
+<th style="width: 101px; height: 19px;">128</th>
+<th style="width: 113px; height: 19px;">3.14E-01</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_Relaxed_Double_15.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_Relaxed_Double_15.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_Relaxed_Double_15_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_Relaxed_Double_15_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_Relaxed_Double_15_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit.<br>SIAM J. Sci. Comput. 20(1), 33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_Relaxed_Double_30.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_Relaxed_Double_30.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>9.30E-02</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_Relaxed_Double_40.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_Relaxed_Double_40.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>7.81E-03</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_Relaxed_Double_45.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_Relaxed_Double_45.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>2.92E-13</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_10_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">1.32E-01</th>
+<th style="width: 220px; height: 19px;">0.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_Relaxed_Double_600.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_Relaxed_Double_600.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_Relaxed_Double_600_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_Relaxed_Double_600_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_Relaxed_Double_600_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),<br>33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_Relaxed_Double_800.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_Relaxed_Double_800.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>6.10E-02</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_Relaxed_Double_950.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_Relaxed_Double_950.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.15E-02</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_Relaxed_Double_1000.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_Relaxed_Double_1000.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.64E-12</td>
+<td>143.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_11_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">256</th>
+<th style="width: 113px; height: 19px;">1.22E+00</th>
+<th style="width: 220px; height: 19px;">3.1</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_Relaxed_Double_15.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_Relaxed_Double_15.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_Relaxed_Double_15_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_Relaxed_Double_15_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_Relaxed_Double_15_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.: Sparco: A testing framework for<br>sparse reconstruction. Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver (2007)</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_Relaxed_Double_20.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_Relaxed_Double_20.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>5.18E-01</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_Relaxed_Double_23.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_Relaxed_Double_23.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>1.29E-01</td>
+<td>35.5</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_Relaxed_Double_25.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_Relaxed_Double_25.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>2.53E-14</td>
+<td>31.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_603_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">3.35E-01</th>
+<th style="width: 220px; height: 19px;">2.2</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_Relaxed_Double_50.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_Relaxed_Double_50.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_Relaxed_Double_50_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_Relaxed_Double_50_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_Relaxed_Double_50_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Figueiredo, M., Nowak, R., Wright, S.: Gradient projection for sparse reconstruction: Application to compressed sensing<br>and other inverse problems. Selected Topics in Signal Processing, IEEE Journal of 1(4), 586-597 (2007).<br>DOI 10.1109/JSTSP.2007.910281. URL <a href="https://www.lx.it.pt/~mtf/GPSR">https://www.lx.it.pt/~mtf/GPSR</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_Relaxed_Double_100.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_Relaxed_Double_100.zip">Solution</a></td>
+<td>4096</td>
+<td>1024</td>
+<td>1.75E-01</td>
+<td>10.7</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_Relaxed_Double_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_Relaxed_Double_200.zip">Solution</a></td>
+<td>4096</td>
+<td>1024</td>
+<td>4.16E-02</td>
+<td>1150.4</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_Relaxed_Double_300.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_Relaxed_Double_300.zip">Solution</a></td>
+<td>4096</td>
+<td>1024</td>
+<td>2.32E-14</td>
+<td>391.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong> Problem "problem_902_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1000</th>
+<th style="width: 101px; height: 19px;">200</th>
+<th style="width: 113px; height: 19px;">2.32E-02</th>
+<th style="width: 220px; height: 19px;">0.07</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_Relaxed_Double_0_2.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_Relaxed_Double_0_2.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_Relaxed_Double_0_2_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_Relaxed_Double_0_2_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_Relaxed_Double_0_2_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Hennenfent, G., Herrmann, F.J.: Sparseness-constrained data continuation with frames: Applications to missing traces<br>and aliased signals in 2/3-D. In: SEG International Exposition and 75th Annual Meeting (2005).<br>URL <a href="https://library.seg.org/doi/abs/10.1190/1.2148142">https://library.seg.org/doi/abs/10.1190/1.2148142</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Hennenfent, G., Herrmann, F.J.: Simply denoise: waveeld reconstruction via coarse nonuniform sampling.<br>Tech. rep., UBC Earth &amp; Ocean Sciences (2007)</span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Herrmann, F.J., Hennenfent, G.: Non-parametric seismic data recovery with curvelet frames.<br>Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1<br>URL <a href="https://academic.oup.com/gji/article-abstract/173/1/233/554282">https://academic.oup.com/gji/article-abstract/173/1/233/554282</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_Relaxed_Double_0_5.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_Relaxed_Double_0_5.zip">Solution</a></td>
+<td>1000</td>
+<td>200</td>
+<td>1.86E-02</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_Relaxed_Double_1_5.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_Relaxed_Double_1_5.zip">Solution</a></td>
+<td>1000</td>
+<td>200</td>
+<td>3.60E-03</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_Relaxed_Double_2_0.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_Relaxed_Double_2_0.zip">Solution</a></td>
+<td>1000</td>
+<td>200</td>
+<td>3.12E-14</td>
+<td>26.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong> Problem "problem_903_Relaxed_Double"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">6.17E-01</th>
+<th style="width: 220px; height: 19px;">0.6</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_Relaxed_Double_5.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_Relaxed_Double_5.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_Relaxed_Double_5_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_Relaxed_Double_5_subrotine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_Relaxed_Double_5_subrotine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Dossal, C., Mallat, S.: Sparse spike deconvolution with minimum scale. In: Proceedings of Signal Processing with<br>Adaptive Sparse Structured Representations, pp. 123-126. Rennes, France (2005).<br>URL <a href="https://spars05.irisa.fr/ACTES/PS2-11.pdf">https://spars05.irisa.fr/ACTES/PS2-11.pdf</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_Relaxed_Double_7.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_Relaxed_Double_7.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.06E-01</td>
+<td>1.4</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_Relaxed_Double_12.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_Relaxed_Double_12.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>9.92E-02</td>
+<td>29.7</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_Relaxed_Double_13.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_Relaxed_Double_13.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>9.18E-05</td>
+<td>10.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>PROBLEM: L2 D </strong><br>Minimize Meansquare + Linear (minimizing L2-error of regression)<br>subject to<br>Linear ≤ Const3 (constraint on sum of components of decision vector)<br>Box constraints (bounds on variables)<br>——————————————————————–
+<p>Meansquare = Mean Square Penalty<br>Meanabs_pen = Mean Absolute Penalty<br>Box constraints = constraints on individual decision variables<br>——————————————————————–<br><strong>Problem "problem_2_L2_dbl" </strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">2.98E+03</th>
+<th style="width: 220px; height: 19px;">0.32</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dbl_20.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_L2_dbl_20.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_L2_dbl_20_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_L2_dbl_20_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_2_L2_dbl_20_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Buckheit, J., Donoho, D.L.: Wavelets and Statistics, chap. Wavelab and reproducible research.<br>Springer-Verlag, Berlin, New York (1995). URL <a href="https://citeseer.ist.psu.edu/article/buckheit95wavelab.html">https://citeseer.ist.psu.edu/article/buckheit95wavelab.html</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),<br>33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_L2_dbl_10.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>2.31E+03</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_L2_dbl_1.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.15E+02</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_L2_dbl_01.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.47E+01</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_2_L2_dbl_001.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.50E+00</td>
+<td>0.31</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_3_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">2.37E+03</th>
+<th style="width: 220px; height: 19px;">1.4</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dbl_20.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_L2_dbl_20.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_L2_dbl_20_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_L2_dbl_20_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_3_L2_dbl_20_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander,</span> M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:<br>Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,<br>Dept. Computer Science, University of British Columbia, Vancouver (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_L2_dbl_10.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>1.31E+03</td>
+<td>1.4</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_L2_dbl_1.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>1.78E+02</td>
+<td>2.7</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_L2_dbl_01.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>2.16E+01</td>
+<td>10.8</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_3.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_3_L2_dbl_001.zip">Solution</a></td>
+<td>2048</td>
+<td>1024</td>
+<td>2.22E+00</td>
+<td>102.8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_5_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">300</th>
+<th style="width: 113px; height: 19px;">2.10E+03</th>
+<th style="width: 220px; height: 19px;">1.6</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_20.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_L2_dbl_20.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_L2_dbl_20_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_L2_dbl_20_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_5_L2_dbl_20_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:<br>Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,<br>Dept. Computer Science, University of British Columbia, Vancouver (2007)</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_L2_dbl_10.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>1.23E+03</td>
+<td>1.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_L2_dbl_1.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>1.58E+02</td>
+<td>8.8</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_L2_dbl_01.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>1.78E+01</td>
+<td>85.7</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_5.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_5_L2_dbl_001.zip">Solution</a></td>
+<td>2048</td>
+<td>300</td>
+<td>1.82E+00</td>
+<td>837.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_6_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2048</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">1.29E+07</th>
+<th style="width: 220px; height: 19px;">1.8</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_20000.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_20000.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_L2_dbl_20000_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_L2_dbl_20000_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_6_L2_dbl_20000_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Candes, E.J., Romberg, J.: Practical signal recovery from random projections. In: Wavelet Applications in Signal and<br>Image Processing XI, Proc. SPIE Conf. 5914. (2004) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_10000.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_10000.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>5.29E+06</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_1000.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_1000.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>1.46E+06</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_100.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_100.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>1.70E+05</td>
+<td>87.4</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_10.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>1.76E+04</td>
+<td>636.5</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_1.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>4.20E+03</td>
+<td>112.4</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_6.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_6_L2_dbl_01.zip">Solution</a></td>
+<td>2048</td>
+<td>600</td>
+<td>4.60E+02</td>
+<td>6.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_7_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2560</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">2.25E+00</th>
+<th style="width: 220px; height: 19px;">2.03</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dbl_02.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_L2_dbl_02.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_L2_dbl_02_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_L2_dbl_02_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_7_L2_dbl_02_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/</a> (2007) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_L2_dbl_01.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.56E+00</td>
+<td>3.00</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dbl_005.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_L2_dbl_005.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>8.90E-01</td>
+<td>2.52</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_7.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_7_L2_dbl_001.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.96E-01</td>
+<td>2.88</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_8_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">2560</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">2.11E+00</th>
+<th style="width: 220px; height: 19px;">2.76</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dbl_02.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_L2_dbl_02.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_L2_dbl_02_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_L2_dbl_02_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_8_L2_dbl_02_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/</a> (2007) </span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_L2_dbl_01.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.52E+00</td>
+<td>3.00</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dbl_005.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_L2_dbl_005.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>8.81E-01</td>
+<td>3.24</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_8_L2_dbl_001.zip">Solution</a></td>
+<td>2560</td>
+<td>600</td>
+<td>1.95E-01</td>
+<td>5.91</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_9_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">128</th>
+<th style="width: 101px; height: 19px;">128</th>
+<th style="width: 113px; height: 19px;">1.68E+02</th>
+<th style="width: 220px; height: 19px;">0.48</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dbl_10.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_L2_dbl_10.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_L2_dbl_10_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_L2_dbl_10_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_9_L2_dbl_10_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),<br>33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dbl_5.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_L2_dbl_5.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>1.16E+02</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_L2_dbl_1.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>3.65E+01</td>
+<td>1.47</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dbl_005.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_L2_dbl_005.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>5.54E+00</td>
+<td>2.41</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_9.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_9_L2_dbl_001.zip">Solution</a></td>
+<td>128</td>
+<td>128</td>
+<td>3.98E+00</td>
+<td>2.40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_10_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">2.04E+03</th>
+<th style="width: 220px; height: 19px;">150.9</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dbl_10.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_L2_dbl_10.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_L2_dbl_10_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_L2_dbl_10_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_10_L2_dbl_10_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),<br>33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a> </span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).<br>URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_L2_dbl_1.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>6.66E+02</td>
+<td>281.3</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dbl_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_L2_dbl_05.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.15E+02</td>
+<td>441.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_L2_dbl_01.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.01E+02</td>
+<td>651.7</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_10.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_10_L2_dbl_001.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>2.07E+01</td>
+<td>1848.6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_11_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">256</th>
+<th style="width: 113px; height: 19px;">1.80E+03</th>
+<th style="width: 220px; height: 19px;">0.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dbl_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_L2_dbl_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_L2_dbl_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_L2_dbl_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_11_L2_dbl_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<p>Sources of Data</p>
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;"> Berg,E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).<br>URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:<br>Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,<br>Dept. Computer Science, University of British Columbia, Vancouver (2007)</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_L2_dbl_10.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>2.33E+02</td>
+<td>1.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_L2_dbl_1.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>2.40E+01</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_L2_dbl_01.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>2.40E+00</td>
+<td>179.4</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_11.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_11_L2_dbl_001.zip">Solution</a></td>
+<td>1024</td>
+<td>256</td>
+<td>7.19E-01</td>
+<td>1.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem "problem_601_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">3200</th>
+<th style="width: 113px; height: 19px;">8.78E+05</th>
+<th style="width: 220px; height: 19px;">204.8</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dbl_10000.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_601_Relaxed.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_601_L2_dbl_10000.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_601_L2_dbl_10000_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_601_L2_dbl_10000_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_601_L2_dbl_10000_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.: A new camera<br>architecture based on optical-domain compression. In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging:<br>Computational Imaging, vol. 6065 (2006).</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dbl_1000.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_601_Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_601_L2_dbl_1000.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>2.46E+05</td>
+<td>800.8</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dbl_500.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_601_Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_601_L2_dbl_500.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>1.91E+05</td>
+<td>1215.5</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dbl_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_601_Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_601_L2_dbl_200.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>5.61E+05</td>
+<td>2179.5</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dbl_100.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_601_Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_601_L2_dbl_100.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>1.05E+06</td>
+<td>473.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_602_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">3200</th>
+<th style="width: 113px; height: 19px;">3.62E+05</th>
+<th style="width: 220px; height: 19px;">687.5</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dbl_1000.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_L2_dbl_1000.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_L2_dbl_1000_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_L2_dbl_1000_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_602_L2_dbl_1000_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.: A new camera<br>architecture based on optical-domain compression. In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging:<br>Computational Imaging, vol. 6065 (2006).</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dbl_500.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_L2_dbl_500.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>2.66E+05</td>
+<td>679.8</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dbl_200.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/12/data_problem_602Relaxed.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_602_L2_dbl_200.zip">Solution</a></td>
+<td>4096</td>
+<td>3200</td>
+<td>2.94E+05</td>
+<td>255.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_603_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">4096</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">1.21E+02</th>
+<th style="width: 220px; height: 19px;">6.6</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dbl_1.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_L2_dbl_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_L2_dbl_1_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_L2_dbl_1_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_603_L2_dbl_1_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Figueiredo, M., Nowak, R., Wright, S.: Gradient projection for sparse reconstruction: Application to compressed sensing<br>and other inverse problems. Selected Topics in Signal Processing, IEEE Journal of 1(4), 586-597 (2007).<br>DOI 10.1109/JSTSP.2007.910281. URL <a href="https://www.lx.it.pt/~mtf/GPSR">https://www.lx.it.pt/~mtf/GPSR</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_L2_dbl_01.zip">Solution</a></td>
+<td>4096</td>
+<td>1024</td>
+<td>2.14E+01</td>
+<td>18.6</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_603.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_603_L2_dbl_001.zip">Solution</a></td>
+<td>4096</td>
+<td>1024</td>
+<td>2.54E+00</td>
+<td>168.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_902_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1000</th>
+<th style="width: 101px; height: 19px;">200</th>
+<th style="width: 113px; height: 19px;">1.01E-01</th>
+<th style="width: 220px; height: 19px;">0.3</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dbl_01.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_L2_dbl_01.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_L2_dbl_01_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_L2_dbl_01_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_902_L2_dbl_01_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Hennenfent, G., Herrmann, F.J.: Sparseness-constrained data continuation with frames: Applications to missing traces<br>and aliased signals in 2/3-D. In: SEG International Exposition and 75th Annual Meeting (2005).<br>URL <a href="https://library.seg.org/doi/abs/10.1190/1.2148142">https://library.seg.org/doi/abs/10.1190/1.2148142</a></span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Hennenfent, G., Herrmann, F.J.: Simply denoise: waveeld reconstruction via coarse nonuniform sampling.<br>Tech. rep., UBC Earth &amp; Ocean Sciences (2007)</span></li>
+<li><span style="font-family: Calibri; font-size: medium;">Herrmann, F.J., Hennenfent, G.: Non-parametric seismic data recovery with curvelet frames.<br>Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1<br>URL <a href="https://academic.oup.com/gji/article-abstract/173/1/233/554282">https://academic.oup.com/gji/article-abstract/173/1/233/554282</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_L2_dbl_001.zip">Solution</a></td>
+<td>1000</td>
+<td>200</td>
+<td>1.67E-02</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dbl_0001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_902.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_902_L2_dbl_0001.zip">Solution</a></td>
+<td>1000</td>
+<td>200</td>
+<td>1.73E-03</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem "problem_903_L2_dbl"</strong></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset1</th>
+<th style="width: 97px; height: 19px;">1024</th>
+<th style="width: 101px; height: 19px;">1024</th>
+<th style="width: 113px; height: 19px;">8.70E+02</th>
+<th style="width: 220px; height: 19px;">68.1</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="5"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dbl_100.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_L2_dbl_100.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_L2_dbl_100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_L2_dbl_100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problem_903_L2_dbl_100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</p>
+<div>Sources of Data
+<ul>
+<li><span style="font-family: Calibri; font-size: medium;">Dossal, C., Mallat, S.: Sparse spike deconvolution with minimum scale. In: Proceedings of Signal Processing with<br>Adaptive Sparse Structured Representations, pp. 123-126. Rennes, France (2005).<br>URL <a href="https://spars05.irisa.fr/ACTES/PS2-11.pdf">https://spars05.irisa.fr/ACTES/PS2-11.pdf</a></span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dbl_10.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_L2_dbl_10.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.18E+02</td>
+<td>167.2</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dbl_1.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_L2_dbl_1.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.29E+01</td>
+<td>170.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dbl_01.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_L2_dbl_01.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>1.41E+00</td>
+<td>263.0</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dbl_001.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/12/data_problem_903.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/03/solution_problem_903_L2_dbl_001.zip">Solution</a></td>
+<td>1024</td>
+<td>1024</td>
+<td>4.58E-01</td>
+<td>530.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>CASE STUDY SUMMARY<br></strong><br>SPARCO is a suite of <a href="https://www.cs.ubc.ca/labs/scl/sparco/Main/Problems">problems</a> for testing and benchmarking algorithms for sparse signal reconstruction, Berg et al. (2007, 2008). It is also an environment for creating new test problems. Also a suite of standard linear <a href="https://www.cs.ubc.ca/labs/scl/sparco/Main/Operators">operators</a> is provided from which new problems can be assembled. SPARCO is implemented entirely in MATLABand is self contained.<br>This case study presents problem formulations and its solutions for a set of sparse reconstruction problems taken from SPARCO toolbox.<br>Problems included in the SPARCO toolbox were initially considered by different authors in different application areas: imaging, compressed sensing, geophysics, information compressing, etc. Relevant references can be found in the SPARCO toolbox.<br>The objective of Sparse Reconstruction is to find a decision vector which has a small number of non-zero components and satisfies exactly or almost exactly a system of linear equations. There are many variants of optimization formulations of such problems.<br>This case study is described in paper Boyko et al. (2011).<br>We solved many problems included in SPARCO toolbox problems in so called “L1Relaxed D” formulation. “L1Relaxed D” minimizes L1-error of regression with one linear inequality on the sum of decision vector components; the decision vector components are nonnegative (number of decision variables is doubled to achieve non-negativity). The non-negativity of variables is quite important because an optimal vector contains many zero variables. To investigate property of solution we solved various problems with different values of upper bound in the linear inequality and calculated cardinality and max functions in optimal points.<br>Some problems were solved in so called “L1Relaxed” formulation with original set of variables (without doubling the number of variables to achieve non-negativity). Variables are bounded by box constraints in this formulation. For these problems “L1Relaxed” formulation is more effective compared to “L1Relaxed D” formulation.<br>Additionally many problems were solved in so called “L2 D” or LASSO formulation which also has double set of variables but does not have constraints.<br>Sum of decision variables multiplied by some coefficient is used as regularization term in the objective function.<br>This problem can be easy solved by methods for unconstrained optimization.<br>We used SPARCO toolbox software to extract data for the considered problems. SPARCO toolbox provides a set of operators to deal with data.<br>We converted the problems data to PSG format and solved them in PSG Run-File environment.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">In the problem formulations we have included several "dummy" functions multiplied by 0 (zero). Such "dummy" functions do not not impact solution process, but values of these functions are printed in the final solution file.</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">For instance, you can view many "dummy" functions in the following problem formulation:</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">problem: problem_602_Relaxed_700, type = minimize<br>objective: objective_new, linearize = 1<br>meanabs_pen_obj(matrix_ab602)<br>constraint: constraint_card, upper_bound = 700, linearize = 1<br>polynom_abs_S(matrix_card4096)<br>0 * cardn_1(1.,matrix_card4096)<br>0 * cardn_2(0.1,matrix_card4096)<br>0 * cardn_3(0.01,matrix_card4096)<br>0 * cardn_4(0.001,matrix_card4096)<br>0 * cardn_5(0.0001,matrix_card4096)<br>0 * cardn_6(0.00001,matrix_card4096)<br>0 * max_comp_pos_7(matrix_card4096)<br>0 * max_comp_neg_8(matrix_card4096)<br>box_of_variables: lowerbounds = -40, upperbounds = +40<br>Solver: van, precision = 4, stages = 6, timelimit = 3600</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">The corresponding solution file includes values of "dummy" functions on the final optimal point:</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problem: solution_status = optimal<br>Timing: Data_loading_time = 11.97, Preprocessing_time = 0.69, Solving_time = 272.61<br>Variables: optimal_point = point_problem_602_Relaxed_700<br>Objective: objective_new = 9.71029929057e-005<br>Constraint: constraint_card = 6.968284830013e+002 [-3.171516998665e+000]<br>Function: meanabs_pen_obj(matrix_ab602) = 9.710299290575e-005<br>Function: polynom_abs_s(matrix_card4096) = 6.968284830013e+002<br>Function: cardn_1(0.100000E+01,matrix_card4096) = 1.420000000000e+002<br>Function: cardn_2(0.100000E+00,matrix_card4096) = 7.890000000000e+002<br>Function: cardn_3(0.100000E-01,matrix_card4096) = 3.043000000000e+003<br>Function: cardn_4(0.100000E-02,matrix_card4096) = 3.964000000000e+003<br>Function: cardn_5(0.100000E-03,matrix_card4096) = 4.079000000000e+003<br>Function: cardn_6(0.100000E-04,matrix_card4096) = 4.095000000000e+003<br>Function: max_comp_pos_7(matrix_card4096) = 1.616083034336e+001<br>Function: max_comp_neg_8(matrix_card4096) = 6.562008879305e+000</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>References</strong><br>• Berg, E.V., Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., and O., Yilmaz (2007): SPARCO: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver.<br>• Berg, E.V., and M.P., Friedlander (2008): SPARCO: A toolbox for testing sparse reconstruction algorithms. URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a><br>• Boyko, N., Karamemis, G., Kuzmenko, V. and S. Uryasev (2011): Sparse Signal Reconstruction: a Cardinality Approach. Submitted for publication (<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/06/Sparse_Signal_Reconstruction.pdf">Download the paper</a>).</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page     Case Study Functions Methodology   VaR vs Probability Constraints Probability of Exceedance (Pr_pen), VaR (Var_risk) This case s">
+    <title>Application Area: Stochastic Programming — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a class="current" href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Application Area: Stochastic Programming</h1>
+
+<p><a title="Test Problems" href="/research/testproblems/">Back to main page</a></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%;">
+<table>
+<tbody>
+<tr>
+<th><strong>Case Study</strong></th>
+<th><strong>Functions</strong></th>
+<th><strong>Methodology</strong></th>
+</tr>
+<tr>
+<td><a href="/case-studies/var-vs-probability-constraints/">VaR vs Probability Constraints</a></td>
+<td>Probability of Exceedance (Pr_pen), VaR (Var_risk)</td>
+<td>This case study demonstrates the equivalence of chance constraints and Value-at-Risk (VaR) constraints.<br /><img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image002.gif" alt="Math equation" width="400" height="28" /> i.e., the constraint assuring that the probability that loss <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image004.gif" alt="Math equation" width="43" height="20" /> exceeding <em>w</em> is less or equal than 1-α<br />is equivalent to the constraint that VaR (percentile) with confidence level α is less or equal than <em>w</em>.<br />We solved two portfolio optimization problems. In both cases we maximized the estimated return of a portfolio. In the first problem, we imposed a constraint on probability; in the second problem, we impose an equivalent constraint on VaR. For the two problems we obtained at optimality the same objective values and similar optimal portfolios.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/var-vs-difference-of-cvars-minimization/">VaR vs Difference of CVaRs Minimization</a></td>
+<td>VaR (Var_risk), CVaR (Cvar_risk), Linear (linear)</td>
+<td>This case study numerically compares two algorithms for VaR minimization:<br />Problem 1: VaR is minimized using standard VaR function in PSG.<br />Problem 2: Difference of CVaRs is minimized using standard CVaR functions in PSG. The optimal solution of Problem 2 is close to the solution of Problem 1.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/stochastic-utility-problem/">Stochastic Utility Problem</a></td>
+<td>Average Max Risk (Avg_max_risk), Partial Moment Penalty Normal Independent(Pm_pen_ni)</td>
+<td>This case study solves Stochastic Utility (or Expected Utility) Problem which is approximated by sampling stochastic parameters of this problem (Sampling Average Approximation approach). The problem formulation and data are based on dataset which is considered in Nemirovski et al. (2009). The optimization problem is solved in approximation format with scenarios (PROBLEM 1: problem_utility) and in the format using normally distributed random variables (PROBLEM 2: problem_utility_exact). The Case Study presents four solved problem instances with 500, 1000, 2000, 5000 variables.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/stochastic-two-stage-linear-problem/">Stochastic Two Stage Linear Problem</a></td>
+<td><span style="font-family: Calibri;">Average for Recourse (Avg(Recourse))</span></td>
+<td>POSTS (a portable stochastic programming test set) gives a set of multi-stage linear stochastic programming problems with discrete scenarios for testing algorithms, Derek et al. (1995). Every problem has several sets of scenarios. Problems posted at the POSTS website  are  general linear stochastic programming in SMPS format. We have selected several two-stage problems at POSTS website. For selected problems we converted data to PSG format and solved these problems in PSG RunFile environment.  Two-stage problems were formulated using PSG Average function applied to Recourse function.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-supply-chain-planning-problem/">Supply Chain Two Stage Planning Problem</a></td>
+<td><span style="font-family: Calibri;">Average for Recourse (Avg(Recourse))</span></td>
+<td>A supply chain design problem is modeled as a sequence of splitting and combining processes. The problem is formulated as a two-stage stochastic program. The first-stage decisions are strategic location decisions, whereas the second stage consists of operational decisions. The objective is to maximize the expected profits over the planning horizon.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/risk-envelope-visualization-for-extended-phi-divergence-quadrangle/">Risk Identifier Visualization for Extended ϕ-Divergence Quadrangle</a></td>
+<td>Average (avg), Standard Deviation (std_dv)</td>
+<td>This case study visualizes the risk identifier in the extended ϕ-divergence quadrangle. The extended ϕ-divergence quadrangle provides an interpretation of portfolio optimization, classification and regression as robust optimization. The risk identifier is the random variable in the risk envelope that optimizes the corresponding risk/error measure.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

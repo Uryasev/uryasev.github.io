@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R">
+    <title>Case Study: VaR Optimization Retail Portfolio of Bonds — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: VaR Optimization Retail Portfolio of Bonds</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Optimization_Retail_Portfolio_of_Bonds_VaR_DEV.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+<strong>PROBLEM 1: problem_1_Korea_retail</strong>
+Maximize Linear (maximizing total estimated return)nsubject tonVar_dev ≤ Const (internal constraint on credit risk)
+Box constraints (upper/lower bounds on exposures)
+——————————————————————–
+Var_dev = VaR Deviation for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_korea_retail_bound_0_1_short__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_1_korea_retail_bound_0_1_short__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_1_korea_retail_bound_0_1_short_short.zip">Solution</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.022744275</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_korea_retail_bound_0_1_long_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_1_korea_retail_bound_0_1_long_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_1_korea_retail_bound_0_1_long_short.zip">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.023516910</td>
+<td>10.73</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_Korea_retail_bound_0_2_short__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_1_Korea_retail_bound_0_2_short__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_1_Korea_retail_bound_0_2_short_short.zip">Solution</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.023496175</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_korea_retail_bound_0_2_long_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_1_korea_retail_bound_0_2_long_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_1_korea_retail_bound_0_2_long_short.zip">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.023515769</td>
+<td>11.86</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_1_korea_retail_bound_0_1_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_1_korea_retail_bound_0_1_short_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_1_korea_retail_bound_0_1_short.txt">Solution</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.0227443</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_1_Korea_retail_bound_0_1_long.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_1_Korea_retail_bound_0_1_long_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_1_Korea_retail_bound_0_1_long.txt">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>11.11</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_1_Korea_retail_bound_0_2_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_1_Korea_retail_bound_0_2_short_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_1_Korea_retail_bound_0_2_short.txt">Solution</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.0234961</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_1_Korea_retail_bound_0_2_long.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_1_Korea_retail_bound_0_2_long_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_1_Korea_retail_bound_0_2_long.txt">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>11.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_1_korea_retail_bound_0_1_short_short_R.zip">Data</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.0227443</td>
+<td>0.17</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_1_korea_retail_bound_0_1_long_short_R.zip">Data</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>11.01</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_1_Korea_retail_bound_0_2_short_short_R.zip">Data</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.0234961</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_1_korea_retail_bound_0_2_long_short_R.zip">Data</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>11.66</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 2: problem_2_Korea_retail</strong>
+Miminize Var_dev (minimizing portfolio VaR DEVIATION)nsubject tonLinear ≥ Const (constraint on the portfolio rate of return)
+Box constraints (upper/lower bounds on exposures)
+——————————————————————–
+Var_dev = VaR Deviation for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_korea_retail_bound_0_1_short__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_2_korea_retail_bound_0_1_short__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_2_korea_retail_bound_0_1_short_short.zip">Solution</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.0094674</td>
+<td>0.14</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_korea_retail_bound_0_1_long_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_2_korea_retail_bound_0_1_long_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_2_korea_retail_bound_0_1_long_short.zip">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0090772</td>
+<td>12.17</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_Korea_retail_bound_0_2_short__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_2_Korea_retail_bound_0_2_short__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_2_Korea_retail_bound_0_2_short_short.zip">Solution</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.0090955</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_korea_retail_bound_0_2_long_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_2_korea_retail_bound_0_2_long_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_2_korea_retail_bound_0_2_long_short.zip">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0090774</td>
+<td>14.69</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_2_korea_retail_bound_0_1_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_2_korea_retail_bound_0_1_short_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_2_korea_retail_bound_0_1_short.txt">Solution</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.00946742</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_2_Korea_retail_bound_0_1_long.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_2_Korea_retail_bound_0_1_long_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_2_Korea_retail_bound_0_1_long.txt">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.00907742</td>
+<td>14.76</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_2_Korea_retail_bound_0_2_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_2_Korea_retail_bound_0_2_short_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_2_Korea_retail_bound_0_2_short.txt">Solution</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.00909556</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_2_Korea_retail_bound_0_2_long.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_2_Korea_retail_bound_0_2_long_data.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_2_Korea_retail_bound_0_2_long.txt">Solution</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.00907742</td>
+<td>14.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_2_korea_retail_bound_0_1_short_short_R.zip">Data</a></td>
+<td>23</td>
+<td>10,000</td>
+<td>0.0227443</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_2_korea_retail_bound_0_1_long_short_R.zip">Data</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>13.11</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_2_Korea_retail_bound_0_2_short_short_R.zip">Data</a></td>
+<td>23</td>
+<td>10.000</td>
+<td>0.0234961</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_2_korea_retail_bound_0_2_long_short_R.zip">Data</a></td>
+<td>23</td>
+<td>100,000</td>
+<td>0.0235145</td>
+<td>14.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARY</strong>
+The case study is conducted with the portfolio retail loans dataset provided by the Kukmin Bank, Korea. Default scenarios of bonds are generated at the Kukmin Bank with the CreditMetrix software from RiskMetrics Group. Scenarios data are imported to PSG format by the Converter_VaR_Optimizaion intended for processing the outputs from the CreditMetrix. This converter can be downloaded after installation of PSG from the AORDA client website. Two credit risk portfolio optimization problems are considered for the portfolio of clusters of retail loans. It is assumed that weights for clusters can be rebalanced within 10% and 20% of original weights. Problem 1: The expected return is maximized subject to constraint on VaR deviation of loss and bounds on weights. Problem 2: VaR deviation of loss is minimized subject to the constraint on the expected return and bounds on instrument weights.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problems 1 and 2 are solved with 4 datasets:n• Dataset1 for “short case study” including matrix of scenarios with 10,000 scenarios and weights for clusters rebalanced within 10% original weights;n• Dataset2 for “long case study” including matrix of scenarios with 100,000 scenarios and weights for clusters rebalanced within 10% original weights;n• Dataset3 for “short case study” including matrix of scenarios with 10,000 scenarios and weights for clusters rebalanced within 20% original weights;n• Dataset4 for “long case study” including matrix of scenarios with 100,000 scenarios and weights for clusters rebalanced within 20% original weights.</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

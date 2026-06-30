@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Shortest Path in a Stochastic Weighted Graph using Average, bPOE, and CVaR — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Shortest Path in a Stochastic Weighted Graph using Average, bPOE, and CVaR</h1>
+
+<a href="https://www.ise.ufl.edu/uryasev/research/testproblems/"><span>Back to main page</span></a><br />
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/Case_Study_Shortest_Path_background.pdf"><span style="font-family: Calibri;font-size: large"><strong> Case study background and problem formulations</strong></span></a></p>
+<p><div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Run_File_environment.pdf"><span style="font-family: Calibri;font-size: medium">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri;font-size: medium">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri;font-size: medium">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri;font-size: medium">PSG R</span></a>.
+
+<br />
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color:#000000">
+Optimization package Gurobi should be installed to run this case study.<br /> </div>
+</div> <p>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color:#000000">
+<strong>PROBLEM 1: problem_shortest_path_average n(formulation with Boolean variables)</strong><br />
+Minimize Avg (minimizing expected cost (length) of a path) <br />
+subject to<br />
+Linearmulti = 0 (path representation constraints) <br />
+Box constraints (defines Boolean variables)<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+Avg = Average <br />
+Linearmulti = System of linear constraints <br />
+Box constraints = constraints on individual decision variablesn&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px">
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 3.5GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">3193</th>
+<th style="width: 101px;height: 19px">1000</th>
+<th style="width: 113px;height: 19px">11034</th>
+<th style="width: 220px;height: 19px">0.02</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="8"> <strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2018/07/problem_average_15-45.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/data_problem_Average_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/solution_problem_Average_15_45.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/average_15-45_tool.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"> <a href="https://www.ise.ufl.edu/uryasev/files/2018/07/average_15_45_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/average_15_45_subroutine_data.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">R</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2016/12/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/problem_average_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color:#000000">
+<strong>PROBLEM 2: problem_the_most_shortest_path_bPOE n(formulation with Boolean variables) </strong><br />
+Minimize bpoe (Buffered Probability of Exceedance) of path cost (length) with a specified threshold) <br />
+subject to<br />
+Linearmulti = 0 (path representation constraints) <br />
+Box constraints (defines Boolean variables) <br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;nbpoe= Probability of Exceedance <br />
+Linearmulti = System of linear constraints <br />
+Box constraints = constraints on individual decision variables <br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px">
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 3.5GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">3193</th>
+<th style="width: 101px;height: 19px">1000</th>
+<th style="width: 113px;height: 19px">0.1872</th>
+<th style="width: 220px;height: 19px">0.99</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="8"> <strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2018/07/problem_bpoe_15-45.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/data_problem_bPOE_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/solution_problem_bPOE_15000_15_45.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/bPOE_15000_15-45_tool.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"> <a href="https://www.ise.ufl.edu/uryasev/files/2018/07/bPOE_15000_15_45_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/bPOE_15000_15_45_subroutine_data.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">R</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2016/12/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/problem_bPOE_15000_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color:#000000">
+<strong>PROBLEM 3: problem_alpha_shortest_path_cvar n(formulation with Boolean variables)
+</strong><br />
+Minimize Cvar_risk (Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level) <br />
+subject to<br />
+Linearmulti = 0 (path representation constraints) <br />
+Box constraints (defines Boolean variables) <br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+Cvar_risk = Conditional Value-at-Risk <br />
+Linearmulti = System of linear constraints <br />
+Box constraints = constraints on individual decision variables <br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px">
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 3.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">3193</th>
+<th style="width: 101px;height: 19px">1000</th>
+<th style="width: 113px;height: 19px">14060</th>
+<th style="width: 220px;height: 19px">913.46</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="8"> <strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2018/07/problem_CVaR15-45.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/data_problem_CVaR_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/solution_problem_CVaR_0p9_15_45.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/cvar_0p9_15-45_tool.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"> <a href="https://www.ise.ufl.edu/uryasev/files/2018/07/cvar_0p9_15_45_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/cvar_0p9_15_45_subroutine_data.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+<tr style="height: 19.7813px">
+<td style="width: 109px;height: 19.7813px" colspan="4">R</td>
+<td style="width: 217px;height: 19.7813px" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2016/12/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px;height: 19.7813px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2018/07/problem_cvar_0p9_15-45.zip">Data</a></td>
+<td style="width: 220px;height: 19.7813px"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color:#000000;width:850px">
+<strong>CASE STUDY SUMMARY</strong><br />
+A graph consists of a set of vertices (nodes) and arcs (edges) connecting vertices. In deterministic setting each arc is characterized by a single cost. Depending on the application, the cost may be travel time, financial cost, etc. The cost of a path is the sum of the costs of arcs in the path.  The deterministic shortest path problem finds a path from a starting point to a final point with minimal cost. nnThis case study solves problems with stochastic costs of arcs (i.e., cost of each arc is a random value).  We formulated problems for finding a path with the minimal:n•	Expected cost (length);n•	Buffered Probability of Exceedance (bPOE) of path cost with a specified threshold;n•	Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

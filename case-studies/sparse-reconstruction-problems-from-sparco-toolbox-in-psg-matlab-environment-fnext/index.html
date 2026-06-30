@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File. If you want to run this Case Study">
+    <title>Case Study: Sparse Reconstruction Problems from SPARCO toolbox in PSG MATLAB Environment (fnext) — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Sparse Reconstruction Problems from SPARCO toolbox in PSG MATLAB Environment (fnext)</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Sparse_Reconstruction_SPARCO_MATLAB.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">If you want to run this Case Study click on the following link to extract M-files and problem statement to the directoryn...\PSG\MATLAB\CS_Sparse_Reconstruction_SPARCO: <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Sparse_Reconstruction_Sparco_For_MatLab.zip">M-files for CS_Sparse_Reconstruction_Sparco_Matlab</a></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: L2 form</strong>
+Minimize 0.5*Quadratic + Const*Linear (minimizing L2-error of regression plus linear regularization term)nsubject tonBox constraints (bounds on variables)
+——————————————————————–
+Quadratic = External Quadratic Penalty FunctionnBox constraints = constraints on individual decision variables
+——————————————————————–
+n<strong>Problem "problem_2_L2_dblExt" </strong>
+
+Sources of Datan<ul>
+ 	<li>Buckheit, J., Donoho, D.L.: Wavelets and Statistics, chap. Wavelab and reproducible research.
+Springer-Verlag, Berlin, New York (1995). URL <a href="https://citeseer.ist.psu.edu/article/buckheit95wavelab.html">https://citeseer.ist.psu.edu/article/buckheit95wavelab.html</a></li>
+ 	<li>Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1),n33-61 (1998). URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a></li>
+ 	<li>Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).
+URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dblExt_20.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_2_L2_dblExt_20.zip">Solution</a></td>
+<td>20</td>
+<td>1024</td>
+<td>1024</td>
+<td>2.978E+03</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dblExt_10.txt" colspan="4">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_2_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>1024</td>
+<td>1024</td>
+<td>2.312E+03</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_2_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>1024</td>
+<td>1024</td>
+<td>4.153E+02</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_2_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>1024</td>
+<td>1024</td>
+<td>4.471E+01</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_2_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>1024</td>
+<td>1024</td>
+<td>4.503E+00</td>
+<td>0.19</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_3_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).
+URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></li>
+ 	<li>Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:
+Sparco: A testing framework for sparse reconstruction.
+Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dblExt_20.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_3_L2_dblExt_20.zip">Solution</a></td>
+<td>20</td>
+<td>2048</td>
+<td>1024</td>
+<td>2.369E+03</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_3_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>2048</td>
+<td>1024</td>
+<td>1.308E+03</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_3_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>2048</td>
+<td>1024</td>
+<td>1.780E+02</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_3_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>2048</td>
+<td>1024</td>
+<td>2.164E+01</td>
+<td>0.18</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_3_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>2048</td>
+<td>1024</td>
+<td>2.217E+00</td>
+<td>2.57</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_5_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).
+URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></li>
+ 	<li>Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:
+Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,
+Dept. Computer Science, University of British Columbia, Vancouver (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dblExt_20.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_5_L2_dblExt_20.zip">Solution</a></td>
+<td>20</td>
+<td>2048</td>
+<td>300</td>
+<td>2.104E+03</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_5_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>2048</td>
+<td>300</td>
+<td>1.226E+03</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_5_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>2048</td>
+<td>300</td>
+<td>1.580E+02</td>
+<td>0.17</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_5_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>2048</td>
+<td>300</td>
+<td>1.778E+01</td>
+<td>1.67</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_5_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_5_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>2048</td>
+<td>300</td>
+<td>1.810E+00</td>
+<td>19.24</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_6_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Candes, E.J., Romberg, J.: Practical signal recovery from random projections. In: Wavelet Applicationsnin Signal and Image Processing XI, Proc. SPIE Conf. 5914. (2004)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dblExt_20000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_6_L2_dblExt_20000.zip">Solution</a></td>
+<td>20000</td>
+<td>2048</td>
+<td>600</td>
+<td>1.295E+07</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dblExt_10000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_6_L2_dblExt_10000.zip">Solution</a></td>
+<td>10000</td>
+<td>2048</td>
+<td>600</td>
+<td>9.652E+06</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dblExt_1000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_6_L2_dblExt_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>2048</td>
+<td>600</td>
+<td>1.586E+06</td>
+<td>3.6</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dblExt_100.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_6_L2_dblExt_100.zip">Solution</a></td>
+<td>100</td>
+<td>2048</td>
+<td>600</td>
+<td>1.722E+05</td>
+<td>36.8</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_6_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_6_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>2048</td>
+<td>600</td>
+<td>1.745E+04</td>
+<td>385.6</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_7_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/</a> (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dblExt_0.2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_7_L2_dblExt_0.2.zip">Solution</a></td>
+<td>0.2</td>
+<td>2560</td>
+<td>600</td>
+<td>2.252E+00</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_7_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>2560</td>
+<td>600</td>
+<td>1.562E+00</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dblExt_0.05.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_7_L2_dblExt_0.05.zip">Solution</a></td>
+<td>0.05</td>
+<td>2560</td>
+<td>600</td>
+<td>8.905E-01</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dblExt_0.02.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_7_L2_dblExt_0.02.zip">Solution</a></td>
+<td>0.02</td>
+<td>2560</td>
+<td>600</td>
+<td>3.825E-01</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_7_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_7_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>2560</td>
+<td>600</td>
+<td>1.956E-01</td>
+<td>0.19</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_8_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Candes, E., Romberg, J.: L1-magic. <a href="https://www.l1-magic.org">https://www.l1-magic.org/</a>(2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dblExt_0.2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_8_L2_dblExt_0.2.zip">Solution</a></td>
+<td>0.2</td>
+<td>2560</td>
+<td>600</td>
+<td>4.381E+00</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_8_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>2560</td>
+<td>600</td>
+<td>3.799E+00</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dblExt_0.05.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_8_L2_dblExt_0.05.zip">Solution</a></td>
+<td>0.05</td>
+<td>2560</td>
+<td>600</td>
+<td>3.156E+00</td>
+<td>0.13</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_8_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_8_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>2560</td>
+<td>600</td>
+<td>2.470E+00</td>
+<td>0.23</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_9_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1), 33-61 (1998).
+URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a></li>
+ 	<li>Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).
+URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_9_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>128</td>
+<td>128</td>
+<td>1.676E+02</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dblExt_5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_9_L2_dblExt_5.zip">Solution</a></td>
+<td>5</td>
+<td>128</td>
+<td>128</td>
+<td>1.161E+02</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_9_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>128</td>
+<td>128</td>
+<td>3.647E+01</td>
+<td>3.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dblExt_0.05.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_9_L2_dblExt_0.05.zip">Solution</a></td>
+<td>0.05</td>
+<td>128</td>
+<td>128</td>
+<td>5.563E+00</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_9_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_9_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>128</td>
+<td>128</td>
+<td>3.999E+00</td>
+<td>6.5</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_10_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Chen, S.S., Donoho, D.L., Saunders, M.A.: Atomic decomposition by basis pursuit. SIAM J. Sci. Comput. 20(1), 33-61 (1998).
+URL <a href="https://epubs.siam.org/doi/abs/10.1137/S003614450037906X">https://epubs.siam.org/doi/abs/10.1137/S003614450037906X</a></li>
+ 	<li>Donoho, D.L., Johnstone, I.M.: Ideal spatial adaptation by wavelet shrinkage. Biometrika 81(3), 425-455 (1994).
+URL <a href="https://citeseer.ist.psu.edu/donoho93ideal.html">https://citeseer.ist.psu.edu/donoho93ideal.html</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_10_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>1024</td>
+<td>1024</td>
+<td>2.040E+03</td>
+<td>3.3</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_10_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>1024</td>
+<td>1024</td>
+<td>6.638E+02</td>
+<td>33.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dblExt_0.5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_10_L2_dblExt_0.5.zip">Solution</a></td>
+<td>0.5</td>
+<td>1024</td>
+<td>1024</td>
+<td>4.115E+02</td>
+<td>29.7</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_10_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>1024</td>
+<td>1024</td>
+<td>9.543E+01</td>
+<td>342.5</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_10_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_10_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>1024</td>
+<td>1024</td>
+<td>1.147E+01</td>
+<td>1619.9</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_11_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).
+URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></li>
+ 	<li>Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:
+Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,
+Dept. Computer Science, University of British Columbia, Vancouver (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dblExt_100.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_11_L2_dblExt_100.zip">Solution</a></td>
+<td>100</td>
+<td>1024</td>
+<td>256</td>
+<td>1.801E+03</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_11_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>1024</td>
+<td>256</td>
+<td>2.333E+02</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_11_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>1024</td>
+<td>256</td>
+<td>2.396E+01</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_11_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_11_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>1024</td>
+<td>256</td>
+<td>2.403E+00</td>
+<td>7.39</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_401_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Database of Creative Commons licensed sounds: URL <a href="https://freesound.org/">https://freesound.org/</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_401_L2_dblExt_2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_401_L2_dblExt_2.zip">Solution</a></td>
+<td>2</td>
+<td>57344</td>
+<td>29166</td>
+<td>2.431E+02</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_401_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_401_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>57344</td>
+<td>29166</td>
+<td>2.273E+02</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_401_L2_dblExt_0.5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_401_L2_dblExt_0.5.zip">Solution</a></td>
+<td>0.5</td>
+<td>57344</td>
+<td>29166</td>
+<td>1.849E+02</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_401_L2_dblExt_0.2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_401_L2_dblExt_0.2.zip">Solution</a></td>
+<td>0.2</td>
+<td>57344</td>
+<td>29166</td>
+<td>1.152E+02</td>
+<td>23.5</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_402_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Database of Creative Commons licensed sounds: URL <a href="https://freesound.org/">https://freesound.org/</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_402_L2_dblExt_2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_402_L2_dblExt_2.zip">Solution</a></td>
+<td>2</td>
+<td>57344</td>
+<td>29166</td>
+<td>2.643E+02</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_402_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_402_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>57344</td>
+<td>29166</td>
+<td>2.473E+02</td>
+<td>4.4</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_402_L2_dblExt_0.5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_402_L2_dblExt_0.5.zip">Solution</a></td>
+<td>0.5</td>
+<td>57344</td>
+<td>29166</td>
+<td>2.007E+02</td>
+<td>13.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_402_L2_dblExt_0.2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_402_L2_dblExt_0.2.zip">Solution</a></td>
+<td>0.2</td>
+<td>57344</td>
+<td>29166</td>
+<td>1.248E+02</td>
+<td>32.1</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_403_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Berg, E.van den, Friedlander, M.P.: SPARCO: A toolbox for testing sparse reconstruction algorithms (2008).
+URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a></li>
+ 	<li>Berg, E.van den, Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., Yilmaz, O.:
+Sparco: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20,
+Dept. Computer Science, University of British Columbia, Vancouver (2007)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_403_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_403_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>196608</td>
+<td>196608</td>
+<td>1.124E+04</td>
+<td>2.7</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_403_L2_dblExt_3.3.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_403_L2_dblExt_3.3.zip">Solution</a></td>
+<td>3.3</td>
+<td>196608</td>
+<td>196608</td>
+<td>6.174E+03</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_403_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_403_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>196608</td>
+<td>196608</td>
+<td>2.530E+03</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_403_L2_dblExt_0.33.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_403_L2_dblExt_0.33.zip">Solution</a></td>
+<td>0.33</td>
+<td>196608</td>
+<td>196608</td>
+<td>1.136E+03</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_403_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_403_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>196608</td>
+<td>196608</td>
+<td>4.802E+02</td>
+<td>35.2</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_601_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.:
+A new camera architecture based on optical-domain compression.
+In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging: Computational Imaging, vol. 6065 (2006).</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dblExt_10000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_601_L2_dblExt_10000.zip">Solution</a></td>
+<td>10000</td>
+<td>4096</td>
+<td>3200</td>
+<td>8.474E+05</td>
+<td>420.7</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dblExt_1000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_601_L2_dblExt_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>4096</td>
+<td>3200</td>
+<td>1.948E+05</td>
+<td>598.0</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dblExt_500.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_601_L2_dblExt_500.zip">Solution</a></td>
+<td>500</td>
+<td>4096</td>
+<td>3200</td>
+<td>1.187E+05</td>
+<td>808.1</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dblExt_200.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_601_L2_dblExt_200.zip">Solution</a></td>
+<td>200</td>
+<td>4096</td>
+<td>3200</td>
+<td>5.741E+04</td>
+<td>1460.1</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_601_L2_dblExt_100.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_601_L2_dblExt_100.zip">Solution</a></td>
+<td>100</td>
+<td>4096</td>
+<td>3200</td>
+<td>3.170E+04</td>
+<td>1444.7</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_602_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Takhar, D., Laska, J.N., Wakin, M., Duarte, M., Baron, D., Sarvotham, S., Kelly, K.K., Baraniuk, R.G.:
+A new camera architecture based on optical-domain compression.
+In: Proceedings of the IS&amp;T/SPIE Symposium on Electronic Imaging: Computational Imaging, vol. 6065 (2006).</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dblExt_1000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_602_L2_dblExt_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>4096</td>
+<td>3200</td>
+<td>3.165E+05</td>
+<td>543.6</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dblExt_500.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_602_L2_dblExt_500.zip">Solution</a></td>
+<td>500</td>
+<td>4096</td>
+<td>3200</td>
+<td>2.086E+05</td>
+<td>848.9</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dblExt_200.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_602_L2_dblExt_200.zip">Solution</a></td>
+<td>200</td>
+<td>4096</td>
+<td>3200</td>
+<td>1.049E+05</td>
+<td>1117.9</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_602_L2_dblExt_100.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_602_L2_dblExt_100.zip">Solution</a></td>
+<td>100</td>
+<td>4096</td>
+<td>3200</td>
+<td>5.745E+04</td>
+<td>2038.8</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_603_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Figueiredo, M., Nowak, R., Wright, S.: Gradient projection for sparse reconstruction: Application to compressednsensing and other inverse problems. Selected Topics in Signal Processing, IEEE Journal of 1(4), 586-597 (2007).
+DOI 10.1109/JSTSP.2007.910281. URL <a href="https://www.lx.it.pt/~mtf/GPSR">https://www.lx.it.pt/~mtf/GPSR</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dblExt_5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_603_L2_dblExt_5.zip">Solution</a></td>
+<td>5</td>
+<td>4096</td>
+<td>1024</td>
+<td>2.963E+02</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dblExt_2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_603_L2_dblExt_2.zip">Solution</a></td>
+<td>2</td>
+<td>4096</td>
+<td>1024</td>
+<td>1.893E+02</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_603_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>4096</td>
+<td>1024</td>
+<td>1.210E+02</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_603_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>4096</td>
+<td>1024</td>
+<td>2.145E+01</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_603_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_603_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>4096</td>
+<td>1024</td>
+<td>2.544E+00</td>
+<td>6.64</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_701_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Figueiredo, M., Nowak, R., Wright, S.: Gradient projection for sparse reconstruction: Application to compressednsensing and other inverse problems. Selected Topics in Signal Processing, IEEE Journal of 1(4), 586-597 (2007).
+DOI 10.1109/JSTSP.2007.910281. URL <a href="https://www.lx.it.pt/~mtf/GPSR">https://www.lx.it.pt/~mtf/GPSR</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_701_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_701_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>65536</td>
+<td>65536</td>
+<td>6.911E+03</td>
+<td>0.59</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_701_L2_dblExt_5.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_701_L2_dblExt_5.zip">Solution</a></td>
+<td>5</td>
+<td>65536</td>
+<td>65536</td>
+<td>4.336E+03</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_701_L2_dblExt_2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_701_L2_dblExt_2.zip">Solution</a></td>
+<td>2</td>
+<td>65536</td>
+<td>65536</td>
+<td>2.110E+03</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_701_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_701_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>65536</td>
+<td>65536</td>
+<td>1.198E+03</td>
+<td>0.88</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_702_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Figueiredo, M., Nowak, R., Wright, S.: Gradient projection for sparse reconstruction: Application to compressednsensing and other inverse problems. Selected Topics in Signal Processing, IEEE Journal of 1(4), 586-597 (2007).
+DOI 10.1109/JSTSP.2007.910281. URL <a href="https://www.lx.it.pt/~mtf/GPSR">https://www.lx.it.pt/~mtf/GPSR</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_702_L2_dblExt_0.05.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_702_L2_dblExt_0.05.zip">Solution</a></td>
+<td>0.05</td>
+<td>16384</td>
+<td>16384</td>
+<td>2.484E+00</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_702_L2_dblExt_0.04.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_702_L2_dblExt_0.04.zip">Solution</a></td>
+<td>0.04</td>
+<td>16384</td>
+<td>16384</td>
+<td>2.470E+00</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_702_L2_dblExt_0.02.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_702_L2_dblExt_0.02.zip">Solution</a></td>
+<td>0.02</td>
+<td>16384</td>
+<td>16384</td>
+<td>2.087E+00</td>
+<td>1.30</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_702_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_702_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>16384</td>
+<td>16384</td>
+<td>1.332E+00</td>
+<td>1.88</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_702_L2_dblExt_0.001.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_702_L2_dblExt_0.001.zip">Solution</a></td>
+<td>0.001</td>
+<td>16384</td>
+<td>16384</td>
+<td>1.628E-01</td>
+<td>4.64</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_902_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Hennenfent, G., Herrmann, F.J.: Sparseness-constrained data continuationnwith frames: Applications to missing tracesnand aliased signals in 2/3-D. In: SEG International Exposition and 75th Annual Meeting (2005).
+URL <a href="https://library.seg.org/doi/abs/10.1190/1.2148142">https://library.seg.org/doi/abs/10.1190/1.2148142</a></li>
+ 	<li>Hennenfent, G., Herrmann, F.J.: Simply denoise: waveeld reconstruction via coarse nonuniform sampling.
+Tech. rep., UBC Earth &amp; Ocean Sciences (2007)</li>
+ 	<li>Herrmann, F.J., Hennenfent, G.: Non-parametric seismic data recovery with curvelet frames.
+Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1nURL <a href="https://academic.oup.com/gji/article-abstract/173/1/233/554282">https://academic.oup.com/gji/article-abstract/173/1/233/554282</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_902_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>1000</td>
+<td>200</td>
+<td>1.007E-01</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_902_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>1000</td>
+<td>200</td>
+<td>1.668E-02</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_902_L2_dblExt_0.001.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_902_L2_dblExt_0.001.zip">Solution</a></td>
+<td>0.001</td>
+<td>1000</td>
+<td>200</td>
+<td>1.734E-03</td>
+<td>0.10</td>
+</tr>
+</tbody>
+</table>
+<strong>Problem "problem_903_L2_dblExt"</strong>
+Sources of Datan<ul>
+ 	<li>Dossal, C., Mallat, S.: Sparse spike deconvolution with minimum scale. In: Proceedings of Signal Processing withnAdaptive Sparse Structured Representations, pp. 123-126. Rennes, France (2005).
+URL <a href="https://spars05.irisa.fr/ACTES/PS2-11.pdf">https://spars05.irisa.fr/ACTES/PS2-11.pdf</a></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th>Const</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dblExt_100.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_903_L2_dblExt_100.zip">Solution</a></td>
+<td>100</td>
+<td>1024</td>
+<td>1024</td>
+<td>8.695E+02</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dblExt_10.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_903_L2_dblExt_10.zip">Solution</a></td>
+<td>10</td>
+<td>1024</td>
+<td>1024</td>
+<td>1.177E+02</td>
+<td>9.8</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dblExt_1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_903_L2_dblExt_1.zip">Solution</a></td>
+<td>1</td>
+<td>1024</td>
+<td>1024</td>
+<td>1.279E+01</td>
+<td>16.8</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dblExt_0.1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_903_L2_dblExt_0.1.zip">Solution</a></td>
+<td>0.1</td>
+<td>1024</td>
+<td>1024</td>
+<td>1.294E+00</td>
+<td>52.1</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_903_L2_dblExt_0.01.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/solution_problem_903_L2_dblExt_0.01.zip">Solution</a></td>
+<td>0.01</td>
+<td>1024</td>
+<td>1024</td>
+<td>1.295E-01</td>
+<td>587.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+CASE STUDY SUMMARYn</strong>
+This case study solves sparse reconstruction problems from SPARCO toolbox using External Functions Tool of PSG and operator given by SPARCO toolbox for implicit working with matrices.
+SPARCO is a suite of <a href="https://www.cs.ubc.ca/labs/scl/sparco/Main/Problems">problems</a> for testing and benchmarking algorithms for sparse signal reconstruction, Berg et al. (2007, 2008). It is also an environment for creating new test problems. Also a suite of standard linear <a href="https://www.cs.ubc.ca/labs/scl/sparco/Main/Operators">operators</a> is provided from which new problems can be assembled. SPARCO is implemented entirely in MATLABand is self contained.
+Problems included in the SPARCO toolbox were initially considered by different authors in different application areas: imaging, compressed sensing, geophysics, information compressing, etc. Relevant references can be found in the SPARCO toolbox.
+The objective of Sparse Reconstruction is to find a decision vector which has a small number of non-zero components and satisfies exactly or almost exactly a system of linear equations. There are many variants of optimization formulations of such problems. These formulations are described in paper Boyko et al. (2011).
+We solved problems included in SPARCO toolbox in so called “LASSO-O” formulation. “LASSO-O” minimizes L2-error of regression with adding to objective a regularization linear term which is equal to the sum of absolute values of variables. The regularization term is intended to “suppress" components with small values. To investigate property of solution we solved every problem with different weight of regularization linear term and calculated cardinality and max functions in optimal points. These problems can be easy solved by methods for unconstrained optimization.
+SPARCO toolbox provides a set of operators to deal with data. Problems were solved in PSG MATLAB Environment with the PSG External Function subroutine to avoid generating full matrix and to save time and memory.
+We reported performance of AORDA Portfolio Safeguard (PSG) 64 bit version conducted on PC with 2.83 MHz processor.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">In the problem formulations we have included several "dummy" functions multiplied by 0 (zero). Such "dummy" functions do not not impact solution process, but values of these functions are printed in the final solution file.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">For instance, you can view many "dummy" functions in the following problem formulation:</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">problem: problem_602_Relaxed_700, type = minimizenobjective: objective_new, linearize = 1nmeanabs_pen_obj(matrix_ab602)nconstraint: constraint_card, upper_bound = 700, linearize = 1npolynom_abs_S(matrix_card4096)n0 * cardn_1(1.,matrix_card4096)n0 * cardn_2(0.1,matrix_card4096)n0 * cardn_3(0.01,matrix_card4096)n0 * cardn_4(0.001,matrix_card4096)n0 * cardn_5(0.0001,matrix_card4096)n0 * cardn_6(0.00001,matrix_card4096)n0 * max_comp_pos_7(matrix_card4096)n0 * max_comp_neg_8(matrix_card4096)nbox_of_variables: lowerbounds = -40, upperbounds = +40nSolver: van, precision = 4, stages = 6, timelimit = 3600</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">The corresponding solution file includes values of "dummy" functions on the final optimal point:</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problem: solution_status = optimalnTiming: Data_loading_time = 11.97, Preprocessing_time = 0.69, Solving_time = 272.61nVariables: optimal_point = point_problem_602_Relaxed_700nObjective: objective_new = 9.71029929057e-005nConstraint: constraint_card = 6.968284830013e+002 [-3.171516998665e+000]nFunction: meanabs_pen_obj(matrix_ab602) = 9.710299290575e-005nFunction: polynom_abs_s(matrix_card4096) = 6.968284830013e+002nFunction: cardn_1(0.100000E+01,matrix_card4096) = 1.420000000000e+002nFunction: cardn_2(0.100000E+00,matrix_card4096) = 7.890000000000e+002nFunction: cardn_3(0.100000E-01,matrix_card4096) = 3.043000000000e+003nFunction: cardn_4(0.100000E-02,matrix_card4096) = 3.964000000000e+003nFunction: cardn_5(0.100000E-03,matrix_card4096) = 4.079000000000e+003nFunction: cardn_6(0.100000E-04,matrix_card4096) = 4.095000000000e+003nFunction: max_comp_pos_7(matrix_card4096) = 1.616083034336e+001nFunction: max_comp_neg_8(matrix_card4096) = 6.562008879305e+000</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+
+</strong><strong></strong><strong></strong><strong>References</strong>
+• Berg, E.V., Friedlander, M.P., Hennenfent, G., Herrmann, F., Saab, R., and O., Yilmaz (2007): SPARCO: A testing framework for sparse reconstruction. Tech. Rep. TR-2007-20, Dept. Computer Science, University of British Columbia, Vancouver.n• Berg, E.V., and M.P., Friedlander (2008): SPARCO: A toolbox for testing sparse reconstruction algorithms. URL <a href="https://www.cs.ubc.ca/labs/scl/sparco/">https://www.cs.ubc.ca/labs/scl/sparco/</a>
+• Boyko, N., Karamemis, G., Kuzmenko, V. and S. Uryasev (2011): Sparse Signal Reconstruction: a Cardinality Approach. Submitted for publication (<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/06/Sparse_Signal_Reconstruction.pdf">Download the publication</a>).
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

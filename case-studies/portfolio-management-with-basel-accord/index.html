@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Portfolio Management with Basel Accord — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Management with Basel Accord</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2011/12/CS_Portfolio_Management_Basel_Accord_VaR_CVaR_AVG.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_basel_accord_c_econ_65</strong>
+Maximize Linear (maximizing estimated return (without risk))nsubject tonCvar_dev ≤ Const1 (internal constraint on credit risk)
+Lenear ≤ xa1 + xa2 (regulatory constraint on capital covering credit risk)
+Linear + Var_dev ≤ xa3 + (Const2 - xa1) + (Const3 - xa2) (regulatory constraint on capital covering market risk)nxa3 + (Const4 - xa2) ≤ (Const5 - xa1) (constraint limiting unused Tier-2 + used Tier-3 capital vs. unused Tier-1 capital)nxa2 ≤ xa1 (constraint limiting Tier-2 vs. Tier-1 capital)n0 ≥ xa ≤ Const6 (bounds on used Tier- k capital)
+Box constraints (upper/lower bounds on exposures)
+——————————————————————–
+Cvar_dev = CVaR Deviation for Lossnxa1, xa2, xa3 = used for risk management purposes Tier- k capital, k=1,…, 3 (free additional variables)
+Var_dev = VaR Deviation for LossnBox constraints = constraints on individual decision variables
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">9</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">3.254799959246</th>
+<th style="width: 220px; height: 19px;">0.12</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_basel_accord_c_econ_65__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_basel_accord_c_econ_65__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_basel_accord_c_econ_65_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_basel_accord_c_econ_65_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_basel_accord_c_econ_65_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_basel_accord_c_econ_65_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_basel_accord_c_econ_65.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+
+</strong><strong></strong><strong></strong><strong></strong><strong></strong><strong>CASE STUDY SUMMARYn</strong>
+This case study demonstrates an optimization setup for credit portfolio management. It is based on papers by Theiler, et al. (2003) and Theiler (2004). Similar optimization models for credit risk were considered in Andersson, et al. (2001). This model maximizes the expected returns of the credit portfolio under internal and regulatory loss risk limits. From the bank’s internal perspective, credit risks are limited by the economic capital, i.e., the capital resources available to the bank to cover credit losses. The economic capital usually is defined as a subset of the bank’s equity. At the same time, the bank needs to limit its credit risk from a regulatory perspective. We consider the loss risk limitation rules set by the Basel Committee on Banking Super¬vision. We are considering the prevailing rules of Basel I, Basel (1988, 1996). However, credit risk weights of the Basel II rules, Basel (2001), can be easily incorporated in similar way. Banks are charged capital to cover credit risks of their bank book which are limited by the maximum amount of regulatory capital applicable to cover these risks. We concentrate on a credit portfolio of the bank book. The credit risk of the bank book is limited by the “tier_1”, i.e. the core capital, and the “tier_2”, i.e. the supple¬mentary capital. The tier_1 capital mainly consists of the core capital of the bank, plus some other components. The tier_2 capital includes supplementary capital elements, such as the allowance for loan loss reserves and various long-term debt instruments, such as subordinated debt, see, Basel (1988), and also United (1998), p. 119. This model integrates assets involving both market and credit risk under internal and regulatory loss risk limitations. The capital constraints limit the expected profits of the bank in the planning period. The less economic and regulatory capital are available, the less risk a bank is able to take, and the more limited the achievable expected profits are in a business period. We assume a planning horizon of one year for expected returns, one year for credit risk, and one day for market risk. We combine different horizons for credit and market risks under the assumption that portfolio positions are constant for the year and the market risk is the same (is constant) for every day of this year.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+References</strong>
+• Andersson, F., TMausserT, H., Rosen, D., and S. Uryasev (2001): Credit Risk Optimization with Conditional Value-At-Risk Criterion. Mathematical Programming, Series B 89, 273-291.n• Basel committee on Banking Supervision (1988): International convergence of capital measure¬ment and capital standards, Basel, July 1988.n• Basel committee on Banking Supervision committee (1996): Amendment to the capi-tal ac¬cord to incorporate market risks, Basel, January 1996.n• Basel Committee on Banking Supervision (2001): Consultative Document. The New Basel Capital Accord, January 2001, Basel, January 2001.n• Theiler, U., Bugera, V., Revenko, A., and S. Uryasev (2003): Regulatory Impacts on Credit Portfolio Management. Leopold-Wildburger, U. et al. (Eds.), Operations Research Proceedings 2002, Springer, Berlin, 335-340.n• Theiler, U. (2004): Risk Return Management Approach for the Bank Portfolio in: Szego, G. (Ed.), Risk Measures for 21st Century, John Wiley &amp; Sons, Chichester, 403-430.n• United States Accounting Office (1998): Risk-Based Capital - Regulatory and Industry Ap¬proaches to Capital and Risk, Washington, July 1998.</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

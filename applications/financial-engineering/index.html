@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page     Case Study Title Functions Description    Data Envelopment Analysis  Linear (Linear), Multiple Linear (linearmulti), Maximum Ris">
+    <title>Financial Engineering Case Studies — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a class="current" href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Financial Engineering Case Studies</h1>
+
+<a title="Test Problems" href="/research/testproblems/"><span style="text-decoration: underline;">Back to main page</span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%;">
+<table>
+<tbody>
+<tr>
+<th><strong>Case Study Title</strong></th>
+<th><strong>Functions</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/data-envelopment-analysis/"> Data Envelopment Analysis </a></td>
+<td style="height: 136px;">Linear (Linear), Multiple Linear (linearmulti), Maximum Risk (max_risk)</td>
+<td style="height: 136px;">Comparing relative managerial efficiency of five companies by applying the CCR Model from Data Envelopment Analysis (DEA). The model maximize the ratio of the weighted outputs and the weighted inputs of the company for every company, subject to constraints prohibiting that the ratio of the other companies to be higher than 1. The optimization problem is solved with two equivalent formulations utilizing the Multilinear and Max_Risk PSG functions</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-maximization-of-log-lokelihood-in-hidden-markov-model-hmm_discrete-hmm_normal-linear-linearmulti/">Maximization of Log-Lokelihood in Hidden Markov Model</a></td>
+<td>Hidden Markov Model for discrete distributions (hmm_discrete), Hidden Markov Model for normal distributions (hmm_normal), Linear (linear), Linear Multiple (linearmulti)</td>
+<td>This case study considers two variants of Hidden Markov Model. One with discrete distributions of observations and other with normal distributions of observations. Correspondently two Problem statements for maximization of Log-Lokelihood function in Hidden Markov Model are shown.
+For maximization type of problem PSG uses an expectation modificaion (EM) procedure in form of Baum–Welch algorithm to find good initial point. hmm_discrete and hmm_normal functions report probabilities of initial states, transition probabilities and probabilities of observations or parameters of normal distributions. Additionally they report Viterbi states vector.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-portfolio-optimization-with-expectiles/">Portfolio Optimization with Expectiles</a></td>
+<td>Average Gain (Avg_g )</td>
+<td>Problem 1: Maximization of linear function (expected return) subject to constraint on negative expectile risk. Problem 2: Minimization of negative expectile risk subject to constraint on minimal expected return.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-checkerboard-copula-defined-by-sperman-rho-coefficients-entropyr/">Checkerboard Copula Defined by Spearman Rho Coefficients</a></td>
+<td>Relative Entropy (Entropyr), Linear Multiple (Linearmulti)</td>
+<td>Calibration of a checkerboard copula with known Spearman Rho coefficients. Maximization of Relative Entropy with linear constraints. The copula is defined by a multiply-stochastic hyper–matrix h.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-checkerboard-copula-defined-by-sums-of-random-variables/">Checkerboard Copula Defined by Sums of Random Variables</a></td>
+<td>Mean Absolute Error (meanabs_err), Mean Squared Error (meansquare_err), CVaR Norm (cvar_risk(abs)), Linear Multiple (Linearmulti)</td>
+<td>Calibration of a checkerboard copula with known marginal distributions and distributions of sums of some random variables. The copula is defined by a multiply-stochastic hyper–matrix h. The problem is reduced to a statistical minimization problem: minimization of an error function with linear constraints. We considered optimization problems with 3 error functions: 1) mean-square, 2) mean-absolute, and 3) CVaR norm.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-retirement-portfolio-selection/">Retirement Portfolio Selection</a></td>
+<td>Linear (linear), Quadratic (quadratic), CVaR (cvar_risk), Multiple Linear (linearmulti)</td>
+<td>This case study solves the retirement portfolio selection problem. The objective is to maximize discounted terminal wealth of the investor, while maintaining constant cash outflows from the portfolio by selling some portion of assets, over an entire investment horizon. The cash outflow requirements are imposed using CVaR constraints and additionally, by monotonicity constraint on the cash outflows.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/style-classification-with-quantile-regression/">Style Classification with Quantile Regression</a></td>
+<td>Koenker and Bassett error function (kb_err), Partial Moment Penalty (Pm_pen), Partial Moment Penalty for Gain (Pm_pen_g), CVaR Deviation (Cvar_dev), VaR (Var_risk)</td>
+<td>Percentile regression for the return-based style classification of a mutual fund. The procedure regresses fund return by several indices as explanatory variables. The estimated coefficients represent the fund’s loads on the indices.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/classification-in-loan-application-process/"> Classification in Loan Application Process </a></td>
+<td>Probability of Exceedance (Pr_pen), Logarithms Exponents Sum (Logexp_sum), Logistic (logistic), Spline Sum (Spline_sum), Buffered Probability of Exceedance (Bpoe), CVaR Deviation (Cvar_dev), VaR (Var_risk)</td>
+<td>This case study is trying to reproduce the loan application process of Lending Club, which is the world's largest online company. We used the open data from Lending Club. Problem 0 is the standard logistic regression (used as a benchmark). Features transformation is done using cubic splines in Problem 1. Problem 2 is the logistic regression with transformed features. Problem 3 maximizes buffered AUC (bAUC) by minimizing buffered probability of exceedance (bPOE). Problem 4 maximizes AUC by minimizing probability of exceedance (PSG probability function pr_pen).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-cocvar-approach-risk-contribution-measurement/"> CoCVaR Approach: Risk Contribution Measurement </a></td>
+<td>CVaR (Superquantile) Error Function (cvar2_err), Koenker and Bassett error function (kb_err)</td>
+<td>This Case Study considers the new systemic risk measure conditional value at risk of the financial system conditional on institutions being under distress CoCVaR. To estimate CoCVaR we used quantile regression method that is reduced to one of two optimization problems: Problem 1. Minimization of CVaR Superquantile error or Problem 2. Minimization of Koenker and Basset error. CoCVaR was calculated for 10 largest publicly traded banks in the United States by total assets.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-optimal-hedging-of-cdo-book-psg-and-milp-formulation/">Optimal Hedging of CDO Book </a></td>
+<td>Mean Absolute Error (meanabs_err), Polynomial Absolute (polynom_abs), Cardinality (cardn), Linear (linear), Linearmulti (linearmulti)</td>
+<td>This case study explains how to formulate and solve some nonstandard Linear Regression problems with additional constraints. Such linear regression is used, for instance, to hedge Collateralized Debt Obligation (CDO) with Credit Default Swaps (CDSs).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-credit-risk-optimization-modeled-by-scenarios-and-mixtures-of-normal-distributions/">Credit-Risk Optimization Modeled by Scenarios and Mixtures of Normal Distributions</a></td>
+<td>VaR (Var_risk), CVaR (Cvar_risk ), Average VaR for Multivariate Normal Independent Distribution (Avg_var_risk_ni), Average CVaR for Multivariate Normal Independent Distribution (Avg_cvar_risk_ni), Average Probability of Exceedance Normal Independent (Avg_pr_pen_ni), Average Partial Moment Penalty Normal Independent (Avg_pm_pen_ni)</td>
+<td>Four portfolio optimization problems with different but close quantile-based risk measures: var_risk, cvar_risk, avg_var_risk_ni, avg_cvar_risk_ni. The last two functions calculate mixtures of var_risk and cvar_risk of normal independent distributions.
+Alternative formulations of problems 3 and 4 are provided in problems 5 and 6, respectively.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/hedging-portfolio-of-options/">Hedging Portfolio of Options with CVaR Constraint</a></td>
+<td>CVaR (Cvar_risk)</td>
+<td>Hedging a portfolio of options by a portfolio of stocks and options. The problem minimizes the price of hedging portfolio subject to constraint on cvar_risk.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/omega-portfolio-rebalancing/">Omega Portfolio Rebalancing</a></td>
+<td>Average Gain (Avg_g), Partial Moment Penalty (Pm_pen)</td>
+<td>Portfolio optimization problem with the Omega performance function. The problem is reduced to maximizing Expected Gain subject to a constraint on Partial Moment and some other linear constraints.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/mortgage-pipeline-hedging/">Mortgage Pipeline Hedging</a></td>
+<td>CVaR Deviation (Cvar_dev), Mean Absolute Deviation (Meanabs_dev), Standard Deviation (St_dev), VaR Deviation (Var_dev)</td>
+<td>Standard versus tail-targeted linear regression problems. Optimal mortgage pipeline hedging strategy with five different deviation measures: Standard Deviation, Mean Absolute Deviation, CVaR Deviation, two-tailed VaR75, and two-tailed VaR90.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/basic-cvar-optimization-problem-beyond-black-litterman/">Basic CVaR Optimization Problem, Beyond Black-Litterman</a></td>
+<td>CVaR Deviation (Cvar_dev), Average Gain (Avg_g)</td>
+<td>A simple (basic) setup of single-period portfolio optimization problem with risk measured by CVaR.
+Problem 1: Minimization of Conditional Value-at-Risk subject to constraint on linear function (expected return) and constraint on linear function (budget constraint).
+Problem 2: This problem is a slightly modified Problem 1. To prevent possible infeasibility we have added to the performance function a compensation variable assuring feasibility. Minimization of weighted average of Conditional Value-at-Risk and penalty on compensation variable subject to constraint on linear function (expected return) and constraint on linear function (budget constraint).
+Problem 3: Maximization of linear function (expected return) subject to constraint on Conditional Value-at-Risk and constraint on linear function (budget constraint).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/var-optimization-retail-portfolio-of-bonds/">VaR Optimization Retail Portfolio of Bonds</a></td>
+<td>VaR Deviation (Var_dev)</td>
+<td>Two credit risk portfolio optimization problems for the portfolio of clusters of retail loans. Weights for clusters are rebalanced within 10% and 20% of original weights.
+Problem 1: The expected return is maximized subject to constraint on VaR deviation of loss.
+Problem 2: VaR deviation of loss is minimized subject to the constraint on the expected return.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/cash-matching-bond-portfolio/">Cash Matching Bond Portfolio</a></td>
+<td>Linear (Linear), Linear Multiple (Linearmulti), Maximum Risk (Max_risk)</td>
+<td>This case study demonstrates several optimization setups for a simple cash matching problem described in Luenberger (1998), p.108. The model matches cash obligations over some periods with payments from a portfolio of bonds. Bonds of various maturities pay coupons as well as face values at different time periods. We design a portfolio providing cash flows to cover liabilities at all periods and minimizing the initial portfolio cost. Four optimization problems are formulated. The first and the second problems disregard surplus cash at every time period, i.e., surplus is not reinvested. The first problem is a Linear Programming problem. The second problem, which is equivalent to the first problem, is formulated with PSG nonlinear function max_risk. The third and the fourth problems carry forward extra cash with some interest. This carry-over is done with additional carry-over variables which can be interpreted as artificial bonds. The third problem is a Linear Programming problem. The fourth problem, which is equivalent to the third problem, is formulated with the PSG nonlinear function max_risk.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-cash-matching-with-bpoe-and-cvar-functions/"> Cash Matching with bPOE and CVaR Functions </a></td>
+<td>CVaR (Cvar_risk), Buffered Probability of Exceedance (bPOE)</td>
+<td>This case study demonstrates a scenario based optimization framework for solving a cash flow matching problem where the time horizon of the liabilities is longer than the maturities of available bonds and the interest rates are uncertain. Bond purchase decisions are made each period to generate cash flow for covering the obligations in future. Since cash flows depend upon future prices of bonds, which are not addressed precisely, some risk management approach needs to be used to handle uncertainties in cash flows. This case study finds optimal portfolio providing the necessary cash flow with high probability and controlling the total initial portfolio cost.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/relative-entropy-minimization/">Relative Entropy Minimization</a></td>
+<td>Relative Entropy (Entropyr)</td>
+<td>Optimization problem for minimizing Relative Entropy with linear constraints. Relative Entropy is used to find a probability distribution which is the most close to some “prior” probability distribution subject to available information about the distribution. For instance, moments of a distribution are known and we find the “best” distribution accounting for this information.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-management-with-basel-accord/">Portfolio Management with Basel Accord</a></td>
+<td>CVaR (Cvar_risk), VaR (Var_risk)</td>
+<td>Optimization setup for credit portfolio management. Maximization of expected return of the credit portfolio under internal and regulatory loss risk limits. The model integrates assets involving both market and credit risk under internal and regulatory loss risk limitations. The market risk constraint is specified with VaR function based on daily loss scenarios.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-cvar-vs-st_dev/">Portfolio Optimization, CVaR vs. ST_DEV</a></td>
+<td>CVaR Deviation (Cvar_dev), Standard Deviation (St_dev), Square Root Quadratic (Sqrt_quadratic)</td>
+<td>Three setups of a single-period portfolio optimization problem when risk is measured by CVaR Deviation, Standard Deviation calculated with the matrix of scenarios, and Standard Deviation calculated with the covariance matrix. In the third setup we use Sqrt_quadratic PSG function. The second and the third setups are equivalent representations of the Markowitz problem which trades-off mean and variance of portfolio return. The original Markowitz problem finds a minimum-variance portfolio under restriction on mean return. Here we keep a similar setup but with the CVaR deviation as a replacement to the Standard deviation.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-drawdown-constraints-on-a-single-path/">Portfolio Optimization with Drawdown Constraints on a Single Path</a></td>
+<td>Drawdown Deviation Maximum (Drawdown_dev_max), Drawdown Deviation Average (Drawdown_dev_avg), CDaR Deviation (Cdar_dev)</td>
+<td>Portfolio optimization with Conditional Drawdown-at-Risk (CDaR) deviation on a single sample path. CDaR deviation is the mean of worst (1-alfa) * 100% drawdowns. Maximization of annualized portfolio return on a sample path subject to constraints on CDaR deviation with different confidence levels (including limiting cases: average and maximum drawdown).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-drawdown-constraints-on-multiple-paths/">Portfolio Optimization with Drawdown Constraints on Multiple Paths</a></td>
+<td>Drawdown Deviation Maximum Multiple (Drawdownmulti_dev_max), Drawdown Deviation Average Multiple (Drawdownmulti_dev_avg), CDaR Deviation Multiple (Cdarmulti_dev)</td>
+<td>Optimization setup for Conditional Drawdown-at-Risk (CDaR) deviation with multiple sample paths. For some value of the confidence parameter alfa Conditional Drawdown-at-Risk (CDaR) deviation on multiple paths is defined as the mean of worst (1-<img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" height="12" />) * 100% drawdowns taken simultaneously over time and sample paths. This deviation measure is considered in active portfolio management. Negative drawdown curve is called the “underwater curve”. Maximal and average drawdowns are limiting cases of CDaR deviation (where <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" height="12" /> = 0 corresponds to the average drawdown and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" height="12" /> = 1 corresponds to maximum drawdown). The optimization problem maximizes annualized portfolio return subject to constraints on CDaR multiple deviation with various values of the confidence parameter (including limiting cases: average and maximum drawdown).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-drawdown-constraints-single-path-vs-multiple-paths/">Portfolio Optimization with Drawdown Constraints, Single Path vs Multiple Paths</a></td>
+<td>CDaR Deviation (Cdar_dev),CDaR Deviation Multiple (Cdarmulti_dev)</td>
+<td>Problem 1: Maximization of linear function (expected return) subject to constraint on Conditional Drawdown-at-Risk based on multiple simulated paths.
+Problem 2: Maximization of linear function (expected return) subject to constraint on Conditional Drawdown-at-Risk based on single long path obtained by concatenating the multiple paths from the previous problem.
+It is shown numerically that Problem 1 and Problem 2 provide similar solutions.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/structuring-step-up-cdo/">Structuring step up CDO</a></td>
+<td>Probability of Exceedance Multiple (Prmulti_pen), Probability of Exceedance Pr_pen), Partial Moment Penalty (Pm_pen), Linear Multiple (Linearmulti)</td>
+<td>Optimization approach for determining attachment points and instruments in step-up Collateralized Debt Obligation (CDO). It is based on time to default scenarios for obligors (instruments) generated by Standard &amp; Poor’s CDO Evaluator™.n6 problem formulations are considered with “Short” and “Long” datasets. “Short case studies” use Dataset1 with 10,000 scenarios for Problems 1-6. “Long case studies” use Dataset2 with 500,000 scenarios for Problems 1-5, and with 300,000 for Problem 6.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-exponential-logarithmic-and-linear-quadratic-utilities/">Portfolio Optimization with Exponential, Logarithmic, and Linear-Quadratic Utilities</a></td>
+<td>Exponential Utility (Exp_eut), Logarithmic Utility (Log_eut), Average Gain (Avg_g), Partial Moment Two Penalty (Pm2_pen)</td>
+<td>Portfolio optimization problems with Exponential, Logarithmic, and Linear-Quadratic utility functions.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-nonlinear-transaction-costs/">Portfolio Optimization with Nonlinear Transaction Costs</a></td>
+<td>Average Gain (Avg_g), Polynomial Absolute (Polynom_abs), CVaR (Cvar_risk)</td>
+<td>Portfolio optimization problem with the average gain objective function, CVaR constraint, and nonlinear transaction cost depending upon the total dollar value of the bought/sold assets. Case study presents two equivalent problem formulations. The first problem formulation uses nonlinear function polynomial_abs to account for nonlinear transactions costs involving both short and long positions. The second problem formulation, in case of linear transaction costs, doubles the number of variables and uses linear functions for accounting for transaction costs. The first formulation may be preferable for portfolios with large number of instruments or scenarios and when transaction costs nonlinearly depend upon investments.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-probabilistic-constraint-and-fixed-and-proportional-transaction-costs/">Portfolio Optimization with Probabilistic Constraint and Fixed and Proportional Transaction Costs </a></td>
+<td>Probability of Exceedance (Pr_pen), Cardinality Positive (Cardn_pos), Average Gain (Avg_g)</td>
+<td>Probabilistic portfolio optimization problem with the variance objective function, probability constraint, expected returns constraint and a budget constraint with proportional linear transaction cost and the fixed transaction cost.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-replication-with-risk-constraint/">Portfolio Replication with Risk Constraint</a></td>
+<td>Mean Absolute Error (Meanabs_err), CVaR (Cvar_risk)</td>
+<td>Optimization setting for a portfolio replication problem with the replication error measured by Mean Absolute Penalty. Underperformance of the portfolio compared to S&amp;P100 index is measures by CVaR. Distribution of residuals is shaped with a CVaR constraint (several constraints can be specified, if of interest). S&amp;P100 index is replicated with 30 stocks belonging to this index. Historical data on stock prices are used for building scenario matrices.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-portfolio-replication-with-cardinality-and-buyin-constraints/">Portfolio Replication with Cardinality and Buyin Constraints</a></td>
+<td>Mean Absolute Error (Meanabs_err), Maximum Risk (Max_risk) , Cardinality Positive (Cardn_pos), Buyin Positive (Buin_pos), Polynomial Absolute (Polynom_abs)</td>
+<td>Index tracking is a form of portfolio management that attempts to mirror the performance of a specific index and generate returns that are equal to those of the index, but without purchasing all of the stocks that make up the index. The problem: rebalance a portfolio in such way that number of assets in the new portfolio does not exceed a given number, positions for chosen assets are not small, sum of new portfolio value and transaction cost is equal to the current portfolio value, transaction costs may contain variable and fixed parts and are limited.
+The objective is to maximize absolute difference between tracking portfolio return and index return or the average of the absolute differences between tracking portfolio return and index return. Portfolio Safeguard (PSG) code used for solving the problem does not use Boolean variables. The functions cardn_pos and buyin_pos address discontinuous performance of the objective function. PSG functions polynom_abs, cardn_pos, and cardn_neg are used to calculate the transaction costs.).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/estimation-of-cvar-through-explanatory-factors-with-mixed-quantile-regression/">Estimation of CVaR through Explanatory Factors with Mixed Quantile Regression</a></td>
+<td>Rockafellar Error Function (ro_err), Partial Moment Penalty (Pm_pen), Koenker and Bassett error function (kb_err), Partial Moment Penalty for Gain (Pm_pen_g)</td>
+<td>Mixed Percentile Regression for the estimation of Conditional Value-at-Risk (CVaR) of return distribution of a mutual fund. The estimated coefficients represent the fund’s style with respect to some indices, and therefore the procedure is called “style classification.” We regresses CVaR of the return distribution of the Fidelity Magellan Fund on indices RUJ, RLV, RUO and RLG. CVaR with confidence level 0.9 is approximated by the weighted average of four Value-at-Risks (VaRs) with confidence levels 0.92, 0.94, 0.96, 0.98 .</td>
+</tr>
+<tr>
+<td><a href="/case-studies/on-implementation-of-cvar-regression/">Estimation of CVaR through Explanatory Factors with CVaR (Superquantile) Regression</a></td>
+<td>CVaR (Superquantile) Error Function (cvar2_err), CVaR (Superquantile) Deviation (cvar2_dev), Rockafellar Error Function (ro_err), CVaR Deviation (Cvar_dev), CVaR(Cvar_risk)</td>
+<td>Estimation of CVaR with CVaR (Superquantile) regression is done by minimizing CVaR (Superquantile) Error. Alternatively, CVaR regression is done in two steps: Step 1) Minimization of Deviation from CVaR (Superquantile) Quadrangle with the residual depending only upon loading factors; Step 2) Intercept = CVaR for the residual from Step1. Equivalently, CVaR regression is also done with Rockafellar Error and Mixed CVaR deviation from the Mixed-Quantile Quadrangle.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/portfolio-optimization-with-second-orders-stochastic-dominance-constraints/">Portfolio Optimization with Second-Order Stochastic Dominance Constraints</a></td>
+<td>Average Gain (Avg_g), Partial Moment Penalty (Pm_pen)</td>
+<td>This case study finds a portfolio with return dominating the benchmark portfolio return in the second order and having maximum expected return.
+Stochastic dominance, in contrast to Mean-Risk models considering only two characteristics, takes into account the entire distribution of a random variable. The second-order stochastic dominance is an important (from theoretical perspective) criterion in portfolio selection. Case study with several datasets.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/var-vs-probability-constraints/">VaR vs Probability Constraints</a></td>
+<td>Probability of Exceedance (Pr_pen), VaR (Var_risk)</td>
+<td>This case study demonstrates the equivalence of chance constraints and Value-at-Risk (VaR) constraints.
+<img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image002.gif" alt="" width="400" height="28" />, i.e., the constraint assuring that the probability that loss <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image004.gif" alt="" width="43" height="20" /> exceeding <em>w</em> is less or equal than 1-<img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" height="12" /> is equivalent to the constraint that VaR (percentile) with confidence level <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" height="12" /> is less or equal than <em>w</em>.
+We solved two portfolio optimization problems. In both cases we maximized the estimated return of a portfolio. In the first problem, we imposed a constraint on probability; in the second problem, we impose an equivalent constraint on VaR. For the two problems we obtained at optimality the same objective values and similar optimal portfolios.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-calibrating-risk-preferences/">Calibrating Risk Preferences</a></td>
+<td>Mean Absolute Penalty (Meanabs_pen)</td>
+<td>This case study extracts risk preferences of investors by solving a linear regression model with linear constraints on coefficients. “Risk preferences” are expressed by a risk functional (a deviation measure), which is used by an investor for measuring risk and solving portfolio optimization problems. Contrary to the classical Markowitz portfolio theory, where investors measure risk by standard deviation, this case study assumes that the unknown deviation measure belongs to a class of Mixed CVaR Deviations. In particular, we consider the case when the Mixed CVaR Deviation is a weighted average of the following five CvaR Deviation terms with confidence levels 50%, 75%, 85%, 95%, and 99%.
+The Mixed CVaR Deviation has five weighting parameters (lambdas), which are nonnegative and sum up to 1. These lambda coefficients are estimated by matching the market option prices with prices expressed via generalized CAPM pricing relations. Matching is done by minimizing a L1 (the error term is sum of absolute values of the differences between market and calculated prices).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/cs_calibration_copula/">Convex-Concave-Concave Distributions in Application to CDO Pricing</a></td>
+<td>Meansquare Error (Meansquare), Variance (Variance), Relative Entropy (Entropyr)</td>
+<td>Estimation of default distribution of a basket of credit default swaps using prices of CDO tranches. We calibrated probabilities with two approached in the so called “implied copula” model proposed by Hull and White (2006). The theory and the case study presented here is described in paper Veremyev, Tsyurmasto, Uryasev, Rockafellar (2012).</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-sample-path-based-optimal-position-liquidation-with-cvar-constraints/"> Optimal Position Liquidation </a></td>
+<td>Average Gain (Avg_g), Maximum Risk (Max_risk), CVaR (cvar_risk), Average of Maximum Risk for Gain (Avg_max_risk_g)</td>
+<td>Optimal position liquidation problem maximizes expected payoff in frictionless market.
+Problem 1: Optimal liquidation with no risk constraint;
+Problem 2: Modified Problem 1 with only group variables;
+Problem 3: Optimal liquidation with CVaR risk constraint.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-portfolio-optimization-with-mixed-cvar-profile/"> Portfolio Optimization with Mixed CVaR and Mixed VaR Profiles </a></td>
+<td>Average Gain (Avg_g), Maximum Risk (Max_risk), VaR (Var_risk), CVaR (Cvar_risk)</td>
+<td>A portfolio optimization problem solved by an insurance company. Two setups of the problem are considered. In the both setups the objective function is the average expected return of the portfolio. There are two groups of constraints: a) constraint on the mixed CVaR (in the first setup) or VaR (in the second setup) for the overall portfolio; b) constraints on individual risks (including contributions from various contracts). Constraints on individual risks are formulated with CVaR (in the first setup), VaR (in the second setup), and Maximum Risk (in both setups) over scenarios.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-cocdar-approach-systemic-risk-contribution-measurement/">CoCDaR and mCoCDaR Approaches: Risk Contribution Measurement</a></td>
+<td>CVaR (Superquantile) Error Function (cvar2_err), Koenker and Bassett error function (kb_err)</td>
+<td>This Case Study considers the new systemic risk measure, Conditional Drawdown-at-Risk of the financial system conditional on institution being under distress as measured by their drawdown levels, which is called CoCDaR, and its multiple regression version mCoCDaR. To estimate CoCDaR and mCoCDaR we used quantile regression method that is reduced to one of two optimization problems: Problem 1. Minimization of CVaR Superquantile error or Problem 2. Minimization of Koenker and Basset error.  CoCDaR and mCoCDaR was calculated for 10 largest publicly traded banks in the United States.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-style-classification-with-mcocdar-regression/">Style Classification with mCoCDaR Regression</a></td>
+<td>CVaR (Superquantile) Error Function (cvar2_err), Koenker and Bassett error function (kb_err)</td>
+<td>This case study applies CVaR regression to the drawdown-based style classification of a mutual fund. The procedure regresses fund cumulative drawdowns by four indices’ cumulative drawdowns as explanatory variables. The estimated coefficients represent the fund’s style with respect to each of the indices. In our case study we perform a CVaR regressesion of the drawdowns of the Fidelity Magellan Fund on drawdowns of the Russell Value Index (RUJ), RUSSELL 1000 VALUE INDEX (RLV), Russell 2000 Growth Index (RUO) and Russell 1000 Growth Index (RLG). The style classification results are compared to previous case studies using quantile regression and CVaR regression on returns of the fund and the indices.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/pricing-european-cryptocurrency-options-using-numerical-replication/">Pricing European Cryptocurrency Options using Numerical Replication</a></td>
+<td>Mean Square Error (meansquare_err)</td>
+<td>This case study considers a regression approach to pricing European options in an incomplete market. The algorithm replicates an option by a portfolio consisting of the underlying security and a risk-free bond. We apply linear regression framework and quadratic programming with linear constraints (input = sample paths of underlying security; output = table of option prices as a function of time and price of the underlying security). We populate the model with historical prices of the underlying security (possibly massaged to the present volatility) or with Monte Carlo simulated prices. Risk neutral processes or probabilities are not needed in this framework.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-hedging-portfolio-of-options-with-expectile-xvar/">Hedging Portfolio of Options with Expectile (XVaR)</a></td>
+<td>Expectile (xvar), Linear (linear)</td>
+<td>This case hedges a portfolio of options by a portfolio of stocks and options.   The quality of hedging  is described by Expectile (XVaR) risk function. Expectile is minimized subject to  a budget constraint.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-expectile-xvar-estimation-by-three-variants-of-regression/">Expectile (XVaR) Estimation: Three Variants of Regression</a></td>
+<td>Variable (optimization variable), Expectile (xvar), Expectile Deviation (xvar_dev), Partial Moment (pm_pen), Average Loss (avg), Partial Moment Two (pm2_pen), Polynomial Absolute (polynom_abs)</td>
+<td>This case study estimates Expectile (XVaR) with peace-wise linear and quadratic Errors. Also, expectile regression is done in two steps:
+Step 1. Minimization of Expectile Deviation with the residual depending only upon loading factors.
+Step 2. Calculate intercept = Expectile for the residual from Step1.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

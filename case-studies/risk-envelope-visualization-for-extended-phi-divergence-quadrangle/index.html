@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Subroutines and PSG R.   PROBLEM 1: Markowitz_portfolio_optimizationmi">
+    <title>Case Study: Risk Identifier Visualization for Extended ϕ-divergence Quadrangle — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Risk Identifier Visualization for Extended ϕ-divergence Quadrangle</h1>
+
+<p>Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf">PSG Run-File</a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf">PSG MATLAB Toolbox</a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf">PSG MATLAB Subroutines</a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf">PSG R</a>.</p>
+
+<p><strong> PROBLEM 1: Markowitz_portfolio_optimization</strong><br>minimize<br>     10*st_dev(matrix_scenario)<br>     linear(matrix_loss)<br>   Constraint: =1<br>    linear(matrix_budget_constraint)<br>   Solver: BULDOZER, precision = 9, timelimit = 120</p>
+
+<table class="wp-block-table"><tbody><tr><td><strong># of Variables</strong></td><td><strong>Objective Value</strong></td><td><strong>Solving Time, </strong><br><strong>PC 2GHz (sec)</strong></td><td><strong>Code</strong></td><td><strong>Data</strong></td><td><strong>Solution</strong></td></tr><tr><th>2</th><th>8.45331523703E+00</th><th>0.01</th><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/problem_design_1.txt">R code</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_markowitz_portfolio_samples.RData_.zip">Data</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_Markowitz_portfolio_optimization_solution.RData_.zip">Solution</a></td></tr></tbody></table>
+
+<p><strong> PROBLEM 2: Least_squares_regression</strong><br>minimize<br>     meansquare(matrix_scenario)</p>
+
+<table class="wp-block-table"><tbody><tr><td><strong># of Variables</strong></td><td><strong>Objective Value</strong></td><td><strong>Solving Time, </strong><br><strong>PC 2GHz (sec)</strong></td><td><strong>Code</strong></td><td><strong>Data</strong></td><td><strong>Solution</strong></td></tr><tr><th>2</th><th>7.672769701513E-01</th><th>0.01</th><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_least_squares_regression.R.zip">R code</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_least_squares_samples.RData_.zip">Data</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_least_squares_regression_solution.RData_.zip">Solution</a></td></tr></tbody></table>
+
+<p><strong> PROBLEM 3: Large_margin_distribution_machine</strong><br>minimize<br>     0.1*st_dev(matrix_scenario)<br>     avg(matrix_scenario)<br>     polynom_abs(matrix_objcoef)<br>   Solver: VAN, precision = 9, timelimit = 120</p>
+
+<table class="wp-block-table"><tbody><tr><td><strong># of Variables</strong></td><td><strong>Objective Value</strong></td><td><strong>Solving Time, </strong><br><strong>PC 2GHz (sec)</strong></td><td><strong>Code</strong></td><td><strong>Data</strong></td><td><strong>Solution</strong></td></tr><tr><th>3</th><th>-1.672933481718E-02</th><th>0.01</th><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_large_margin_distribution_machine.R.zip">R code</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_large_margin_distribution_machine_samples.RData_.zip">Data</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2024/03/phi_quad_large_margin_distribution_machine_solution.RData_.zip">Solution</a></td></tr></tbody></table>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Mortgage Pipeline Hedging — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Mortgage Pipeline Hedging</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/CS_Mortgage_Pipeline_Hedging_StDev_MeanAbs_CVaR_VaR_052019a_new.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<strong>
+PROBLEM 1: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Standard Deviation minimization</strong>
+10-fold crossvalidationnMinimize St_dev (minimizing Standard Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.896692</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_risk.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_risk_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>PROBLEM 1a: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Standard Deviation minimization</strong>
+10-fold crossvalidationnMinimize St_dev (minimizing Standard Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">1.5632522</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_risk_A.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_A_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_A_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_st_dev_risk_A_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a>Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_st_dev_risk_A_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 2: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Mean Absolute Deviation minimization</strong>
+10-fold crossvalidationnMinimize Meanabs_dev (minimizing Mean Absolute Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.362483</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_meanabs_dev_risk.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_meanabs_dev_risk_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 2a: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Mean Absolute Deviation minimization</strong>
+10-fold crossvalidationnMinimize Meanabs_dev (minimizing Mean Absolute Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.5664454</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_meanabs_dev_risk_A.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_A_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_A_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_meanabs_dev_risk_A_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_A_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_meanabs_dev_risk_A_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>PROBLEM 3: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for CVaR Deviation minimization</strong>
+10-fold crossvalidationnMinimize Cvar_dev (minimizing 90%-CvaR deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.4125034</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_dev_risk.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_dev_risk_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_subroutine_example.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM 3a: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for CVaR Deviation minimization</strong>
+10-fold crossvalidationnMinimize Cvar_dev (minimizing 90%-CvaR deviation)nnsubject tonAvg = 0 (constraint on the expected losses)
+
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">1.563781</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_dev_risk_A.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_A_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_A_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_dev_risk_A_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_A_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_cvar_dev_risk_A_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM 4: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Two-Tailed VaR75 minimization</strong>
+10-fold crossvalidationnMinimize Var_risk + Var_risk_g (minimizing Two-Tail 75% - VaR Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.023143</th>
+<th style="width: 220px; height: 19px;">0.13</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar75.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar75_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 4a: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Two-Tailed VaR75 minimization</strong>
+10-fold crossvalidationnMinimize Var_risk + Var_risk_g (minimizing Two-Tail 75% - VaR Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.0305308</th>
+<th style="width: 220px; height: 19px;">0.21</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar75_A.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar75_A_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar75_A_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>PROBLEM 4b: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Two-Tailed VaR90 minimization</strong>
+10-fold crossvalidationnMinimize Var_risk + Var_risk_g (minimizing Two-Tail 90% - VaR Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.200252</th>
+<th style="width: 220px; height: 19px;">0.09</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar90.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar90_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 4c: 10-fold Cross-validation (10 in-sample data and 10 out-of-sample data) for Two-Tailed VaR90 minimization</strong>
+10-fold crossvalidationnMinimize Var_risk + Var_risk_g (minimizing Two-Tail 90% - VaR Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3</th>
+<th style="width: 101px; height: 19px;">900</th>
+<th style="width: 113px; height: 19px;">0.279519</th>
+<th style="width: 220px; height: 19px;">0.14</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar90_A.txt">Cycle Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_A_Run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_A_Run_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_A_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_twotailedvar90_A_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_A_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/problem_twotailedvar90_A_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM 5: Two-Tailed VaR75 minimization</strong>
+Minimize Var_risk + Var_risk_g (minimizing Two-Tail 75% - VaR Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+Datasets in Run-File Environment.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50 GHz (sec)</th>
+</tr>
+<tr>
+<td>Heuristic</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Van075.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_Van075.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_Van075.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.0247128</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>MILP1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_360_075.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_360_075.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_360_075.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.154766</td>
+<td>360</td>
+</tr>
+<tr>
+<td>MILP2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3600_075.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_3600_075.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_3600_075.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.210730</td>
+<td>3600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 5a: Two-Tailed VaR75 minimization</strong>
+Minimize Var_risk + Var_risk_g (minimizing Two-Tail 75% - VaR Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+Datasets in Run-File Environment.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50 GHz (sec)</th>
+</tr>
+<tr>
+<td>Heuristic</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Van075_avg.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_Van075_avg.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_Van075_avg.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.041439</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>MILP1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_360_avg075.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_360_avg075.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_360_avg075.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.108584</td>
+<td>360</td>
+</tr>
+<tr>
+<td>MILP2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3600_AVG075.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_3600_AVG.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_3600_AVG.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.121993</td>
+<td>3600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM 5b: Two-Tailed VaR90 minimization</strong>
+Minimize Var_risk + Var_risk_g (minimizing Two-Tail 90% - VaR Deviation)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+Datasets in Run-File Environment.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50 GHz (sec)</th>
+</tr>
+<tr>
+<td>Heuristic</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Van090.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_Van_090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_Van090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.257440</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>MILP1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_360_090.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_360_090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_360_090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.594059</td>
+<td>360</td>
+</tr>
+<tr>
+<td>MILP2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3600_090.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_3600_090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_3600_090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.334520</td>
+<td>3600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>
+PROBLEM 5c: Two-Tailed VaR90 minimization</strong>
+Minimize Var_risk + Var_risk_g (minimizing Two-Tail 90% - VaR Deviation)nsubject tonAvg = 0 (constraint on the expected losses)
+Value:
+L_num(matrix_fact_out)
+L_num(matrix_fact_in)
+Cvar_dev(0.9, matrix_fact_in)
+Meanabs_dev(matrix_fact_in)
+St_dev(matrix_fact_in)
+Var_risk(0.75, matrix_fact_in)
+Var_risk_g(0.75, matrix_fact_in)
+Var_risk(0.9, matrix_fact_in)
+Var_risk_g(0.9, matrix_fact_in)
+——————————————————————–
+crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnCvar_dev = CVaR Deviation for LossnMeanabs_dev = Mean Absolute DeviationnSt_dev = Standard DeviationnVar_risk = VaR Risk for LossnVar_risk_g = VaR Risk for Gain
+——————————————————————–
+Datasets in Run-File Environment.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50 GHz (sec)</th>
+</tr>
+<tr>
+<td>Heuristic</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Van_avg090.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_Van_avg090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_Van_avg090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.377803</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>MILP1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_360_avg090.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_360_avg090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_360_avg090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.466112</td>
+<td>360</td>
+</tr>
+<tr>
+<td>MILP2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/data_problem_3600_AVG_090.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/05/solution_problem_3600_AVG090.zip">Solution</a></td>
+<td>3</td>
+<td>1000</td>
+<td>0.636026</td>
+<td>3600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>CASE STUDY SUMMARY</strong>
+
+This case study investigates the optimal pipeline hedging strategy with five different deviation measures: Standard Deviation, Mean Absolute Deviation, CVaR Deviation, two-tailed VaR75, and two-tailed VaR90. We test in-sample and out-of-sample performance of these five deviation measures.
+Mortgage lenders usually originate mortgages by selling them in the secondary market. Alternatively, the funding can be obtained by mortgage lenders through securitizing the mortgages in exchange for mortgage backed securities (MBS) and then selling MBS to investors in the secondary market. This case study considers hedging the risk- in the mortgage underwriting process known as “pipeline”. Mortgage lenders commit to a mortgage interest rate while the loan is in process, typically for a period of 30-60 days. If the rate rises before the loan goes to closing, the value of the loan declines and the lender sells the loan at a lower price. The risk that mortgages in process will fall in value prior to their sale is known as mortgage pipeline risk. Lenders often hedge this exposure by selling forward their expected closing volume or by shorting U.S. Treasury notes, or futures contracts. Fallout refers to the percentage of loan commitments that do not go to closing. The mortgage pipeline risk is affected by fallout. As interest rates fall, the fallout rises because borrowers locked in a mortgage rate are more likely to find better rates with another lender. Conversely, as rates rise the percentage of loans that close increases. The fallout affects the required size of the hedging instrument because it affects the size of the pipeline position to be hedged. At lower rates, fewer rate loans will close and a smaller position in the hedging instrument is needed. Lenders often use options on U.S. Treasury note futures to hedge against the fallout risk (Cusatis and Thomas, 2005).
+
+This case study uses three hedging instruments for hedging the pipeline risk: 5% MBS forward, 5.5% MBS forward, and call options on 10-year Treasury note futures. We ignore transaction costs and allow short sales. To investigate the impact of different risk measurement practices on the optimal hedging strategies, we consider five deviation measures: standard deviation, mean absolute deviation, CVaR deviation, two-tailed VaR75, and two-tailed VaR90 as the objective function in the minimum risk hedging model. For the out-of-sample testing, we partition the 1,000 scenarios into 10 groups with 100 scenarios in each group. Each time we select one group for the out-of-sample test and we calculate optimal hedging positions based on the remaining 9 groups containing 900 scenarios. For each group of 100 scenarios we calculate the ex-ante losses (i.e., underperformances of hedging portfolio versus target) with the optimal hedging positions obtained from 900 scenarios. To estimate the out-of-sample performance, we aggregate the out-of-sample losses from the 10 runs to obtain a combined set including 1,000 out-of-sample losses. Then, we calculated five deviation measures on the out-of-sample 1,000 losses: Standard Deviation, Mean Absolute Deviation, CVaR Deviation, Two-Tail 75%-VaR Deviation, and Two-Tail 90%-VaR Deviation. In addition, we calculated three downside risk measures: 90%-CVaR, 90%-VaR, and Max Loss on the out-of-sample losses. By minimizing the Two-Tail 90%-VaR Deviation, we obtained the best values for all three considered downside risk measures. Minimization of CVaR deviation leads to good results, whereas minimization of standard deviation gives the worst level for three downside risk measures.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>References </strong>
+• Cusatis, P.J. and M.R. Thomas (2005): Hedging Instruments and Risk Management, McGraw-Hill.n• Taglia, P. (2003): Risk Management Case Study: How Mortgage Lenders Use Futures to Hedge Pipeline Risk. Futures Industry Magazine, September/October.n• Lederman, J. (1997): Handbook of Secondary Marketing, Mortgage Bankers Association of America.n• Hakim, S., Rashidian, M., and E. Rosenblatt (1999): Measuring the Fallout Risk in the Mortgage Pipeline. The Journal of Fixed Income, 9, 62–75.</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

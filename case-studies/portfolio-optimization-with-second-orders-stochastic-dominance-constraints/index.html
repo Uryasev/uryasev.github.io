@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Portfolio Optimization with Second-Order Stochastic Dominance Constraints — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Optimization with Second-Order Stochastic Dominance Constraints</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/CS_SSD_Portfolio_Optimization.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>PROBLEM 1: problem_ssd (with MultiConstraint)</strong>
+Maximize Avg_g (maximizing portfolio mean return)nsubject tonLinear = 1 (budget constraint)
+Pm_pen (Vector_of_thresholds) ≤ Vector_of_Constants (Second Order Stochastic Dominance (SSD))
+Box constraints (bounds on decision variables)
+——————————————————————–
+Avg_g = Average GainnPm_pen = Partial Moment Penalty for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/Prepare_SSD_CaseStudy.zip"><span style="font-family: Calibri; font-size: medium;">MATLAB code preparing Dataset 1</span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">26</th>
+<th style="width: 101px; height: 19px;">3046</th>
+<th style="width: 113px; height: 19px;">0.000657006</th>
+<th style="width: 220px; height: 19px;">0.08</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ssd_DAX.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/data_problem_ssdDAX1.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/solution_problem_ssdDAX1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/problem_ssdDAX_3000_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/Optimization_subroutine3000_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/Optimization_subroutine3000_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/09/problem_ssd_DAX.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.4GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ssd_DJI.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/data_problem_ssd_DJI1.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/solution_problem_ssdDJI1.zip">Solution</a></td>
+<td>29</td>
+<td>3020</td>
+<td>0.000334689</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_SP100_3000.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/data_problem_SP100_3000.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/solution_problem_SP100_3000.zip">Solution</a></td>
+<td>90</td>
+<td>3020</td>
+<td>0.000865278</td>
+<td>0.21</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 2: problem_ssd (with MultiConstraint)</strong>
+Maximize Avg_g (maximizing portfolio mean return)nsubject tonLinear = 1 (budget constraint)
+Pm_pen (Vector_of_thresholds) ≤ Vector_of_Constants (Second Order Stochastic Dominance (SSD))
+Box constraints (bounds on decision variables)
+——————————————————————–
+Avg_g = Average GainnPm_pen = Partial Moment Penalty for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">76</th>
+<th style="width: 101px; height: 19px;">30,000</th>
+<th style="width: 113px; height: 19px;">0.018652555968</th>
+<th style="width: 220px; height: 19px;">1.41</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ssd_30000Mult.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/data_problem_ssd_30000_Mult.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/solution_problem_ssd_30000_Mult.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_DJI_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_DJI_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_DJI_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/09/problem_ssd_30000_Mult.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+NOTE:</strong> Problem 2 is a simplified variant (with MultiConstraint ) of the original Problem 3 (with many individual constraints) presented below.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM 3: problem_ssd (with a list of constraints)</strong>
+Maximize Avg_g (maximizing portfolio mean return)nsubject tonLinear = 1 (budget constraint)
+Pm_pen ≤ Constj, j =1,...,JnBox constraints (bounds on decision variables)
+——————————————————————–
+Avg_g = Average GainnPm_pen = Partial Moment Penalty for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">76</th>
+<th style="width: 101px; height: 19px;">30,000</th>
+<th style="width: 113px; height: 19px;">0.018652555968</th>
+<th style="width: 220px; height: 19px;">1.40</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/02/problem_ssd30000.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/data_problem_ssd_30000.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/solution_problem_ssd_30000.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_SP100_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_SP100_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ssd_SP100_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/09/problem_ssd_30000.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+CASE STUDY SUMMARYn</strong>
+This case study finds a maximum expected return portfolio dominating the benchmark in the Second Order. Mean-Risk models (standardly used in portfolio optimization) are convenient from the computational point of view and have an intuitive appeal. However, these models use only two statistics to characterize the distribution (and ignore other important information about the distribution). Stochastic dominance, in contrast, takes into account the entire distribution of a random variable. The second-order stochastic dominance is an important criterion in portfolio selection. This case study does optimization with several datasets from Fidan Keçeci et al. and Fabian et al.
+
+SSD constraints may contain many redundant nonlinear constraints. PSG MultiConstraint option does automatic preprocessing and removes redundant constraints.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>References</strong>
+• Fabian, C.I., Mitra, G, Roman, D., and V. Zverovich (2011): An enhanced model for portfolio choice with SSD criteria: a constructive approach. Quantitative Finance, 11(10), 1525-1534.n• Rudolf, G., and A. Ruszczynski (2008): Optimization problems with second order stochastic dominance constraints: duality, compact formulations, and cut generation methods, SIAM J. OPTIM, Vol. 19, No. 3, pp. 1326–1343.n• Roman, D., Darby-Dowman, K., and G. Mitra (2006): Portfolio construction based on stochastic dominance and target return distributions, Mathematical Programming, Series B, Vol. 108, pp. 541-569.n• Ogryczak,W., and A. Ruszczynski (1999): From stochastic dominance to mean–risk models: Semideviations as risk measures. European Journal of Operational Research, Vol. 116, pp. 33–50.n• Fidan Keçeci, N., Kuzmenko, V., and S. Uryasev (2015): Portfolios Dominating Indices: Optimization with Second-Order Stochastic Dominance Constraints. Journal of Risk and Financial Management (to appear).</div>
+</div>
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

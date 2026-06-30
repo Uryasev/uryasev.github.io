@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations: - problem statements with original notations coming from a bank - lecture describin">
+    <title>Case Study: Optimal Hedging of CDO Book — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Optimal Hedging of CDO Book</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> Case study background and problem formulations:</strong>
+- <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/CS_Optimal_Hedging_of_CDO_book_0322_2019.pdf"><strong>problem statements with original notations coming from a bank</strong></a>
+- <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Statistical-point-of-view-PROBLEM-1.pdf"><strong>lecture describing of methodology</strong></a>
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM 1: problem_cdohedge_1</strong>
+<strong>(formulation with cardinality function and continues variables)</strong>
+Minimize Meanabs_err (minimize hedging risk)nsubject tonPolynom_abs ≤ Const (budget constraint)
+Cardn ≤ Const1 (constraint on cardinality)
+Box constraints (upper bounds on positions)
+——————————————————————–
+Meanabs_err = Mean Absolute ErrornPolynom_abs = Polynomial AbsolutenCardn = CardinalitynBox constraints = constraints on individual decision variables
+——————————————————————–
+Problem statement with LINEARIZE=1 option for cardinality function and Car solvern<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset 1</th>
+<th style="width: 97px; height: 19px;">1004</th>
+<th style="width: 101px; height: 19px;">50</th>
+<th style="width: 113px; height: 19px;">1.753722317517E-06</th>
+<th style="width: 220px; height: 19px;">0.86</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Problem_cdohedge_2.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_problem_cdohedge_2_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Solution_problem_cdohedge_2_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_1_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cdohedge_1_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_1_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_1_R_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/cdohedge_2_short.txt">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_problem_cdohedge_2_short.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problem statement with MIP=1 option for cardinality function and Cargrb (Gurobi) solvern<table style="height: 88px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset 2</th>
+<th style="width: 97px; height: 19px;">1004</th>
+<th style="width: 101px; height: 19px;">50</th>
+<th style="width: 113px; height: 19px;">1.579406671226E-08</th>
+<th style="width: 220px; height: 19px;">31.67</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Problem_cdohedge_2_mip.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_mip_data_problem_cdohedge_2_mip.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Solution_mip_data_problem_cdohedge_2_mip.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM 2: problem_cdohedge_2</strong>
+<strong>(MIP formulation with Boolean variables)</strong>
+Miminize Meanabs_err (minimize hedging risk)nsubject tonPolynom_abs ≤ Const (budget constraint)
+Linear ≤ Const1 (constraint on cardinality)
+Linearmulti ≤ 0 (bounds of continue variables depend on Boolean variables)
+Types of variables (defines Real and Boolean variables)
+——————————————————————–
+Meanabs_err = Mean Absolute ErrornPolynom_abs = Polynomial AbsolutenLinear = LinearnLinearmulti = System of linear constraints
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">4120</th>
+<th style="width: 101px; height: 19px;">50</th>
+<th style="width: 113px; height: 19px;">3.376044332981E-09</th>
+<th style="width: 220px; height: 19px;">5.15</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Problem_cdohedge_3_MIP.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_problem_cdohedge_3_MIP.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Solution_problem_cdohedge_3_MIP.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_2_MIP_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cdohedge_2_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_2_MIP_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/04/problem_cdohedge_2_MIP_R_Data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/cdohedge3_MIP.txt">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_problem_cdohedge_3_MIP.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data (MPS file) and solution in Gurobin<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/02/data_problem_cdohedge_3_MPS.zip">MPS Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/02/solution_problem_cdohedge_3_MPS.zip">Solution</a></td>
+<td>4120</td>
+<td>50</td>
+<td>0.000000054</td>
+<td>35.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>CASE STUDY SUMMARYn</strong>
+This case study demonstrates an optimization setup for a hedging problem. The first link in the beginning of the page <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/02/Original_notations_coming_from_bank.pdf">“<strong>problem statements with original notations coming from a bank</strong>“</a> contains mathematical formulations of hedging problems with notations coming from a bank. The second link <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/01/Statistical-point-of-view-PROBLEM-1.pdf">”<strong>lecture describing of methodology</strong>“</a> contains a general description of linear regression problem with constraints. This lecture shows how to reduce regression problem with Cardinality constraint to a Mixed Integer Program (MIP).n- Optimization Problem 1 minimizes Mean Absolute Error of losses subject to budget constraint and cardinality constraint (defined with PSG cardinality function). Problem 1 has two problem statements - one with option “linearize=1” and other with ‘mip=1” for constraint on cardinality. These options provide different approaches for working with cardinality function.n- Optimization Problem 2 minimizes Mean Absolute Error of losses subject to budget and cardinality constraints. Compared to Problem 1, the cardinality constraint is defined with a linear function on boolean variables. We provide also MPS file, which can be solved by a standard MIP solver, such as GUROBI.
+The objective is to build a portfolio of Credit Default Swaps (CDS) and Credit Indices that hedge against changes in a CDO (Collateralized Debt Obligation) book. CDSs are the most popular credit derivatives; they provide insurance against the risk of default (credit event) of a particular company. A buyer of the insurance has the right to sell bonds issued by the company for their face value when a credit event occurs to the seller of the insurance. The buyer of the CDS makes periodic payments to the seller until the end of the life of the CDS or until a credit event occurs. The total amount paid per year, as a percent of the notional principal, to buy protection is known as the CDS spread. Credit Indices are indices that track CDS spreads. CDO is a credit derivative based on defaults of a pool of assets. CDO makes available credit risk exposure to a broad set of investors. A common structure of CDO involves tranching or slicing the credit risk of the reference pool into different risk levels. The risk of loss on the reference portfolio is divided into tranches of increasing seniority. The losses first affect the equity (first loss) tranche, then the mezzanine tranche, and finally the senior and super senior tranches.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>References</strong>
+• Hull, J., Risk Management and Financial Institutions. Prentice Hall, 2006.
+
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

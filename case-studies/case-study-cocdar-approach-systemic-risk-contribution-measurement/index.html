@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations  Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: CoCDaR-Approach Systemic Risk Contribution Measurement — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: CoCDaR-Approach Systemic Risk Contribution Measurement</h1>
+
+<p><a href="/research/testproblems/">Back to main page</a></p>
+<p><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/Case_Study_CoCDaR.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<p>Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a></p>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>PROBLEM 1: problem_cocdar </strong><br>Minimize cvar2_err (Minimizing CVaR (Superquantile) error of index drawdowns against individual institution drawdowns)<br>——————————————————————–<br>cvar2_err = CVaR (Superquantile) error)<br>———————————————————————————<br>Run-File and Matlab Toolbox files contain problem formulation and data for minimization problems of ten banks (estimation of CVaR with linear regression by minimizing CVaR2 error). The displayed result is for one particular problem. &nbsp;</p>
+
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 159px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 159px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">8</th>
+<th style="width: 101px; height: 19px;">754</th>
+<th style="width: 113px; height: 19px;">12.0112796</th>
+<th style="width: 113px; height: 19px;">0.852736</th>
+<th style="width: 170px; height: 19px;">0.37</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_statement_CoCDaR_0.9.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_CoCDaR_0.9_data.zip">Data</a></td>
+<td style="width: 113px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_CoCDaR_0.9_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_CoCDaR_0.9_mat.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;" colspan="2">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br>PROBLEM 2: problem_mcocdar</strong><br>Minimize cvar2_err (Minimizing CVaR (Superquantile) error of index drawdowns against all institutions' drawdowns)<br>———————————————————————————<br>cvar2_err = CVaR (Superquantile) error)<br>———————————————————————————<br>Run-File and Matlab Toolbox files contain problem formulation and data for one minimization problem (estimation of CDaR with linear regression by minimizing CVaR2 error).&nbsp;</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">17</th>
+<th style="width: 101px; height: 19px;">754</th>
+<th style="width: 113px; height: 19px;">8.27802707865 </th>
+<th style="width: 113px; height: 19px;">0.89851</th>
+<th style="width: 220px; height: 19px;">0.69</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_statement_mCoCDaR_0.9.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_mCoCDaR_0.9_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_mCoCDaR_0.9_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_mCoCDaR_0.9_mat.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br>PROBLEM 3: problem_dar</strong><br>Minimize KB_err<br>———————————————————————————<br>KB_err = Koenker and Basset error function<br>———————————————————————————<br>Run-File and Matlab Toolbox files contain problem formulation and data for minimization problems of the ten banks at two different risk levels(estimation of Drawdown-at-Risk with linear regression by minimizing Koenker and Basset error, KB_err). The displayed result is for one particular problem. &nbsp;</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">7</th>
+<th style="width: 101px; height: 19px;">754</th>
+<th style="width: 113px; height: 19px;">2.08470351023</th>
+<th style="width: 220px; height: 19px;">0.25</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_dar_statement.zip">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_dar_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_dar_solution.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_dar_mat.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>CASE STUDY SUMMARY<br></strong><br>This Case Study considers the new systemic risk measure, Conditional Drawdown-at-Risk of the financial system conditional on institution being under distress as measured by their drawdown levels, which is called CoCDaR. The CoCDaR is estimated with CVaR linear regression (Problem 1. Minimization of CVaR (Superquantile) error against individual institution drawdowns). A multiple regression version (Problem 2. Minimization of CVaR (Superquantile) error against all institutions' drawdowns) is also provided as an alternative method. Institution is considered to be in distress if its drawdown is at VaR level, which we termed as Drawdown-at-Risk(DaR). DaR is estimated with quantile regression by minimizing Koenker and Basset error (Problem 3) for each institution. CoCDaR and mCoCDaR was calculated for 10 largest publicly traded banks in the United States.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>References</strong><br>• Ding R., and S. Uryasev (2020): CoCDaR and mCoCDaR: New Approaches for Systemic Risk Contribution Measure and Fund Style Classification. Working Paper. <br>• Huang, W., Pavlikov, K. and S. Uryasev (2016): Systemic Risk Contribution Measurement: CoCVaR Approach. The Journal of Risk (2017), 20(4), 75-93<br>• Rockafellar,R. T. , Royset, J. O., and S. I. Miranda (2014): Superquantile Regression with Applications to Buffered Reliability, Uncertainty Quantification and Conditional Value-at- Risk. European J. Operations Research 234 (2014), 140-154.<br>• Zabarankin, M., Pavlikov, K. and S. Uryasev. Capital asset pricing model (CAPM)with drawdown Measure. European Journal of Operational Research(2014), 234(2), 508–517<br>• Adrian, T., and Brunnermeier, M. (2008). CoVaR. Federal Reserve Bank of New York Staff Report, 348.<br>• Borri, N., Caccavaio, M., Giorgio, G. D., and Sorrentino, A. M. (2014). Systemic risk in the Italian banking industry. Economic Notes, 1, 21-38.<br>• Girardi, G., and Ergun, A. T. (2013). Systemic risk measurement: multivariate GARCH estimation of CoVaR. Journal of Banking and Finance, 8, 3169-3180.<br>• Reboredo, J. C., and Ugolini, A. (2015). Systemic risk in European sovereign debt markets: A CoVaR-copula approach. Journal of International Money and Finance, 51, 214-244.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

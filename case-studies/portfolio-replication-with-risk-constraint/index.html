@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Portfolio Replication with Risk Constraint — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Replication with Risk Constraint</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/CS_Portfolio_Replication_Meanabs_Err_CVaR.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_CS_Portfolio_Replication_CVaR_0p001.txt</strong>
+Minimize Meanabs_err (minimizing replication error)nsubject tonCvar_risk ≤ Const1 (CVaR constraint on the underperformance of the portfolio compared to the index)
+Lenear = Const2 (budget constraint)
+Box constraints (no-short constraints on exposures)
+——————————————————————–
+Meanabs_pen = Mean Absolute ErrornCvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">30</th>
+<th style="width: 101px; height: 19px;">600</th>
+<th style="width: 113px; height: 19px;">0.01743</th>
+<th style="width: 220px; height: 19px;">0.06</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8">&nbsp;<strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_portfolio_replication_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/data_problem_portfolio_replication_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/solution_problem_portfolio_replication_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_portfolio_replication_short_tool_param.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_portfolio_replication_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_portfolio_replication_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_portfolio_replication_in_R.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/Data_problem_portfolio_replication_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R rpsg_solver</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/R_portfolio_replication_data_problemlist.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+The case study demonstrates optimization setting for a portfolio replication problem with the replication error measured by Mean Absolute Penalty. Underperformance of the portfolio compared to S&amp;P100 index is measures by CVaR. Distribution of residuals is shaped with a CVaR constraint (several constraints can be specified, if of interest). We replicated S&amp;P100 index using 30 stocks belonging to this index (tickers: GD, UIS, NSM, ORCL, CSCO, HET, BS, TXN, HM, INTC, RAL, NT, MER, KM, BHI, GEN, HAL, BDK, HWP, LTD, BAC, AVP, AXP, AA, BA, AGC, BAX, AIG, AN, AEP). Historical data on stock prices are used for building scenario matrices.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">This case study was considered in Rockafellar and Uryasev (2002). For other references on portfolio replication, see, for instance, Andrews et al. (1986), Beasley and Meade (1999), Buckley and Korn (1998), Connor and Leland (1995), Dalh et al. (1993), Konno and Wijayanayake (2000), Rudd (1980), and Toy and Zurack (1989).</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+References</strong>
+• Andrews, C., Ford, D., Mallinson, K. (1986): The design of index funds and alternative methods of replication, <em>The Investment Analyst, </em>82, 16–23.n• Beasley, J.E., Meade, N., Chang, T.-J. (1999): Index tracking, Working Paper, Imperial College, London.n• Buckley, I.R.C., Korn, R. (1998): Optimal index tracking under transaction costs and impulse control, <em>International Journal of Theoretical and Applied Finance</em>, 315–330.n• Connor, G., Leland, H. (1995): Cash management for index tracking, <em>Financial Analysts Journal</em> 51 (6), 75–80.n• Dalh, H., Meeraus, A., Zenios, S.A. (1993): Some financial optimization models: I risk management. In: Zeniosh, S.A. (Ed.), Financial Optimization. Cambridge University Press, Cambridge, 3–36.n• Konno, H., Wijayanayake, A. (2000): Minimal Cost Index Tracking under Nonlinear Transaction Costs and Minimal Transaction Unit Constraints, Tokyo Institute of Technology, CRAFT Working paper 00-07.n• Rockafellar, R.T. and Uryasev, S. (2002): Conditional Value-at-Risk for General Loss Distributions, <em>Journal of Banking and Finance</em>, 27/7.n• Rudd, A. (1980): Optimal selection of passive portfolios. <em>Financial Management</em>, 57–66.n• Toy, W.M., Zurack, M.A. (1989): Tracking the Euro-Pac index, <em>The Journal of Portfolio Management</em> ,15, (2), 55–58.</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

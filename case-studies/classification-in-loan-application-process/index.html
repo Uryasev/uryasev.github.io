@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Classification in Loan Application Process — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Classification in Loan Application Process</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/CS_Classification__in_Loan_Application.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabToolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> PROBLEM 0: problem_Logexp_Sum (original untransformed features) </strong>
+Maximize logexp_sum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log-likelihood function applied to original untransformed features)
+Calculate:npr_pen(difference of losses)&nbsp;&nbsp;&nbsp;&nbsp; (Probability of Exceedance applied to difference of losses based on original untransformed features )
+——————————————————————–————————————————
+logexp_sum = Logarithms Exponents Sum = log-likelihood functionnpr_pen = Probability of Exceedance
+——————————————————————–————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1 2012</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">380465</th>
+<th style="width: 113px; height: 19px;">-0.238801512644</th>
+<th style="width: 220px; height: 19px;">2.82</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem0_20121.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_0_2012.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_0_2012.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_Loan_0_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Loan_0_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_Loan_0_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_Loan_0_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50 GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem0_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_0_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_0_2013.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>-0.244676286</td>
+<td>4.56</td>
+</tr>
+<tr>
+<td>Dataset3 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem0_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_0_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_0_2014.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>-0.216362946</td>
+<td>11.89</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong> PROBLEM 1: problem_Logexp_Sum (for spline transformation of features) </strong>
+Maximize logexp_sum(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (log-likelihood function applied to spline function)
+Calculate:nlogistic(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(calculation of Logistic to get transformed feature)
+——————————————————————–————————————————
+logexp_sum = Logarithms Exponents Sum = log-likelihood functionnlogistic = Logistic calculate values of logistic function of spline approximation for every scenarionspline_sum = Spline Sum calculates spline value depending upon regression variables for every scenario</div>
+——————————————————————–————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1 DTI, 2012</th>
+<th style="width: 97px; height: 19px;">20</th>
+<th style="width: 101px; height: 19px;">380465</th>
+<th style="width: 113px; height: 19px;">-0.441511982280</th>
+<th style="width: 220px; height: 19px;">1.45</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_DTI_2012.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_DTI_2012.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_DTI_2012.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_1_DTI_LogsumSpline_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_DTI_LogsumSpline_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_1_DTI_LogsumSpline_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_1_DTI_LogsumSpline_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2 DTI, 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_DTI_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_DTI_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_DTI_2013.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.363102932</td>
+<td>48.09</td>
+</tr>
+<tr>
+<td>Dataset3 DTI, 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_DTI_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_DTI_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_DTI_2014.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.321050341</td>
+<td>81.66</td>
+</tr>
+<tr>
+<td>Dataset4 EmpLen, 2012</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_EmpLen_2012.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_EmpLen_2012.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_EmpLen_2012.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.215776179</td>
+<td>20.04</td>
+</tr>
+<tr>
+<td>Dataset5 EmpLen, 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_EmpLen_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_EmpLen_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_EmpLen_2013.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.225138264</td>
+<td>52.72</td>
+</tr>
+<tr>
+<td>Dataset6 EmpLen, 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_EmpLen_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_EmpLen_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_EmpLen_2014.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.130285134</td>
+<td>120.86</td>
+</tr>
+<tr>
+<td>Dataset7 FICO, 2012</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_FICO_2012.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_FICO_2012.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/solution_problem_1_FICO_2012.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.283383677</td>
+<td>49.90</td>
+</tr>
+<tr>
+<td>Dataset8 FICO, 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_FICO_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_FICO_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_FICO_2013.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.299431106</td>
+<td>121.41</td>
+</tr>
+<tr>
+<td>Dataset8 FICO, 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_FICO_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_1_FICO_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_1_FICO_2014.zip">Solution</a></td>
+<td>20</td>
+<td>380465</td>
+<td>-0.251899113</td>
+<td>293.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong> PROBLEM 2: problem_Logexp_Sum (transformed features) </strong>
+Maximize logexp_sum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log-likelihood function applied to transformed features)
+Calculate:npr_pen(difference of losses)&nbsp;&nbsp;&nbsp;&nbsp; (Probability of Exceedance applied to difference of losses based on transformed features )
+——————————————————————–————————————————
+logexp_sum = Logarithms Exponents Sum = log-likelihood functionnpr_pen = Probability of Exceedance</div>
+——————————————————————–————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1 2012</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">380465</th>
+<th style="width: 113px; height: 19px;">-0.17741580617</th>
+<th style="width: 220px; height: 19px;">1.61</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_2_2012.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_2_2012.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_2_2012.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_loan_2_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_loan_2_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_loan_2_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_loan_2_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem2_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_2_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_2_2013.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>-0.17389892</td>
+<td>3.59</td>
+</tr>
+<tr>
+<td>Dataset3 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem2_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_2_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_2_2014.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>-0.11140448</td>
+<td>8.97</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong> PROBLEM 3: minimizing buffered probability of exceedance (bPOE) with transformed features(equivalent to maximization of bAUC) </strong>
+Minimize bPOE&nbsp;&nbsp;&nbsp; (Buffered Probability of Exceedance applied to transformed features)nsubject tonlinear = const (linear constraint)
+Calculate:npr_pen(difference of losses)&nbsp;&nbsp;&nbsp;&nbsp; (Probability of Exceedance applied to difference of losses based on transformed features )
+——————————————————————–————————————————
+bPOE = Buffered Probability of Exceedancenpr_pen = Probability of Exceedance</div>
+——————————————————————–————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1 2012</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">380465</th>
+<th style="width: 113px; height: 19px;">0.106004778111</th>
+<th style="width: 220px; height: 19px;">7.47</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_2012.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_32012.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_3_2012.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_3_loan_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_3_loan_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_3_loan_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_3_loan_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem3_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_32013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_3_2013.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>0.09195791</td>
+<td>14.38</td>
+</tr>
+<tr>
+<td>Dataset3 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem3_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/data_problem_3_2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_3_2014.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>0.04428154</td>
+<td>105.65</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> PROBLEM 4: minimizing Probability of Exceedance using transformed features (equivalent to maximization of AUC) </strong>
+Minimize pr_pen(difference of losses)&nbsp;&nbsp;&nbsp;&nbsp; (Probability of Exceedance applied to difference of losses based on transformed features)nsubject tonlinear = const (linear constraint)
+——————————————————————–————————————————
+pr_pen = Probability of Exceedance
+——————————————————————–————————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1 2012</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">380465</th>
+<th style="width: 113px; height: 19px;">0.045272219018</th>
+<th style="width: 220px; height: 19px;">113.33</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4_2012.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_4_2012.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_4_2012.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_4_loan_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4_loan_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_4_loan_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_4_loan_subroutine.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2 2013</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem4_2013.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_4_2013.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_4_2013.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>0.039795749</td>
+<td>450.90</td>
+</tr>
+<tr>
+<td>Dataset3 2014</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_4_2014.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/12/data_problem_4__2014.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/solution_problem_4_2014.zip">Solution</a></td>
+<td>4</td>
+<td>380465</td>
+<td>0.017920403</td>
+<td>1691.12</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>CASE STUDY SUMMARY</strong>
+
+Problem 0 is the standard logistic regression. Features transformation is done using cubic splines (Problem 1). Splines transform one dimension observation data. Input data for building a spline are data of independent variables (features), dependent variables, and parameters defining number of knots and smoothing degree of the spline. Splines were built by minimizing log-likelihood logistic regression function (logexp_sum). Problem 2 is the logistic regression with transformed features. Problem 3 maximizes Buffered AUC (bAUC) by minimizing buffered probability of exceedance (bPOE). Problem 4 maximizes AUC by minimizing Probability of Exceedance (PSG function pr_pen).
+
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R.">
+    <title>Case Study: Projection on Polyhedron with Various Norms — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Projection on Polyhedron with Various Norms</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/10/CS_Projection_CVaR_Norm_cvar_comp_abs_051413.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM1: problem_cvar_comp_abs </strong>
+minimizing Cvar_comp_abs (CVaR Absolute Norm)nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+Box constraints (lower bounds on variables)
+——————————————————————–——————
+Cvar_comp_abs = CVaR component absolutenBox constraints = constraints on individual decision variables
+——————————————————————–——————
+———————————————
+<strong> Alpha =0.8 , Solver Precision = 4 </strong>
+———————————————
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_100_0p8_short.zip">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>0.10589</td>
+<td>2.95</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_500000_100_0p8_short.zip">Solution</a></td>
+<td>100</td>
+<td>500,000</td>
+<td>0.10834</td>
+<td>15.32</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1000000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_1000000_100_0p8_short.zip">Solution</a></td>
+<td>100</td>
+<td>1,000,000</td>
+<td>0.11259</td>
+<td>29.79</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_2000000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_2000000_100_0p8.zip">Solution</a></td>
+<td>100</td>
+<td>2,000,000</td>
+<td>0.11259</td>
+<td>148.05</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_5000000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_5000000_100_0p8.zip">Solution</a></td>
+<td>100</td>
+<td>5,000,000</td>
+<td>0.11370</td>
+<td>464.88</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_9000000_100_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_900000_1000_0p8.zip">Solution</a></td>
+<td>100</td>
+<td>9,000,000</td>
+<td>0.11370</td>
+<td>829.81</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_20000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_20000_500_0p8_short.zip">Solution</a></td>
+<td>500</td>
+<td>20,000</td>
+<td>0.01783</td>
+<td>6.53</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td>Problem statement</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_50000_500_0p8_short.zip">Solution</a></td>
+<td>500</td>
+<td>50,000</td>
+<td>0.01828</td>
+<td>13.13</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_500_0p8_short.zip">Solution</a></td>
+<td>500</td>
+<td>100,000</td>
+<td>0.01828</td>
+<td>32.75</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_500000_500_0p8.zip">Solution</a></td>
+<td>500</td>
+<td>500,000</td>
+<td>0.01856</td>
+<td>113.04</td>
+</tr>
+<tr>
+<td>Dataset11</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1000000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1000000_500_0p8.zip">Solution</a></td>
+<td>500</td>
+<td>1,000,000</td>
+<td>0.01856</td>
+<td>303.28</td>
+</tr>
+<tr>
+<td>Dataset12</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1500000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1500000_500_0p8.zip">Solution</a></td>
+<td>500</td>
+<td>1,500,000</td>
+<td>0.01856</td>
+<td>475.0</td>
+</tr>
+<tr>
+<td>Dataset13</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1800000_500_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1800000_500_0p8.zip">Solution</a></td>
+<td>500</td>
+<td>1,800,000</td>
+<td>0.01856</td>
+<td>489.68</td>
+</tr>
+<tr>
+<td>Dataset14</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_20000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_20000_1000_0p8_short.zip">Solution</a></td>
+<td>1000</td>
+<td>20,000</td>
+<td>0.00866</td>
+<td>18.62</td>
+</tr>
+<tr>
+<td>Dataset15</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_50000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_50000_1000_0p8_short.zip">Solution</a></td>
+<td>1000</td>
+<td>50,000</td>
+<td>0.00867</td>
+<td>34.40</td>
+</tr>
+<tr>
+<td>Dataset16</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_1000_0p8_short.zip">Solution</a></td>
+<td>1000</td>
+<td>100,000</td>
+<td>0.00877</td>
+<td>87.67</td>
+</tr>
+<tr>
+<td>Dataset17</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_200000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_200000_1000_0p8.zip">Solution</a></td>
+<td>1000</td>
+<td>200,000</td>
+<td>0.00878</td>
+<td>113.81</td>
+</tr>
+<tr>
+<td>Dataset18</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_500000_1000_0p8.zip">Solution</a></td>
+<td>1000</td>
+<td>500,000</td>
+<td>0.00878</td>
+<td>431.14</td>
+</tr>
+<tr>
+<td>Dataset19</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_900000_1000_0p8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_900000_1000_0p8.zip">Solution</a></td>
+<td>1000</td>
+<td>900,000</td>
+<td>0.00878</td>
+<td>443.57</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+</span>Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cvar_comp_abs_100000_100_0p8.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_cvar_comp_abs_100000_100_0p8.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cvar_comp_abs_100000_100_0p8.txt">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>0.10589</td>
+<td>2.85</td>
+</tr>
+</tbody>
+</table>
+———————————————
+<strong> Alpha =0.9, Solver Precision = 7 </strong>
+———————————————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>0.10589</td>
+<td>4.89</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_500000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>500,000</td>
+<td>0.10833</td>
+<td>25.23</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_1000000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>1,000,000</td>
+<td>0.11259</td>
+<td>41.27</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_2000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_2000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>2,000,000</td>
+<td>0.11259</td>
+<td>160.24</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_5000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_5000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>5,000,000</td>
+<td>0.11370</td>
+<td>442.18</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_9000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://www.ise.ufl.edu/uryasev/files/2013/04/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/06/solution_problem_cvar_comp_abs_900000_1000.zip">Solution</a></td>
+<td>100</td>
+<td>9,000,000</td>
+<td>0.11370</td>
+<td>847.96</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+Data and solution in MATLAB Environment</span>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cvar_comp_abs_100000_100.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_cvar_comp_abs_100000_100.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cvar_comp_abs_100000_100.txt">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>0.10589</td>
+<td>4.79</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cvar_comp_abs_500000_100.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_cvar_comp_abs_500000_100.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cvar_comp_abs_500000_100.txt">Solution</a></td>
+<td>100</td>
+<td>500,000</td>
+<td>0.10833</td>
+<td>24.73</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cvar_comp_abs_1000000_100.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_cvar_comp_abs_1000000_100.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cvar_comp_abs_1000000_100.txt">Solution</a></td>
+<td>100</td>
+<td>1,000,000</td>
+<td>0.11259</td>
+<td>40.14</td>
+</tr>
+</tbody>
+</table>
+——————————————————
+<strong> Alpha =0.955279, Solver Precision = 7 </strong>
+——————————————————
+Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_20000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_20000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>20,000</td>
+<td>0.01783</td>
+<td>21.83</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_50000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_50000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>50,000</td>
+<td>0.01828</td>
+<td>40.46</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>100,000</td>
+<td>0.01828</td>
+<td>94.30</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>500,000</td>
+<td>0.01855</td>
+<td>717.9</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1000000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1000000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,000,000</td>
+<td>0.01855</td>
+<td>1295.71</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,500,000</td>
+<td>0.01855</td>
+<td>1739.97</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_1800000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_1800000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,800,000</td>
+<td>0.01855</td>
+<td>1643.09</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">——————————————————
+<strong> Alpha =0.968377, Solver Precision = 7 </strong>
+——————————————————
+Download Problem Datan<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_20000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_20000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>20,000</td>
+<td>0.00866</td>
+<td>92.55</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_50000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_50000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>50,000</td>
+<td>0.00867</td>
+<td>273.03</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_100000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_cvar_comp_abs_100000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>100,000</td>
+<td>0.00877</td>
+<td>408.29</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_200000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_200000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>200,000</td>
+<td>0.00877</td>
+<td>1363.49</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_500000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_500000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>500,000</td>
+<td>0.00877</td>
+<td>2617.07</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cvar_comp_abs_900000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_cvar_comp_abs_900000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>900,000</td>
+<td>0.00877</td>
+<td>4654.56</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM2: problem_mix_L1_L_Infinity </strong>
+minimizing [(1-lambda)*polynom_abs+ lambda*max_comp_abs]nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+Box constraints (lower bounds on variables)
+——————————————————————–——————
+polynom_abs = polynomial absolute functionnmax_comp_abs=maximum component absolute functionnBox constraints = constraints on individual decision variables
+——————————————————————–——————<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+——————————————————
+<strong> Lambda =0.90909, Solver Precision = 7 </strong>
+——————————————————</span>
+
+Download Problem Datan<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_100000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_100000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>1.01459</td>
+<td>6.62</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_500000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_500000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>500,000</td>
+<td>1.05439</td>
+<td>27.53</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_1000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_1000000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>1,000,000</td>
+<td>1.06657</td>
+<td>47.81</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_2000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_2000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>2,000,000</td>
+<td>1.07531</td>
+<td>168.45</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_5000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem__mix_L1_L_Infinity_5000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>5,000,000</td>
+<td>1.09822</td>
+<td>468.64</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_9000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_900000_1000.zip">Solution</a></td>
+<td>100</td>
+<td>9,000,000</td>
+<td>1.10039</td>
+<td>851.35</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+——————————————————
+<strong> Lambda =0.95744, Solver Precision = 7 </strong>
+——————————————————</span>
+Download Problem Datan<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_20000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_20000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>20,000</td>
+<td>0.38609</td>
+<td>35.07</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_50000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_50000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>50,000</td>
+<td>0.38966</td>
+<td>70.52</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_100000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_100000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>100,000</td>
+<td>0.39170</td>
+<td>128.08</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>500,000</td>
+<td>0.39654</td>
+<td>744.98</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_1000000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_1000000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,000,000</td>
+<td>0.39868</td>
+<td>1571.72</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_1500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_1500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,500,000</td>
+<td>0.39956</td>
+<td>2574.43</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_1800000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_1800000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,800,000</td>
+<td>0.40005</td>
+<td>2909.3</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+——————————————————
+<strong> Lambda =0.96923, Solver Precision = 7 </strong>
+——————————————————</span>
+
+Download Problem Datan<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_20000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_20000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>20,000</td>
+<td>0.26782</td>
+<td>161.54</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_50000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_50000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>50,000</td>
+<td>0.26938</td>
+<td>318.55</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_100000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_mix_l1_l_infinity_100000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>100,000</td>
+<td>0.27064</td>
+<td>475.09</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_200000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_200000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>200,000</td>
+<td>0.27165</td>
+<td>1209.68</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_500000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_500000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>500,000</td>
+<td>0.27194</td>
+<td>3165.31</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_mix_l1_l_infinity_900000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_mix_L1_L_Infinity_900000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>900,000</td>
+<td>0.27194</td>
+<td>5612.34</td>
+</tr>
+</tbody>
+</table>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> PROBLEM3: problem_quadratic </strong>
+minimizing quadratic (square of L_2 norm)nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+Box constraints (lower bounds on variables)
+——————————————————————–——————
+quadratic = quadratic functionnBox constraints = constraints on individual decision variables
+——————————————————————–——————
+<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+——————————
+<strong> Solver Precision = 7 </strong>
+——————————
+</span>
+Download Problem Data</span>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Rows</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_100000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_100000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>100,000</td>
+<td>1.03483</td>
+<td>2.47</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_500000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_500000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>500,000</td>
+<td>1.11188</td>
+<td>15.83</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_1000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_100_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_1000000_100_short.zip">Solution</a></td>
+<td>100</td>
+<td>1,000,000</td>
+<td>1.14674</td>
+<td>30.70</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_2000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_2000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>2,000,000</td>
+<td>1.15551</td>
+<td>134.57</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_5000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_5000000_100.zip">Solution</a></td>
+<td>100</td>
+<td>5,000,000</td>
+<td>1.20912</td>
+<td>324.14</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_9000000_100_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_900000_1000.zip">Solution</a></td>
+<td>100</td>
+<td>9,000,000</td>
+<td>1.21178</td>
+<td>914.29</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_20000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_20000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>20,000</td>
+<td>0.15307</td>
+<td>4.30</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_50000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_50000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>50,000</td>
+<td>0.15612</td>
+<td>21.83</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_100000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_500_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_100000_500_short.zip">Solution</a></td>
+<td>500</td>
+<td>100,000</td>
+<td>0.15752</td>
+<td>25.26</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>500,000</td>
+<td>0.16135</td>
+<td>115.8</td>
+</tr>
+<tr>
+<td>Dataset11</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_1000000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_1000000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,000,000</td>
+<td>0.16346</td>
+<td>291.92</td>
+</tr>
+<tr>
+<td>Dataset12</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_1500000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_1500000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,500,000</td>
+<td>0.16393</td>
+<td>335.87</td>
+</tr>
+<tr>
+<td>Dataset13</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_1800000_500_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_1800000_500.zip">Solution</a></td>
+<td>500</td>
+<td>1,800,000</td>
+<td>0.16425</td>
+<td>388.55</td>
+</tr>
+<tr>
+<td>Dataset14</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/problem_quadratic_20000_1000_short.txt">Problem state</a><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_20000_1000_short.txt">ment</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_20000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>20,000</td>
+<td>0.05064</td>
+<td>0.63</td>
+</tr>
+<tr>
+<td>Dataset15</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_50000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_50000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>50,000</td>
+<td>0.05064</td>
+<td>0.94</td>
+</tr>
+<tr>
+<td>Dataset16</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_100000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_1000_small_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_quadratic_100000_1000_short.zip">Solution</a></td>
+<td>1000</td>
+<td>100,000</td>
+<td>0.05064</td>
+<td>1.50</td>
+</tr>
+<tr>
+<td>Dataset17</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_200000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_200000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>200,000</td>
+<td>0.05064</td>
+<td>2.57</td>
+</tr>
+<tr>
+<td>Dataset18</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_500000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_500000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>500,000</td>
+<td>0.05064</td>
+<td>5.87</td>
+</tr>
+<tr>
+<td>Dataset19</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_quadratic_900000_1000_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/message.txt">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/solution_problem_quadratic_900000_1000.zip">Solution</a></td>
+<td>1000</td>
+<td>900,000</td>
+<td>0.05064</td>
+<td>162.24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>NOTE:</strong> Problem statements can be simplified using MultiConstraint.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study considers the projection problems with various norms on a polyhedron set given by a system of linear inequalities. In particular, we consider the Scaled CVaR Absolute Norm introduced in Pavlikov and Uryasev (2013). The Scaled CVaR Absolute Norm in <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image008.gif" alt="" width="16" height="14"> is a family of norms based on CVaR concept. This family has a control parameter <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/02/CS_VaRvsProbability_clip_image010.gif" alt="" width="12" height="9">, so-called confidence level, controlling conservativeness of the norm. CVaR term and the optimization approach for CVaR was introduced in Rockafellar and Uryasev (2000). For the most conservative case, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image010.gif" alt="" width="29" height="14"> , the Scaled CVaR Absolute Norm equals the maximum absolute value of components of the vector. The least conservative norm, with <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image011.gif" alt="" width="29" height="14"> , averages absolute values of all components. In the intermediate case, for <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image012.gif" alt="" width="42" height="17"> , when <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image009.gif" alt="" width="12" height="9"> is a multiple of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image013.gif" alt="" width="20" height="20"> , the norm of a vector is defined as the average of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image014.gif" alt="" width="75" height="16"> largest absolute values of components. If <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image009.gif" alt="" width="12" height="13"> is not a multiple of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image013.gif" alt="" width="20" height="20"> , then Scaled CVaR Absolute Norm is defined as a convex combination of two values of the norm with nearest to <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image009.gif" alt="" width="12" height="13"> upper and lower multiples of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image013.gif" alt="" width="20" height="20"> confidence levels. Computational experiments for <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image001_.gif" alt="" width="62" height="19"> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image002.gif" alt="" width="31" height="19"> spaces are presented. Several polyhedron sets <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image003.gif" alt="" width="12" height="13"> with different number of hyperplanes were generated, such that <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image004.gif" alt="" width="71" height="19">. The projection of 0 on <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image003.gif" alt="" width="12" height="13"> is solved with CVaR Absolute Norm, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image005.gif" alt="" width="16" height="15"> norm, and the weighted average of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image006.gif" alt="" width="12" height="13"> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image007.gif" alt="" width="15" height="17"> norms. Problem 1 solves the projection problem with CVaR Absolute Norm with confidence level <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image015.gif" alt="" width="40" height="14"> for different dimensions and different polyhedrons.
+Then, Problem 1 solves the projection problems with CVaR Absolute Norm for dimensions <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image022.gif" alt="" width="11" height="12"> = 100, 500, 1000,and confidence levels, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image016.gif" alt="" width="70" height="16">, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image017.gif" alt="" width="110" height="16">, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image018.gif" alt="" width="110" height="17">, accordingly. The confidence levels, in this case, were selected with the formula <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image019.gif" alt="" width="80" height="40">, which corresponds to the best approximation of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image005.gif" alt="" width="14" height="16"> norm by the CVaR Absolute Norm, see Gotoh and Uryasev (2013).
+Problem 2 solves projection problems with weighted average of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image006.gif" alt="" width="12" height="13"> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image007.gif" alt="" width="15" height="17"> norms for dimensions <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image022.gif" alt="" width="11" height="12"> = 100, 500, 1000. Weighting is done with the parameter <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image020.gif" alt="" width="24" height="26"> as follows: <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image021_.gif" alt="" width="180" height="16"> The weighting parameter <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image020.gif" alt="" width="24" height="26"> is a function of dimension <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image022.gif" alt="" width="11" height="12"> to make the best approximation of the <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image005.gif" alt="" width="15" height="17"> norm by the weighted average of the <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image006.gif" alt="" width="12" height="13"> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image007.gif" alt="" width="15" height="17"> norms, i.e., <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image023.gif" alt="" width="100" height="15">, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image024.gif" alt="" width="100" height="15">, <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image025.gif" alt="" width="110" height="15">, see Gotoh and Uryasev (2013).
+Problem 3 solves projection problems with square of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image005.gif" alt="" width="15" height="17"> norm for dimensions <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image022.gif" alt="" width="11" height="12"> = 100, 500, 1000.
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+References</strong>
+• Pavlikov K, and S. Uryasev (2013): CVaR Absolute Norm and Applications in Optimization.
+Research Report # 2013-1.n• Rockafellar, R.T. and S. Uryasev (2013): The Fundamental Risk Quadrangle in RisknManagement, Optimization, and Statistical Estimation. Surveys in Operations Research andnManagement Science, 18 (to appear).n• Rockafellar, R. T. and Uryasev, S. (2000), “Optimization of conditional value-at-risk”,
+Journal of Risk , Vol. 2, pp. 21–41.n• Gotoh, J. and S. Uryasev (2013): Approximation of Euclidean norm by LP-representablennorms and applications. Draft paper.</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

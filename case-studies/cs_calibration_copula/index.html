@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R">
+    <title>Case Study: Convex-Concave-Convex Distributions in Application to CDO Pricing — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Convex-Concave-Convex Distributions in Application to CDO Pricing</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_Implied_Copula_CDO.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<!--PROBLEM-1a: problem_hull_meansquare -->
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+Problem 1a: problem_hull_meansquare </strong>
+Minimize Meansquare(matrix_h) (minimize sum of meansquare error functions specified by matrix_meansquare1 and matrix_meansquare2)
+Meansquare(matrix_meansquare1) +n0.0189*Meansquare(matrix_meansquare2)nsubject tonLinearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
+Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
+——————————————————————–
+Meansquare = Meansquare ErrornBox constraints = constraints on individual decision variables
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_hull_meansquare_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_hull_meansquare_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_hull_meansquare_short.zip">Solution</a></td>
+<td>1,000</td>
+<td>6</td>
+<td>8.94 e-10</td>
+<td>2.86</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_hull_meansquare.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_hull_meansquare.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_hull_meansquare.txt">Solution</a></td>
+<td>1,000</td>
+<td>6</td>
+<td>8.94 e-10</td>
+<td>2.82</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_hull_meansquare_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_hull_meansquare.zip">Data</a></td>
+<td></td>
+<td>1,000</td>
+<td>6</td>
+<td>8.94 e-10</td>
+<td>2.82</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!--PROBLEM-1b: problem_hull_variance -->
+<strong> Problem 1b: problem_hull_variance </strong>
+Minimize Variance(matrix_h) (minimize variance specified by matrix_h)nsubject tonLinearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
+Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
+——————————————————————–
+Variance = VariancenBox constraints = constraints on individual decision variables
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/problem_hull_variance__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_hull_variance__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_hull_variance_short.zip">Solution</a></td>
+<td>1,000</td>
+<td>1,000</td>
+<td>6.45 e-08</td>
+<td>0.64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_Hull_variance.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_Hull_variance.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_Hull_variance.txt">Solution</a></td>
+<td>1,000</td>
+<td>1,000</td>
+<td>6.45 e-08</td>
+<td>0.62</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Hull_variance_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_Hull_variance.zip">Data</a></td>
+<td></td>
+<td>1,000</td>
+<td>1,000</td>
+<td>6.45 e-08</td>
+<td>0.62</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+Problem 2: Problem_CCC </strong>
+Minimize Entropyr (matrix_h) (minimize entropyr specified by matrix_h)nsubject tonVector_bl ≤ Linearmulti(matrix_a) ≤ vector_b (constraint: system of linear inequalities specified by matrix_a)
+Linearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
+Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
+——————————————————————–
+Entropyr = Relative EntropynBox constraints = probabilities should be non-negative
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ccc_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_ccc_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_ccc_short.zip">Solution</a></td>
+<td>100</td>
+<td>112</td>
+<td>-3.47386</td>
+<td>0.57</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_CCC.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/Mat_data_problem_CCC.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_CCC.txt">Solution</a></td>
+<td>100</td>
+<td>112</td>
+<td>-3.47386</td>
+<td>0.76</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CCC.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/Data_in_R_problem_CCC.zip">Data</a></td>
+<td></td>
+<td>100</td>
+<td>112</td>
+<td>-3.47386</td>
+<td>0.76</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARYn</strong>
+This case study estimates default distributions of a basket of credit default swaps using prices of CDO tranches. We calibrated probabilities with two approached in the so called “implied copula” model proposed by Hull and White (2006). The theory and the case study presented here is described in paper Veremyev, Tsyurmasto, Uryasev, Rockafellar (2012).
+We solved two calibration problems:n- The fist calibration problem is a reproduction of the case study in Hull and White (2006). We solved the same optimization problem two times, using different PSG nonlinear functions: Problem 1a with the meansquare function and Problem 1b with the variance function.n- The second calibration problem (Problem 2) is based on “the maximum entropy principle.” We maximized the entropy of a distribution, subject to no-arbitrage constraints. The probabilistic distribution belongs to the class of Convex-Concave-Convex (CCC) distributions. The CCC distribution is specified by a system of linear inequalities for the discrete probability atoms.
+This web page contains codes and data Problems 1a, 1b and 2 in PSG Run-File Text Environment.
+Also, we posted MATLAB files to run this Case Study in the PSG MATLAB Environment. The link <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/Matlab_codes_and_data_for_Case_Study.zip"> Matlab_codes_and_data_for_Case_Study </a> Study refers to the zipped folder containing files and folders: file CS_Implied_Copula_Hull.m, file CS_Implied_Copula_CCC.m, folder “CDO_data”, folder “Data_Genearation”.
+To optimize Hull model, run CS_Implied_Copula_Hull.m. To optimize CCC-distribution model, run CS_Implied_Copula_CCC.m . Data for solving optimization problems are already prepared in the files matrix_A_hull_mid.mat and matrix_A_100_5y.mat .
+The MATLAB files for generating data, CDO_cashflow_generator.m, CDO_cashflow_generator_bin.m, CDO_matrix_generator_bid_ask.m are placed to the folder “Data_Genearation”. To generate data, run MATLAB file CDO_matrix_generator_bid_ask.m.
+Folder “CDO_data” contains raw iTraxx data.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+References</strong>
+• Hull, J., White, A. (2006). Valuing Credit Derivatives Using an Implied Copula Approach. The Journal of Derivatives 14, 2, 8-28.n• Veremyev, A., Tsyurmasto, P., Uryasev, S. Rockafellar, R.T. (2012). Convex-Concave-Convex Distributions in Application to CDO Pricing. Research Report 2012-1, ISE Dept., University of Florida, June 2012.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

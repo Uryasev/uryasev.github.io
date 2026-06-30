@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Subr">
+    <title>Case Study: Shortest Path in a Stochastic Weighted Graph using Average, CVaR, POE and bPOE Performance Functions — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Shortest Path in a Stochastic Weighted Graph using Average, CVaR, POE and bPOE Performance Functions</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/07/Case_Study_Shortest_Path_background_070720_4-1.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Run_File_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.
+Optimization package Gurobi should be installed to run this case study.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM 1: problem_shortest_path_average</strong>
+<strong>(formulation with Boolean variables)</strong>
+Minimize Avg (minimizing expected cost (length) of a path)nsubject tonLinearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)Calculate:ncvar_risk_gnbPOE_gnvar_risk_gnpr_pen_g
+——————————————————————–
+Avg = AveragenLinearmulti = System of linear constraintsncvar_risk_g = CVaR for GainnbPOE_g = Buffered Probability of Exceedance for Gainnvar_risk_g = VaR for Gainnpr_pen_g = Probability of Exceedance for GainnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">3193</th>
+<th style="width: 101px; height: 19px;">1000</th>
+<th style="width: 113px; height: 19px;">3149.32</th>
+<th style="width: 220px; height: 19px;">0.03</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_AVG_and_calculate.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_AVG_and-calculate.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/solution_combined_problem_avg_and_calculate.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/average_15_45_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/code_matlab_AVG_and_calculate.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_MATLAB_AVG_Sub.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/R_problem_AVG_and-calculate.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset2</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_AVG_15_45.txt">Problem Statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_AVG_15_45.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/solution_problem_1AVG.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">11033.8</td>
+<td style="width: 122px; height: 53px;">0.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 2: problem_the_most_shortest_path_pr_pen</strong>
+<strong>(formulation with Boolean variables)</strong>
+Minimize pr_pen (Probability of Exceedance (POE) of path cost (length) of a specified threshold)nsubject tonLinearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)nnpr_pen = Probability of ExceedancenLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variablesnnData and solution in Run-File Environmentn<table style="height: 224px;">
+<tbody>
+<tr style="height: 72px;">
+<th style="width: 365px; height: 72px;" colspan="4">Problem Datasets</th>
+<th style="width: 89px; height: 72px;"># of Variables</th>
+<th style="width: 92px; height: 72px;"># of Scenarios</th>
+<th style="width: 91px; height: 72px;">Objective Value</th>
+<th style="width: 122px; height: 72px;">Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset1.1</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_POE_cycle.txt">Cycle statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_POE_cycle.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/07/solution_combined_problem_poe_900-995.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">0.1</td>
+<td style="width: 122px; height: 53px;">3600.6</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.2</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">0.05</td>
+<td style="width: 122px; height: 33px;">3600.55</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.3</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">0.01</td>
+<td style="width: 122px; height: 33px;">1892.95</td>
+</tr>
+<tr style="height: 33px; border-color: #000000;">
+<td>Dataset1.4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1000</td>
+<td>0.005</td>
+<td>300.74</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr style="height: 72px;">
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset2</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_POE_15-45_lin.txt">Problem Statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/data_problem_POE_15-45_lin.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/03/solution_problem_1_POE_lin.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">0.0449</td>
+<td style="width: 122px; height: 53px;">3611.12</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Toolboxn<table>
+<tbody>
+<tr>
+<th colspan="2">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/toolbox_problem_POE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_tool.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/code_matlab_POE_cycle.zip">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_matlab_POE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/pr_pen_14000_15_45_subroutine_example.txt">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_subroutine_data.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/R_problem_POE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/problem_pr_pen_14000_15_45.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM 3: problem_the_most_shortest_path_bPOE</strong>
+<strong>(formulation with Boolean variables)</strong>
+Minimize bpoe (Buffered Probability of Exceedance) of path cost (length) with a specified threshold)nsubject tonLinearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)nnbpoe= Probability of ExceedancenLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variablesnnData and solution in Run-File Environmentn<table style="height: 224px;">
+<tbody>
+<tr style="height: 72px;">
+<th style="width: 365px; height: 72px;" colspan="4">Problem Datasets</th>
+<th style="width: 89px; height: 72px;"># of Variables</th>
+<th style="width: 92px; height: 72px;"># of Scenarios</th>
+<th style="width: 91px; height: 72px;">Objective Value</th>
+<th style="width: 122px; height: 72px;">Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset1.1</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bPOE_cycle.txt">Cycle statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_bPOE_cycle.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/07/solution_combined_problem_bpoe_900-995.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">0.1</td>
+<td style="width: 122px; height: 53px;">23.38</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.2</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">0.05</td>
+<td style="width: 122px; height: 33px;">25.41</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.3</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">0.01</td>
+<td style="width: 122px; height: 33px;">36.60</td>
+</tr>
+<tr style="height: 33px; border-color: #000000;">
+<td>Dataset1.4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>3193</td>
+<td>1000</td>
+<td>0.005</td>
+<td>38.80</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td style="width: 100px; height: 53px;">Dataset2</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_bPOE_15-45.txt">Problem Statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_bPOE_15-45.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/solution_problem_1_bPOE.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">0.01932</td>
+<td style="width: 122px; height: 53px;">6269.94</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Toolboxn<table>
+<tbody>
+<tr>
+<th colspan="2">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/toolbox_problem_bPOE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_tool.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/code_matlab_sub_bPOE_cycle.zip">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_matlab_sub_bPOE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/pr_pen_14000_15_45_subroutine_example.txt">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_subroutine_data.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/R_problem_bPOE_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/problem_pr_pen_14000_15_45.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 5: problem_alpha_shortest_path_cvar</strong>
+<strong>(formulation with Boolean variables)</strong>
+Minimize Cvar_risk (Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level)nsubject tonLinearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)
+——————————————————————–
+Cvar_risk = Conditional Value-at-RisknLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variables
+——————————————————————–
+Data and solution in Run-File Environmentn<table style="height: 224px;">
+<tbody>
+<tr style="height: 72px;">
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset1.1</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_Cvar_cycle.txt">Cycle statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_Cvar_cycle.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/07/solution_combined_problem_cvar_900-995.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">4928.9</td>
+<td style="width: 122px; height: 53px;">14.30</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.2</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">5324.9</td>
+<td style="width: 122px; height: 33px;">15.78</td>
+</tr>
+<tr style="height: 33px;">
+<td style="width: 100px; height: 33px;">Dataset1.3</td>
+<td style="width: 109px; height: 33px;"></td>
+<td style="width: 65px; height: 33px;"></td>
+<td style="width: 91px; height: 33px;"></td>
+<td style="width: 89px; height: 33px;">3193</td>
+<td style="width: 92px; height: 33px;">1000</td>
+<td style="width: 91px; height: 33px;">5714.4</td>
+<td style="width: 122px; height: 33px;">11.86</td>
+</tr>
+<tr style="height: 33px; border-color: #000000;">
+<td>Dataset1.4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>3193</td>
+<td>1000</td>
+<td>5859.7</td>
+<td>16.61</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 100px; height: 53px;">Dataset2</td>
+<td style="width: 109px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CVaR_15_45.txt">Problem Statement</a></td>
+<td style="width: 65px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_problem_CVaR_15_45.zip">Data</a></td>
+<td style="width: 91px; height: 53px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/solution_problem_1Cvar.zip">Solution</a></td>
+<td style="width: 89px; height: 53px;">3193</td>
+<td style="width: 92px; height: 53px;">1000</td>
+<td style="width: 91px; height: 53px;">14059.8</td>
+<td style="width: 122px; height: 53px;">2531.73</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Toolboxn<table>
+<tbody>
+<tr>
+<th colspan="2">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/toolbox_problem_Cvar_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_tool.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/code_matlab_Cvar_cycle.zip">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_matlab_Cvar_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/pr_pen_14000_15_45_subroutine_example.txt">MATLAB code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/pr_pen_14000_15_45_subroutine_data.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="3">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/R_problem_Cvar_cycle.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/problem_pr_pen_14000_15_45.zip">Data</a></td>
+<td>3193</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>&nbsp;</strong></div>
+</div>
+</div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+A graph consists of a set of vertices (nodes) and arcs (edges) connecting vertices. In deterministic setting each arc is characterized by a single cost. Depending on the application, the cost may be travel time, financial cost, etc. The cost of a path is the sum of the costs of arcs in the path. The deterministic shortest path problem finds a path from a starting point to a final point with minimal cost.This case study solves problems with stochastic costs of arcs (i.e., cost of each arc is a random value). We formulated problems for finding a path with the minimal:nn• Expected cost (length);n• Probability of Exceedance (POE) of path cost with a specified threshold;n• Buffered Probability of Exceedance (bPOE) of path cost with a specified threshold.n• Value-at-Risk (VaR) of the path cost with a specified confidence level;n• Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level;
+
+</div>
+</div>
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

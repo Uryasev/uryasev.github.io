@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Portfolio Replication with Cardinality and Buyin Constraints — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Portfolio Replication with Cardinality and Buyin Constraints</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/CASE_STUDY_Portfolio_Replication.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<table>
+<tbody>
+<tr>
+<td><strong>Sources of Data</strong></td>
+</tr>
+<tr>
+<td>
+ 	<li><span style="font-family: Calibri; font-size: medium;">Mezali, H. and Beasley, J.E. (2014). Index Tracking with Fixed and Variable Transaction Costs.
+Optimization Letters. 8:61-80.</span></li>
+ 	<li><span style="font-family: Calibri; font-size: medium;">OR-library. URL <a href="https://people.brunel.ac.uk/~mastjjb/jeb/jeb.html"> https://people.brunel.ac.uk/∼mastjjb/jeb/info.html</a> Datasets: indtrack1, indrtack2, ..., indtrack5</span></li>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><!---PROBLEM: MAX--><strong>PROBLEM 1: Index Tracking, Minimizing Max Riskn</strong>
+Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio and index returns)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Buyin_pos &lt;= 0 (constraint prohibiting small positions)
+Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
+Box constraints (bounds on variables)
+——————————————————————–
+Max_Risk = Maximum Risk for LossnCardn_pos = Cardinality PositivenByin_pos = Buy-in PositivenPolynom_abs = Polynomial Absolute Function = weighted sum of absolute values of positionsnBox constraints = constraints on individual decision variables
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: problem_indtrack1_max-->
+<strong>Problem "problem_fc_indtrack1_max_0025"</strong>
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">32</th>
+<th style="width: 101px; height: 19px;">145</th>
+<th style="width: 113px; height: 19px;">0.037679</th>
+<th style="width: 220px; height: 19px;">0.04</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0025_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0025_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_subroutine_example.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+Download other data sets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table style="height: 400px;" width="629">
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time (sec), PC 2.66GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0050_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.026224</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0075_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0075_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0075_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.0212003</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0100_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.0205298</td>
+<td>1.09</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0025_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0025_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0025_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.03192982</td>
+<td>1.09</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0050_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.0275899</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0075_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0075_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0075_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.01864025</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0100_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.01957557</td>
+<td>0.41</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack3_max_0025_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_max_0025_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_max_0025_short.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.030248</td>
+<td>1.89</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack3_max_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_max_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_max_0050_short.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.024271042</td>
+<td>4.94</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: AVG-->
+<strong><strong>PROBLEM 2: Index Tracking, Minimizing Mean Absolute Deviation</strong></strong>
+
+Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Buyin_pos &lt;= 0 (constraint prohibiting small positions)
+Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
+Box constraints (bounds on variables)n
+——————————————————————–
+Meanabs = Mean Absolute ErrornCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+——————————————————————–<!---PROBLEM: problem_indtrack1_avg-->
+
+<strong>Problem "problem_indtrack_avg"</strong>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">32</th>
+<th style="width: 101px; height: 19px;">145</th>
+<th style="width: 113px; height: 19px;">0.026434</th>
+<th style="width: 220px; height: 19px;">0.16</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0025_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0025_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_subroutine_example.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://www.ise.ufl.edu/uryasev/files/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_short_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other data sets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time (sec), PC 2.66GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0050_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.021158</td>
+<td>0.13</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0075_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0075_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0075_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.016447</td>
+<td>0.17</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0100_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.041988</td>
+<td>2.34</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0025_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0025_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0025_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.026179</td>
+<td>2.73</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0050_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.01914</td>
+<td>2.70</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0075_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0075_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0075_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.017013</td>
+<td>2.34</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0100_short.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.028690</td>
+<td>2.01</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack3_avg_0025_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_avg_0025_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_avg_0025_short.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.021414</td>
+<td>1.74</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack4_avg_0050_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack4_avg_0050_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack4_avg_0050_short.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.017894</td>
+<td>6.11</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: FC MAX-->
+<strong>PROBLEM 3: Index Tracking, Minimizing Max Risk (MIP Formulation)
+</strong>
+<div>The same problem formulation as Problem 1, but with options “Linearize=1, MIP=1”. Problem is solved as a Mixed Integer Linear Programming (MILP) problem by solver CARGRB “in one shot”.</div>
+<div>Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Buyin_pos &lt;= 0 (constraint prohibiting small positions)
+Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
+Box constraints (bounds on variables)</div>
+——————————————————————–
+Max_Risk = Maximum Risk for LossnCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+——————————————————————–<!---PROBLEM: FC problem_indtrack1_max--><strong>
+Problem "problem_FC_indtrack_max"</strong>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">32</th>
+<th style="width: 101px; height: 19px;">145</th>
+<th style="width: 113px; height: 19px;">0.009309</th>
+<th style="width: 220px; height: 19px;">0.04</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_MIP.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0025_MIP.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0025_MIP.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_MIP_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_MIP_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_MIP_subroutine_example.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0025_MIP_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other data sets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time (sec), PC 2.66GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0050_MIP.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.005673</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0075_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0075_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0075_short.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.003917</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_max_0100_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_max_0100_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_max_0100_MIP.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.010724</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0025_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0025_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0025_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.008652</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0050_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.0059</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0075_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0075_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0075_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.0048</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0100_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_max_0100_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_max_0100_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.008948</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0025_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_max_0025_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_max_0025_MIP.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.00754</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_max_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_max_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_max_0050_MIP.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.006416</td>
+<td>0.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: FC MAX-->
+<strong>PROBLEM 4: Index Tracking, Minimizing Mean Absolute Deviation (MIP Formulation)
+</strong>
+<div>The same problem formulation as Problem 2, but with options “Linearize=1, MIP=1”. Problem is solved as a Mixed Integer Linear Programming (MILP) problem by solver CARGRB “in one shot”.</div>
+<div></div>
+<div>Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Buyin_pos &lt;= 0 (constraint prohibiting small positions)
+Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
+Box constraints (bounds on variables)</div>
+——————————————————————–
+Meanabs = Mean Absolute ErrornCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+——————————————————————–<!---PROBLEM: FC problem_indtrack1_max--><strong>Problem "problem_FC_indtrack_avg"</strong>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">32</th>
+<th style="width: 101px; height: 19px;">145</th>
+<th style="width: 113px; height: 19px;">0.0086524</th>
+<th style="width: 220px; height: 19px;">0.06</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_MIP.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0025_MIP.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0025_MIP.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_MIP_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_MIP_subroutine_example.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/create_user_subroutine_example.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0025_MIP_R.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time (sec), PC 2.66GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0050_MIP.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.0086395</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0075_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0075_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0075_MIP.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.0086396</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack1_avg_0100_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack1_avg_0100_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack1_avg_0100_MIP.zip">Solution</a></td>
+<td>32</td>
+<td>145</td>
+<td>0.011104</td>
+<td>1.70</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0025_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0025_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0025_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.009091</td>
+<td>0.43</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0050_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.008142</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0075_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0075_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0075_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.007221</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack2_avg_0100_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack2_avg_0100_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack2_avg_0100_MIP.zip">Solution</a></td>
+<td>86</td>
+<td>145</td>
+<td>0.008620</td>
+<td>0.24</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack3_avg_0025_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_avg_0025_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_avg_0025_MIP.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.007671</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_fc_indtrack3_avg_0050_MIP.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/data_problem_fc_indtrack3_avg_0050_MIP.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/solution_problem_fc_indtrack3_avg_0050_MIP.zip">Solution</a></td>
+<td>90</td>
+<td>145</td>
+<td>0.006068</td>
+<td>1.87</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+CASE STUDY SUMMARY</strong>
+<strong>All PROBLEMSn</strong>
+Index tracking is a portfolio optimization problem which generates return of an index with a tracking portfolio. The tracking portfolio contains a small number of securities.Problem 1 minimizes maximum absolute difference between return of the tracking portfolio and return of the index. The problem is formulated with continuous variables by using Portfolio Safeguard (PSG) functions “cardn_pos” and “buyin_pos”. PSG functions “polynom_abs”, “cardn_pos”, and “cardn_neg” are used for calculation transaction costs.Problem 2 is similar to the Problem 1, but it minimizes the mean absolute difference between return of the tracking portfolio and return of the index.Problem 3 solves Problem 1 by using Boolean variables.Problem 4 solves Problem 2 by using Boolean variables.A number of papers relating to index tracking have been discussed in Canakgoz and Beasley 2009 and Beasley et al. 2003. The case study solves a set of instances from the OR-library (Basley 1990) with parameters considered in Beasley et al. 2003 and Canakgoz et al. 2009. The problem statements and the setting of the experiments closely follow the paper by Mezali and Beasley (2012). However the problem statements were formulated with PSG nonlinear functions without discrete variables (which leads to a simple programming of optimization problems).
+<strong>
+References</strong>
+• Beasley J E (1990). OR-Library: distributing test problems by electronic mail, Journal of the Operational Research Society, 41(11): 1069–1072. (<a href="https://people.brunel.ac.uk/~mastjjb/jeb/jeb.html"> https://people.brunel.ac.uk/∼mastjjb/jeb/info.html</a>)n• Beasley J E, Meade N and Chang T-J (2003). An evolutionary heuristic for the index tracking problem, European Journal of Operational Research, 148(3), 621–643.n• Canakgoz N A and Beasley J E (2009). Mixed-integer programming approaches for index tracking and enhanced indexation, European Journal of Operational Research, 196(1), 384-399.n• Mezali, H. and Beasley, J.E. (2012). Index Tracking with Fixed and Variable Transaction Costs. Optimization Letters. Submitted for publication.</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

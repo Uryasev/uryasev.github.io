@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page ——————————————————————–——————————————————————————— At the link below, a set of MATLAB scripts are available which demonstrate how to">
+    <title>Case Study: Buffered Neyman-Pearson Classification with Spline-based Feature Transforms — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Buffered Neyman-Pearson Classification with Spline-based Feature Transforms</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+<div>——————————————————————–———————————————————————————</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">At the link below, a set of MATLAB scripts are available which demonstrate how to solve the Buffered Neyman-Pearson Classification problem as is detailed in Section 6.6. of "<span style="text-decoration: underline;">Error Control and Neyman-Pearson Classification With Buffered Probability and Support Vectors</span>" by M. Norton and S. Uryasev (2017). The script utilizes Portfolio Safeguard (PSG) as the optimization back-end. A description of the file contents can be found further below the link.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/11/CS_Pm_pen_Splines_PARFOR-2.zip"><em><strong>Click Here for MATLAB Script</strong></em></a>
+<div>——————————————————————–———————————————————————————</div>
+<strong><span style="text-decoration: underline;"><em>Description of MATLAB Components:</em></span></strong>
+
+<strong>File:</strong> pm_pen_minimization_oos_subroutines.mn<strong>Contents:</strong> This file contains the primary MATLAB routine and contains three components. First, in "Part I", the dataset is partitioned for k-fold cross validation. Then, an optimal spline transformation is found for each dimension of the input data (calls to sub1.m). Second, in "Part II", the transformed features are utilized in Buffered Neyman-Pearson Classification (calls to sub2.m). Finally, "Part III" summarizes the results and stores them in a structure. An optional file "best_f_all.mat" can be called at the beginning of Part II. It contains subsets of the transformed features which were deemed through feature selection procedures to be the most informative sets of features. This file also contains the set of all features, which would be the default choice without feature selection.
+
+<strong>File:</strong> sub1.mn<strong>Contents:</strong> This file contains the subroutine called in "Part I" of pm_pen_minimization_oos_subroutines.m. It solves the Buffered Neyman-Pearson classification problem, but utilizes only one dimension of the original input vector as well as a spline transformation of the feature. The routine then learns the optimal feature transformation for the one dimensional Buffered Neyman-Pearson classification problem, with learned features that will be utilized in the overall Buffered Neyman-Pearson classification problem.
+
+<strong>File:</strong> sub2.mn<strong>Contents:</strong> This file contains the subroutine called in "Part II" of pm_pen_minimization_oos_subroutines.m. It solves the Buffered Neyman-Pearson classification problem utilizing the transformed features found in Part I via sub1.m.
+
+<strong>File:</strong> spamebase.matn<strong>Contents:</strong> The spambase dataset from the UCI Machine Learning Repository.
+
+<strong>File:</strong> best_f_all.matn<strong>Contents:</strong> An optional file to call which contains reduced sets of transformed features. A feature selection procedure was performed on the transformed features, and this file contains subsets of features.
+
+<strong>File:</strong> report_2_spline_oos_parfor.mat&gt;
+<strong>Contents: </strong>Container file for results.
+
+<strong>File:</strong> report_3_pr_pen_oos_parfor.matn<strong>Contents: </strong>Container file for results.
+<strong>
+References</strong>
+• "Error Control and Neyman-Pearson Classification With Buffered Probability and Support Vectors" by M. Norton and S. Uryasev (2017).
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

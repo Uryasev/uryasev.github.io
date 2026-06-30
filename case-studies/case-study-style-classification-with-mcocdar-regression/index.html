@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page  Case study background and problem formulationsInstructions for optimization with&amp;nbsp;PSG Run-File,&amp;nbsp;PSG MATLAB Toolbox,&amp;nbsp;P">
+    <title>Case Study: Style Classification with mCoCDaR Regression — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Style Classification with mCoCDaR Regression</h1>
+
+<p><a href="/research/testproblems/"><br>Back to main page</a></p>
+
+<p><strong><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/Case_Study_style_CDaR.pdf">Case study background and problem formulations</a></strong>Instructions for optimization with&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf">PSG Run-File</a>,&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf">PSG MATLAB Toolbox</a>,&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf">PSG MATLAB Subroutines</a>&nbsp;and&nbsp;<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf">PSG R</a>.</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong><br>PROBLEM 1: problem_cvar2_err_(Superquantile)_Drawdown_Style_Classification_Fidelity_Magellan </strong><br>Minimize cvar2_err (Minimizing CVaR (Superquantile) error of drawdowns)<br>——————————————————————–<br>cvar2_err = CVaR (Superquantile) error)<br>——————————————————————–<br><strong> Alpha = 0.9 </strong>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 159px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px; height: 19px;"><strong>Solving Time (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 159px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">1,264</th>
+<th style="width: 113px; height: 19px;">0.46713560</th>
+<th style="width: 113px; height: 19px;"> 0.91346209</th>
+<th style="width: 170px; height: 19px;">0.23</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_statement_style_CDaR_0.9.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/problem_style_CDaR_data.zip">Data</a></td>
+<td style="width: 113px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/solution_problem_style_CDaR_0.9.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/problem_style_CDaR_mat.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;" colspan="2">&nbsp;</td>
+</tr></tbody>
+</table>
+</div>
+<p><strong> Alpha = 0.0 </strong></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 159px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px; height: 19px;"><strong>Solving Time (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 159px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">1,264</th>
+<th style="width: 113px; height: 19px;">0.22152239</th>
+<th style="width: 113px; height: 19px;">0.90783817</th>
+<th style="width: 170px; height: 19px;">0.16</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/10/problem_statement_style_CDaR_0.0.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/problem_style_CDaR_data.zip">Data</a></td>
+<td style="width: 113px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/solution_problem_style_CDaR_0.0.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/09/problem_style_CDaR_mat.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;" colspan="2">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><p><strong>PROBLEM 2: problem_kb_err_Style_Classification_Fidelity_Magellan_0p1</strong><br>Minimize kb_err<br>——————————————————————–<br>kb_err = Koenker and Basset error function<br>——————————————————————–<br>Data and solution in Run-File Environment</p>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_kb_err_style_classification_fidelity_magellan_0p1_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_kb_err_style_classification_fidelity_magellan_0p1_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_kb_err_style_classification_fidelity_magellan_0p1_short.zip">Solution</a></td>
+<td>5</td>
+<td>1,264</td>
+<td>0.001221</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p>Data and solution in MATLAB Environment</p>
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_kb_err.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_kb_err.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_kb_err.txt">Solution</a></td>
+<td>4</td>
+<td>1,264</td>
+<td>0.00122086</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong><br>PROBLEM 3: problem_cvar2_err_(Superquantile)_Regression_Style_Classification_Fidelity_Magellan </strong><br>Minimize cvar2_err (Minimizing CVaR (Superquantile) error)<br>——————————————————————–<br>cvar2_err = CVaR (Superquantile) error)<br>——————————————————————–<br><strong> Alpha = 0.9 </strong>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 159px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 159px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">4</th>
+<th style="width: 101px; height: 19px;">1,264</th>
+<th style="width: 113px; height: 19px;">0.016655722</th>
+<th style="width: 113px; height: 19px;">0.850439683</th>
+<th style="width: 170px; height: 19px;">0.02</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CVaR2_err_090.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/01/data_problem_CVaR2_err_090.zip">Data</a></td>
+<td style="width: 113px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/03/solution_problem__CVaR2_err_090.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_CVaR2_err_090_tool.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;" colspan="2">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CVaR2_err_090_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_CVaR2_err_090_subroutine_data.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;" colspan="2">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><br>CASE STUDY SUMMARY<br></strong><br>This case study applies CVaR regression to the drawdown-based style classification of a mutual fund. The procedure regresses fund cumulative drawdowns by four indices' cumulative drawdowns as explanatory variables. The estimated coefficients represent the fund’s style with respect to each of the indices. This problem is inspired by Bassett and Chen (2001) where they conducted style analyses of quantiles of the return distribution. Their approach is based on the quantile regression approach suggested by Koenker and Bassett (1978). The corresponding case study can be found <a href="/case-studies/style-classification-with-quantile-regression/">here</a>. Here we adopt the 0.9 quantile regression problem (Problem 2) to compare against our results. Another comparison we make is with the 0.9 CVaR regression on the same returns data (Problem 3) for fund style classification. The corresponding full case study can be found <a href="/case-studies/./">here</a>.</p>
+
+<p>In our case study we perform a CVaR regressesion  of the drawdowns of the Fidelity Magellan Fund on drawdowns of the Russell Value Index (RUJ), RUSSELL 1000 VALUE INDEX (RLV), Russell 2000 Growth Index (RUO) and Russell 1000 Growth Index (RLG). This multiple regression problem (Problem 1) is developed studied in  Ding and Uryasev (202), where the approach is called multiple Co-Conditional Drawdown-at-Risk and is also applied to systemic risk contribution measurement tasks. Here, we want to calculate coefficients for the explanatory variables of the tail of the distribution of residuals (these coefficients may differ from the regression coefficients for the mean and the median of the distribution). The confidence level in  our regression problems are 0.9 (tail average of large drawdowns) and 0.0 (average drawdowns). These coefficients are compared with those obtained from previous case studies.</p>
+
+<p><strong>References</strong><br>• Ding R., Uryasev S. (2020): CoCDaR and mCoCDaR: New Approaches for Systemic Risk Contribution Measure and Fund Style Classification. Working Paper.<br>• Bassett G.W., Chen H-L. (2001): Portfolio Style: Return-based Attribution Using Quantile Regression. Empirical Economics 26, 293-305.<br>• Carhart M.M. (1997): On Persistence in Mutual Fund Performance. Journal of Finance 52, 57-82.<br>• Koenker R, Bassett G. (1978): Regression Quantiles. Econometrica 46, 33-50.<br>• Sharpe W.F. (1992): Asset Allocation: Management Style and Performance Measurement. Journal of Portfolio Management (Winter), 7-19.<br>• Zabarankin, M., Pavlikov, K. and S. Uryasev. Capital asset pricing model (CAPM)with drawdown Measure. European Journal of Operational Research(2014), 234(2), 508–517. <br>• Rockafellar R.T. and S. Uryasev. The Fundamental Risk Quadrangle in Risk Management, Optimization, and Statistical Estimation. Research Report 2011-5, ISE Dept., University of Florida, November 2011.<br>• Rockafellar, R.T. and S. Uryasev (2013): The Fundamental Risk Quadrangle in Risk Management, Optimization, and Statistical Estimation. Surveys in Operations Research and Management Science, 18.<br>• Rockafellar, R.T., Uryasev, S., and M. Zabarankin (2008): Risk Tuning with Generalized Linear Regression. Mathematics of Operations Research, 33(3), 712–729.<br></p>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

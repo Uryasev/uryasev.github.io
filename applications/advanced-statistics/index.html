@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page     Case Study Title Functions Description   Parameter Estimation of Generalized Pareto Distribution Koenker and Basset error (kb_er">
+    <title>Application Area: Advanced Statistics — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a class="current" href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Application Area: Advanced Statistics</h1>
+
+<p><a title="Test Problems" href="/research/testproblems/"><span style="text-decoration: underline;">Back to main page</span></a></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%;">
+<table style="height: 4919px;">
+<tbody>
+<tr style="height: 40px;">
+<th style="height: 40px;"><strong>Case Study Title</strong></th>
+<th style="height: 40px;"><strong>Functions</strong></th>
+<th style="height: 40px;"><strong>Description</strong></th>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-renyi-entropy-maximization/">Parameter Estimation of Generalized Pareto Distribution</a></td>
+<td>Koenker and Basset error (kb_err)</td>
+<td>This case study solves the problem of parameter estimation for generalized Pareto distribution. Two approaches for parameter estimating are implemented. The first one is maximum likelihood estimate (see Kotz and all 2000). The second one is known as the estimate by harmonic method (see Golodnikov and all. 2019) and is based on the maximum entropy principle with the Renyi entropy and moment constraints. Estimates were evaluated for artificial samples with different length and for residuals of quantile regression.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-maximization-of-log-lokelihood-in-hidden-markov-model-hmm_discrete-hmm_normal-linear-linearmulti/">Maximization of Log-Lokelihood in Hidden Markov Model</a></td>
+<td>Hidden Markov Model for discrete distributions (hmm_discrete), Hidden Markov Model for normal distributions (hmm_normal), Linear (linear), Linear Multiple (linearmulti)</td>
+<td>This case study considers two variants of Hidden Markov Model. One with discrete distributions of observations and other with normal distributions of observations. Correspondently two Problem statements for maximization of Log-Lokelihood function in Hidden Markov Model are shown.<br />For maximization type of problem PSG uses an expectation modificaion (EM) procedure in form of Baum–Welch algorithm to find good initial point. hmm_discrete and hmm_normal functions report probabilities of initial states, transition probabilities and probabilities of observations or parameters of normal distributions. Additionally they report Viterbi states vector.</td>
+</tr>
+<tr style="height: 78px;">
+<td style="height: 78px;"><a href="/case-studies/case-study-checkerboard-copula-defined-by-sperman-rho-coefficients-entropyr/">Checkerboard Copula Defined by Spearman Rho Coefficients</a></td>
+<td style="height: 78px;">Relative Entropy (Entropyr), Linear Multiple (Linearmulti)</td>
+<td style="height: 78px;">Calibration of a checkerboard copula with known Spearman Rho coefficients. Maximization of Relative Entropy with linear constraints. The copula is defined by a multiply-stochastic hyper–matrix h.</td>
+</tr>
+<tr style="height: 116px;">
+<td style="height: 116px;"><a href="/case-studies/case-study-checkerboard-copula-defined-by-sums-of-random-variables/">Checkerboard Copula Defined by Sums of Random Variables</a></td>
+<td style="height: 116px;">Mean Absolute Error (meanabs_err), Mean Squared Error (meansquare_err),CVaR Norm (cvar_risk(abs)), Linear Multiple (Linearmulti)</td>
+<td style="height: 116px;">Calibration of a checkerboard copula with known marginal distributions and distributions of sums of some random variables. The copula is defined by a multiply-stochastic hyper–matrix h. The problem is reduced to a statistical minimization problem: minimization of an error function with linear constraints. We considered optimization problems with 3 error functions: 1) mean-square, 2) mean-absolute, and 3) CVaR norm.</td>
+</tr>
+<tr style="height: 96px;">
+<td style="height: 96px;"><a href="/case-studies/fitting-mixture-models-with-cvar/"> Fitting Mixture Models with CVaR Constraints </a></td>
+<td style="height: 96px;">KS distance (ksm_cvar_ni), Mixture CVaR (wcvar_ni), Cardinality (cardn_pos)</td>
+<td style="height: 96px;">A mixture of Gaussian distributions is fitted with CVaR and cardinality constraints. Step 1. EM algorithm finds the means and variances of Gaussian distributions in the mixture. Step2. CVaR distance is minimized for finding optimal weights satisfying CVaR and cardinality constrains.</td>
+</tr>
+<tr style="height: 96px;">
+<td style="height: 96px;"><a href="/case-studies/approximation-of-a-discrete-distribution-by-some-other-discrete-distribution-in-euclidean-space-by-minimizing-k-r-distance/"> Approximation of a Discrete Distribution by Some Other Discrete Distribution in Euclidean Space by Minimizing Kantorovich-Rubinstein Distance </a></td>
+<td style="height: 96px;">Linear (linear), Square Root Quadratic (sqrt_quadratic)</td>
+<td style="height: 96px;">This case study considers numerical algorithm in MATLAB environment for approximation of discrete distribution in k-dimension space by some other discrete distribution with a smaller number of atoms. The approximation is done my minimizing the Kantorovich-Rubinshtein distance between distributions.</td>
+</tr>
+<tr style="height: 116px;">
+<td style="height: 116px;"><a href="/case-studies/cvar-norm-regression/">CVaR Norm Regression</a></td>
+<td style="height: 116px;">CVaR (Cvar_risk) , CVaR Max Risk (cvar_max_risk)</td>
+<td style="height: 116px;">Linear Regression with CVaR Norm Error function. Two alternative implementations, where CVaR Norm is calculated with:<br />1. CVaR Risk function with doubled design matrix.<br />2. CVaR Max Risk function, which calculates CVaR of the maximum of loss and gain on every scenario.</td>
+</tr>
+<tr style="height: 135px;">
+<td style="height: 135px;"><a href="/case-studies/case-study-optimal-hedging-of-cdo-book-psg-and-milp-formulation/">Optimal Hedging of CDO Book (PSG and MIP formulation)</a></td>
+<td style="height: 135px;">Mean Absolute Penalty (meanabs_pen), Polynomial Absolute (polynom_abs), Cardinality (cardn), Linear (linear), Linearmulti (linearmulti)</td>
+<td style="height: 135px;">This case study explains how to formulate and solve some nonstandard Linear Regression problems with additional constraints. Such linear regression is used, for instance, to hedge Collateralized Debt Obligation (CDO) with Credit Default Swaps (CDSs).</td>
+</tr>
+<tr style="height: 116px;">
+<td style="height: 116px;"><a href="/case-studies/mortgage-pipeline-hedging/"> Mortgage Pipeline Hedging</a></td>
+<td style="height: 116px;">CVaR Deviation (Cvar_dev), Mean Absolute Deviation (Meanabs_dev), Standard Deviation (St_dev), VaR Deviation (Var_dev)</td>
+<td style="height: 116px;">Standard versus tail-targeted linear regression problems. Optimal mortgage pipeline hedging strategy with five different deviation measures: Standard Deviation, Mean Absolute Deviation, CVaR Deviation, two-tailed VaR75, and two-tailed VaR90.</td>
+</tr>
+<tr style="height: 116px;">
+<td style="height: 116px;"><a href="/case-studies/relative-entropy-minimization/">Relative Entropy Minimization</a></td>
+<td style="height: 116px;">Relative Entropy (Entropyr)</td>
+<td style="height: 116px;">Optimization problem for minimizing Relative Entropy with linear constraints. Relative Entropy is used to find a probability distribution which is the most close to some "prior" probability distribution subject to available information about the distribution. For instance, moments of a distribution are known and we find the “best” distribution accounting for this information.</td>
+</tr>
+<tr style="height: 154px;">
+<td style="height: 154px;"><a href="/case-studies/case-study-entropy-maximization-with-stochastic-dominance-and-moment-constraints-for-distribution-approximation/">Distribution Approximation by Maximizing Entropy with Second-Order Stochastic Dominance and Moment Constraints</a></td>
+<td style="height: 154px;">Relative Entropy (Entropyr), CVaR for Discrete Distribution as a Function of Atom Probabilities (pCvar), Linear (Linear)</td>
+<td style="height: 154px;">Discrete distribution is approximated by maximizing entropy with the second-order stochastic dominance constraints and moment constraints. The discrete version of Boltzmann theorem implies that the optimal solution has a piecewise-Gaussian form.</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/style-classification-with-quantile-regression/">Style Classification with Quantile Regression</a></td>
+<td style="height: 136px;">Koenker and Bassett error function (kb_err), Partial Moment Penalty (Pm_pen), Partial Moment Penalty for Gain (Pm_pen_g), CVaR Deviation (Cvar_dev), VaR (Var_risk)</td>
+<td style="height: 136px;">Percentile regression for the return-based style classification of a mutual fund. The procedure regresses fund return by several indices as explanatory variables. The estimated coefficients represent the fund’s loads on the indices.</td>
+</tr>
+<tr style="height: 78px;">
+<td style="height: 78px;"><a href="/case-studies/case-study-estimating-probability-distributions-with-quantile-regression/">Estimating Probability Distributions with Quantile Regression </a></td>
+<td style="height: 78px;">Koenker and Bassett error function (kb_err), Multiple Linear (linearmulti)</td>
+<td style="height: 78px;">Quntile regressions are done for a grid of confidence levels. Also, quintile regressions are done for multiple confidence levels in one optimization problem with constraints assuring monotonicity of quntile estimates.</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/estimation-of-cvar-through-explanatory-factors-with-mixed-quantile-regression/">Estimation of CVaR through Explanatory Factors with Mixed Quantile Regression</a></td>
+<td style="height: 136px;">Partial Moment Penalty (Pm_pen), Partial Moment Penalty for Gain (Pm_pen_g)</td>
+<td style="height: 136px;">Mixed Percentile Regression for the estimation of Conditional Value-at-Risk (CVaR) of return distribution of a mutual fund. The estimated coefficients represent the fund’s style with respect to some indices, and therefore the procedure is called “style classification.” We regresses CVaR of the return distribution of the Fidelity Magellan Fund on indices RUJ, RLV, RUO and RLG. CVaR with confidence level 0.9 is approximated by the weighted average of four Value-at-Risks (VaRs) with confidence levels 0.92, 0.94, 0.96, 0.98 .</td>
+</tr>
+<tr style="height: 155px;">
+<td style="height: 155px;"><a href="/case-studies/on-implementation-of-cvar-regression/">Estimation of CVaR through Explanatory Factors with CVaR (Superquantile) Regression</a></td>
+<td style="height: 155px;">CVaR (Superquantile) Error Function (cvar2_err), CVaR (Superquantile) Deviation (cvar2_dev), Rockafellar Error Function (ro_err), CVaR Deviation (Cvar_dev), CVaR (Cvar_risk)</td>
+<td style="height: 155px;">Estimation of CVaR with CVaR (Superquantile) regression is done by minimizing CVaR (Superquantile) Error. Alternatively, CVaR regression is done in two steps: Step 1) Minimization of Deviation from CVaR (Superquantile) Quadrangle with the residual depending only upon loading factors; Step 2) Intercept = CVaR for the residual from Step1. Equivalently, CVaR regression is also done with Rockafellar Error and Mixed CVaR deviation from the Mixed-Quantile Quadrangle.</td>
+</tr>
+<tr style="height: 155px;">
+<td style="height: 155px;"><a href="/case-studies/sparse-signal-reconstruction-a-cardinality-approach/">Sparse Signal Reconstruction: a Cardinality Approach</a></td>
+<td style="height: 155px;">Cardinality (Cardn), Mean Absolute Penalty (Meanabs_pen), Polynomial Absolute (Polynom_abs)</td>
+<td style="height: 155px;">This case study suggests an approach for Signal Sparse Reconstruction using nonconvex formulations with cardinality functions counting number of nonzero elements in a vector. Three formulated problems are special cases of a broad family of approaches known as Compressive Sensing. Problem 1 minimizes L1-error of regression subject to a constraint on cardinality of the solution vector; Problem 2 minimizes cardinality of the solution vector subject to a constraint on L1-error of regression; Problem 3 minimizes L1-error of regression subject to constraint on the sum of absolute values of the solution vector.</td>
+</tr>
+<tr style="height: 520px;">
+<td style="height: 520px;"><a href="/case-studies/sparse-reconstruction-problems-from-sparco-toolbox/">Sparse reconstruction problems from SPARCO toolbox</a></td>
+<td style="height: 520px;">Mean Absolute Penalty (Meanabs_pen), Polynomial Absolute (Polynom_abs)</td>
+<td style="height: 520px;">This case study presents problem formulations and its solutions for a set of sparse reconstruction problems taken from SPARCO toolbox.<br />The objective of Sparse Reconstruction is to find a decision vector which has a small number of non-zero components and satisfies exactly or almost exactly a system of linear equations. There are many variants of optimization formulations of such problems.<br />Many problems included in SPARCO toolbox were solved in so called “L1Relaxed D” formulation. “L1Relaxed D” minimizes L1-error of regression with one linear inequality on the sum of decision vector components; the decision vector components are nonnegative (number of decision variables is doubled to achieve non-negativity). The non-negativity of variables is quite important because an optimal vector contains many zero variables. To investigate property of solution we solved several problems with different values of upper bound in the linear inequality and calculated <em>cardinality</em> and <em>max</em> functions in optimal points.<br />Some problems were solved in so called “L1Relaxed” formulation with original set of variables (without doubling the number of variables to achieve non-negativity). Variables are bounded by box constraints in this formulation. For these problems “L1Relaxed” formulation is more effective compared to “L1Relaxed D” formulation.<br />Additionally, many problems were solved in so called “L2 D” or LASSO formulation which also has double set of variables but does not have constraints.<br />Sum of decision variables multiplied by some coefficient is used as regularization term in the objective function. This problem can be easy solved by methods for unconstrained optimization.<br />We used SPARCO toolbox software to extract data for the considered problems.<br />SPARCO toolbox provides a set of operators to deal with data.<br />We converted the problems data to PSG format and solved them in PSG Run-File environment.</td>
+</tr>
+<tr style="height: 462px;">
+<td style="height: 462px;"><a href="/case-studies/sparse-reconstruction-problems-from-sparco-toolbox-in-psg-matlab-environment-fnext/">Sparse reconstruction problems from SPARCO toolbox in MATLAB Environment (fnext)</a></td>
+<td style="height: 462px;">Quadratic Function (Quadratic)</td>
+<td style="height: 462px;">This case study solves sparse reconstruction problems from SPARCO toolbox using External Functions Tool of PSG and operator given by SPARCO toolbox for implicit working with matrices.<br />SPARCO is a suite of problems for testing and benchmarking algorithms for sparse signal reconstruction (see, [1,2]). It is also an environment for creating new test problems. Also, a suite of standard linear operators is provided from which new problems can be assembled. SPARCO is implemented entirely in MATLAB and is self contained.<br />Problems included in the SPARCO toolbox were initially considered by different authors in different application areas: imaging, compressed sensing, geophysics, information compressing, etc. Relevant references can be found in the SPARCO toolbox.<br />The objective of Sparse Reconstruction is to find a decision vector which has a small number of non-zero components and satisfies exactly or almost exactly a system of linear equations. There are many variants of optimization formulations of such problems.<br />We solved problems included in SPARCO toolbox in so called “LASSO-O” formulation. “LASSO-O” minimizes L2-error of regression with adding to objective a regularization linear term which is equal to the sum of absolute values of variables. The regularization term is intended to “suppress" components with small values. To investigate property of solution we solved every problem with different weight of regularization linear term and calculated cardinality and max functions in optimal points. These problems can be easy solved by methods for unconstrained optimization.<br />SPARCO toolbox provides a set of operators to deal with data. Problems were solved in PSG MATLAB Environment with the PSG External Function subroutine to avoid generating full matrix and to save time and memory.</td>
+</tr>
+<tr style="height: 270px;">
+<td style="height: 270px;"><a href="/case-studies/case-study-calibrating-risk-preferences/">Calibrating Risk Preferences</a></td>
+<td style="height: 270px;">Mean Absolute Penalty (Meanabs_pen)</td>
+<td style="height: 270px;">This case study extracts risk preferences of investors by solving a linear regression model with linear constraints on coefficients. “Risk preferences” are expressed by a risk functional (a deviation measure), which is used by an investor for measuring risk and solving portfolio optimization problems. Contrary to the classical Markowitz portfolio theory, where investors measure risk by standard deviation, this case study assumes that the unknown deviation measure belongs to a class of Mixed CVaR Deviations. In particular, we consider the case when the Mixed CVaR Deviation is a weighted average of the following five CvaR Deviation terms with confidence levels 50%, 75%, 85%, 95%, and 99%.<br />The Mixed CVaR Deviation has five weighting parameters (lambdas), which are nonnegative and sum up to 1. These lambda coefficients are estimated by matching the market option prices with prices expressed via generalized CAPM pricing relations. Matching is done by minimizing a L1 (the error term is sum of absolute values of the differences between market and calculated prices).</td>
+</tr>
+<tr style="height: 356px;">
+<td style="height: 356px;"><a href="/case-studies/case-study-nu-support-vector-machine-based-on-tail-risk-measures/">Support Vector Machines Based on Tail Risk Measures</a></td>
+<td style="height: 356px;">Quadratic Function (Quadratic), CVaR (Cvar_risk), Maximum of CVaR (Max_cvar_risk)</td>
+<td style="height: 356px;">This case study illustrates the application of the CVaR methodology to the Support Vector Machine (SVM) classification problem.<br />Given a training data <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image001.gif" alt="" width="141" height="21" />, where <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image002.gif" alt="" width="46" height="21" /> are features and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/06/CS_NuSVM_clip_image003.gif" alt="" width="76" height="25" />are class labels, the basic idea of SVM is to find an optimal separating hyper-plane (in the features space) maximizing a margin between two classes. Cortes et al. (1995) proposed to solve SVM classification problem using quadratic programming. An alternative formulation, known as nu-SVM, was suggested by Scholkopf, et al. (2000). Takeda and Sugiyama (2008) proposed to use the CVaR risk measure in classification and formulated the SVM learning problem as a CVaR minimization problem. Wang (2009) proposed robust nu -Support Vector Machine based on worst-case CVaR Minimization.<br />Case study contains two problem formulations: 1) regularized CVaR and 2) regularized robust CVaR minimization. Both problems include additional quadratic regularization term.</td>
+</tr>
+<tr style="height: 174px;">
+<td style="height: 174px;"><a href="/case-studies/case-sudy-logistic-regression-and-regularized-logistics-regression-applied-to-estimating-the-probability-of-cesarean-section/"> Logistic Regression and Regularized Logistics Regression Applied to Estimating the Probability of Cesarean Section </a></td>
+<td style="height: 174px;">Logarithms Exponents Sum (Logexp_sum), Polynomial Absolute (Polynom_abs)</td>
+<td style="height: 174px;">Two optimization formulations of the logistic regression problem: 1) Maximization of the log-likelihood function (“plain vanilla” logistic regression); 2) Maximization of the log-likelihood function minus additional regularization term (regularized logistic regression). The first formulation is implemented by maximizing the log-likelihood PSG function “logexp_sum”. The regularization term in the second formulation was subtracted from the log-likelihood function to improve the out-of-sample performance of the regression model. For regularization we used PSG “polynom_abs” function (which is the sum of weighted absolute values of factors).</td>
+</tr>
+<tr style="height: 359px;">
+<td style="height: 359px;"><a href="/case-studies/case-study-projection-on-polyhedron-with-cvar-absolute-norm-4/"> Projection on Polyhedron with Various Norms </a></td>
+<td style="height: 359px;">CVaR Component Absolute (Cvar_comp_abs), Polynomial Absolute (Polynom_abs), Maximum Component Absolute (max_comp_abs), quadratic (quadratic)</td>
+<td style="height: 359px;">Projection problems with various norms on a polyhedron set given by a system of linear inequalities. Computational experiments for <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image001_.gif" alt="" width="62" height="19" /> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image002.gif" alt="" width="31" height="19" /> spaces. Several polyhedron sets <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image003.gif" alt="" width="15" height="17" /> with different number of hyperplanes, such that <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image004.gif" alt="" width="71" height="19" />. The projection of 0 on <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image003.gif" alt="" width="15" height="17" /> is solved with CVaR Absolute Norm (Problem 1), <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image005.gif" alt="" width="18" height="17" /> norm (Problem 3), and the weighted average of <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image006.gif" alt="" width="15" height="17" /> and <img src="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2013/05/CS_Projection_CVaR_Norm_cvar_comp_abs_clip_image007.gif" alt="" width="18" height="17" /> norms (Problem 2).</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/spline-approximation/"> Spline Approximation </a></td>
+<td style="height: 136px;">Spline Sum (spline_sum), Standard Penalty (st_pen), Mean Absolute Penalty (meanabs_pen), Logarithms Exponents Sum (Logexp_sum)</td>
+<td style="height: 136px;">Splines are calibrated to approximate one dimension observation data. Input data for building a spline are vectors containing data of independent and dependent variables and parameters defining number of knots and smoothing degree of the spline. The splines are calibrated by minimizing various error functions, such as mean square error, mean absolute error, and maximum likelihood logistic regression function (PSG functions: st_pen, meanabs_pen, and logexp_sum, accordingly).</td>
+</tr>
+<tr style="height: 174px;">
+<td style="height: 174px;"><a href="/case-studies/spline-regression/"> Spline Regression </a></td>
+<td style="height: 174px;">Spline Sum (spline_sum), Logarithms Exponents Sum (Logexp_sum), Polynomial Absolute (polinom_abs)</td>
+<td style="height: 174px;">Logistic regression with Sum of Splines for approximation of the multi-dimension observation data. Input data are observations of independent and dependent variables,parameters of every spline (number of knots, power and smoothing degree of the spline, upper bounds for range of variation for individual spline in knots, positions of knots - optionally). Likelihood logistic regression function is maximized (PSG function: logexp_sum). The k-fold Cross Validation technique is used. The number of independent input variables is reduced by including in optimization problem boolean variables. Values of splines at knot points are bounded.</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/data-envelopment-analysis/"> Data Envelopment Analysis </a></td>
+<td style="height: 136px;">Linear (Linear), Multiple Linear (linearmulti), Maximum Risk (max_risk)</td>
+<td style="height: 136px;">Comparing relative managerial efficiency of five companies by applying the CCR Model from Data Envelopment Analysis (DEA). The model maximize the ratio of the weighted outputs and the weighted inputs of the company for every company, subject to constraints prohibiting that the ratio of the other companies to be higher than 1. The optimization problem is solved with two equivalent formulations utilizing the Multilinear and Max_Risk PSG functions</td>
+</tr>
+<tr style="height: 155px;">
+<td style="height: 155px;"><a href="/case-studies/classification-by-maximizing-area-under-curve/"> Classification by Maximizing Area Under ROC Curve (AUC) </a></td>
+<td style="height: 155px;">Probability of Exceedance (pr_pen), Difference of Two Loss Functions</td>
+<td style="height: 155px;">This case study maximizes AUC (Area Under ROC Curve) by minimizing PSG probability function (pr_pen). Two equivalent variants are considered: 1) using difference of two independent random linear functions presented by two different matrices of scenarios (with the same column headers); 2) using one matrix of scenarios which is manually generated by taking differences of linear functions from two different matrices (it is possible only for small dimensions because the number of rows in the resulting matrix equals the product of number of rows in the first and in the second matrix).</td>
+</tr>
+<tr style="height: 97px;">
+<td style="height: 97px;"><a href="/case-studies/case-study-bauc-maximization/">Classification by Buffered AUC (bAUC) Maximization </a></td>
+<td style="height: 97px;">Partial Moment Penalty (pm_pen), Partial Moment Penalty for Gain (pm_pen_g)</td>
+<td style="height: 97px;">This case study considers buffered version (bAUC) of classification criteria Area Under the Receiver Operating Characteristic Curve (AUC). Two optimization settings: 1) maximizing bAUC and then finding intercept by minimizing some cost function; 2) Construction of "Efficient Frontier" by minimizing cost function with several constraints on bAUC.</td>
+</tr>
+<tr style="height: 116px;">
+<td style="height: 116px;"><a href="/case-studies/linear-regression-in-tranche/">Linear Regression in Tranche </a></td>
+<td style="height: 116px;">ltranche, Mean Squared Error (meansquare_err), L1 Error (meanabs_pen)</td>
+<td style="height: 116px;">This case study solves a linear regression problem for building an optimal reinsurance contract. The contract specifies loading coefficients for losses and attachment and detachment points of a tranche. The insurance company wants to find an optimal linear combination of losses in the contract specification to get a good protection in the specified tranche.</td>
+</tr>
+<tr style="height: 193px;">
+<td style="height: 193px;"><a href="/case-studies/minimize_kantorovich_distance/">Minimization of Kantorovich-Rubinstein and Average Kolmogorov-Smirnov distances between two univariate distributions (kantor, ksm_avg, cardn, linear, pcvar)</a></td>
+<td style="height: 193px;">(Kantorovich Distance between Two Univariate Distributions (kantor), Average Kolmogorov-Smirnov Distance between Two Univariate Distributions (ksm_avg), Cardinality (cardn), Linear (linear))</td>
+<td style="height: 193px;">This case study demonstrates how to approximate a fixed univariate distribution by a variable univariate distribution by minimizing Kantorovich-Rubinstein distance or Average Kolmogorov-Smirnov distance between distributions and obtain the same result. The case study considers two Problem Statements for minimization Kantorovich-Rubinstein distance and two Problem Statements for minimization Average Kolmogorov-Smirnov distance.</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/case-study-buffered-neyman-pearson-classification-with-spline-based-feature-transforms/">Error Type Control via Buffered Neyman-Pearson Classification and Spline-based Feature Transformations</a></td>
+<td style="height: 136px;">Minimizing bpoe_g with constraint on cvar_g.</td>
+<td style="height: 136px;">This case study demonstrates how to solve binary classification with error type control via solving the Buffered Neyman-Pearson (bNP) classification problem where features are first transformed via splines in a way that is optimal for the bNP classification task, then the transformed features are fed into the final bNP classification problem.</td>
+</tr>
+<tr style="height: 136px;">
+<td style="height: 136px;"><a href="/case-studies/case-study-data-envelopment-analysis-stochastic-case-buffered-ranking/">Data Envelopment Analysis: Stochastic Case, Buffered-Ranking</a></td>
+<td style="height: 136px;">Probability of Exceedance (pr_pen), Probability of Exceedance Penalty for Gain (pr_pen_g), Linear Multiple (Linearmulti), Buffered Probability of Exceedance (bPOE), Buffered Probability of Exceedance for Gain (bPOE_g)</td>
+<td style="height: 136px;">This case study compares ranking with buffered-ranking of Decision Making Unit (DMU) in efficiency analysis. Problem 1 considers the highest ranking that DMU can achieve by choosing the input/weights. Problem 2 considers the lowest ranking. Problem 3 considers the highest buffered-ranking. Problem 4 considers the lowest buffered-ranking.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/support-vector-regression-risk-quadrangle-framework/">Support Vector Regression: Risk Quadrangle Framework</a></td>
+<td>CVaR (cvar_risk), CVaR Deviation (cvar_dev), VaR (var_risk), Partial Moment (pm_pen), Probability of Excedance (pr_pen), Linear (linear), Linear Multiple (linearmulti), Quadratic Function (quadratic), Polynomial Absolute (polynom_abs)</td>
+<td>This case study implements Support Vector Regression (SVR) for simulated data and numerically confirms the<br />1. Equivalence between epsilon-SVR and nu-SVR formulations.<br />2. Error shaping decomposition of SVR.<br />3. Equivalence between the primal problem statements and the dual problem statement of SVR.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/case-study-expectile-xvar-estimation-by-three-variants-of-regression/">Expectile (XVaR) Estimation: Three Variants of Regression</a></td>
+<td>Variable (optimization variable), Expectile (xvar), Expectile Deviation (xvar_dev), Partial Moment (pm_pen), Average Loss (avg), Partial Moment Two (pm2_pen), Polynomial Absolute (polynom_abs)</td>
+<td>This case study estimates Expectile (XVaR) with peace-wise linear and quadratic Errors. Also, expectile regression is done in two steps:<br />Step 1. Minimization of Expectile Deviation with the residual depending only upon loading factors.<br />Step 2. Calculate intercept = Expectile for the residual from Step1.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/risk-envelope-visualization-for-extended-phi-divergence-quadrangle/">Risk Identifier Visualization for Extended ϕ-Divergence Quadrangle</a></td>
+<td>Average (avg), Standard Deviation (std_dv)</td>
+<td>This case study visualizes the risk identifier in the extended ϕ-divergence quadrangle. The extended ϕ-divergence quadrangle provides an interpretation of portfolio optimization, classification and regression as robust optimization. The risk identifier is the random variable in the risk envelope that optimizes the corresponding risk/error measure.</td>
+</tr>
+<tr>
+<td><a href="/case-studies/mixture-quantile/">Mixture Quantile Estimation via Constrained Linear Regression</a></td>
+<td>N/A (Implemented via Python)</td>
+<td>This case study explores the problem of modeling univariate distributions via their quantile functions. We introduce a flexible family of distributions whose quantile function is a linear combination of basis quantiles. Because the model is linear in its parameters, estimation reduces to constrained linear regression, yielding a convex optimization problem that readily accommodates cardinality constraints as well as L1 or smoothness regularization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox and PSG MATLAB">
+    <title>Case Study: Cell Towers allocation with Probability of Exceedance and VaR functions — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Cell Towers allocation with Probability of Exceedance and VaR functions</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/09/CS_CellTowers_allocation.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a>.
+<strong>
+Sources of Data</strong>
+<span style="font-family: Calibri; font-size: medium;"> • Toczek, J. Thinking Analytically. Cell towers. Analytics INFORMS, May/June (2016).
+<span style="text-decoration: underline;"><a href="https://www.analytics-magazine.org/may-june-2016/1618-thinking-analytically-cell-towers"> https://www.analytics-magazine.org/may-june-2016/1618-thinking-analytically-cell-towers</a></span>.
+
+<span style="font-family: Calibri; font-size: medium;">Data for 300x300 problem is generated at AOD company.</span>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<!---PROBLEM: MAX--><strong>PROBLEM 1: Control a fraction of uncovered houses using Probability function in constraint</strong>
+Minimize linear (number of allocated Cell Towers)nsubject tonPr_pen &lt;= Const1 (constraint on the fraction of uncovered houses)
+——————————————————————–
+Pr_pen = Probability of Exceedance
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p style="text-align: center;"><strong>Problem "problem_CELL_Towers_Pr"</strong></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Gap</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.4GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">98</th>
+<th style="width: 101px; height: 19px;">41</th>
+<th style="width: 113px; height: 19px;">6.0</th>
+<th style="width: 113px; height: 19px;">0.0</th>
+<th style="width: 220px; height: 19px;">0.27</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Pr1_10x10_041.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Pr1_10x10_041.zip">Data</a></td>
+<td style="width: 113px; height: 19px;"></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Pr1_10x10_041.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problemPr_in_constraint_tool.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/CS_Cell_Towers_problem_using_Bipartate_Graph_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_CS_Cell_towers_subroutine.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Gap</th>
+<th>Solving Time (sec), PC 3.4GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Pr2_10x10_041.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Pr2_10x10_041.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Pr2_10x10_041.zip">Solution</a></td>
+<td>98</td>
+<td>41</td>
+<td>13</td>
+<td>0</td>
+<td>0.24</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Pr1_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Pr1_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Pr1_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>4869</td>
+<td>0</td>
+<td>43.01</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Pr2_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Pr2_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Pr2_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>11320</td>
+<td>786</td>
+<td>7200.15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: AVG-->
+<strong>PROBLEM 2: Control a fraction of uncovered houses based on VaR function in constraint</strong>
+Minimize linear (number of allocated Cell Towers)nsubject tonVar_risk &lt;= Const2 (constraint on the fraction of uncovered houses)
+——————————————————————–
+Var_risk = Value-at-Risk
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p style="text-align: center;"><!---PROBLEM: problem_indtrack1_avg--><strong>Problem "problem_CELL_Towers_Var"</strong></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Gap</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.4GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">98</th>
+<th style="width: 101px; height: 19px;">41</th>
+<th style="width: 113px; height: 19px;">6</th>
+<th style="width: 113px; height: 19px;">0.0</th>
+<th style="width: 220px; height: 19px;">0.24</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Var1_10x10_041.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Var1_10x10_041.zip">Data</a></td>
+<td style="width: 113px; height: 19px;"></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Var1_10x10_041.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problemVaR_in_constraint_tool.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/CS_Cell_Towers_problem_using_Bipartate_Graph_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_CS_Cell_towers_subroutine.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Gap</th>
+<th>Solving Time (sec), PC 3.4GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Var2_10x10_041.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Var2_10x10_041.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Var2_10x10_041.zip">Solution</a></td>
+<td>98</td>
+<td>41</td>
+<td>13</td>
+<td>0</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Var1_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Var1_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Var1_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>4869</td>
+<td>0</td>
+<td>38.95</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_CELL_Towers_Var2_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_CELL_Towers_Var2_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_CELL_Towers_Var2_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>11323</td>
+<td>788</td>
+<td>10007.44</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: FC MAX-->
+<strong>PROBLEM 3: Minimize a fraction of uncovered houses using Probability function in objective</strong>
+Minimize Pr_pen (fraction of uncovered houses)nsubject tonlinear &lt;= Const3 (constraint on the number of Cell Towers to be allocated)
+——————————————————————–
+Pr_pen = Probability of Exceedance
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p style="text-align: center;"><!---PROBLEM: FC problem_indtrack1_max--><strong>Problem "problem_min_PR_CELL_Towers"</strong></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Gap</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.4GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">98</th>
+<th style="width: 101px; height: 19px;">41</th>
+<th style="width: 113px; height: 19px;">0.2439</th>
+<th style="width: 113px; height: 19px;">0</th>
+<th style="width: 220px; height: 19px;">0.25</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_min_PR_CELL_Towers1_10x10_041.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_min_PR_CELL_Towers1_10x10_041.zip">Data</a></td>
+<td style="width: 113px; height: 19px;"></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_min_PR_CELL_Towers1_10x10_041.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/problemPr_in_objective_tool.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/CS_Cell_Towers_problem_using_Bipartate_Graph_subroutine_example.zip">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_CS_Cell_towers_subroutine.zip">Data</a></td>
+<td style="width: 113px; height: 19.7813px;"></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Gap</th>
+<th>Solving Time (sec), PC 3.4GHz</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_min_PR_CELL_Towers2_10x10_041.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_min_PR_CELL_Towers2_10x10_041.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_min_PR_CELL_Towers2_10x10_041.zip">Solution</a></td>
+<td>98</td>
+<td>41</td>
+<td>0.26829</td>
+<td>0</td>
+<td>0.26</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_min_PR_CELL_Towers1_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_min_PR_CELL_Towers1_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_min_PR_CELL_Towers1_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>0.2999867</td>
+<td>0</td>
+<td>93.34</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11//problem_min_PR_CELL_Towers2_300x300_05.txt">ProblemStatement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/data_problem_min_PR_CELL_Towers2_300x300_05.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/06/solution_problem_min_PR_CELL_Towers2_300x300_05.zip">Solution</a></td>
+<td>89776</td>
+<td>45152</td>
+<td>0.2964</td>
+<td>0.0386</td>
+<td>24582.72</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+CASE STUDY SUMMARYn</strong>
+This Case study demonstrates a scenario based optimization framework for solving Partial Set Covering problem and Maximal Covering Location problem. We use Probability of Exceedance (POE) and Value-at-Risk (VaR) functions to bound and minimize some fraction of uncovered nodes. Although the suggested approach is quite general, it is demonstrated, in this case study, with the problem of “Allocation of Cell Towers to Service Houses”.
+We solved a small problem (10x10) for covering 41 houses by 1 and 2 Cell Towers. Also, we generated and solved a big (300x300) problem with randomly distributed 45,152 houses.
+We found that covering houses by 2 Cell Towers is a much more challenging combinatorial problem (time of solving increases dramatically) compared with covering by 1 Cell Tower.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+References</strong>
+• Toregas C., Swain R., ReVelle C. and Bergman L. (1971): The location of emergency service facilities. Operations Research, 19(6), 1363-1373.n• Moshkov M. Ju., Piliszczuk M. and Zielosko B. (2008): Partial Covers, Reducts and Decision Rules. Studies in Computational Intelligence, Springer-Verlag, V.145, 7-49.n• Church, R., ReVelle, C. S. (1974): The Maximal Covering Location Problem. Papers in Regional Science 32 (1), 101–118.n• Daskin, M. S. (1983): A Maximum Expected Covering Location Model: Formulation, Properties and Heuristic Solution. Transportation Science 17 (1), 48-70.</div>
+</span></div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

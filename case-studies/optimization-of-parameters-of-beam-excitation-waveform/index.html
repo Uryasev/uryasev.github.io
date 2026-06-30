@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Sudy: Optimization of Parameters of Beam Excitation Waveform — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Sudy: Optimization of Parameters of Beam Excitation Waveform</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/11/CS_BEAM_OPTIMIZATION_1116_2015.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Run_File_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+PROBLEM: problem_linear </strong>
+minimizing linearnsubject tonb1 ≤Ax ≤b2 (multiple linear constraints)
+Box constraints (types of variables)
+——————————————————————–——————
+Linear = Linear functionnBox constraints = constraints on individual decision variables
+——————————————————————–——————
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">158</th>
+<th style="width: 101px; height: 19px;">N/A</th>
+<th style="width: 113px; height: 19px;">0.003127</th>
+<th style="width: 220px; height: 19px;">33.45</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_2_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_2_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_2_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_beam_i_2_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_2_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_beam_i_2_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_beam_i_2.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.83GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_3_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_3_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_3_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000218</td>
+<td>6.56</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_5_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_5_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_5_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000015</td>
+<td>9.41</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_6_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_6_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_6_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000006</td>
+<td>13.11</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_7_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_7_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_7_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000003</td>
+<td>12.93</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_8_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_8_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_8_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.00001</td>
+<td>8.37</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_9_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_9_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_9_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>1.0269e-06</td>
+<td>7.43</td>
+</tr>
+<tr>
+<td>Dataset8</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_i_10_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_i_10_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_i_10_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000006</td>
+<td>16.32</td>
+</tr>
+<tr>
+<td>Dataset9</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_2_1_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_2_1_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_2_1_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000013</td>
+<td>13.5</td>
+</tr>
+<tr>
+<td>Dataset10</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_2_3_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_2_3_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_2_3_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>1.3339e-05</td>
+<td>17.35</td>
+</tr>
+<tr>
+<td>Dataset11</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_2_5_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_2_5_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_2_5_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>1.4316e-05</td>
+<td>19.64</td>
+</tr>
+<tr>
+<td>Dataset12</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_2_7_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_2_7_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_2_7_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>1.6291e-05</td>
+<td>28.29</td>
+</tr>
+<tr>
+<td>Dataset13</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_2_9_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_2_9_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_2_9_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.00002</td>
+<td>2.83</td>
+</tr>
+<tr>
+<td>Dataset14</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_3_1_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_3_1_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_3_1_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000026</td>
+<td>18.04</td>
+</tr>
+<tr>
+<td>Dataset15</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_3_3_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_3_3_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_3_3_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000037</td>
+<td>8.11</td>
+</tr>
+<tr>
+<td>Dataset16</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_3_5_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_3_5_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_3_5_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000053</td>
+<td>10.31</td>
+</tr>
+<tr>
+<td>Dataset17</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_beam_k_3_7_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_beam_k_3_7_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_beam_k_3_7_short.zip">Solution</a></td>
+<td>158</td>
+<td>N/A</td>
+<td>0.000079</td>
+<td>14.77</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+CASE STUDY SUMMARYn</strong>
+This Case Study demonstrates optimization of parameters of hinged beam under the influence of a number of periodic concentrated forces for excitation and formation of wave motion. The use of mathematical methods that lead to optimization problems is the traditional problems in the design of mechanical devices with optimum characteristics specified criterial (Balandin (1995), Komkov (1972)). However, in some cases, an optimization approach leads to mixed multi-extremal problems of constrained minimization of functionals, which are difficult to solve (Banichuk (1990), Banichuk, and Klimov (1991)). In this case study we consider a model problem of the vibrations of hinged beam under the influence of a number of periodic concentrated forces. The problem is to choose the parameters of force influence (amount of forces, their amplitudes, phases, and points of their application) to install the vibrations of a beam well (according to some criterion) met the specified parameters waveform.
+The Case Study solves the problem for a fixed frequency (k = 2.5) with a serial relaxing constraints imposed on the amount of forces (I = 2, 3, 5, 6, 7, 8, 9, 10). Besides we solve the problem to determine the optimal characteristics for 5 forces (I = 5) within a frequency range comprising the resonance (k = 2.1, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5, 3.7).
+
+<strong>References</strong>
+• Balandin D. (1995), “On the optimal vibration absorption in elastic objects”. Applied Mathematics and Mechanics, Vol. 59, # З (In Russian).n• Komkov V. (1972), Optimal control theory for the damping of vibrations of simple elastic systems. Springer Verlag. Berlin. Heidelberg, New York.n• Banichuk N.V. (1990), Introduction to Optimization of Structures, Springer-Verlag, New York.n• Banichuk N.V., and D.M.Klimov (1991), Dynamical Problems of Rigid-Elastic Systems and Structures, Springer-Verlag, , New York.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

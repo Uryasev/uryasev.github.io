@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R.">
+    <title>Case Study: Production Planning — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Production Planning</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/08/CS_ProductionPlanning_FXCHG.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+PROBLEM: problem_production_planning_FXCHG</strong>
+Minimize Linear + Fxchg_pos (minimizing total costs)nsubject tonLinearmulti = Const (constraint on production demand)
+Box constraints (bounds on positions)
+——————————————————————–————–
+Fxchg_pos = Fixed Charge PositivenBox constraints = constraints on individual decision variables
+——————————————————————–————–
+nData and solution in Run-File Environment. The same problem is solved with two different solvers: VAN and CARGRB (which needs GUROBI).
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_production_planning_fxchg__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_production_planning_fxchg__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_production_planning_fxchg_short.zip">Solution</a></td>
+<td>8</td>
+<td>4</td>
+<td>660</td>
+<td>&lt;0.01</td>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_production_planning_fxchg_mip.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/07/data_problem_production_planning_fxchg_mip.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/07/solution_problem_production_planning_fxchg_mip.zip">Solution</a></td>
+<td>8</td>
+<td>4</td>
+<td>660</td>
+<td>&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_production_planning_FXCHG.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_production_planning_FXCHG.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_production_planning_FXCHG.txt">Solution</a></td>
+<td>8</td>
+<td>4</td>
+<td>660</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_production_planning_FXCHG_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_production_planning_FXCHG.zip">Data</a></td>
+<td></td>
+<td>8</td>
+<td>4</td>
+<td>660</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study demonstrates an optimization setup and relevant graphs for a single item capacitated lot size model. For a finite time horizon T, there is demand for a single item in each production period. This demand must be satisfied by the production in that period or by inventory from previous periods, that is, no backlogging is allowed. The production level cannot exceed a certain capacity limit. Two kinds of costs are considered, production cost and holding cost. Production, if initiated in a certain period, requires initial setup cost. We are trying to find a feasible production plan that minimizes total costs.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+References</strong>
+• Chen, H-D., Hearn, D. W., Lee, C-Y. (1994): A new dynamic programming algorithm for the single item capacitated dynamic lot size model, <em>Journal of Global Optimization</em>, Vol.4, No. 3/April.n• Chen, H-D., Hearn, D. W., Lee, C-Y. (1994): A dynamic programming algorithm for dynamic lot size models with piecewise linear costs, <em>Journal of Global Optimization</em>, Vol.4, No. 4/June.n• Chen, H-D., Hearn, D. W., Lee, C-Y. (1995): Minimizing the error bound for the dynamic lot size model, <em>Operations Research Letters</em>, 17, 57-68.n• Atamturk, A., Munoz, J. C. (2004): A study of the lot-sizing polytope, Mathematical Programming 99, 443-465.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

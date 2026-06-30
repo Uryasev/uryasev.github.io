@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page Case study background and formulation of problems Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG Python, a">
+    <title>Case Study: Support Vector Regression: Risk Quadrangle Framework — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Support Vector Regression: Risk Quadrangle Framework</h1>
+
+<p><a href="/research/testproblems/">Back to main page</a><br /><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/Case_Study__SVR.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and formulation of problems</strong></span></a></p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/01/PSG_Python_2.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Python</span></a>, and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br />Problem 1: Nu-SVR as Error Minimization (primal) </strong><br />Minimize (1-alpha)*cvar_risk + quadratic<br />Value:<br />var_risk<br />——————————————————————————————<br />quadratic = quadratic function specified by a matrix_quadratic<br />cvar_risk = conditional value-at-risk specified by an abs(matrix of scenarios)<br />var_risk = value-at-risk specified by an abs(matrix of scenarios)<br />——————————————————————————————<br />Data and solution in different environments:nn
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 237px;" width="850">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">0.7742</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/problem_primal.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nu_svr_err_run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nusvr_err_sol.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nusvr_err.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nuSVR-as-Error-Minimization.zip">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><br>Problem 2: epsilon-SVR as Error Minimization (primal)</strong><br>Minimize pm_pen + quadratic<br>Value:<br>pr_pen<br>——————————————————————–—————— <br>pm_pen = partial moment function specified by an abs(matrix of scenarios)<br>pr_pen = probability of exceedance specified by  an abs(matrix of scenarios)  <br>quadratic = quadratic function specified by a matrix_quadratic<br>——————————————————————–——————<br>Data and solution in different environments:</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 237px;" width="850">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">0.4082</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/problem_pm_reg.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/esvr_run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/esvr_sol.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/esvr.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/eSVR-as-Error-Minimization.zip">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><br>Problem 3: Nu-SVR as Deviation Minimization (primal)</strong><br>Minimize (1-alpha)/2*cvar_dev + (1+alpha)/2*cvar_dev + quadratic<br>Value:<br>var_risk<br>——————————————————————–——————<br>cvar_dev = conditional value-at-risk deviation specified by a reduced matrix of scenarios<br>quadratic = quadratic function specified by a reduced matrix_quadratic<br>——————————————————————–——————<br>Data and solution in different environments: </p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 237px;" width="850">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">0.7742</th>
+<th style="width: 220px; height: 19px;">&lt;0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/problem_reduced.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nusvr_dev_run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nusvr_dev_sol.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nusvr_dev.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nuSVR-as-Deviation-Minamization.zip">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><br>Problem 4a: Nu-SVR as Error Minimization (dual, constraints linearized automatically)</strong><br>Maximize linear - 0.5*quadratic<br>Subject to<br>polynom_abs <= C*(1-alpha)<br>linear = 0<br>Box: <= C, >= -C<br>——————————————————————–—————— <br>linear = linear fumction specified by a vector of dependent values (in objective) and by a unit vector (in constraint)<br>polynom_abs = l1 norm specified by a unit vector<br>quadratic = quadratic function specified by a linear kernel matrix<br>——————————————————————–—————— <br>Data and solution in different environments:  </p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 237px;" width="850">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1,000</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">774.2196</th>
+<th style="width: 220px; height: 19px;">&lt;0.2</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/problem_dual_orig.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_orig_run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_orig_sol.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_orig.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nuSVR-Dual-Formulation-PSG.zip">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong><br>Problem 4b: Nu-SVR as Error Minimization (dual, constraints linearized manually)</strong><br>Maximize linear - 0.5*quadratic<br>Subject to<br>linear <= C*(1-alpha)<br>linear = 0<br>-1<=linearmulti<=1<br>limearmulti>=0<br>limearmulti>=0<br>——————————————————————–—————— <br>linear = linear fumction specified by a vector of dependent values (in objective) and by a unit vector (in constraint)<br>polynom_abs = l1 norm specified by a unit vector<br>quadratic = quadratic function specified by a linear kernel matrix<br>linearmulti = linear multiple function specified by a sparse pmatrix in each case<br>——————————————————————–—————— <br>Data and solution in different environments:  </p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 237px;" width="850">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2.7GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">1,000</th>
+<th style="width: 101px; height: 19px;">1,000</th>
+<th style="width: 113px; height: 19px;">774.2196</th>
+<th style="width: 220px; height: 19px;">&lt;0.2</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/problem_dual.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_lin_run_data.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_lin_sol.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/svr_dual_linearized.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Python (GUROBI)</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/nuSVR-Dual-Formulation-Linearized-GUROBI.zip">Python Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;">&nbsp;</td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>CASE STUDY SUMMARY<br></strong><br>This case study conducts Support Vector Regression (SVR) as regularized error minimization, regularized deviation minimization, and constrained quadratic programming (CQP) problem on simulated data (1000 observations), cf. [1].<br>Specifically, four equivalent implementations of SVR are considered (cf. Proposition 4.2 and Corollary 4.5 in [1] for the proof of equivalence ):<br>1. The CVaR Norm plus quadratic regularization penalty is minimized.  The CVaR  Norm is calculated as the superposition of the  CVaR  Risk and the absolute value of regression residuals (i.e., the absolute value of the standard PSG linear losses).<br>2. The Partial Moment function plus quadratic regularization penalty is minimized.<br>3. Convex combination of two CVaR deviations plus quadratic regularization penalty is minimized. The intercept is calculated as the average of two corresponding symmetric quantiles.<br>4. QP problem (dual to the CVaR Norm plus quadratic regularization penalty minimization) is solved. The solution to the primal problem is constructed.  <br><strong><br>References</strong><br>[1] Malandii, A. and S. Uryasev. Support Vector Regression: Risk Quadrangle Framework, Jan 2023, <strong><a href="https://arxiv.org/abs/2212.09178">arXiv:2212.09178</a></strong> </p>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

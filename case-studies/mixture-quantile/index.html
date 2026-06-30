@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main pageCase study background and problem formulations  The optimization problems are solved using standard Python libraries (e.g., SciPy) an">
+    <title>Mixture Quantile Estimation via Constrained Linear Regression — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Mixture Quantile Estimation via Constrained Linear Regression</h1>
+
+<p><a href="/research/testproblems/">Back to main page</a><br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/Case_Study.pdf"><strong>Case study background and problem formulations</strong></a></p>
+
+<p><strong><br>The optimization problems are solved using standard Python libraries (e.g., SciPy) and advanced convex/mixed-integer solvers (e.g., GUROBI).</strong> Please refer to the <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/requirements.txt">Environment</a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/Instruction.pdf">Python Framework Instruction</a>.</p>
+
+<p><strong>PROBLEM</strong>: Mixture Quantile Estimation for Electricity Price Data </p>
+
+<p>Minimize L<sub>1</sub> / L<sub>2</sub> error with Non-negativity, L<sub>1</sub> Selection Penalty, and Smoothness Constraints. </p>
+
+<p>--------------------------------------------------------------<br>This case study demonstrates the formulation and solution of the Mixture Quantile (MQ) model applied to daily U.S. electricity prices. Unlike traditional Maximum Likelihood Estimation, this framework reduces distribution fitting to a constrained linear regression problem. The Python implementation utilizes parametric bases (Standard Gaussian, Student's t), Tail-specific Generalized Pareto Distributions (GPD) for extreme price spikes, and non-parametric I-splines for flexible body fitting.</p>
+
+<p><strong>Data and solution in Python Environment</strong></p>
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><th class="has-text-align-left" data-align="left" colspan="3"><strong>Problem Dataset</strong></th><th><strong># of Variables</strong></th><th><strong># of Samples</strong></th></tr><tr><td class="has-text-align-left" data-align="left"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/clean_data.zip">U.S. Electricity Prices (2001-2024)</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/Mixture-Quantiles-Code.zip">Python Code</a></td><td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/electricity_solution.zip">Solution</a></td><td>19 (Basis functions)</td><td>79,651</td></tr></tbody></table></figure>
+
+<p><strong><br>References</strong><br>• Peng, C., Li, Y. and S. Uryasev. Mixture Quantiles Estimated by Constrained Linear Regression. Annals of Operations Research. 2026, Accepted for publication. <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/Mixture_quantiles_constrained_linear_regression.pdf">https://uryasev.ams.stonybrook.edu/wp-content/uploads/2026/04/Mixture_quantiles_constrained_linear_regression.pdf</a>.</p>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

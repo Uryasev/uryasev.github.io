@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="CASE STUDY: Efficient and Robust Optimal Design for Quantile Regression Based on Linear Programming  Back to main page  Instructions for optimization">
+    <title>Case Study: Efficient and Robust Optimal Design for Quantile Regression Based on Linear Programming — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Efficient and Robust Optimal Design for Quantile Regression Based on Linear Programming</h1>
+
+<p><span style="font-family: Calibri; font-size: large;"><strong> CASE STUDY: Efficient and Robust Optimal Design for Quantile Regression Based on Linear Programming</strong></span></p>
+
+<p><a href="/research/testproblems/">Back to main page</a></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+
+<br>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> PROBLEM 1: problem_minimize_variance_of_quantile_error_bound</strong><br>minimize<br>linearize = 1<br>linear(matrix_objcoef)<br>Constraint: == 0<br>linearmulti (matrix_lhs)<br>Box: &gt;= 0<br>Solver: carn<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;" border="1" width="737" cellpadding="2pt" align="&quot;leftE">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset</th>
+<th style="width: 217px; height: 19px;">5,000</th>
+<th style="width: 113px; height: 19px;">0.234215098995E+01</th>
+<th style="width: 220px; height: 19px;">0.05</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="4"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">R</td>
+<td style="width: 217px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/problem_design_1.txt">R code</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/Design_normal_data.RData_.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/Design_normal_solution.RData_.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> PROBLEM 2: problem_minimize_CVaR_of_quantile_error_bound</strong><br>minimize<br>linearize = 1<br>linear(matrix_objcoef)<br>Constraint: == 0<br>linearmulti (matrix_lhs)<br>Box: &gt;= 0<br>Solver: carn<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<table style="height: 188px;" border="1" width="737" cellpadding="2pt" align="&quot;leftE">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 2GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;">Dataset</th>
+<th style="width: 217px; height: 19px;">5,000</th>
+<th style="width: 113px; height: 19px;">0.301224209124E+02</th>
+<th style="width: 220px; height: 19px;">0.05</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="4"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;">R</td>
+<td style="width: 217px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/problem_design_2.txt">R code</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/Design_student_t_data.RData_.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/08/Design_student_t_solution.RData_.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Structuring step up CDO — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Structuring step up CDO</h1>
+
+<p><a href="/research/testproblems/">Back to main page</a></p>
+
+<p><span style="font-family: Calibri; font-size: large;"><strong><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/CS_Structuring_Step-up_CDO_PrMulti_corrected_3-1.pdf"> Case study background and problem formulations</a></strong></span></p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<p>Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a></p>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 1: problem_example_1_case_1__BBB</strong><br>Minimize Linear (minimize expected spread payments over all periods for tranche m)<br>subject to<br>Prmulti_pen ≤ Const1 (risk constraint assuring rating of a tranche)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables<br>——————————————————————–</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">5</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">0.917241635</th>
+<th style="width: 220px; height: 19px;">0.27</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_1_bbb_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_1_case_1_bbb_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_1_case_1_bbb_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_1_case_1_bbb_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_1_bbb_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_example_1_case_1_bbb_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_1_case_1_bbb_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_1_bbb_500_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_1_case_1_bbb_500_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_1_case_1_bbb_500_short.zip">Solution</a></td>
+<td>5</td>
+<td>500,000</td>
+<td>0.924930682</td>
+<td>106.88</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>PROBLEM 2: problem_example_1_case_2__BBB</strong><br>Minimize Linear (minimize expected spread payments over all periods for tranche m)<br>subject to<br>Linearmulti = Const2 (linear constraints)<br>Prmulti_pen ≤ Const3 (risk constraint assuring rating of a tranche)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>Linearmulti = Linear Multiple<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</div>
+
+<p>——————————————————————–</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">5</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">1.11968081</th>
+<th style="width: 220px; height: 19px;">1.08</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_2_bbb_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_1_case_2_bbb_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_1_case_2_bbb_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_1_case_2_bbb_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_2_bbb_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_example_1_case_2_bbb_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_1_case_2_bbb_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_1_case_2_bbb_500_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_1_case_2_bbb_500_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_1_case_2_bbb_500_short.zip">Solution</a></td>
+<td>5</td>
+<td>500,000</td>
+<td>1.113539965</td>
+<td>7.63</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>PROBLEM 3: problem_example_2__BBB</strong><br>Minimize PV (minimize PV of expected spread payments over all periods for tranche m)<br>subject to<br>Pr_pen ≤ Const4<br>Prmulti_pen ≤ Linear (default probabilities constraints at time period t)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>PV = Present Value<br>Pr_pen = Probability Exceeding Penalty for Loss<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</div>
+
+<p>——————————————————————–</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">5</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">0.588263342</th>
+<th style="width: 220px; height: 19px;">0.71</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_2_bbb_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_2_bbb_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_2_bbb_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_2_bbb_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_2_bbb_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_example_2_bbb_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_2_bbb_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_2_bbb_500_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_2_bbb_500_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_2_bbb_500_short.zip">Solution</a></td>
+<td>5</td>
+<td>500,000</td>
+<td>0.591988749</td>
+<td>137.36</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 4: problem_example_3_case_1__BBB</strong><br>Minimize PV (minimize PV of expected spread payments over all periods for tranche m)<br>subject to<br>Prmulti_pen ≤ Const5 (risk constraint assuring rating of a tranche)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>PV = Present Value<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</div>
+<p>——————————————————————–</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">5</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">0.583782987354</th>
+<th style="width: 220px; height: 19px;">0.35</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_1_bbb_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_3_case_1_bbb_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_3_case_1_bbb_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_3_case_1_bbb_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_1_bbb_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_example_3_case_1_bbb_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_3_case_1_bbb_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_1_bbb_500_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_3_case_1_bbb_500_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_3_case_1_bbb_500_short.zip">Solution</a></td>
+<td>5</td>
+<td>500,000</td>
+<td>0.587443654</td>
+<td>102.60</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.
+
+<p><strong><br>PROBLEM 5: problem_example_3_case_2__BBB</strong><br>Minimize PV (minimize PV of expected spread payments over all periods for tranche m)<br>subject to<br>Linearmulti = Const6 (linear constraints)<br>Prmulti_pen ≤ Const7 (risk constraint assuring rating of a tranche)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>PV = Present Value<br>Linearmulti = Linear Multiple<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</p>
+</div>
+<p>——————————————————————–</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">5</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">0.78188185221</th>
+<th style="width: 220px; height: 19px;">0.18</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_2_bbb_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_3_case_2_bbb_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_3_case_2_bbb_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_3_case_2_bbb_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_2_bbb_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_3_case_2_bbb_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_3_case_2_bbb_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_3_case_2_bbb_500_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_3_case_2_bbb_500_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_3_case_2_bbb_500_short.zip">Solution</a></td>
+<td>5</td>
+<td>500,000</td>
+<td>0.0.77790306</td>
+<td>1.46</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.
+
+<p><strong>PROBLEM 6: problem_example_4_case_1__BBB</strong><br>Minimize Linear (minimize expected spread payments over all periods for tranche m)<br>subject to<br> Prmulti_pen ≤ Const8 (risk constraint assuring rating of a tranche)<br>Linear ≥ Const9 (constraint on income spread payments)<br>Linear = 1 (sum of weights constraint)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</p>
+</div>
+<p>——————————————————————–</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">&nbsp;</td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">58</th>
+<th style="width: 101px; height: 19px;">10,000</th>
+<th style="width: 113px; height: 19px;">1.005085900229</th>
+<th style="width: 220px; height: 19px;">6.37</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_4_case_1_bbb_97_short_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_4_case_1_bbb_97_short_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_4_case_1_bbb_97_short_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2">&nbsp;</td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_example_4_case_1__bbb_97_short_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_4_case_1__bbb_97_short_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_example_4_case_1__bbb_97_short_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_example_4_case_1__bbb_97.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Download other datasets in Run-File Environment.<br><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_example_4_case_1__bbb_91_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_example_4_case_1__bbb_91_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_example_4_case_1__bbb_91_short.zip">Solution</a></td>
+<td>58</td>
+<td>300,000</td>
+<td>0.669823048</td>
+<td>218.15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong><br>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.</p>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p><strong>PROBLEM 7:&nbsp; Selection of the pool of assets with POE rating constraints<br></strong>Minimize Linear (minimize expected spread payments over all periods)<br>subject to<br> Prmulti_pen≤ Const10 (risk constraint assuring rating of a tranche)<br>Linear ≥ Const11 (constraint on income spread payments)<br>Linear = 1 (sum of weights constraint)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables</p>
+</div>
+
+<p>——————————————————————–</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/problem_1234_POE_PM-2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/POE120-1.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/solution_problem_1-4.txt">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>544.54</td>
+<td>3222.78</td>
+</tr>
+
+<tr><td>Dataset3 Stress</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/problem_1234_POE_PM-3.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/POE120-2.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/solution_problem_1-5.txt">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>550.24</td>
+<td>3976.29</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p><strong>PROBLEM 8:&nbsp; Selection of the pool of assets with bPOE rating constraints<br></strong>Minimize Linear (minimize expected spread payments over all periods)<br>subject to<br> bPOE≤ Const12 (risk constraint assuring rating of a tranche)<br>Linear ≥ Const11 (constraint on income spread payments)<br>Linear = 1 (sum of weights constraint)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>bPOE= Buffered Probability of Exceedance&nbsp;(<span id="highlight" class="highlight">bPOE</span>) is an inverse function to Conditional Value-at-Risk<br>Box constraints = constraints on individual decision variables</p>
+</div>
+
+<p>——————————————————————–</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/problem_1234_bPOE_PM-1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/bPOE120.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/solution_problem_1.txt">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>545.78</td>
+<td>285.91</td>
+</tr>
+<tr>
+<td>Dataset3 Stress</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/problem_1234_bPOE_PM-2.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/bPOE120-1.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/solution_problem_1-6.txt">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>589.72</td>
+<td>182.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.</p>
+
+<div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p><strong>PROBLEM 9:&nbsp; Selection of the pool of assets with CVaR rating constraints<br></strong>Minimize Linear (minimize expected spread payments over all periods)<br>subject to<br> CVaR≤ 0 (risk constraint assuring rating of a tranche)<br>Linear ≥ Const11 (constraint on income spread payments)<br>Linear = 1 (sum of weights constraint)<br>Box constraints (box constraints on attachment points)<br>——————————————————————–<br>CVaR= Conditional Value-at-Risk<br>Box constraints = constraints on individual decision variables</p>
+</div>
+<p>——————————————————————–</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.14GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/problem_1234_CVaR_PM-1.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/CVaR120.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/solution_problem_1-3.txt">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>545.78</td>
+<td>285.91</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>NOTE:</strong> Problem statements can be simplified using InnerProduct and a set of matriсes.</p>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<p><strong>PROBLEM 10:&nbsp;  Simultaneous asset selection and attachment/detachment assignment with rCDF rating constraints<br></strong>
+Minimize discounted expected spread payments over all periods and tranches<br>
+subject to<br> nrCDF ≤ p_m (risk constraint assuring rating of a tranche)<br>
+Linear ≥ eta (constraint on expected income spread payments)<br>
+Linear = 1 (sum of weights constraint)<br>
+0  ≤ attachment/detachment points ≤ 1 ( Box Contraints)<br>
+——————————————————————–<br>
+rCDF = reduced cumulative distribution function</p>
+
+Grechuk, Zabarankin, Mafusalov and Uryasev, "Buffered and Reduced Multidimensional Distribution Functions an Their Application in Optimization"n<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/mbpoe_as_upper_bound_draft-10a.pdf">(Download PDF)</a>
+
+</div>
+<p>——————————————————————–</p>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC i7-2.6Ghz, 32Gb DDR4-3200Mhz (sec)</th>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/rCDF_stepupCDO.zip">Python Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/05/bPOE120-1.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2022/12/rCDF_stepupCDO_solution.zip">Solution</a></td>
+<td>73</td>
+<td>300,000</td>
+<td>577.83</td>
+<td>1481.56</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<div>&nbsp;</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong><br>CASE STUDY SUMMARY<br></strong><br>This case study demonstrates an optimization approach for determining attachment points and instruments in step-up Collateralized Debt Obligation (CDO). It is based on time to default scenarios for obligors (instruments) generated by Standard &amp; Poor’s CDO Evaluator™.<br><br>The case study is done from the bank-originator point of view. CDO is a credit derivative based on defaults of a pool of assets. CDO makes available credit risk exposure to a broad set of investors. A common structure of CDO involves tranching or slicing the credit risk of the reference pool into different risk levels. The risk of loss on the reference portfolio is divided into tranches of increasing seniority. The losses first affect the equity (first loss) tranche, then the mezzanine tranche, and finally the senior and super senior tranches. The lower tranche boundary is called an attachment point, while the upper tranche boundary is called the detachment point. The payoff structure of a CDO is designed to offer risk/return profiles that are specifically targeted to investment restrictions of different investor groups. For instance, a CDO based on unrated or speculative-graded underlying portfolio enhances the credit rating of most of the notes to the high investment-grade ratings by concentrating the default risk in the first loss tranche. Investors invest in these notes; however, they may not be allowed to invest in the underlying assets themselves.
+<br><br>This case study includes 9 problems. For these problems two versions are considered. “Short case studies” use Dataset1 with 10,000 scenarios for Problems 1-6. “Long case studies” use Dataset2 and Dataset3. Dataset2 consists of up to 500,000 loss scenarios and Dataset3 consists of 300,000 default scenarios of underlying asset payments of the CDO. Dataset3 is used for problems 7-9. Additionally, in "Dataset3 Stress", 500 scenarios are modified from Dataset3 to have 50% default rate of underlying instrument payments in the 5-th year. Dataset3 Stress is used in problems 7 and 8.
+
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

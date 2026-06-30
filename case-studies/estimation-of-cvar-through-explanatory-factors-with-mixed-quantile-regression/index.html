@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Sub">
+    <title>Case Study: Estimation of CVaR through Explanatory Factors with Mixed Quantile Regression — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Estimation of CVaR through Explanatory Factors with Mixed Quantile Regression</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/07/CS_Mixed_Quantile_Regression_ro_err.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>
+PROBLEM 1: problem_ro_err_Mixed_Percentile_Regression</strong>
+Minimize Rockafellar Error Function (ro_err)
+——————————————————————–
+ro_err = Rockafellar Error Function
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">9</th>
+<th style="width: 101px; height: 19px;">1,264</th>
+<th style="width: 113px; height: 19px;">0.015412</th>
+<th style="width: 220px; height: 19px;">0.01</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ro_err_mixed_percentile_regression__short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_ro_err_mixed_percentile_regression__short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_ro_err_mixed_percentile_regression_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_ro_err_mixed_percentile_regression_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_ro_err_mixed_percentile_regression_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_ro_err_mixed_percentile_regression_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_ro_err_mixed_percentile_regression.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 2: problem_pm_Mixed_Percentile_Regression</strong>
+Minimize Rockafellar Error Function (weighted average of Pm_pen and Pm_pen_g)nsubject tonLinear = 0 (constraint on additional variables)
+——————————————————————–
+Pm_pen = Partial Moment Penalty for LossnPm_pen_g = Partial Moment Penalty for Gain
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_pm_mixed_percentile_regression__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_pm_mixed_percentile_regression__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_pm_mixed_percentile_regression_short.zip">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.015412</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution with PSG MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_pm_mixed_percentile_regression.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_pm_mixed_percentile_regression.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_pm_mixed_percentile_regression.txt">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.0154118</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution with PSG R Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_partial_moment_penalty_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_partial_moment_penalty.zip">Data</a></td>
+<td></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.0154118</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 3: problem_multiple_percentile_regression_in_one_shot_kb_err</strong>
+Minimize Error Function (weighted average of kb_err)nsubject tonLinearmulti = 0 (constraint on additional variables)
+——————————————————————–
+kb_err = Koenker and Basset error function
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_multiple_regression_kb_err__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_multiple_regression_kb_err__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_multiple_regression_kb_err_short.zip">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.015317</td>
+<td>0.03</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Data and solution with PSG MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_multiple_regression_kb_err.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_multiple_regression_kb_err.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_multiple_regression_kb_err.txt">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.015317</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 4: problem_multiple_percentile_regression_in_one_shot_pm </strong>
+Minimize Error Function (weighted average of Pm_pen and Pm_pen_g)nsubject tonLinearmulti = 0 (constraint on additional variables)
+——————————————————————–
+Pm_pen = Partial Moment Penalty for LossnPm_pen_g = Partial Moment Penalty for Gain
+——————————————————————–
+nData and solution in Run-File Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_multiple_regression_pm__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_multiple_regression_pm__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/01/solution_problem_multiple_regression_pm_short.zip">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.015317</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution with PSG MATLAB Subroutinesn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_multiple_regressiont_pm.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_data_problem_multiple_regressiont_pm.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_multiple_regressiont_pm.txt">Solution</a></td>
+<td>9</td>
+<td>1,264</td>
+<td>0.0153171</td>
+<td>0.14</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study applies Mixed Percentile Regression for the estimation of Conditional Value-at-Risk (CVaR) of return distribution of a mutual fund.
+The approach is similar to the percentile regression used by Bassett and Chen (2001) for the estimation of the tail percentile of the return distribution of the mutual fund. Bassett and Chen (2001) regresses the percentile of the fund return by several indices. The estimated coefficients represent the fund’s style with respect to each of the indices, and therefore the procedure is called “style classification.”nWe regresses CVaR of the return distribution of the Fidelity Magellan Fund on the Russell Value Index (RUJ), RUSSELL 1000 VALUE INDEX (RLV), Russell 2000 Growth Index (RUO) and Russell 1000 Growth Index (RLG). We want to calculate coefficients for the explanatory variables of the tail of the distribution of residuals (these coefficients may differ from the regression coefficients for the mean and the median of the distribution). 0.9-CVaR with confidence level 0.9 is approximated by the weighted average of four Value-at-Risks (VaRs) with confidence levels 0.92, 0.94, 0.96, 0.98 .
+We regressed CVaR of the return distribution by minimizing Rockafellar Error Function (which is a standard PSG function named, roerror), see, Optimization Problem 1. We have also minimized Rockafellar error function by using the PSG Partial Moments Functions, see, Optimization Problem 2.
+The case study “Style Classification with Quantile Regression” estimates quantile with some confidence level by minimizing Koenker and Basset error function (which is a standard PSG function named, kberror).
+One can run several quantile regressions for different confidence levels (by minimizing Koenker and Basset error function with these confidence levels). Then, these quantiles can be summed up with some weights to estimate CVaR. Alternatively, as shown by Harsha, Natarajan, and Subramanian (2013), one can solve just a single optimization problem and the resulting solution vector will be equal to the weighted average of quantiles obtained with individual quantile regressions, see Optimization Problem 3 and Optimization Problem 4, in this case study.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+References</strong>
+• Bassett, G.W., and H-L. Chen (2001): Portfolio Style: Return-based Attribution Using Quantile Regression. Empirical Economics 26, 293-305.n• Rockafellar, R.T. and S. Uryasev (2013): The Fundamental Risk Quadrangle in Risk Management, Optimization, and Statistical Estimation. Surveys in Operations Research and Management Science, 18 (to appear).n• Harsha, P., Natarajan, R., and D. Subramanian (2013): A Data-driven Approach for the Price-setting Newsvendor Problem with Applications. Paper draft, January 25, 2013.</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations PROBLEM 1: Parameter estimation of Generalized Pareto Distribution • Maximum Likeli">
+    <title>Case Study: Parameter Estimation of Generalized Pareto Distribution — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Parameter Estimation of Generalized Pareto Distribution</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/Renyi_entropy_notes.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 1: Parameter estimation of Generalized Pareto Distribution</strong>
+• Maximum Likelihood estimaten• Harmonic method
+——————————————————————–
+Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Samples</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_tail.zip">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_1_library.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_1_solution_1250.zip">Solution</a></td>
+<td>1250</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_tail.zip">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_1_library.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_1_solution_12500-1.zip">Solution</a></td>
+<td>12500</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 2: Estimation of Generalized Pareto Distribution for residuals of quantile regression</strong>
+Minimize kb_err
+——————————————————————–
+kb_err = Koenker and Basset error functionnParameter estimation for residuals:n• Maximum Likelihood estimaten• Harmonic method
+——————————————————————–
+Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Samples</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/problem_quantile_regression.txt">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/problem_quantile_regression_solution_data.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/problem_quantile_regression_solution.zip">Solution</a></td>
+<td>5</td>
+<td>1264</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_quantile_regression.zip">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_2_library.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_2_solution_5000.zip">Solution</a></td>
+<td>1</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_quantile_regression.zip">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_2_library.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/GPD_estim_problem_2_solution_50000.zip">Solution</a></td>
+<td>1</td>
+<td>50000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 3: Estimation of Generalized Pareto Distribution for residuals of CVaR regression</strong>
+Minimize cvar2_err (Minimizing CVaR (Superquantile) error)
+——————————————————————–
+cvar2_err = CVaR (Superquantile) errornParameter estimation for residuals:n• Maximum Likelihood estimaten• Harmonic method
+——————————————————————–
+Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Samples</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/problem_cvar_regression.txt">Matlab Code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2021/04/problem_cvar_regression_data.zip">Library</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/06/problem_cvar_regression_solution.zip">Solution</a></td>
+<td>5</td>
+<td>1264</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CASE STUDY SUMMARYn</strong>
+This case study solves the problem of parameter estimation for generalized Pareto distribution. Two approaches for parameter estimating are implemented. The first one is maximum likelihood estimate (see Kotz and all 2000). The second one is known as the estimate by harmonic method (see Golodnikov and all. 2019) and is based on the maximum entropy principle with the Renyi entropy and moment constraints. Estimates were evaluated for artificial samples with different length (Problem 1) and for residuals of quantile regression (Problem 2, Dataset2 and Dataset3). Quantile (Problem 2, Dataset 1) and CVaR regression (Problem 3) were evaluated for return distribution of the Fidelity Magellan Fund on the Russell Value Index (RUJ), RUSSELL 1000 VALUE INDEX (RLV), Russell 2000 Growth Index (RUO) and Russell 1000 Growth Index (RLG). Parameters of GPD were estimated according to the described above techniques.</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+
+<strong>
+References</strong>
+• Golodnikov, A., Grechuk, B., Zabarankin, M., Uryasev, S. Method of Moments and Renyi Entropy Maximization.n• Kotz, S., and S. Nadarajah. Extreme Value Distributions: Theory and Applications. London: Imperial College Press, 2000.
+
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

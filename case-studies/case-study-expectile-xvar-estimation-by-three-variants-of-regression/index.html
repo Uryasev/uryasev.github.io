@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression   Back to main page     Case study background and problem formulations  Inst">
+    <title>CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression</h1>
+
+<p> <span style="font-family: Calibri;font-size: large"><strong> CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression</strong></span></p>
+
+<p> <a href="/research/testproblems/">Back to main page</a> </p>
+
+<p> <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/05/CS_Expectile_Regression_with_Quadrangles.pdf"><span style="font-family: Calibri;font-size: large"><strong> Case study background and problem formulations</strong></span></a></p>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri;font-size: medium">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri;font-size: medium">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri;font-size: medium">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri;font-size: medium">PSG R</span></a>. </p>
+
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1a: problem_lin_err_Regression </strong><br/>
+Minimize piecewise linear Expectile Error<br/> </p>
+
+<strong>parameter values K = 1/6; 1/18 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1b: problem_quad_err_Regression </strong><br/>
+Minimize Asymmetric Variance Error<br/> </p>
+
+<strong>parameter values K = 1/6 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1c: problem_kb_err_Regression </strong><br/>
+Minimize KB Error<br/> </p>
+
+<strong>parameter values K = 1/6, alpha = 0.8 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1d: problem_quad_err_Regression </strong><br/>
+Minimize Asymmetric Variance Error<br/> </p>
+
+<strong>parameter values K = 1/6 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1e: problem_quad_err_Regression </strong><br/>
+Minimize Asymmetric Variance Error<br/> </p>
+
+<strong>parameter values K = 1/6 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 1f: problem_quad_err_Regression </strong><br/>
+Minimize Asymmetric Variance Error<br/> </p>
+
+<strong>parameter values K = 1/6 </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong>
+PROBLEM 2: problem_xvar_dev_Regression</strong><br/>
+Minimize Expectile Deviation (xvar_dev) from Expectile Quadrangle with piecewise linear error<br/>
+Calculate intercept = Expectile (xvar)<br/></p>
+
+<strong> parameter values q = 0.875; 0.95 </strong><br/>
+&nbsp;<br/>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 220px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Dev_Lin_2.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Dev_Lin_2.zip">Data</a></td>
+<td style="width: 220px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Dev_Lin_2.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong>
+PROBLEM 3a: problem_xvar_L_err_Regression </strong><br/>
+Minimize piecewise linear Expectile Error<br/>
+Calculate asymmetric variance Expectile  error<br/></p>
+
+<strong> parameter values K = 1/6; K = 1/18 (corresponding q=0.875; q=0.95) </strong><br/>
+&nbsp;<br/>
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong>Calculated Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">6</th>
+<th style="width: 101px;height: 19px">12,690</th>
+<th style="width: 113px;height: 19px">0.38874;    0.58018</th>
+<th style="width: 113px;height: 19px">0.06642;    0.03366</th>
+<th style="width: 220px;height: 19px">0.01;       0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Square_3.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Square_3.zip">Data</a></td>
+<td style="width: 220px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Square_3.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+nnnnnnn&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 4a: problem_xvar_Q_err_Regression </strong><br/>
+Minimize asymmetric variance Expectile  error<br/>
+Calculate piecewise linear Expectile Error<br/></p>
+
+<strong>parameter values q=0.875; q=0.95 (corresponding K = 1/6; K = 1/18)</strong><br/>
+&nbsp;<br/>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong>Calculated Value</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">6</th>
+<th style="width: 101px;height: 19px">12,690</th>
+<th style="width: 113px;height: 19px">0.05988; 0.03139</th>
+<th style="width: 113px;height: 19px">0.41072; 0.59501</th>
+<th style="width: 220px;height: 19px">0.01; 0.01</th>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Square_4.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Square_4.zip">Data</a></td>
+<td style="width: 220px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Square_4.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+nnnn&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 3b: problem_xvar_L0_err_Regression </strong><br/>
+Minimize piecewise linear Expectile error<br/>
+Constraint: polynom_abs &le; 0<br/>
+polynom_abs<br/>
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br/>
+polynom_abs = Polynomial Absolute<br/>
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br/>
+&nbsp;<br/>
+<strong> parameter values K = 1/6 and K = 1/18 </strong><br/>
+&nbsp;<br/>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong>Intercept</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">6</th>
+<th style="width: 101px;height: 19px">12,690</th>
+<th style="width: 113px;height: 19px">0.443727;    0.622792</th>
+<th style="width: 113px;height: 19px">0.663506;    0.842571</th>
+<th style="width: 220px;height: 19px">0.01;       0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Square_30.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Square_30.zip">Data</a></td>
+<td style="width: 220px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Square_30.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+nnnnnnn&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 4b: problem_xvar_Q0_err_Regression </strong><br/>
+Minimize asymmetric variance Expectile error<br/>
+Constraint: polynom_abs &le; 0<br/>
+
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br/>
+polynom_abs = Polynomial Absolute<br/>
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br/>
+&nbsp;<br/>
+<strong> parameter values q=0.875; q=0.95 </strong><br/>
+&nbsp;<br/>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong>Intercept</strong></td>
+<td style="width: 220px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 109px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">6</th>
+<th style="width: 101px;height: 19px">12,690</th>
+<th style="width: 113px;height: 19px">0.064710; 0.032870</th>
+<th style="width: 113px;height: 19px">0.663506; 0.842571</th>
+<th style="width: 220px;height: 19px">0.01; 0.01</th>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Square_40.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Square_40.zip">Data</a></td>
+<td style="width: 220px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Square_40.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 5a: problem_lin_err_Regression </strong><br/>
+Minimize Piecewice Linear Error<br/> </p>
+
+<strong>parameter values K = 1/6 </strong><br/>
+&nbsp;<br/>
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 5b: problem_quad_err_Regression </strong><br/>
+Minimize Asymmetric Variance Error<br/> </p>
+
+<strong>parameter values q = 0.875 </strong><br/>
+&nbsp;<br/>
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<strong>PROBLEM 5c: problem_KB_err_Regression </strong><br/>
+Minimize KB Error<br/> </p>
+
+<strong>parameter values K = 1/6, alpha = 0.8 </strong><br/>
+&nbsp;<br/>
+&nbsp;
+&nbsp;
+&nbsp;
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
+<table style="height: 188px" border="1" width="737" cellpadding="2pt" align="leftE>
+<tbody>
+<tr style="height: 19px">
+<td style="width: 159px;height: 19px" colspan="4"></td>
+<td style="width: 97px;height: 19px"><strong># of Variables</strong></td>
+<td style="width: 101px;height: 19px"><strong># of Scenarios</strong></td>
+<td style="width: 113px;height: 19px"><strong>Objective Value</strong></td>
+<td style="width: 113px;height: 19px"><strong><strong>Pseudo R2</strong></strong></td>
+<td style="width: 170px;height: 19px"><strong>Solving Time, PC 2.50GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px">
+<th style="width: 159px;height: 19px" colspan="4">Dataset</th>
+<th style="width: 97px;height: 19px">4</th>
+<th style="width: 101px;height: 19px">1,264</th>
+<th style="width: 113px;height: 19px">4.8801e-03; 7.5379e-03</th>
+<th style="width: 113px;height: 19px">0.867; 0.861</th>
+<th style="width: 170px;height: 19px">0.01; 0.01</th>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Run-File</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px">
+<td style="width: 109px;height: 19px" colspan="4">Python</td>
+<td style="width: 217px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/problem_Expectile_Estimation_Error_Lin_1.txt">Problem Statement</a></td>
+<td style="width: 113px;height: 19px"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/data_problem_Expectile_Estimation_Error_Lin_1.zip">Data</a></td>
+<td style="width: 113px;height: 19px" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2023/04/solution_problem_Expectile_Estimation_Error_Lin_1.zip">Solution</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+nn&nbsp;
+
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000;width: 850px">
+
+<strong>CASE STUDY SUMMARY</strong>
+
+<br>
+<br>
+
+Rockafellar and Uryasev (2013) developed a paradigm called Fundamental Risk Quadrangle which links Risk Management, Reliability, Statistics and Stochastic Optimization theories. Risk Quadrangle includes four stochastic functions and statistic:n	Risk R(X), Deviation D(X), Error E(X), Regret V(X), Statistic S(X).
+
+Kuzmenko, Malandii, Uryasev (2023) studied piecewise linear Expectile  Quadrangle with Risk and Statistic equal to Expectile and ntwo other Quadrangles where Expectile is statistic only. One of these two quadrangles has asymmetric variance error suggested by Newey (1987) .  nnThis Case Study estimates Expectile by minimizing  piecewise linear and asymmetric variance Erros.nnnAlternatively, Expectile regression is done in two steps (Rockafellar et al (2013)):
+Step 1. Minimize Expectile Deviation from Expectile Quadrangle with the residual depending only on loading factors. nStep 2. Calculate intercept = Expectile for the optimal value of variables from Step1nn
+
+</div>
+<div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000;width: 850px">
+<br>
+<strong>References</strong><br/>
+<br>
+Newey W.K., Powell J.L. (1987). Asymmetric least squares estimation and testing. Econometrica. 55 (4). P. 819-847. <a href="https://doi.org/10.2307/1911031">https://doi.org/10.2307/1911031</a><br/></p>
+
+Rockafellar R.T., Uryasev S. (2013). The Fundamental Risk Quadrangle in Risk Management, Optimization and Statistical Estimation. Surveys in Operations Research and Management Science. 18 (1). P. 33-53. <a href="https://doi.org/10.1016/j.sorms.2013.03.001">https://doi.org/10.1016/j.sorms.2013.03.001</a><br/></p>
+
+Rockafellar R.T., Royset J.O., Miranda S.I. (2014). Superquantile regression with applications to buffered reliability, uncertainty quantification and conditional value-at-risk. European J. Operations Research. 234 (1). P. 140-154. <a href="https://doi.org/10.1016/j.ejor.2013.10.046">https://doi.org/10.1016/j.ejor.2013.10.046</a><br/></p>
+
+Kuzmenko V. (2020). A New Family of Expectiles and its Properties. Cybernetics and Computer Technologies. No. 3. P. 43-58. <a href="https://doi.org/10.34229/2707-451X.20.3.5">https://doi.org/10.34229/2707-451X.20.3.5</a><br/></p>
+
+Kuzmenko, Malandii, Uryasev (2023). Expectile Risk Quadrangle and Applications. Working Paper.n
+
+</div>
+</div>
+</div>
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

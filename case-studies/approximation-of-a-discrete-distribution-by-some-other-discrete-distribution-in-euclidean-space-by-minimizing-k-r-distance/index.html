@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations  Instructions for optimization with PSG MATLAB Subroutines.   CYCLE (PROBLEM 1 + PR">
+    <title>Case Study: Approximation of a Discrete Distribution by Some Other Discrete Distribution in Euclidean Space by Minimizing Kantorovich-Rubinstein Distance (linear, sqrt_quadratic) — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Approximation of a Discrete Distribution by Some Other Discrete Distribution in Euclidean Space by Minimizing Kantorovich-Rubinstein Distance (linear, sqrt_quadratic)</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/CS_Kantorovich_2_stages_new.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+<p style="color: #000000; font-family: Calibri; font-size: medium;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a>.</p>
+
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+CYCLE (PROBLEM 1 + PROBLEM 2): </strong>
+Minimize Kantorovich-Rubinstein distancensubject tonLinearmulti = vector_of_fixed_probabilities (constraint on linking atoms between distributions)
+Box constraints (lower bounds on probabilities)
+——————————————————————–
+Linearmulti = set of linear functions specified by a matrix of scenariosnBox constraints = constraints on individual decision variables
+——————————————————————–</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">30</th>
+<th style="width: 101px; height: 19px;">N/A</th>
+<th style="width: 113px; height: 19px;">0.1406680967</th>
+<th style="width: 220px; height: 19px;">14.3</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/plot_scatter_VK.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/data_Matlab_Kantorovich_2_stages_II_2019.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong style="color: #000000; font-family: Calibri; font-size: medium;">
+PROBLEM 1: Minimize Sum of </strong><span style="color: #000000; font-family: Calibri; font-size: medium;"><strong>Euclidean</strong></span><strong style="color: #000000; font-family: Calibri; font-size: medium;">&nbsp;Distances </strong>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">Minimize Sum of Sqrt_Quadratic</span>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">——————————————————————–</span>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">Sqrt_Quadratic = square root of quadratic function</span>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">——————————————————————–</span></div>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset</th>
+<th style="width: 97px; height: 19px;">20</th>
+<th style="width: 101px; height: 19px;">N/A</th>
+<th style="width: 113px; height: 19px;">0.1406681</th>
+<th style="width: 220px; height: 19px;">0.03</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_with_sqrt_quadratic.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/Data_problem_1_with_Sqrt_quadratic.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/02/solution_problem_1_with_Sqrt_quadratic.zip">Solution</a></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">R</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_1_with_sqrt_quadratic.txt">R Code</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/problem_1_with_sqrt_quadratic_R.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>CASE STUDY SUMMARYn</strong>
+Numerical algorithm in MATLAB environment for approximation of a discrete distribution in 2-dimensional space by some other discrete distribution with a smaller number of atoms. The approximation is done my minimizing the Kantorovich-Rubinstein distance between distributions. Positions and probabilities of atoms of the approximating distribution are variables of the optimization problem. The algorithm solves a sequence of optimization problems reducing the distance between distributions. Optimization problems are solved by calling PSG solver in MATLAB environment. One instance of Problem 1 (changing the positions of atoms) is presented in PSG Run-file environment. Problem statement and algorithm are described in Kuzmenko and Uryasev [1].</div>
+<div></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<strong>
+References</strong>
+[1] V. Kuzmenko and S.&nbsp;Uryasev.&nbsp;KANTOROVICH-RUBINSTEIN DISTANCE MINIMIZATION: APPLICATION TO LOCATION PROBLEMS. In&nbsp; Large Scale Optimization Applied to Supply Chain &amp; Smart Manufacturing: Theory &amp; Real Applications.&nbsp;Springer Optimization and Its Applications. 2019</div>
+<div></div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

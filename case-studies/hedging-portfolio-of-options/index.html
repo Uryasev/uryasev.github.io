@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File and PSG R.  PROBLEM: problem_cs_hed">
+    <title>Case Study: Hedging Portfolio of Options with CVaR Constraint — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Hedging Portfolio of Options with CVaR Constraint</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/CS_Hedging_Portfolio_of_Options_CVaR.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+<strong>PROBLEM: problem_cs_hedging_portfolio_of_options</strong>
+Minimize P(x) (minimizing initial portfolio value)nsubject tonCvar_risk ≤ Const (constraint on hedging error)
+Box constraints (non-negativity constraints on positions)
+——————————————————————–
+P(x) = initial price of the hedging portfolionCvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+nData and solution in Run-File Environmentn<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.66GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_hedging_portfolio_of_options_5p3_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_cs_hedging_portfolio_of_options_5p3_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_cs_hedging_portfolio_of_options_5p3_short.zip">Solution</a></td>
+<td>121</td>
+<td>45,000</td>
+<td>73.31675</td>
+<td>0.47</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_hedging_portfolio_of_options_5p25_short.txt">Problem statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/data_problem_cs_hedging_portfolio_of_options_5p25_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/02/solution_problem_cs_hedging_portfolio_of_options_5p25_short.zip">Solution</a></td>
+<td>121</td>
+<td>5,000</td>
+<td>196.87183</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in MATLAB Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cs_hedging_portfolio_of_options_long.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_cs_hedging_portfolio_of_options_long.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cs_hedging_portfolio_of_options_long.txt">Solution</a></td>
+<td>121</td>
+<td>45,000</td>
+<td>73.3169</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Mat_problem_cs_hedging_portfolio_of_options_short.txt">Matlab code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2020/03/Data_problem_cs_hedging_portfolio_of_options_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/Mat_solution_problem_cs_hedging_portfolio_of_options_short.txt">Solution</a></td>
+<td>121</td>
+<td>5,000</td>
+<td>196.872</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Data and solution in R Environmentn<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 3.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset1</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_hedging_portfolio_of_options_long_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cs_hedging_portfolio_of_options_long.zip">Data</a></td>
+<td></td>
+<td>121</td>
+<td>45,000</td>
+<td>73.3169</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_cs_hedging_portfolio_of_options_short_in_R.txt">R code</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_cs_hedging_portfolio_of_options_short.zip">Data</a></td>
+<td></td>
+<td>121</td>
+<td>5,000</td>
+<td>196.872</td>
+<td>0.04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARY</strong>
+
+This case study hedges a Portfolio of Options by a Portfolio of Stocks and Options. A similar case study was considered by Rockafellar and Uryasev, 2000. A target portfolio consists of stock options; the hedging portfolio includes indices, stocks, and options on indices. We allow both long and short positions in the hedging portfolio. Long positions are opened at ask prices, short positions at bid prices. Long positions are closed at bid prices, and short at ask prices. The composition of the target portfolio is known. Weights of the hedging portfolio are determined by optimization. We want to build a hedging portfolio with the lowest possible cost at the initial time t = 0 to hedge the target portfolio at the expiration time t = T. The quality of hedging at expiration is controlled through a CVaR-constraint, which bounds the average of (1-alpha)percent of largest underperformances of the hedging portfolio versus the target portfolio. The target portfolio of options is hedged by the hedging portfolio on September 22, 2005. All options in the hedging portfolio and in the target portfolio expire on December 16, 2005. We solve the optimization problem on September 22, 2005 to assure hedging on December 16, 2005.
+Optimization problem is solved using two datasets each: Dataset1 for “long case study” including 45,000 scenarios and and Dataset2 for “short case study” including only 5,000 scenarios.
+Calculations in the case study are conducted for Const = 530 for “long case study” and Const = 525 for “short case study”.
+
+</div>
+</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>

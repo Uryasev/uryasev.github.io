@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
+    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <title>Case Study: Optimal Position Liquidation with CVaR Constraints — Stan Uryasev</title>
+</head>
+
+<body>
+
+    <div class="site-header">
+        <div class="site-name"><a href="/">Stan Uryasev</a></div>
+        <nav class="site-menu">
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a class="current" href="/case-studies/">Case Studies</a>
+            <a href="/qf-summary/">QF Summary</a>
+            <a href="/courses/">Courses</a>
+            <a href="/conferences/">Conferences &amp; Seminars</a>
+        </nav>
+    </div>
+
+    <main class="content">
+    <h1>Case Study: Optimal Position Liquidation with CVaR Constraints</h1>
+
+<a href="/research/testproblems/">Back to main page</a>
+
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/08/CS_Optimal_Position_Liquidation.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
+
+Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R.</span></a>
+
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 1: Risk Neutral Optimal Liquidation in Frictionless Market</strong>
+Maximize Avg_g (maximizing the expected return of payoffs )nsubject tonMax_risk_nonanticipativity &lt;= 0 (constraint ensuring that path variables are less than or equal to the corresponding group variables)
+Max_risk_monotonicity &lt;= 0 (constraint prohibiting the increase position in instrument)
+Box constraints (bounds on variables)
+——————————————————————–
+Avg_g = Average of GainnMax_risk_ = Maximum Risk for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">75</th>
+<th style="width: 101px; height: 19px;">10</th>
+<th style="width: 113px; height: 19px;">1.0092941</th>
+<th style="width: 220px; height: 19px;">&lt;0.001</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimal_execution_no_risk_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimal_execution_no_risk_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimal_execution_no_risk_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_optimal_execution_no_risk_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimal_execution_no_risk_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_optimal_execution_no_risk_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_optimal_execution_no_risk_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimal_execution_no_risk_100__short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimal_execution_no_risk_100__short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimal_execution_no_risk_100__short.zip">Solution</a></td>
+<td>550</td>
+<td>100</td>
+<td>1.02238543</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimal_execution_no_risk_1000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimal_execution_no_risk_1000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimal_execution_no_risk_1000_short.zip">Solution</a></td>
+<td>5,050</td>
+<td>1,000</td>
+<td>1.01934036</td>
+<td>1.50</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimal_execution_no_risk_2000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimal_execution_no_risk_2000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimal_execution_no_risk_2000_short.zip">Solution</a></td>
+<td>10,050</td>
+<td>2,000</td>
+<td>1.01955717</td>
+<td>6.10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> PROBLEM 2: Risk Neutral Optimal Liquidation in Frictionless Market (modified formulation containing only group decision variables)</strong>
+Maximize -Avg_max_risk_g (maximizing negative average value of maximum gain function)nsubject tonBox constraints (bounds on variables)
+——————————————————————–
+Avg_max_risk_g = Average of Maximum Risk for GainnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">25</th>
+<th style="width: 101px; height: 19px;">10</th>
+<th style="width: 113px; height: 19px;">1.00929406</th>
+<th style="width: 220px; height: 19px;">&lt;0.001</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_optimalexe_no_risk_2_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_optimalexe_no_risk_2_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_optimalexe_no_risk_2_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_100_short.zip">Solution</a></td>
+<td>50</td>
+<td>100</td>
+<td>1.022385358</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_1000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_1000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_1000_short.zip">Solution</a></td>
+<td>50</td>
+<td>1,000</td>
+<td>1.019340343</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_4000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_4000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_4000_short.zip">Solution</a></td>
+<td>50</td>
+<td>4,000</td>
+<td>1.019557164</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>Dataset5</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_5000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_5000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_5000_short.zip">Solution</a></td>
+<td>50</td>
+<td>5,000</td>
+<td>1.021169661</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>Dataset6</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_10000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_10000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_10000_short.zip">Solution</a></td>
+<td>50</td>
+<td>10,000</td>
+<td>1.030113097</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td>Dataset7</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_no_risk_2_15000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_no_risk_2_15000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_no_risk_2_15000_short.zip">Solution</a></td>
+<td>50</td>
+<td>15,000</td>
+<td>1.034403212</td>
+<td>0.61</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> PROBLEM 3: Risk-Averse Optimal Liquidation in Frictionless Market </strong>
+Maximize Avg_g (maximizing the expected return of payoffs)nsubject tonCvar_risk_averse &lt;= const (constraint on CVaR risk for Loss)
+Max_risk_nonanticipativity &lt;= 0 (constraint ensuring that path variables are less than or equal to the corresponding group variables)
+Max_risk_monotonicity &lt;= 0 (constraint prohibiting the increase position in instrument)
+Box constraints (bounds on variables)
+——————————————————————–
+Cvar_risk = Conditional Value-at-Risk for LossnAvg_g = Average of GainnMax_risk_ = Maximum Risk for LossnBox constraints = constraints on individual decision variables
+——————————————————————–
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
+<table style="height: 188px;">
+<tbody>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4"></td>
+<td style="width: 97px; height: 19px;"><strong># of Variables</strong></td>
+<td style="width: 101px; height: 19px;"><strong># of Scenarios</strong></td>
+<td style="width: 113px; height: 19px;"><strong>Objective Value</strong></td>
+<td style="width: 220px; height: 19px;"><strong>Solving Time, PC 3.14GHz (sec)</strong></td>
+</tr>
+<tr style="height: 19px;">
+<th style="width: 109px; height: 19px;" colspan="4">Dataset1</th>
+<th style="width: 97px; height: 19px;">75</th>
+<th style="width: 101px; height: 19px;">10</th>
+<th style="width: 113px; height: 19px;">1.0092941</th>
+<th style="width: 220px; height: 19px;">&lt;0.001</th>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px; text-align: center;" colspan="8"><strong>Environments</strong></td>
+</tr>
+<tr style="height: 19px;">
+<td style="width: 109px; height: 19px;" colspan="4">Run-File</td>
+<td style="width: 217px; height: 19px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_cvar_risk_10_short.txt">Problem Statement</a></td>
+<td style="width: 113px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_cvar_risk_10_short.zip">Data</a></td>
+<td style="width: 220px; height: 19px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_cvar_risk_10_short.zip">Solution</a></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Toolbox</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/problem_optimalexe_cvar_risk_10_short_tool.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">Matlab Subroutines</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_cvar_risk_10_short_subroutine_example.txt">Matlab Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/problem_optimalexe_cvar_risk_10_short_subroutine_data.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+<tr style="height: 19.7813px;">
+<td style="width: 109px; height: 19.7813px;" colspan="4">R</td>
+<td style="width: 217px; height: 19.7813px;" colspan="2"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/run_PSG_solver.txt">R Code</a></td>
+<td style="width: 113px; height: 19.7813px;"><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/12/R_data_problem_optimalexe_cvar_risk_10.zip">Data</a></td>
+<td style="width: 220px; height: 19.7813px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+Download other datasets in Run-File Environment.
+<a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2016/05/Importing_Problem_from_Run-File_to_PSG_MATLAB.pdf">Instructions</a> for importing problems from Run-File to PSG MATLAB.
+<table>
+<tbody>
+<tr>
+<th colspan="4">Problem Datasets</th>
+<th># of Variables</th>
+<th># of Scenarios</th>
+<th>Objective Value</th>
+<th>Solving Time, PC 2.50GHz (sec)</th>
+</tr>
+<tr>
+<td>Dataset2</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_cvar_risk_100_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_cvar_risk_100_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_cvar_risk_100_short.zip">Solution</a></td>
+<td>550</td>
+<td>100</td>
+<td>1.020583963</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>Dataset3</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_cvar_risk_1000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_cvar_risk_1000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_cvar_risk_1000_short.zip">Solution</a></td>
+<td>5,050</td>
+<td>1,000</td>
+<td>1.011808773</td>
+<td>2.15</td>
+</tr>
+<tr>
+<td>Dataset4</td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/problem_optimalexe_cvar_risk_2000_short.txt">Problem Statement</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/data_problem_optimalexe_cvar_risk_2000_short.zip">Data</a></td>
+<td><a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2014/03/solution_problem_optimalexe_cvar_risk_2000_short.zip">Solution</a></td>
+<td>10,050</td>
+<td>2,000</td>
+<td>1.006870751</td>
+<td>701.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>CASE STUDY SUMMARYn</strong>
+This case study demonstrates a sample-path based stochastic programming model for solving optimal trading execution problem with and without risk constraints in a perfect frictionless market.
+This case study reproduces and improves the optimization formulations in the paper by Krokhmal and Uryasev (2007) on sample-path approaches to optimal position liquidation. The paper utilized historical price data to generate the sample-path scenarios. Also, the paper presented optimal position liquidation strategies with no market impact, with temporary impact, and with a permanent impact. In order to eliminate the anticipativity of the model, the paper introduced a sample-path grouping method and a “lawn-mower” decision rule by adding nonanticipativity constraints. After analyzing the feasibility and optimality of the problem, the paper proposed a difference convex (DC) programming approach to evaluate the lower bound of the original problem. Finally, many numerical experiments are presented along with the analysis of the solutions.
+We first conducted the numerical experiment by following the lower-bound evaluation optimization problem from the paper by Krokhmal and Uryasev (2007). Then we reformulated this problem and reduced the number of decision variables by replacing the sample-path variables with group variables. This modification eliminated the tremendous number of redundant decision variables and constraints. We implemented both formulations in PSG run-file environment. The first formulation includes PSG functions Avg_g and Max_risk. The second formulation includes PSG function Avg_max_risk_g and works much faster than the first one.
+Similar to Krokhmal and Uryasev (2007) we added the CVaR constraints to the first formulation and solved the problem with PSG. The computational results were not encouraging for this problem formulation. The adding CVaR constraint significantly increased the solving time of the fist problem. Unfortunately, specialized function for CVaR risk is not available in the current version of PSG to include the CVaR constraint, similar to the second formulation containing only group variables (without CVaR risk constraint).
+Three problems were presented in this case study: Problem 1 corresponds to the first formulation without risk constraint; Problem 2 corresponds to the second formulation without risk constraint; and Problem 3 corresponds to the first formulation with risk constraint.
+Data and code for running Problem1, Problem2, and Problem3 can be downloaded: <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/08/CS_Optimal_Position_Liquidation_data_code.zip"> CS_Optimal_Position_Liquidation_data_code .</a></div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
+References</strong>
+• Krokhmal, P. and Uryasev, S. (2007). A sample-path approach to optimal position liquidation. Annals of Operations Research, 152, 193-225.n• Bertimas, D., Lo, A.W. and Hummel, P. (1999). Optimal control of execution costs for portfolios. Computing in Science &amp; Engineering, 1, 40-53.n• Almgren, R. and Chriss, N. (2000). Optimal Execution of Portfolio Transactions. Journal of Risk, 3, 5–39.n• Birge, J.R. and Louveaux, F. (1997). Introduction to stochastic programming. New York, Springer.</div>
+    </main>
+
+    <footer>
+        &copy; Stan Uryasev &nbsp;|&nbsp; Applied Mathematics and Statistics, Stony Brook University
+    </footer>
+
+</body>
+</html>
