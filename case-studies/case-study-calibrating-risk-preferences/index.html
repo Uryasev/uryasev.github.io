@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
-    <meta name="description" content="Back to main page   Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R.">
+    <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG R.">
     <title>Case Study: Calibrating Risk Preferences — Stan Uryasev</title>
 </head>
 
@@ -28,8 +28,7 @@
     <main class="content">
     <h1>Case Study: Calibrating Risk Preferences</h1>
 
-<a href="/research/testproblems/">Back to main page</a>
-
+<a href="/research/testproblems/">Back to main page</a><br><br>
 <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/05/CS_Calibrating_Risk_Preferences.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.
 <strong>
@@ -83,8 +82,7 @@ CASE STUDY SUMMARYn</strong>
 This case study extracts risk preferences of investors by solving a linear regression model with linear constraints on coefficients. “Risk preferences” are expressed by a risk functional (a deviation measure), which is used by an investor for measuring risk and solving portfolio optimization problems. Contrary to the classical Markowitz portfolio theory, where investors measure risk by standard deviation, this case study assumes that the unknown deviation measure belongs to a class of Mixed CVaR Deviations. In particular, we consider the case when the Mixed CVaR Deviation is a weighted average of the following five CVaR Deviation terms with confidence levels 50%, 75%, 85%, 95%, and 99% (theory and description of this case are available in Kalinchenko et al (2012)). The Mixed CVaR Deviation has five weighting parameters (lambdas), which are nonnegative and sum up to 1. These lambda coefficients are estimated by matching the market option prices with prices expressed via generalized CAPM pricing relations. Matching is done by minimizing a L1 (the error term is sum of absolute values of the differences between market and calculated prices).
 This webpage contains files for one instance of the regression problem, which is solved in PSG Run-File Text Environment.
 To run this Case Study in the PSG MATLAB Environment:n1) Click on the link <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2012/05/CS_Calibrating_Risk_Preferences_MATLAB.zip"> files for running CS_Calibrating_Risk_Preferences in PSG MATLAB Environment</a> and extract two <i>M-files</i> and file <i>OptionPrices.csv;</i>
-2) Create sub-folder <strong>CS_Calibrating_Risk_Preferences </strong>in folder …PSGMATLAB and place two <i>M-files</i> to this sub-folder;n3) Create sub-folder <strong>CS_Calibrating_Risk_PreferencesData</strong> in folder …PSGMATLAB and place file <i>IndexReturns.mat</i> to this sub-folder;n4) Run files<strong><i> CalibratingRiskPreferences_ExtractData_POSTING_VERSION.m </i></strong>and then run file <strong><i>CS_CalibratingRiskPreferences_POSTING_VERSION.m</i></strong>
-
+2) Create sub-folder <strong>CS_Calibrating_Risk_Preferences </strong>in folder …PSGMATLAB and place two <i>M-files</i> to this sub-folder;n3) Create sub-folder <strong>CS_Calibrating_Risk_PreferencesData</strong> in folder …PSGMATLAB and place file <i>IndexReturns.mat</i> to this sub-folder;n4) Run files<strong><i> CalibratingRiskPreferences_ExtractData_POSTING_VERSION.m </i></strong>and then run file <strong><i>CS_CalibratingRiskPreferences_POSTING_VERSION.m</i></strong><br><br>
 <strong>References</strong>
 • Kalinchenko, K., Uryasev, S. and R.T. Rockafellar (2012). Calibrating risk preferences with generalized CAPM based on mixed CVaR deviation. Journal of Risk, 15(1), pp. 1–26.
 

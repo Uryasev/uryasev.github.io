@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
-    <meta name="description" content="Back to main page   Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB S">
+    <meta name="description" content="Back to main page  Case study background and problem formulations   Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Su">
     <title>Case Study: Portfolio Replication with Cardinality and Buyin Constraints — Stan Uryasev</title>
 </head>
 
@@ -28,8 +28,7 @@
     <main class="content">
     <h1>Case Study: Portfolio Replication with Cardinality and Buyin Constraints</h1>
 
-<a href="/research/testproblems/">Back to main page</a>
-
+<a href="/research/testproblems/">Back to main page</a><br><br>
 <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/12/CASE_STUDY_Portfolio_Replication.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
 
@@ -211,16 +210,14 @@ Download other data sets in Run-File Environment.
 </tbody>
 </table>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: AVG-->
-<strong><strong>PROBLEM 2: Index Tracking, Minimizing Mean Absolute Deviation</strong></strong>
-
+<strong><strong>PROBLEM 2: Index Tracking, Minimizing Mean Absolute Deviation</strong></strong><br><br>
 Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
 Buyin_pos &lt;= 0 (constraint prohibiting small positions)
 Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
 Box constraints (bounds on variables)n
 ——————————————————————–
 Meanabs = Mean Absolute ErrornCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
-——————————————————————–<!---PROBLEM: problem_indtrack1_avg-->
-
+——————————————————————–<!---PROBLEM: problem_indtrack1_avg--><br><br>
 <strong>Problem "problem_indtrack_avg"</strong>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
