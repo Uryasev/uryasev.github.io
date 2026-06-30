@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
     <meta name="description" content="Back to main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Toolbox, PSG MATLAB Subr">
     <title>Case Study: Spline Approximation — Stan Uryasev</title>
@@ -33,8 +35,8 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM1: problem_St_Pen</strong>
-Minimize st_pen(spline_sum) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (function Standard Penalty applied to Spline Sum)
-Calculate:nmeanabs_pen(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (function Mean Absolute Penalty applied to Spline Sum)nspline_sum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (function Spline Sum)
+Minimize st_pen(spline_sum) &nbsp; (function Standard Penalty applied to Spline Sum)
+Calculate:nmeanabs_pen(spline_sum)&nbsp; (function Mean Absolute Penalty applied to Spline Sum)nspline_sum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (function Spline Sum)
 ——————————————————————–————————————————
 st_pen = Standard Penaltynmeanabs_pen = Mean Absolute Penaltynspline_sum = Spline Sum calculates spline value depending upon regression variables for every scenario
 ——————————————————————–————————————————
@@ -141,8 +143,8 @@ st_pen = Standard Penaltynmeanabs_pen = Mean Absolute Penaltynspline_sum = Splin
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
 
 <strong> PROBLEM2: problem_Meanabs_Pen </strong>
-Minimize meanabs_pen(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(function Mean Absolute Penalty applied to Spline Sum)
-Calculate:nst_pen(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;(function Standard Penalty applied to Spline Sum)nspline_sum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (function Spline Sum)
+Minimize meanabs_pen(spline_sum)&nbsp;(function Mean Absolute Penalty applied to Spline Sum)
+Calculate:nst_pen(spline_sum)&nbsp; &nbsp;(function Standard Penalty applied to Spline Sum)nspline_sum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (function Spline Sum)
 ——————————————————————–————————————————
 meanabs_pen = Mean Absolute Penaltynst_pen = Standard Penaltynspline_sum = Spline Sum calculates spline value depending upon regression variables for every scenarion
 ———————————————————————————
@@ -289,8 +291,8 @@ meanabs_pen = Mean Absolute Penaltynst_pen = Standard Penaltynspline_sum = Splin
 </div>
 <div></div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM3: problem_Logexp_Sum </strong>
-Maximize logexp_sum(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (function Logarithms Exponents Sum applied to Spline Sum)
-Calculate:nlogexp_sum(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp; (function Logarithms Exponents Sum applied to Spline Sum)nlogistic(spline_sum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(function Logistic applied to Spline Sum)
+Maximize logexp_sum(spline_sum)&nbsp; (function Logarithms Exponents Sum applied to Spline Sum)
+Calculate:nlogexp_sum(spline_sum)&nbsp; (function Logarithms Exponents Sum applied to Spline Sum)nlogistic(spline_sum)&nbsp; &nbsp;(function Logistic applied to Spline Sum)
 ——————————————————————–————————————————
 logexp_sum = Logarithms Exponents Sumnlogistic = Logistic calculate values of logistic function of spline approximation for every scenarionspline_sum = Spline Sum calculates spline value depending upon regression variables for every scenario
 ——————————————————————–————————————————

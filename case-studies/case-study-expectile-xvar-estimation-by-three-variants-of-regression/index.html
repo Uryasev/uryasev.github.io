@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
     <meta name="description" content="CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression   Back to main page     Case study background and problem formulations  Inst">
     <title>CASE STUDY: Expectile (XVaR) Estimation by Three Variants of Regression — Stan Uryasev</title>
@@ -373,7 +375,7 @@ Calculate intercept = Expectile (xvar)<br/></p>
 <div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000"><strong>
 PROBLEM 3a: problem_xvar_L_err_Regression </strong><br/>
 Minimize piecewise linear Expectile Error<br/>
-Calculate asymmetric variance Expectile  error<br/></p>
+Calculate asymmetric variance Expectile error<br/></p>
 
 <strong> parameter values K = 1/6; K = 1/18 (corresponding q=0.875; q=0.95) </strong><br/>
 &nbsp;<br/>
@@ -393,9 +395,9 @@ Calculate asymmetric variance Expectile  error<br/></p>
 <th style="width: 109px;height: 19px" colspan="4">Dataset</th>
 <th style="width: 97px;height: 19px">6</th>
 <th style="width: 101px;height: 19px">12,690</th>
-<th style="width: 113px;height: 19px">0.38874;    0.58018</th>
-<th style="width: 113px;height: 19px">0.06642;    0.03366</th>
-<th style="width: 220px;height: 19px">0.01;       0.01</th>
+<th style="width: 113px;height: 19px">0.38874; 0.58018</th>
+<th style="width: 113px;height: 19px">0.06642; 0.03366</th>
+<th style="width: 220px;height: 19px">0.01; 0.01</th>
 </tr>
 <tr style="height: 19px">
 <td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
@@ -413,7 +415,7 @@ nnnnnnn&nbsp;
 
 <div style="font-family: Calibri;font-size: medium;line-height: 120%;color: #000000">
 <strong>PROBLEM 4a: problem_xvar_Q_err_Regression </strong><br/>
-Minimize asymmetric variance Expectile  error<br/>
+Minimize asymmetric variance Expectile error<br/>
 Calculate piecewise linear Expectile Error<br/></p>
 
 <strong>parameter values q=0.875; q=0.95 (corresponding K = 1/6; K = 1/18)</strong><br/>
@@ -476,9 +478,9 @@ polynom_abs = Polynomial Absolute<br/>
 <th style="width: 109px;height: 19px" colspan="4">Dataset</th>
 <th style="width: 97px;height: 19px">6</th>
 <th style="width: 101px;height: 19px">12,690</th>
-<th style="width: 113px;height: 19px">0.443727;    0.622792</th>
-<th style="width: 113px;height: 19px">0.663506;    0.842571</th>
-<th style="width: 220px;height: 19px">0.01;       0.01</th>
+<th style="width: 113px;height: 19px">0.443727; 0.622792</th>
+<th style="width: 113px;height: 19px">0.663506; 0.842571</th>
+<th style="width: 220px;height: 19px">0.01; 0.01</th>
 </tr>
 <tr style="height: 19px">
 <td style="width: 109px;height: 19px;text-align: center" colspan="9"><strong>Environments</strong></td>
@@ -696,7 +698,7 @@ nn&nbsp;
 
 Rockafellar and Uryasev (2013) developed a paradigm called Fundamental Risk Quadrangle which links Risk Management, Reliability, Statistics and Stochastic Optimization theories. Risk Quadrangle includes four stochastic functions and statistic:n	Risk R(X), Deviation D(X), Error E(X), Regret V(X), Statistic S(X).
 
-Kuzmenko, Malandii, Uryasev (2023) studied piecewise linear Expectile  Quadrangle with Risk and Statistic equal to Expectile and ntwo other Quadrangles where Expectile is statistic only. One of these two quadrangles has asymmetric variance error suggested by Newey (1987) .  nnThis Case Study estimates Expectile by minimizing  piecewise linear and asymmetric variance Erros.nnnAlternatively, Expectile regression is done in two steps (Rockafellar et al (2013)):
+Kuzmenko, Malandii, Uryasev (2023) studied piecewise linear Expectile Quadrangle with Risk and Statistic equal to Expectile and ntwo other Quadrangles where Expectile is statistic only. One of these two quadrangles has asymmetric variance error suggested by Newey (1987) . nnThis Case Study estimates Expectile by minimizing piecewise linear and asymmetric variance Erros.nnnAlternatively, Expectile regression is done in two steps (Rockafellar et al (2013)):
 Step 1. Minimize Expectile Deviation from Expectile Quadrangle with the residual depending only on loading factors. nStep 2. Calculate intercept = Expectile for the optimal value of variables from Step1nn
 
 </div>
