@@ -35,10 +35,10 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"></div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 1: problem_best_ranking </strong>
-Minimize pr_pen (minimizing probability that Loss exceeds zero)nsubject tonLinearmulti =1 (non-zero requirement)
+Minimize pr_pen (minimizing probability that Loss exceeds zero)nsubject to<br>Linearmulti =1 (non-zero requirement)
 Box constraints (constraints on decision variables)
 -------------------------------------------------------------------------
-Pr_pen = Probability of ExceedancenBox constraints = constraints on individual decision variables
+Pr_pen = Probability of Exceedance<br>Box constraints = constraints on individual decision variables
 -------------------------------------------------------------------------
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -82,10 +82,10 @@ Pr_pen = Probability of ExceedancenBox constraints = constraints on individual d
 </table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 2: problem_worst_ranking</strong>
-Minimize pr_pen_g (minimizing probability that gain exceeds zero)nsubject tonLinearmulti =1 (non-zero requirement)
+Minimize pr_pen_g (minimizing probability that gain exceeds zero)nsubject to<br>Linearmulti =1 (non-zero requirement)
 Box constraints (constraints on decision variables)
 -------------------------------------------------------------------------
-Pr_pen_g = Probability of Exceedance Penalty for GainnBox constraints = constraints on individual decision variables
+Pr_pen_g = Probability of Exceedance Penalty for Gai<br>Box constraints = constraints on individual decision variables
 -------------------------------------------------------------------------
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -132,7 +132,7 @@ Pr_pen_g = Probability of Exceedance Penalty for GainnBox constraints = constrai
 Minimize bPOE ( minimizing buffered probability of exceedance)
 Box constraints (constraints on decision variables)
 -------------------------------------------------------------------------
-bPOE = Buffered Probability of ExceedancenBox constraints = constraints on individual decision variables
+bPOE = Buffered Probability of Exceedance<br>Box constraints = constraints on individual decision variables
 -------------------------------------------------------------------------
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -179,7 +179,7 @@ bPOE = Buffered Probability of ExceedancenBox constraints = constraints on indiv
 Minimize bPOE_g ( minimizing buffered probability of exceedance for gain)
 Box constraints (constraints on decision variables)
 -------------------------------------------------------------------------
-bPOE_g = Buffered Probability of Exceedance for GainnBox constraints = constraints on individual decision variables
+bPOE_g = Buffered Probability of Exceedance for Gai<br>Box constraints = constraints on individual decision variables
 -------------------------------------------------------------------------
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

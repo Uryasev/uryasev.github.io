@@ -40,11 +40,11 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: problem_CS_Portfolio_Replication_CVaR_0p001.txt</strong>
-Minimize Meanabs_err (minimizing replication error)nsubject tonCvar_risk ≤ Const1 (CVaR constraint on the underperformance of the portfolio compared to the index)
+Minimize Meanabs_err (minimizing replication error)nsubject to<br>Cvar_risk ≤ Const1 (CVaR constraint on the underperformance of the portfolio compared to the index)
 Lenear = Const2 (budget constraint)
 Box constraints (no-short constraints on exposures)
 ——————————————————————–
-Meanabs_pen = Mean Absolute ErrornCvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables
+Meanabs_pen = Mean Absolute Error<br>Cvar_risk = CVaR Risk for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

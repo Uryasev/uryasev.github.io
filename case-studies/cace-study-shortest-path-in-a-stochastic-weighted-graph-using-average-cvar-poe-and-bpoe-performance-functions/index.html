@@ -37,10 +37,10 @@ Optimization package Gurobi should be installed to run this case study.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 1: problem_shortest_path_average</strong>
 <strong>(formulation with Boolean variables)</strong>
-Minimize Avg (minimizing expected cost (length) of a path)nsubject tonLinearmulti = 0 (path representation constraints)
+Minimize Avg (minimizing expected cost (length) of a path)nsubject to<br>Linearmulti = 0 (path representation constraints)
 Box constraints (defines Boolean variables)Calculate:ncvar_risk_gnbPOE_gnvar_risk_gnpr_pen_g
 ——————————————————————–
-Avg = AveragenLinearmulti = System of linear constraintsncvar_risk_g = CVaR for GainnbPOE_g = Buffered Probability of Exceedance for Gainnvar_risk_g = VaR for Gainnpr_pen_g = Probability of Exceedance for GainnBox constraints = constraints on individual decision variables
+Avg = Average<br>Linearmulti = System of linear constraintsncvar_risk_g = CVaR for GainnbPOE_g = Buffered Probability of Exceedance for Gainnvar_risk_g = VaR for Gainnpr_pen_g = Probability of Exceedance for Gai<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -117,8 +117,8 @@ Download other datasets in Run-File Environment.
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 2: problem_the_most_shortest_path_pr_pen</strong>
 <strong>(formulation with Boolean variables)</strong>
-Minimize pr_pen (Probability of Exceedance (POE) of path cost (length) of a specified threshold)nsubject tonLinearmulti = 0 (path representation constraints)
-Box constraints (defines Boolean variables)nnpr_pen = Probability of ExceedancenLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variablesnnData and solution in Run-File Environmentn<table style="height: 224px;">
+Minimize pr_pen (Probability of Exceedance (POE) of path cost (length) of a specified threshold)nsubject to<br>Linearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)nnpr_pen = Probability of Exceedance<br>Linearmulti = System of linear constraints<br>Box constraints = constraints on individual decision variables<br>Data and solution in Run-File Environmentn<table style="height: 224px;">
 <tbody>
 <tr style="height: 72px;">
 <th style="width: 365px; height: 72px;" colspan="4">Problem Datasets</th>
@@ -263,8 +263,8 @@ Box constraints (defines Boolean variables)nnpr_pen = Probability of Exceedancen
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 3: problem_the_most_shortest_path_bPOE</strong>
 <strong>(formulation with Boolean variables)</strong>
-Minimize bpoe (Buffered Probability of Exceedance) of path cost (length) with a specified threshold)nsubject tonLinearmulti = 0 (path representation constraints)
-Box constraints (defines Boolean variables)nnbpoe= Probability of ExceedancenLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variablesnnData and solution in Run-File Environmentn<table style="height: 224px;">
+Minimize bpoe (Buffered Probability of Exceedance) of path cost (length) with a specified threshold)nsubject to<br>Linearmulti = 0 (path representation constraints)
+Box constraints (defines Boolean variables)nnbpoe= Probability of Exceedance<br>Linearmulti = System of linear constraints<br>Box constraints = constraints on individual decision variables<br>Data and solution in Run-File Environmentn<table style="height: 224px;">
 <tbody>
 <tr style="height: 72px;">
 <th style="width: 365px; height: 72px;" colspan="4">Problem Datasets</th>
@@ -410,10 +410,10 @@ Box constraints (defines Boolean variables)nnbpoe= Probability of ExceedancenLin
 <div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 5: problem_alpha_shortest_path_cvar</strong>
 <strong>(formulation with Boolean variables)</strong>
-Minimize Cvar_risk (Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level)nsubject tonLinearmulti = 0 (path representation constraints)
+Minimize Cvar_risk (Conditional Value-at-Risk (CVaR) of the path cost with a specified confidence level)nsubject to<br>Linearmulti = 0 (path representation constraints)
 Box constraints (defines Boolean variables)
 ——————————————————————–
-Cvar_risk = Conditional Value-at-RisknLinearmulti = System of linear constraintsnBox constraints = constraints on individual decision variables
+Cvar_risk = Conditional Value-at-Risk<br>Linearmulti = System of linear constraints<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 Data and solution in Run-File Environmentn<table style="height: 224px;">
 <tbody>

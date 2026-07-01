@@ -35,10 +35,10 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM1: problem_cvar_comp_abs </strong>
-minimizing Cvar_comp_abs (CVaR Absolute Norm)nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+minimizing Cvar_comp_abs (CVaR Absolute Norm)nsubject to<br>Ax ≤b (multiple linear constraints representing convex polyhedron set)
 Box constraints (lower bounds on variables)
 ——————————————————————–——————
-Cvar_comp_abs = CVaR component absolutenBox constraints = constraints on individual decision variables
+Cvar_comp_abs = CVaR component absolute<br>Box constraints = constraints on individual decision variables
 ——————————————————————–——————
 ———————————————
 <strong> Alpha =0.8 , Solver Precision = 4 </strong>
@@ -550,10 +550,10 @@ Download Problem Datan<table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM2: problem_mix_L1_L_Infinity </strong>
-minimizing [(1-lambda)*polynom_abs+ lambda*max_comp_abs]nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+minimizing [(1-lambda)*polynom_abs+ lambda*max_comp_abs]nsubject to<br>Ax ≤b (multiple linear constraints representing convex polyhedron set)
 Box constraints (lower bounds on variables)
 ——————————————————————–——————
-polynom_abs = polynomial absolute functionnmax_comp_abs=maximum component absolute functionnBox constraints = constraints on individual decision variables
+polynom_abs = polynomial absolute functionnmax_comp_abs=maximum component absolute functio<br>Box constraints = constraints on individual decision variables
 ——————————————————————–——————<span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
 ——————————————————
 <strong> Lambda =0.90909, Solver Precision = 7 </strong>
@@ -795,10 +795,10 @@ Download Problem Datan<table>
 
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong> PROBLEM3: problem_quadratic </strong>
-minimizing quadratic (square of L_2 norm)nsubject tonAx ≤b (multiple linear constraints representing convex polyhedron set)
+minimizing quadratic (square of L_2 norm)nsubject to<br>Ax ≤b (multiple linear constraints representing convex polyhedron set)
 Box constraints (lower bounds on variables)
 ——————————————————————–——————
-quadratic = quadratic functionnBox constraints = constraints on individual decision variables
+quadratic = quadratic functio<br>Box constraints = constraints on individual decision variables
 ——————————————————————–——————
 <span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><span style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
 ——————————
@@ -1018,7 +1018,7 @@ Problem 3 solves projection problems with square of <img src="https://uryasev.am
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 References</strong>
 • Pavlikov K, and S. Uryasev (2013): CVaR Absolute Norm and Applications in Optimization.
-Research Report # 2013-1.n• Rockafellar, R.T. and S. Uryasev (2013): The Fundamental Risk Quadrangle in RisknManagement, Optimization, and Statistical Estimation. Surveys in Operations Research andnManagement Science, 18 (to appear).n• Rockafellar, R. T. and Uryasev, S. (2000), “Optimization of conditional value-at-risk”,
+Research Report # 2013-1.n• Rockafellar, R.T. and S. Uryasev (2013): The Fundamental Risk Quadrangle in Risk<br>Management, Optimization, and Statistical Estimation. Surveys in Operations Research and<br>Management Science, 18 (to appear).n• Rockafellar, R. T. and Uryasev, S. (2000), “Optimization of conditional value-at-risk”,
 Journal of Risk , Vol. 2, pp. 21–41.n• Gotoh, J. and S. Uryasev (2013): Approximation of Euclidean norm by LP-representablennorms and applications. Draft paper.</div>
 </div>
 </div>

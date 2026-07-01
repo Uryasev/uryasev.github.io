@@ -37,7 +37,7 @@
 <strong>
 PROBLEM1: problem_fitting_mixture (Without Cardinality)</strong>
 Minimize KS_distance (KS distance between empirical CDF and normal mixture CDF)
-Subject tonLinear = 1 (weights of the mixture sum to 1)nwcvar_ni[j] &gt;= x[j] (CVaRs of the mixture are larger than the CVaRs of the empirical distribution)
+Subject to<br>Linear = 1 (weights of the mixture sum to 1)nwcvar_ni[j] &gt;= x[j] (CVaRs of the mixture are larger than the CVaRs of the empirical distribution)
 ——————————————————————–——————
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -89,7 +89,7 @@ Subject tonLinear = 1 (weights of the mixture sum to 1)nwcvar_ni[j] &gt;= x[j] (
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM2: problem_fitting_mixture_cardn (With Cardinality)</strong>
 Minimize KS_distance (KS distance between empirical CDF and normal mixture CDF)
-Subject tonLinear = 1 (weights of the mixture sum to 1)nwcvar_ni[j] &gt;= x[j] (CVaRs of the mixture are larger than the CVaRs of the empirical distribution)ncardn_pos&lt;= z (number of nonzero weights is less than z)
+Subject to<br>Linear = 1 (weights of the mixture sum to 1)nwcvar_ni[j] &gt;= x[j] (CVaRs of the mixture are larger than the CVaRs of the empirical distribution)ncardn_pos&lt;= z (number of nonzero weights is less than z)
 ——————————————————————–——————
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

@@ -35,11 +35,11 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM: Stochastic Two Stage Linear</strong>
-Minimize Avg (Recourse) (minimizing average of recourse function)nsubject tonConstVector1 ≤ Linearmulti ≤ ConstVector2 (linear constraints on the first stage variables)
+Minimize Avg (Recourse) (minimizing average of recourse function)nsubject to<br>ConstVector1 ≤ Linearmulti ≤ ConstVector2 (linear constraints on the first stage variables)
 Box constraints (bounds on the first stage variables)
 ——————————————————————–
-Avg = Average for RecoursenLinearmulti = Linear MultiplenBox constraints = constraints on individual decision variables</div>
-<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Recourse = Minimal value of the following second stage subproblem for given first stage variables depending on scenariosnMinimize Linear (minimizing linear objective of the second stage subproblem)nsubject tonConstVector3 ≤ Linearmulti ≤ ConstVector4 (linear constraints on the second stage variables depending on scenarios)
+Avg = Average for Recourse<br>Linearmulti = Linear Multiple<br>Box constraints = constraints on individual decision variables</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Recourse = Minimal value of the following second stage subproblem for given first stage variables depending on scenarios<br>Minimize Linear (minimizing linear objective of the second stage subproblem)nsubject to<br>ConstVector3 ≤ Linearmulti ≤ ConstVector4 (linear constraints on the second stage variables depending on scenarios)
 Box constraints (bounds on the second stage variables)
 ——————————————————————–
 <strong>Problem "problem_TwoStage_stormG2"</strong>
@@ -212,7 +212,7 @@ Sources of Datan<span style="font-family: Calibri; font-size: medium;"> • Ho, 
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 CASE STUDY SUMMARYn</strong>
-POSTS (a portable stochastic programming test set) gives a set of multi-stage linear stochastic programming problems with discrete scenarios for testing algorithms, Derek et al. (1995). Every problem has several sets of scenarios. Problems posted at the POSTS website are general linear stochastic programming in SMPS format. We have selected several two-stage problems at POSTS website. For selected problems we converted data to PSG format and solved these problems in PSG RunFile environment. Two-stage problems were formulated using PSG Average function applied to Recourse function.</div>
+POSTS (a portable stochastic programming test set) gives a set of multi-stage linear stochastic programming problems with discrete scenarios for testing algorithms, Derek et al. (1995). Every problem has several sets of scenarios. Problems posted at the POSTS website are general linear stochastic programming in SMPS format. We have selected several two-stage problems at POSTS website. For selected problems we converted data to PSG format and solved these problems in PSG Ru<br>File environment. Two-stage problems were formulated using PSG Average function applied to Recourse function.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 References</strong>
 • Berg, E.V., and Derek H. and B. John (1995): Cargill Financial Services.

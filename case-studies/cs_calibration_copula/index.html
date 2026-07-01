@@ -41,10 +41,10 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 Problem 1a: problem_hull_meansquare </strong>
 Minimize Meansquare(matrix_h) (minimize sum of meansquare error functions specified by matrix_meansquare1 and matrix_meansquare2)
-Meansquare(matrix_meansquare1) +n0.0189*Meansquare(matrix_meansquare2)nsubject tonLinearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
+Meansquare(matrix_meansquare1) +n0.0189*Meansquare(matrix_meansquare2)nsubject to<br>Linearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
 Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
 ——————————————————————–
-Meansquare = Meansquare ErrornBox constraints = constraints on individual decision variables
+Meansquare = Meansquare Error<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 nData and solution in Run-File Environmentn<table>
 <tbody>
@@ -114,10 +114,10 @@ nData and solution in Run-File Environmentn<table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!--PROBLEM-1b: problem_hull_variance -->
 <strong> Problem 1b: problem_hull_variance </strong>
-Minimize Variance(matrix_h) (minimize variance specified by matrix_h)nsubject tonLinearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
+Minimize Variance(matrix_h) (minimize variance specified by matrix_h)nsubject to<br>Linearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
 Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
 ——————————————————————–
-Variance = VariancenBox constraints = constraints on individual decision variables
+Variance = Variance<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 nData and solution in Run-File Environmentn<table>
 <tbody>
@@ -189,11 +189,11 @@ nData and solution in Run-File Environmentn<table>
 
 <strong>
 Problem 2: Problem_CCC </strong>
-Minimize Entropyr (matrix_h) (minimize entropyr specified by matrix_h)nsubject tonVector_bl ≤ Linearmulti(matrix_a) ≤ vector_b (constraint: system of linear inequalities specified by matrix_a)
+Minimize Entropyr (matrix_h) (minimize entropyr specified by matrix_h)nsubject to<br>Vector_bl ≤ Linearmulti(matrix_a) ≤ vector_b (constraint: system of linear inequalities specified by matrix_a)
 Linearmulti(matrix_aeq) = 1 (constraint: system of linear equations specified by matrix_aeq)
 Box constraints (constraints on individual decision variables specified by point_lb and point_ub )
 ——————————————————————–
-Entropyr = Relative EntropynBox constraints = probabilities should be non-negative
+Entropyr = Relative Entropy<br>Box constraints = probabilities should be non-negative
 ——————————————————————–
 nData and solution in Run-File Environmentn<table>
 <tbody>

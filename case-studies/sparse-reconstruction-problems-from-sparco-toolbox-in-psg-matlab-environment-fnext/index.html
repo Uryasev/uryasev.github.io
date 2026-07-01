@@ -37,9 +37,9 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: L2 form</strong>
-Minimize 0.5*Quadratic + Const*Linear (minimizing L2-error of regression plus linear regularization term)nsubject tonBox constraints (bounds on variables)
+Minimize 0.5*Quadratic + Const*Linear (minimizing L2-error of regression plus linear regularization term)nsubject to<br>Box constraints (bounds on variables)
 ——————————————————————–
-Quadratic = External Quadratic Penalty FunctionnBox constraints = constraints on individual decision variables
+Quadratic = External Quadratic Penalty Functio<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 n<strong>Problem "problem_2_L2_dblExt" </strong><br><br>
 Sources of Datan<ul>
@@ -1143,7 +1143,7 @@ URL <a href="https://library.seg.org/doi/abs/10.1190/1.2148142">https://library.
  <li>Hennenfent, G., Herrmann, F.J.: Simply denoise: waveeld reconstruction via coarse nonuniform sampling.
 Tech. rep., UBC Earth &amp; Ocean Sciences (2007)</li>
  <li>Herrmann, F.J., Hennenfent, G.: Non-parametric seismic data recovery with curvelet frames.
-Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1nURL <a href="https://academic.oup.com/gji/article-abstract/173/1/233/554282">https://academic.oup.com/gji/article-abstract/173/1/233/554282</a></li>
+Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1<br>URL <a href="https://academic.oup.com/gji/article-abstract/173/1/233/554282">https://academic.oup.com/gji/article-abstract/173/1/233/554282</a></li>
 </ul>
 <table>
 <tbody>
@@ -1189,7 +1189,7 @@ Tech. rep., UBC Earth &amp; Ocean Sciences Department (2007). TR-2007-1nURL <a h
 </table>
 <strong>Problem "problem_903_L2_dblExt"</strong>
 Sources of Datan<ul>
- <li>Dossal, C., Mallat, S.: Sparse spike deconvolution with minimum scale. In: Proceedings of Signal Processing withnAdaptive Sparse Structured Representations, pp. 123-126. Rennes, France (2005).
+ <li>Dossal, C., Mallat, S.: Sparse spike deconvolution with minimum scale. In: Proceedings of Signal Processing with<br>Adaptive Sparse Structured Representations, pp. 123-126. Rennes, France (2005).
 URL <a href="https://spars05.irisa.fr/ACTES/PS2-11.pdf">https://spars05.irisa.fr/ACTES/PS2-11.pdf</a></li>
 </ul>
 <table>
@@ -1267,9 +1267,9 @@ SPARCO toolbox provides a set of operators to deal with data. Problems were solv
 We reported performance of AORDA Portfolio Safeguard (PSG) 64 bit version conducted on PC with 2.83 MHz processor.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">In the problem formulations we have included several "dummy" functions multiplied by 0 (zero). Such "dummy" functions do not not impact solution process, but values of these functions are printed in the final solution file.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">For instance, you can view many "dummy" functions in the following problem formulation:</div>
-<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">problem: problem_602_Relaxed_700, type = minimizenobjective: objective_new, linearize = 1nmeanabs_pen_obj(matrix_ab602)nconstraint: constraint_card, upper_bound = 700, linearize = 1npolynom_abs_S(matrix_card4096)n0 * cardn_1(1.,matrix_card4096)n0 * cardn_2(0.1,matrix_card4096)n0 * cardn_3(0.01,matrix_card4096)n0 * cardn_4(0.001,matrix_card4096)n0 * cardn_5(0.0001,matrix_card4096)n0 * cardn_6(0.00001,matrix_card4096)n0 * max_comp_pos_7(matrix_card4096)n0 * max_comp_neg_8(matrix_card4096)nbox_of_variables: lowerbounds = -40, upperbounds = +40nSolver: van, precision = 4, stages = 6, timelimit = 3600</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">problem: problem_602_Relaxed_700, type = minimizenobjective: objective_new, linearize = 1nmeanabs_pen_obj(matrix_ab602)nconstraint: constraint_card, upper_bound = 700, linearize = 1npolynom_abs_S(matrix_card4096)n0 * cardn_1(1.,matrix_card4096)n0 * cardn_2(0.1,matrix_card4096)n0 * cardn_3(0.01,matrix_card4096)n0 * cardn_4(0.001,matrix_card4096)n0 * cardn_5(0.0001,matrix_card4096)n0 * cardn_6(0.00001,matrix_card4096)n0 * max_comp_pos_7(matrix_card4096)n0 * max_comp_neg_8(matrix_card4096)nbox_of_variables: lowerbounds = -40, upperbounds = +40<br>Solver: van, precision = 4, stages = 6, timelimit = 3600</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">The corresponding solution file includes values of "dummy" functions on the final optimal point:</div>
-<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problem: solution_status = optimalnTiming: Data_loading_time = 11.97, Preprocessing_time = 0.69, Solving_time = 272.61nVariables: optimal_point = point_problem_602_Relaxed_700nObjective: objective_new = 9.71029929057e-005nConstraint: constraint_card = 6.968284830013e+002 [-3.171516998665e+000]nFunction: meanabs_pen_obj(matrix_ab602) = 9.710299290575e-005nFunction: polynom_abs_s(matrix_card4096) = 6.968284830013e+002nFunction: cardn_1(0.100000E+01,matrix_card4096) = 1.420000000000e+002nFunction: cardn_2(0.100000E+00,matrix_card4096) = 7.890000000000e+002nFunction: cardn_3(0.100000E-01,matrix_card4096) = 3.043000000000e+003nFunction: cardn_4(0.100000E-02,matrix_card4096) = 3.964000000000e+003nFunction: cardn_5(0.100000E-03,matrix_card4096) = 4.079000000000e+003nFunction: cardn_6(0.100000E-04,matrix_card4096) = 4.095000000000e+003nFunction: max_comp_pos_7(matrix_card4096) = 1.616083034336e+001nFunction: max_comp_neg_8(matrix_card4096) = 6.562008879305e+000</div>
+<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Problem: solution_status = optimal<br>Timing: Data_loading_time = 11.97, Preprocessing_time = 0.69, Solving_time = 272.61<br>Variables: optimal_point = point_problem_602_Relaxed_700<br>Objective: objective_new = 9.71029929057e-005<br>Constraint: constraint_card = 6.968284830013e+002 [-3.171516998665e+000]<br>Function: meanabs_pen_obj(matrix_ab602) = 9.710299290575e-005<br>Function: polynom_abs_s(matrix_card4096) = 6.968284830013e+002<br>Function: cardn_1(0.100000E+01,matrix_card4096) = 1.420000000000e+002<br>Function: cardn_2(0.100000E+00,matrix_card4096) = 7.890000000000e+002<br>Function: cardn_3(0.100000E-01,matrix_card4096) = 3.043000000000e+003<br>Function: cardn_4(0.100000E-02,matrix_card4096) = 3.964000000000e+003<br>Function: cardn_5(0.100000E-03,matrix_card4096) = 4.079000000000e+003<br>Function: cardn_6(0.100000E-04,matrix_card4096) = 4.095000000000e+003<br>Function: max_comp_pos_7(matrix_card4096) = 1.616083034336e+001<br>Function: max_comp_neg_8(matrix_card4096) = 6.562008879305e+000</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong><br><br>
 </strong><strong></strong><strong></strong><strong>References</strong>

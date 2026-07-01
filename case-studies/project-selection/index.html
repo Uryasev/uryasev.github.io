@@ -36,10 +36,10 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM 1: problem_CS_Project_Selection_FXCHG</strong>
-Maximize Linear (maximizing net present value)nsubject tonFxchg ≤ Const (constraint on available initial capital)
+Maximize Linear (maximizing net present value)nsubject to<br>Fxchg ≤ Const (constraint on available initial capital)
 Box constraints (bounds on positions)
 ——————————————————————–——–——–
-Fxchg = Fixed ChargenBox constraints = constraints on individual decision variables
+Fxchg = Fixed Charge<br>Box constraints = constraints on individual decision variables
 ——————————————————————–——–——–
 The same problem is solved with two different solvers: CAR and CARGRB (which needs GUROBI).
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -98,7 +98,7 @@ The same problem is solved with two different solvers: CAR and CARGRB (which nee
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM 2: problem_CS_Project_Selection_linear</strong>
-Maximize Linear (maximizing net present value)nsubject tonLinear ≤ Const (budget constraint)
+Maximize Linear (maximizing net present value)nsubject to<br>Linear ≤ Const (budget constraint)
 Box constraints (binary position variables, x = Boolean)
 ——————————————————————–——–——–
 Box constraints = constraints on individual decision variables

@@ -36,11 +36,11 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: problem_p_multicomm</strong>
-Minimize Linear (minimizing network cost)nsubject tonLinearmulti = Const1 (network flow constraints for every commodity and scenario)
+Minimize Linear (minimizing network cost)nsubject to<br>Linearmulti = Const1 (network flow constraints for every commodity and scenario)
 Prmulti_pen ≤ Const2 (constraint on probability that flow in at least one ark exceeds capacity)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Linearmulti = Linear MultiplenPrmulti_pen = Probability Exceeding Penalty for Loss MultiplenBox constraints = constraints on individual decision variables
+Linearmulti = Linear Multiple<br>Prmulti_pen = Probability Exceeding Penalty for Loss Multiple<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -93,12 +93,12 @@ Linearmulti = Linear MultiplenPrmulti_pen = Probability Exceeding Penalty for Lo
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: problem_c_multicomm</strong>
-Minimize Linear (minimizing network cost)nsubject tonCardn_neg ≤ Const3 (constraint on the&nbsp; number of scenarios on which flow in some ark may exceed capacity)
+Minimize Linear (minimizing network cost)nsubject to<br>Cardn_neg ≤ Const3 (constraint on the&nbsp; number of scenarios on which flow in some ark may exceed capacity)
 Linearmulti ≤ Const4 (constraint on probability that flow in at least one ark exceeds capacity)
 Linearmulti = 0 (network flow constraints for every commodity and scenario with varying demands)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Cardn_neg = Cardinality NegativenLinearmulti = Linear MultiplenBox constraints = constraints on individual decision variables
+Cardn_neg = Cardinality Negative<br>Linearmulti = Linear Multiple<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -151,10 +151,10 @@ Cardn_neg = Cardinality NegativenLinearmulti = Linear MultiplenBox constraints =
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: problem_2st_multicomm</strong>
-Minimize Linear (minimizing network cost)nsubject tonPr_pen(Q) ≤ Const2 (constraint on probability that random recourse function exceeds 0)
+Minimize Linear (minimizing network cost)nsubject to<br>Pr_pen(Q) ≤ Const2 (constraint on probability that random recourse function exceeds 0)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Pr_pen(Q) = Probability Exceeding Penalty for RecoursenBox constraints = constraints on individual decision variables
+Pr_pen(Q) = Probability Exceeding Penalty for Recourse<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%;
 <div style=" font-family:="" calibri;="" font-size:="" medium;="" line-height:="" 120%;="" color:="" #000000;="" width:="" 850px;"="">

@@ -36,11 +36,11 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;">
 <strong>
 PROBLEM 1: problem_var_LLN</strong>
-Minimize Var_risk (minimizing Value-at-Risk)nsubject tonLinear = 1 (budget constraint)
+Minimize Var_risk (minimizing Value-at-Risk)nsubject to<br>Linear = 1 (budget constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Var = VaR Risk for LossnBox constraints = constraints on individual decision variables
+Var = VaR Risk for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -92,11 +92,11 @@ n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>PROBLEM 2: problem_cvar_LLN </strong>
-Minimize Cvar_risk (minimizing Conditional Value-at-Risk)nsubject tonLinear = 1 (budget constraint)
+Minimize Cvar_risk (minimizing Conditional Value-at-Risk)nsubject to<br>Linear = 1 (budget constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Cvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables</div>
+Cvar_risk = CVaR Risk for Loss<br>Box constraints = constraints on individual decision variables</div>
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -148,11 +148,11 @@ n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>PROBLEM 3: problem_avg_var_CLT</strong>
-Minimize Avg_var_risk_ni (minimizing Average Value-at-Risk for Normal Independent Distribution)nsubject tonLinear = 1 (budget constraint)
+Minimize Avg_var_risk_ni (minimizing Average Value-at-Risk for Normal Independent Distribution)nsubject to<br>Linear = 1 (budget constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Avg_var_risk_ni = Average Value-at-Risk for Multivariate Normal Independent DistributionnBox constraints = constraints on individual decision variables</div>
+Avg_var_risk_ni = Average Value-at-Risk for Multivariate Normal Independent Distribution<br>Box constraints = constraints on individual decision variables</div>
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -204,11 +204,11 @@ n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>PROBLEM 4: problem_avg_cvar_CLT</strong>
-Minimize Avg_cvar (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution)nsubject tonLinear = 1 (budget constraint)
+Minimize Avg_cvar (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution)nsubject to<br>Linear = 1 (budget constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Avg_cvar_risk_ni = Average Conditional Value-at-Risk for Multivariate Normal Independent DistributionnBox constraints = constraints on individual decision variables</div>
+Avg_cvar_risk_ni = Average Conditional Value-at-Risk for Multivariate Normal Independent Distribution<br>Box constraints = constraints on individual decision variables</div>
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -260,12 +260,12 @@ n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>PROBLEM 5: problem_avg_var_CLT (alternative formulation)</strong>
-Minimize Xvar (minimizing Average Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 3)nsubject tonLinear = 1 (budget constraint)
+Minimize Xvar (minimizing Average Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 3)nsubject to<br>Linear = 1 (budget constraint)
 Avg_pr_pen_ni ≤ 1-α (probability constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Xvar = additional variable which is equal to VaR at optimalitynAvg_pr_pen_ni = Average Probability Exceeding Penalty for Loss Normal IndependentnBox constraints = constraints on individual decision variablesnBox constraints = constraints on individual decision variables</div>
+Xvar = additional variable which is equal to VaR at optimality<br>Avg_pr_pen_ni = Average Probability Exceeding Penalty for Loss Normal Independent<br>Box constraints = constraints on individual decision variables<br>Box constraints = constraints on individual decision variables</div>
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -317,11 +317,11 @@ n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>PROBLEM 6: problem_avg_cvar_CLT (alternative formulation)</strong>
-Minimize Xvar + 1/(1-α )*Avg_pm_pen_ni (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 4)nsubject tonLinear = 1 (budget constraint)
+Minimize Xvar + 1/(1-α )*Avg_pm_pen_ni (minimizing Average Conditional Value-at-Risk for Normal Independent Distribution using alternative formulation of Problem 4)nsubject to<br>Linear = 1 (budget constraint)
 Linear ≥ Const (portfolio return constraint)
 Box constraints (bounds on decision variables)
 ——————————————————————–
-Xvar = additional variable which is equal to VaR at optimalitynAvg_pm_pen_ni = Average Partial Moment Penalty for Loss Normal IndependentnBox constraints = constraints on individual decision variables</div>
+Xvar = additional variable which is equal to VaR at optimality<br>Avg_pm_pen_ni = Average Partial Moment Penalty for Loss Normal Independent<br>Box constraints = constraints on individual decision variables</div>
 ——————————————————————–
 n<span style="color: red;">NOTE: LARGE DATA FILES; SEVERAL MINUTES MAY BE NEEDED FOR DOWNLOADING</span>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">

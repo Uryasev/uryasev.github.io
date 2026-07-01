@@ -40,13 +40,13 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM: problem_basel_accord_c_econ_65</strong>
-Maximize Linear (maximizing estimated return (without risk))nsubject tonCvar_dev ≤ Const1 (internal constraint on credit risk)
+Maximize Linear (maximizing estimated return (without risk))nsubject to<br>Cvar_dev ≤ Const1 (internal constraint on credit risk)
 Lenear ≤ xa1 + xa2 (regulatory constraint on capital covering credit risk)
 Linear + Var_dev ≤ xa3 + (Const2 - xa1) + (Const3 - xa2) (regulatory constraint on capital covering market risk)nxa3 + (Const4 - xa2) ≤ (Const5 - xa1) (constraint limiting unused Tier-2 + used Tier-3 capital vs. unused Tier-1 capital)nxa2 ≤ xa1 (constraint limiting Tier-2 vs. Tier-1 capital)n0 ≥ xa ≤ Const6 (bounds on used Tier- k capital)
 Box constraints (upper/lower bounds on exposures)
 ——————————————————————–
 Cvar_dev = CVaR Deviation for Lossnxa1, xa2, xa3 = used for risk management purposes Tier- k capital, k=1,…, 3 (free additional variables)
-Var_dev = VaR Deviation for LossnBox constraints = constraints on individual decision variables
+Var_dev = VaR Deviation for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

@@ -52,12 +52,12 @@ Optimization Letters. 8:61-80.</span></li>
 </tbody>
 </table>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><!---PROBLEM: MAX--><strong>PROBLEM 1: Index Tracking, Minimizing Max Riskn</strong>
-Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio and index returns)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio and index returns)nsubject to<br>Cardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
 Buyin_pos &lt;= 0 (constraint prohibiting small positions)
 Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
 Box constraints (bounds on variables)
 ——————————————————————–
-Max_Risk = Maximum Risk for LossnCardn_pos = Cardinality PositivenByin_pos = Buy-in PositivenPolynom_abs = Polynomial Absolute Function = weighted sum of absolute values of positionsnBox constraints = constraints on individual decision variables
+Max_Risk = Maximum Risk for Loss<br>Cardn_pos = Cardinality Positive<br>Byin_pos = Buy-in Positive<br>Polynom_abs = Polynomial Absolute Function = weighted sum of absolute values of positions<br>Box constraints = constraints on individual decision variables
 ——————————————————————–</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: problem_indtrack1_max-->
 <strong>Problem "problem_fc_indtrack1_max_0025"</strong>
@@ -213,12 +213,12 @@ Download other data sets in Run-File Environment.
 </table>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!---PROBLEM: AVG-->
 <strong><strong>PROBLEM 2: Index Tracking, Minimizing Mean Absolute Deviation</strong></strong><br><br>
-Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject to<br>Cardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
 Buyin_pos &lt;= 0 (constraint prohibiting small positions)
 Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
 Box constraints (bounds on variables)n
 ——————————————————————–
-Meanabs = Mean Absolute ErrornCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+Meanabs = Mean Absolute Error<br>Cardn_pos = Cardinality Positive<br>Byin_pos = Buyin Positive<br>Polynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute values<br>Box constraints = constraints on individual decision variables
 ——————————————————————–<!---PROBLEM: problem_indtrack1_avg--><br><br>
 <strong>Problem "problem_indtrack_avg"</strong>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -376,12 +376,12 @@ Download other data sets in Run-File Environment.
 <strong>PROBLEM 3: Index Tracking, Minimizing Max Risk (MIP Formulation)
 </strong>
 <div>The same problem formulation as Problem 1, but with options “Linearize=1, MIP=1”. Problem is solved as a Mixed Integer Linear Programming (MILP) problem by solver CARGRB “in one shot”.</div>
-<div>Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+<div>Minimize Max_Risk (minimizing the maximum absolute difference between tracking portfolio return and index return)nsubject to<br>Cardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
 Buyin_pos &lt;= 0 (constraint prohibiting small positions)
 Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
 Box constraints (bounds on variables)</div>
 ——————————————————————–
-Max_Risk = Maximum Risk for LossnCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+Max_Risk = Maximum Risk for Loss<br>Cardn_pos = Cardinality Positive<br>Byin_pos = Buyin Positive<br>Polynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute values<br>Box constraints = constraints on individual decision variables
 ——————————————————————–<!---PROBLEM: FC problem_indtrack1_max--><strong>
 Problem "problem_FC_indtrack_max"</strong>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
@@ -540,12 +540,12 @@ Download other data sets in Run-File Environment.
 </strong>
 <div>The same problem formulation as Problem 2, but with options “Linearize=1, MIP=1”. Problem is solved as a Mixed Integer Linear Programming (MILP) problem by solver CARGRB “in one shot”.</div>
 <div></div>
-<div>Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject tonCardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
+<div>Minimize Meanabs (minimizing the average of the absolute differences between tracking portfolio return and index return)nsubject to<br>Cardn_pos &lt;= Const1 (constraint on the number of assets in the new tracking portfolio)
 Buyin_pos &lt;= 0 (constraint prohibiting small positions)
 Linear + trcost&lt;= Const2 (bound on sum of “new tracking portfolio value” + “transaction cost” &lt;= “current tracking portfolio value”)ntrcost &lt;= Const3 (upper bound on transaction cost)n– trcost + Const4*Polynom_abs + Const5*(Cardn_pos+Cardn_neg) &lt; = 0 (constraint defines variable and fixed transaction costs)
 Box constraints (bounds on variables)</div>
 ——————————————————————–
-Meanabs = Mean Absolute ErrornCardn_pos = Cardinality PositivenByin_pos = Buyin PositivenPolynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute valuesnBox constraints = constraints on individual decision variables
+Meanabs = Mean Absolute Error<br>Cardn_pos = Cardinality Positive<br>Byin_pos = Buyin Positive<br>Polynom_abs = Polynomial Absolute Function, which is the weighted sum of absolute values<br>Box constraints = constraints on individual decision variables
 ——————————————————————–<!---PROBLEM: FC problem_indtrack1_max--><strong>Problem "problem_FC_indtrack_avg"</strong>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

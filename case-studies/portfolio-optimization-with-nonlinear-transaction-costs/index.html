@@ -38,11 +38,11 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000;"><strong>PROBLEM 1: problem_1_Trans_Costs</strong>
-Maximize Avg_g (maximizing expected portfolio gain)nsubject tonCvar ≤ Const1 (constraint on CVaR)
+Maximize Avg_g (maximizing expected portfolio gain)nsubject to<br>Cvar ≤ Const1 (constraint on CVaR)
 Polynom_abs + Linear ≤ Const2 (budget constraint (linear transaction costs,n(linear transaction costs, power coefficient in Polynom_abs function for each instrument = 1))
 Box constraints (bounds on positions)
 ——————————————————————–
-Avg_g = Average GainnPolynom_abs = Polynomial AbsolutenBox constraints = constraints on individual decision variables
+Avg_g = Average Gai<br>Polynom_abs = Polynomial Absolute<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -93,10 +93,10 @@ Avg_g = Average GainnPolynom_abs = Polynomial AbsolutenBox constraints = constra
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 2: problem_2_Trans_Costs</strong>
-Maximize Avg_g (maximizing expected portfolio gain)nsubject tonCvar_risk ≤ Const3 (constraint on CVaR)
-Linear + Linear ≤ Const4nBox constraints (bounds on positions)
+Maximize Avg_g (maximizing expected portfolio gain)nsubject to<br>Cvar_risk ≤ Const3 (constraint on CVaR)
+Linear + Linear ≤ Const4<br>Box constraints (bounds on positions)
 ——————————————————————–
-Avg_g = Average GainnCvar_risk = CVaR Risk for LossnBox constraints = constraints on individual decision variables
+Avg_g = Average Gai<br>Cvar_risk = CVaR Risk for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 nData and solution in Run-File Environmentn<table>
 <tbody>
@@ -166,11 +166,11 @@ nData and solution in Run-File Environmentn<table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 3: problem_3_Trans_Costs</strong>
-Maximize Avg_g (maximizing expected portfolio gain)nsubject tonCvar_risk ≤ Const51 (constraint on CVaR)
+Maximize Avg_g (maximizing expected portfolio gain)nsubject to<br>Cvar_risk ≤ Const51 (constraint on CVaR)
 Polynom_abs + Linear ≤ Const6 (budget constraint,n(linear transaction costs, power coefficient in Polynom_abs function for each instrument &gt; 1))
 Box constraints (bounds on positions)
 ——————————————————————–
-Avg_g = Average GainnCvar_risk = CVaR Risk for LossnPolynom_abs = Polynomial AbsolutenBox constraints = constraints on individual decision variables
+Avg_g = Average Gai<br>Cvar_risk = CVaR Risk for Loss<br>Polynom_abs = Polynomial Absolute<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

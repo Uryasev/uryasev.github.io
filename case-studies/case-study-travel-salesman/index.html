@@ -355,7 +355,7 @@ TSP = Travelling Salesman Problem
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM3: problem_TSP_with_budget </strong>
-Minimize Linear(TSP) (minimize length of tour)nsubject tonLinear ≤ Const (constraint on budget allocated for “building roads”)
+Minimize Linear(TSP) (minimize length of tour)nsubject to<br>Linear ≤ Const (constraint on budget allocated for “building roads”)
 ——————————————————————–————————————–
 TSP = Travelling Salesman Problem
 ——————————————————————–————————————–
@@ -409,7 +409,7 @@ TSP = Travelling Salesman Problem
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <strong>
 PROBLEM4: problem_TSP_in_constraint </strong>
-Minimize Linear (minimize budget allocated for “building roads”)nsubject tonLinear(TSP) ≤ Const (constraint on the length of tour)
+Minimize Linear (minimize budget allocated for “building roads”)nsubject to<br>Linear(TSP) ≤ Const (constraint on the length of tour)
 ——————————————————————–————————————–
 TSP = Travelling Salesman Problem
 ——————————————————————–————————————–
@@ -464,7 +464,7 @@ TSP = Travelling Salesman Problem
 <strong>
 CASE STUDY SUMMARYn</strong>
 This case study solves several Travelling Salesman Problems (TSPs). PSG has TSP operator for a compact formulation of problems. The length of the path which goes through all vertices of the graph is calculated with the operator “linear(TSP(matrix_of_distances))”.
-TSP optimization problems can be solved only if Gurobi package is installed at the computer. PSG is using Gurobi-based solvers CarGrb or VanGrb for solving problems with TSP operator.
+TSP optimization problems can be solved only if Gurobi package is installed at the computer. PSG is using Gurobi-based solvers CarGrb or Va<br>Grb for solving problems with TSP operator.
 Problems were solved with data downloaded from the link [1].</div>
 <strong>
 References</strong>

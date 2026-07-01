@@ -35,10 +35,10 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/MatlabSubroutines.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Subroutines</span></a> and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.</div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM: problem_production_planning_FXCHG</strong>
-Minimize Linear + Fxchg_pos (minimizing total costs)nsubject tonLinearmulti = Const (constraint on production demand)
+Minimize Linear + Fxchg_pos (minimizing total costs)nsubject to<br>Linearmulti = Const (constraint on production demand)
 Box constraints (bounds on positions)
 ——————————————————————–————–
-Fxchg_pos = Fixed Charge PositivenBox constraints = constraints on individual decision variables
+Fxchg_pos = Fixed Charge Positive<br>Box constraints = constraints on individual decision variables
 ——————————————————————–————–
 nData and solution in Run-File Environment. The same problem is solved with two different solvers: VAN and CARGRB (which needs GUROBI).
 <table>

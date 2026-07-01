@@ -36,7 +36,7 @@
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.<br><br>
 <strong>PROBLEM 1: Checkerboard_Copula_with_Mean-Abs-Err_Objective</strong>
-Minimize Meanabs_errnsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize Meanabs_errnsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 Meanabs_err = Mean Absolute Error
@@ -89,7 +89,7 @@ Meanabs_err = Mean Absolute Error
 </table>
 </div>
 <strong>PROBLEM 2: Checkerboard_Copula_with_Mean-Square-Err_Objective&nbsp;</strong>
-Minimize Measquare_errnsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize Measquare_errnsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 Measquare_err = Mean Square Error
@@ -142,7 +142,7 @@ Measquare_err = Mean Square Error
 </table>
 </div>
 <strong>PROBLEM 3: Checkerboard_Copula_with_CVaR-Abs-Err_Objective</strong>
-Minimize CVaR_abs_errnsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize CVaR_abs_errnsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 CVaR_abs_err = CVaR Absolute Error
@@ -237,7 +237,7 @@ n<strong>alpha=0.9</strong>
 </table>
 </div>
 <strong>PROBLEM 4: Checkerboard_Copula_with_Weighted_Sum_of_Mean_Absolute_Errors&nbsp;</strong>
-Minimize Weighted Sum of Meanabs_err_snsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize Weighted Sum of Meanabs_err_snsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 Meanabs_err = Mean Absolute Error
@@ -290,7 +290,7 @@ Meanabs_err = Mean Absolute Error
 </table>
 </div>
 <strong>PROBLEM 5: Checkerboard_Copula_with_Weighted_Sum_of_Mean_Square_Errors&nbsp;</strong>
-Minimize Weighted Sum of Measquare_err_snsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize Weighted Sum of Measquare_err_snsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 Measquare_err = Mean Square Error
@@ -343,7 +343,7 @@ Measquare_err = Mean Square Error
 </table>
 </div>
 <strong>PROBLEM 6: Checkerboard_Copula_with_Weighted_Sum_of_CVaR_Absolute_Errors&nbsp;</strong>
-Minimize Weighted Sum of CVaR_abs_err_snsubject tonLinearmulti = 1 (constraints defining multi-stochastic matrix)
+Minimize Weighted Sum of CVaR_abs_err_snsubject to<br>Linearmulti = 1 (constraints defining multi-stochastic matrix)
 Box constraints (Lower bounds of elements of multi-stochastic matrix)
 ——————————————————————–
 CVaR_abs_err = CVaR Absolute Error

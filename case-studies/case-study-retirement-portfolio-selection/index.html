@@ -38,11 +38,11 @@
 Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2019/11/RunFile_environment.pdf"><span style="font-family: Calibri; font-size: medium;">PSG Run-File</span></a>, <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/Matlab_Toolbox.pdf"><span style="font-family: Calibri; font-size: medium;">PSG MATLAB Toolbox</span></a>, and <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2017/01/PSG_R.pdf"><span style="font-family: Calibri; font-size: medium;">PSG R</span></a>.
 
 <strong>PROBLEM1: Problem_CVaR_only</strong>
-Minimize -Linear+Quadratic ( expected portfolio terminal value + regularization)nsubject tonPortfolio value = sum(asset values)
+Minimize -Linear+Quadratic ( expected portfolio terminal value + regularization)nsubject to<br>Portfolio value = sum(asset values)
 Cash outflow = sum(adjustments)
-Asset position value dynamicsnLower and upper bounds on asset positionsnCVaR(-cash outflow - annuity yield) &lt; -required cash outflownBox constraints
+Asset position value dynamics<br>Lower and upper bounds on asset positions<br>CVaR(-cash outflow - annuity yield) &lt; -required cash outflow<br>Box constraints
 ——————————————————————–
-Quadratic = External Quadratic Penalty FunctionnBox constraints = constraints on individual decision variables
+Quadratic = External Quadratic Penalty Functio<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -139,12 +139,12 @@ Quadratic = External Quadratic Penalty FunctionnBox constraints = constraints on
 </table>
 </div>
 <strong>PROBLEM2: Problem_CVaR_plus_monotonicity</strong>
-Minimize -Linear+Quadratic ( expected portfolio terminal value + regularization)nsubject tonPortfolio value = sum(asset values)
+Minimize -Linear+Quadratic ( expected portfolio terminal value + regularization)nsubject to<br>Portfolio value = sum(asset values)
 Cash outflow = sum(adjustments)
-Asset position value dynamicsnLower and upper bounds on asset positionsnCVaR(-cash outflow - annuity yield) = 0 (monotonicity constraint)
+Asset position value dynamics<br>Lower and upper bounds on asset positions<br>CVaR(-cash outflow - annuity yield) = 0 (monotonicity constraint)
 Box constraints (non-negativity constraints on positions)
 ——————————————————————–
-Quadratic = External Quadratic Penalty FunctionnBox constraints = constraints on individual decision variables
+Quadratic = External Quadratic Penalty Functio<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

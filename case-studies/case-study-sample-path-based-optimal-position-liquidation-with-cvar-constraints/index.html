@@ -38,11 +38,11 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>PROBLEM 1: Risk Neutral Optimal Liquidation in Frictionless Market</strong>
-Maximize Avg_g (maximizing the expected return of payoffs )nsubject tonMax_risk_nonanticipativity &lt;= 0 (constraint ensuring that path variables are less than or equal to the corresponding group variables)
+Maximize Avg_g (maximizing the expected return of payoffs )nsubject to<br>Max_risk_nonanticipativity &lt;= 0 (constraint ensuring that path variables are less than or equal to the corresponding group variables)
 Max_risk_monotonicity &lt;= 0 (constraint prohibiting the increase position in instrument)
 Box constraints (bounds on variables)
 ——————————————————————–
-Avg_g = Average of GainnMax_risk_ = Maximum Risk for LossnBox constraints = constraints on individual decision variables
+Avg_g = Average of Gai<br>Max_risk_ = Maximum Risk for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -136,9 +136,9 @@ Download other datasets in Run-File Environment.
 </table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> PROBLEM 2: Risk Neutral Optimal Liquidation in Frictionless Market (modified formulation containing only group decision variables)</strong>
-Maximize -Avg_max_risk_g (maximizing negative average value of maximum gain function)nsubject tonBox constraints (bounds on variables)
+Maximize -Avg_max_risk_g (maximizing negative average value of maximum gain function)nsubject to<br>Box constraints (bounds on variables)
 ——————————————————————–
-Avg_max_risk_g = Average of Maximum Risk for GainnBox constraints = constraints on individual decision variables
+Avg_max_risk_g = Average of Maximum Risk for Gai<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -262,12 +262,12 @@ Download other datasets in Run-File Environment.
 </table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong> PROBLEM 3: Risk-Averse Optimal Liquidation in Frictionless Market </strong>
-Maximize Avg_g (maximizing the expected return of payoffs)nsubject tonCvar_risk_averse &lt;= const (constraint on CVaR risk for Loss)
+Maximize Avg_g (maximizing the expected return of payoffs)nsubject to<br>Cvar_risk_averse &lt;= const (constraint on CVaR risk for Loss)
 Max_risk_nonanticipativity &lt;= 0 (constraint ensuring that path variables are less than or equal to the corresponding group variables)
 Max_risk_monotonicity &lt;= 0 (constraint prohibiting the increase position in instrument)
 Box constraints (bounds on variables)
 ——————————————————————–
-Cvar_risk = Conditional Value-at-Risk for LossnAvg_g = Average of GainnMax_risk_ = Maximum Risk for LossnBox constraints = constraints on individual decision variables
+Cvar_risk = Conditional Value-at-Risk for Loss<br>Avg_g = Average of Gai<br>Max_risk_ = Maximum Risk for Loss<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

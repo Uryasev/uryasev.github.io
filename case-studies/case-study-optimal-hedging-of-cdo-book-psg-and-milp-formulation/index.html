@@ -40,11 +40,11 @@ Instructions for optimization with <a href="https://uryasev.ams.stonybrook.edu/w
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 1: problem_cdohedge_1</strong>
 <strong>(formulation with cardinality function and continues variables)</strong>
-Minimize Meanabs_err (minimize hedging risk)nsubject tonPolynom_abs ≤ Const (budget constraint)
+Minimize Meanabs_err (minimize hedging risk)nsubject to<br>Polynom_abs ≤ Const (budget constraint)
 Cardn ≤ Const1 (constraint on cardinality)
 Box constraints (upper bounds on positions)
 ——————————————————————–
-Meanabs_err = Mean Absolute ErrornPolynom_abs = Polynomial AbsolutenCardn = CardinalitynBox constraints = constraints on individual decision variables
+Meanabs_err = Mean Absolute Error<br>Polynom_abs = Polynomial Absolute<br>Cardn = Cardinality<br>Box constraints = constraints on individual decision variables
 ——————————————————————–
 Problem statement with LINEARIZE=1 option for cardinality function and Car solvern<div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">
@@ -127,12 +127,12 @@ Problem statement with LINEARIZE=1 option for cardinality function and Car solve
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><strong>
 PROBLEM 2: problem_cdohedge_2</strong>
 <strong>(MIP formulation with Boolean variables)</strong>
-Miminize Meanabs_err (minimize hedging risk)nsubject tonPolynom_abs ≤ Const (budget constraint)
+Miminize Meanabs_err (minimize hedging risk)nsubject to<br>Polynom_abs ≤ Const (budget constraint)
 Linear ≤ Const1 (constraint on cardinality)
 Linearmulti ≤ 0 (bounds of continue variables depend on Boolean variables)
 Types of variables (defines Real and Boolean variables)
 ——————————————————————–
-Meanabs_err = Mean Absolute ErrornPolynom_abs = Polynomial AbsolutenLinear = LinearnLinearmulti = System of linear constraints
+Meanabs_err = Mean Absolute Error<br>Polynom_abs = Polynomial Absolute<br>Linear = Linear<br>Linearmulti = System of linear constraints
 ——————————————————————–
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;">
 <table style="height: 188px;">

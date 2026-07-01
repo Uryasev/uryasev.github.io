@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="/assets/main.css"/>
     <meta name="description" content="Back to&amp;nbsp;main page  Case study background and problem formulations Instructions for optimization with PSG Run-File, PSG MATLAB Subroutines and PSG">
-    <title>Case Study: Logistic Regression and Regularized Logistics Regression Applied to Estimating the Probability of Cesarean Section — Stan Uryasev</title>
+    <title>Case Study: Logistic Regression and Regularized Logistic Regression Applied to Estimating the Probability of Cesarean Section — Stan Uryasev</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     </div>
 
     <main class="content">
-    <h1>Case Study: Logistic Regression and Regularized Logistics Regression Applied to Estimating the Probability of Cesarean Section</h1>
+    <h1>Case Study: Logistic Regression and Regularized Logistic Regression Applied to Estimating the Probability of Cesarean Section</h1>
 
 <a href="/research/testproblems/">Back to&nbsp;main page</a><br><br>
 <a href="https://uryasev.ams.stonybrook.edu/wp-content/uploads/2015/09/CS_Logistic_Regression_Logexp_Sum_Polynom_Abs_Cardn_S.pdf"><span style="font-family: Calibri; font-size: large;"><strong> Case study background and problem formulations</strong></span></a>
@@ -185,7 +185,7 @@ Data and solution in Run-File Environmentn<table>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!--PROBLEM-3: Maximizing log-likelihood under cardinality constraint-->
 <strong> Problem 3: maximizing log-likelihood under cardinality constraint </strong>
 maximize logexp_sum (maximizing log-likelihood)
-Constraint: &lt;= 4ncardnnSolver: precision = 9nnValue: logistic
+Constraint: &lt;= 4ncard<br>Solver: precision = 9<br>Value: logistic
 ——————————————————————–
 logexp_sum = log-likelihood function for logistic regression (Logarithms Exponents Sum)ncardn = Cardinalitynlogistic = Logistic calculates values of logistic function for every observation (scenario)
 ——————————————————————–
@@ -258,7 +258,7 @@ Data and solution in Run-File Environmentn<table>
 </div>
 <div style="font-family: Calibri; font-size: medium; line-height: 120%; color: #000000; width: 850px;"><!--PROBLEM-4: 4-fold Cross-validation (4 in-sample data and 4 out-of-sample data) for maximization of the log-likelihood function-->
 <strong> Problem 4: 4-fold Cross-validation (4 in-sample data and 4 out-of-sample data) for maximization of the log-likelihood function </strong>
-4-fold crossvalidationnMaximize logexp_sumnnValue:nlogistic (function Logistic on the in-sample data)nlogistic (function Logistic on the out-of-sample data)
+4-fold crossvalidation<br>Maximize logexp_sum<br>Value:nlogistic (function Logistic on the in-sample data)nlogistic (function Logistic on the out-of-sample data)
 ——————————————————————–
 crossvalidation(N,Matrix) = matrix operation splits input Matrix into N pairs of complementary sub-matricesnlogexp_sum = log-likelihood function for logistic regression (Logarithms Exponents Sum)nlogistic = Logistic calculates values of logistic function for every observation (scenario)
 ——————————————————————–
