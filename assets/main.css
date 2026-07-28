@@ -140,6 +140,9 @@ td.title .aff{display:inline-block; font-family:'Roboto',sans-serif; font-size:0
     font-style:normal; letter-spacing:0.04em; text-transform:uppercase; color:#8a8a8a;
     text-shadow:none; white-space:nowrap; vertical-align:middle; margin-left:0.75em;
     padding-left:0.75em; border-left:2px solid #d8d8d8;}
+ul.speakers .aff{font-family:'Roboto',sans-serif; font-size:0.8em; font-weight:600;
+    letter-spacing:0.03em; text-transform:uppercase; color:#8a8a8a; margin-left:0.5em;
+    padding-left:0.6em; border-left:2px solid #d8d8d8; white-space:nowrap;}
 td.speaker{padding: 4px 12px 4px 4px; font-style: italic; font-size:1em; max-height:999999px}
 td.abstract{padding: 4px 12px 12px 4px; font-size:1em; max-height:999999px}
 td.abstract img{display: block; margin: 4px auto 8px auto}
