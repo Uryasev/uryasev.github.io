@@ -143,6 +143,19 @@ td.title .aff{display:inline-block; font-family:'Roboto',sans-serif; font-size:0
 ul.speakers .aff{font-family:'Roboto',sans-serif; font-size:0.8em; font-weight:600;
     letter-spacing:0.03em; text-transform:uppercase; color:#8a8a8a; margin-left:0.5em;
     padding-left:0.6em; border-left:2px solid #d8d8d8; white-space:nowrap;}
+
+/* Collapsible abstract inside a schedule row (pure CSS <details>) */
+details.talk{margin:0;}
+details.talk > summary{list-style:none; cursor:pointer; display:inline;}
+details.talk > summary::-webkit-details-marker{display:none;}
+details.talk > summary .speaker-name{border-bottom:1px dotted #b2132e;}
+details.talk > summary::after{content:" \25B8"; color:#b2132e; font-size:0.7em; font-family:'Roboto',sans-serif; vertical-align:middle;}
+details.talk[open] > summary::after{content:" \25BE";}
+.abstract-box{margin:8px 4px 4px 0; padding:12px 16px; background:#faf7f8;
+    border-left:3px solid #b2132e; border-radius:0 6px 6px 0;
+    font-family:'Roboto',sans-serif; font-size:0.62em; line-height:1.55; color:#404040;
+    text-shadow:none; font-weight:normal; white-space:normal;}
+.abstract-box .talk-title{display:block; font-weight:600; color:#813c54; margin-bottom:6px; font-size:1.05em;}
 td.speaker{padding: 4px 12px 4px 4px; font-style: italic; font-size:1em; max-height:999999px}
 td.abstract{padding: 4px 12px 12px 4px; font-size:1em; max-height:999999px}
 td.abstract img{display: block; margin: 4px auto 8px auto}
