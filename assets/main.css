@@ -139,6 +139,11 @@ td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font
 td.title-special .aff{display:block; font-family:'Roboto',sans-serif; font-size:0.5em; font-weight:normal;
     font-style:italic; text-transform:none; letter-spacing:normal; color:#7a90ac;
     text-shadow:none; margin-top:2px;}
+td.title-special .sub-session{font-family:'Roboto',sans-serif; font-size:0.52em; font-weight:normal;
+    font-style:normal; color:#7a7a7a; text-shadow:none; margin-top:4px; padding-left:0.5em;
+    border-left:2px solid #d8d8d8;}
+td.title-special .sub-session .sub-time{font-weight:600; color:#52739e;}
+td.title-special .sub-session .sub-talk-title{font-style:italic;}
 td.title .aff{display:inline-block; font-family:'Roboto',sans-serif; font-size:0.58em; font-weight:600;
     font-style:normal; letter-spacing:0.04em; text-transform:uppercase; color:#8a8a8a;
     text-shadow:none; white-space:nowrap; vertical-align:middle; margin-left:0.75em;
