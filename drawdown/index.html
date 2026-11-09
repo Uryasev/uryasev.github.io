@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drawdown Beta</title>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+		<link href="tabulator.min.css" rel="stylesheet">
+		<script src="tabulator.min.js"></script>
+
+</head>
+<body>
+
+	<style type="text/css">
+		#example-table{
+			width: 950px;
+			margin: auto;
+		}
+		#filter-input{
+			width: 320px;
+			border-radius: 5px;
+			border: solid 1px;
+			padding:5px 5px 8px 5px;
+			border-color: rgb(0,0,0);
+		}
+		#filter-container{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			width: 650px;
+			margin:auto;
+		}
+		#search-btn{
+			border-radius: 5px;
+			border-color: rgb(0,0,0);
+			border: solid 1px;
+			margin: auto;
+			margin-left: 10px;
+		}
+		.panel-group{
+			padding: 20px;
+			border: solid 1px;
+			width: 800px;
+			margin:auto;
+			border-radius: 5px;
+		}
+		#info-container{
+			color: rgb(0,0,0);
+			text-decoration: none;
+		}
+		.navbar-brand{
+			font-size: 120%;
+			color: rgb(0,0,0);
+			text-decoration: none;
+		}
+		.navbar-brand:hover{
+			color: rgb(0,0,0);
+			text-decoration: none;
+		}
+		.small-grey-text{
+			font-size: 50%;
+			color: rgb(200,200,200);
+		}
+		.navbar{
+			padding-top: 50px
+		}
+		.small-text{
+			font-size:90%;
+		}
+		.nav-link{
+			text-decoration: underline;
+		}
+		#clear-search-btn{
+			margin-left: 10px;
+		}
+		#10yr-btn{
+			margin-left: 10px;
+		}
+		#15yr-btn{
+			margin-left: 10px;
+		}
+		.tabulator-col-title {
+			text-align: center;
+		}
+
+		/* --- Dataset selector: visually distinct from the technical search controls --- */
+		#dataset-row{
+			text-align: center;
+			padding: 12px 0 14px 0;
+			/* wider than #filter-container so all five buttons sit on one line;
+			   clamped so it never overflows a narrow window */
+			width: min(950px, 100vw);
+			margin-left: max(-150px, calc((100vw - 650px) / -2));
+			margin-right: max(-150px, calc((100vw - 650px) / -2));
+			border-top: solid 1px rgb(220,220,220);
+			border-bottom: solid 1px rgb(220,220,220);
+			margin-bottom: 16px;
+		}
+		.dataset-label{
+			font-size: 80%;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: rgb(120,120,120);
+			margin-right: 12px;
+			vertical-align: middle;
+		}
+		.btn-dataset{
+			background-color: #ffffff;
+			border: solid 1px #02307a;
+			color: #02307a;
+			border-radius: 4px;
+			padding: 6px 16px;
+			margin: 0 4px;
+		}
+		.btn-dataset:hover{
+			background-color: #e8eef7;
+			color: #02307a;
+		}
+		.btn-dataset.active-dataset{
+			background-color: #02307a;
+			border-color: #02307a;
+			color: #ffffff;
+		}
+		#search-row{
+			text-align: center;
+		}
+
+		/* --- (i) hint for alternative instruments --- */
+		.info-hint{
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			line-height: 14px;
+			border-radius: 50%;
+			background-color: #02307a;
+			color: #ffffff;
+			font-size: 10px;
+			font-style: italic;
+			font-family: Georgia, serif;
+			text-align: center;
+			cursor: help;
+			position: relative;
+			vertical-align: middle;
+		}
+		.info-hint:hover{
+			background-color: #0a4bb8;
+		}
+
+		/* --- row tinting: makes non-equity instruments stand out in "All" --- */
+		.tabulator-row.row-alt,
+		.tabulator-row.row-alt.tabulator-row-even{
+			background-color: #fdf3e3 !important;   /* alternatives: warm sand */
+		}
+		.tabulator-row.row-opt,
+		.tabulator-row.row-opt.tabulator-row-even{
+			background-color: #eaf3ec !important;   /* option strategies: pale green */
+		}
+		.tabulator-row.row-alt:hover,
+		.tabulator-row.row-opt:hover{
+			filter: brightness(0.96);
+		}
+		.legend-row{
+			text-align: center;
+			font-size: 78%;
+			color: rgb(110,110,110);
+			padding-top: 10px;
+		}
+		.legend-swatch{
+			display: inline-block;
+			width: 11px;
+			height: 11px;
+			border: solid 1px rgb(190,190,190);
+			vertical-align: -1px;
+			margin: 0 5px 0 16px;
+		}
+		.legend-alt{ background-color: #fdf3e3; }
+		.legend-opt{ background-color: #eaf3ec; }
+
+		/* --- modal shown when the (i) is clicked --- */
+		.info-modal-backdrop{
+			display: none;
+			position: fixed;
+			top: 0; left: 0; right: 0; bottom: 0;
+			background-color: rgba(0,0,0,0.45);
+			z-index: 2000;
+		}
+		.info-modal-backdrop.open{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.info-modal-box{
+			background-color: #ffffff;
+			border-radius: 6px;
+			padding: 24px 28px 26px 28px;
+			width: 440px;
+			max-width: 90vw;
+			position: relative;
+			box-shadow: 0 6px 28px rgba(0,0,0,0.32);
+		}
+		#info-modal-sub{
+			margin: 0 0 12px 0 !important;
+			font-size: 12px !important;
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+			color: rgb(140,140,140) !important;
+		}
+		.info-modal-box h5{
+			margin: 0 0 4px 0;
+			font-size: 17px;
+			font-weight: 600;
+			color: #02307a;
+		}
+		.info-modal-box p{
+			margin: 0;
+			font-size: 14px;
+			line-height: 1.55;
+			color: #222222;
+		}
+		#info-modal-close{
+			position: absolute;
+			top: 6px;
+			right: 10px;
+			border: none !important;
+			background: none !important;
+			box-shadow: none !important;
+			outline: none;
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 1;
+			color: #999999;
+			cursor: pointer;
+			padding: 2px 6px;
+			-webkit-appearance: none;
+			appearance: none;
+		}
+		#info-modal-close:hover{
+			color: #222222;
+		}
+
+	</style>
+
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="https://uryasev.github.io/" target="_blank" >Stan Uryasev</a>
+	    </div>
+	    <ul class="nav justify-content-end">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="https://uryasev.github.io/research/">Research</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="https://uryasev.github.io/publications/">Publications</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="https://uryasev.github.io/courses/">Courses</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="https://uryasev.github.io/conferences/">Conference &amp; Seminars</a>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
+
+	<div class="panel-group">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" id="info-container" href="#collapse1">Drawdown Beta Information <span class="small-grey-text">(click to show/hide)</span></a>
+	      </h4>
+	    </div>
+	    <div id="collapse1" class="panel-collapse show">
+	      <div class="panel-body">
+	      	<p>Drawdown Beta (DBeta) evaluates performance of a security during market drawdowns. Negative DBeta shows that the security had positive returns during market drawdowns (calculated on daily basis). The following table provides DBeta values for assets in the S&amp;P 500 index.  It is based on 10 or 15 years of daily historical returns (for securities with available data). DBeta concept is described in Zabarankin, Pavlikov, Uryasev (2014) (<a href="https://www.dropbox.com/scl/fi/xaqwlpouqe3lgu2g9tsb4/CDaR-CAPM-published.pdf?rlkey=fy5t8np5v7mchgzjg8wm152wn&raw=1" target="_blank">link to the PDF</a>); Ding, Uryasev (2022) (<a href="https://www.dropbox.com/scl/fi/sh4tglazbaq9vndyhjncf/Drawdown-Beta-and-Portfolio-Optimization_corrected.pdf?rlkey=ev0esmp45m55oqu0ivibss0sf&raw=1" target="_blank">link to the PDF</a>). See, Uryasev and Ding presentation on "Drawdown Beta and Portfolio Optimization" at the Fields Institute, Toronto, Canada Apr, 2021 (<a href="https://www.youtube.com/watch?v=Ym_WhoM8D4o" target="_blank">link to recording</a>).
+
+	      	<p>"Ticker" = Asset symbol
+		<br> "CDaR<sub>0.9</sub>-Beta" =  CDaR Beta for the corresponding asset based on the largest 10% S&amp;P 500 drawdowns
+		<br> "ERoD<sub>0+</sub>-Beta" = ERoD Beta for the corresponding asset based on non-zero S&amp;P 500 drawdowns
+	      		<br> "Standard-Beta" = Ordinary Beta for the corresponding asset
+	      		<br> "Max-Drawdown (%)" = Maximum Drawdown for the asset
+	      		<br> "Annual Return (%)" = Effective Annual Return of the asset
+	      		<br> "U-ratio" = Average Daily Return / (Average Drawdown / Average Length in Days of Drawdown)
+
+		<p>Besides the S&amp;P 500 constituents, the table covers two further groups, selectable with the buttons above. <b>Alternative investments</b> are cryptocurrencies, precious-metal and commodity funds, bonds and real estate. <b>Option strategies</b> are CBOE benchmark indices tracking systematic option positions such as covered calls, put writing, collars and tail hedges. Click the <b>(i)</b> next to any ticker for a short description of the instrument. Bitcoin and Ether trade every day of the week, so their figures are computed on a 365-day calendar and are not strictly comparable with the exchange-traded instruments.
+
+		<p>The website was created by Giorgi Pertaia, Rui Ding, Eesh Naik, Matvei Lukianov, Chris Barton and Stan Uryasev (stanislav.uryasev@stonybrook.edu)
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div id="filter-container">
+		<span style="float: left; margin: 10px 20px 0px 0px;">Report Date </span>
+		<select id="quarter-select" name="forma" class="form-control" style="margin-right: 50px !important; width: 150px; float: left">
+			<option value="2026-09-01">2026-09-01</option>
+			<option value="2026-06-01">2026-06-01</option>
+			<option value="2026-03-01">2026-03-01</option>
+			<option value="2025-12-01">2025-12-01</option>
+			<option value="2025-09-01">2025-09-01</option>
+			<option value="2025-06-01">2025-06-01</option>
+			<option value="2025-03-01">2025-03-01</option>
+			<option value="2024-12-01">2024-12-01</option>
+			<option value="2024-09-01">2024-09-01</option>
+			<option value="2024-06-01">2024-06-01</option>
+			<option value="2024-03-01">2024-03-01</option>
+			<option value="2023-12-01">2023-12-01</option>
+			<option value="2023-09-01">2023-09-01</option>
+			<option value="2023-06-01">2023-06-01</option>
+			<option value="2023-03-01">2023-03-01</option>
+			<option value="2022-12-01">2022-12-01</option>
+			<option value="2022-09-01">2022-09-01</option>
+			<option value="2022-06-01">2022-06-01</option>
+			<option value="2022-03-01">2022-03-01</option>
+			<option value="2021-12-01">2021-12-01</option>
+			<option value="2021-09-01">2021-09-01</option>
+			<option value="2021-06-01">2021-06-01</option>
+			<option value="2021-03-01">2021-03-01</option>
+			<option value="2020-12-01">2020-12-01</option>
+			<option value="2020-09-01">2020-09-01</option>
+			<option value="2020-06-01">2020-06-01</option>
+			<option value="2020-03-01">2020-03-01</option>
+		</select>
+		<span style="float: left; margin: 10px 20px 0px 0px;">History Length </span>
+			<button id="10yr-btn" type="button" class="btn btn-primary small-text" style="background-color:#02307a; border-color:#02307a">10 yr</button>
+			<button id="15yr-btn" type="button" class="btn btn-primary small-text">15 yr</button>
+
+		<br>
+		<br>
+		<div id="dataset-row">
+			<span class="dataset-label">Dataset</span>
+			<button id="all-btn" type="button" class="btn btn-dataset small-text active-dataset">All Instruments</button>
+			<button id="sp-btn" type="button" class="btn btn-dataset small-text">S&amp;P 500</button>
+			<button id="dow-btn" type="button" class="btn btn-dataset small-text">DOW 30</button>
+			<button id="alt-btn" type="button" class="btn btn-dataset small-text">Alternative Investments</button>
+			<button id="opt-btn" type="button" class="btn btn-dataset small-text">Option Strategies</button>
+		</div>
+
+		<div id="search-row">
+			<input id="filter-input" placeholder="Ticker" maxlength="8" style="width:100px">
+			<button id="search-btn" type="button" class="btn btn-primary small-text" >Find Ticker</button>
+			<button id="clear-search-btn" type="button" class="btn btn-warning small-text" >Clear Search</button>
+		</div>
+	</div>
+
+	<div id="info-modal" class="info-modal-backdrop">
+		<div class="info-modal-box" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+			<button type="button" id="info-modal-close" aria-label="Close">&times;</button>
+			<h5 id="info-modal-title"></h5>
+			<p id="info-modal-sub"></p>
+			<p id="info-modal-body"></p>
+		</div>
+	</div>
+
+	<div id="example-table"></div>
+
+	<div id="legend" class="legend-row">
+		<span class="legend-swatch legend-alt"></span>Alternative investments
+		<span class="legend-swatch legend-opt"></span>Option strategies
+	</div>
+
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+
+		var dow_stocks = [];
+
+		sp_stocks = [
+			'A', 'AAPL', 'ABBV', 'ABNB', 'ABT', 'ACGL', 'ACN', 'ADBE', 'ADI', 'ADM',
+			'ADP', 'ADSK', 'AEE', 'AEP', 'AES', 'AFL', 'AIG', 'AIZ', 'AJG', 'AKAM',
+			'ALB', 'ALGN', 'ALL', 'ALLE', 'AMAT', 'AMCR', 'AMD', 'AME', 'AMGN', 'AMP',
+			'AMT', 'AMZN', 'ANET', 'ANSS', 'AON', 'AOS', 'APA', 'APD', 'APH', 'APO',
+			'APP', 'APTV', 'ARE', 'ATO', 'AVB', 'AVGO', 'AVY', 'AWK', 'AXON', 'AXP',
+			'AZO', 'BA', 'BAC', 'BALL', 'BAX', 'BBWI', 'BBY', 'BDX', 'BEN', 'BF.B',
+			'BG', 'BIIB', 'BK', 'BKNG', 'BKR', 'BLDR', 'BLK', 'BMY', 'BR', 'BRK.B',
+			'BRO', 'BSX', 'BWA', 'BX', 'BXP', 'C', 'CAG', 'CAH', 'CARR', 'CAT', 'CB',
+			'CBOE', 'CBRE', 'CCI', 'CCL', 'CDNS', 'CDW', 'CE', 'CEG', 'CF', 'CFG',
+			'CHD', 'CHRW', 'CHTR', 'CI', 'CINF', 'CL', 'CLX', 'CMCSA', 'CME', 'CMG',
+			'CMI', 'CMS', 'CNC', 'CNP', 'COF', 'COO', 'COP', 'COR', 'COST', 'CPB',
+			'CPRT', 'CPT', 'CRL', 'CRM', 'CRWD', 'CSCO', 'CSGP', 'CSX', 'CTAS', 'CTRA',
+			'CTSH', 'CTVA', 'CVS', 'CVX', 'CZR', 'D', 'DAL', 'DD', 'DE', 'DECK',
+			'DELL', 'DFS', 'DG', 'DGX', 'DHI', 'DHR', 'DINO', 'DIS', 'DLR', 'DLTR',
+			'DOV', 'DOW', 'DPZ', 'DRE', 'DRI', 'DTE', 'DUK', 'DVA', 'DVN', 'EA',
+			'EBAY', 'ECL', 'ED', 'EFX', 'EG', 'EIX', 'EL', 'ELV', 'EMN', 'EMR',
+			'ENPH', 'EOG', 'EPAM', 'EQIX', 'EQR', 'EQT', 'ERIE', 'ES', 'ESS', 'ETN',
+			'ETR', 'EVRG', 'EW', 'EXC', 'EXPD', 'EXPE', 'EXR', 'F', 'FANG', 'FAST',
+			'FCX', 'FDS', 'FDX', 'FE', 'FFIV', 'FI', 'FICO', 'FIS', 'FITB', 'FLT',
+			'FMC', 'FOX', 'FOXA', 'FSLR', 'FTNT', 'FTV', 'GD', 'GDDY', 'GE', 'GEHC',
+			'GEV', 'GILD', 'GIS', 'GL', 'GLW', 'GM', 'GNRC', 'GOOG', 'GOOGL', 'GPC',
+			'GPN', 'GRMN', 'GS', 'GWW', 'HAL', 'HAS', 'HBAN', 'HCA', 'HD', 'HES',
+			'HIG', 'HII', 'HLT', 'HOLX', 'HON', 'HOOD', 'HPE', 'HPQ', 'HRL', 'HSIC',
+			'HST', 'HSY', 'HUBB', 'HUM', 'HWM', 'IBM', 'ICE', 'IDXX', 'IEX', 'IFF',
+			'ILMN', 'INCY', 'INTC', 'INTU', 'INVH', 'IP', 'IPG', 'IQV', 'IR', 'IRM',
+			'ISRG', 'IT', 'ITW', 'IVZ', 'J', 'JBHT', 'JBL', 'JCI', 'JKHY', 'JNJ',
+			'JNPR', 'JPM', 'K', 'KDP', 'KEY', 'KEYS', 'KHC', 'KIM', 'KKR', 'KLAC',
+			'KMB', 'KMI', 'KMX', 'KO', 'KR', 'KVUE', 'L', 'LDOS', 'LEN', 'LH',
+			'LHX', 'LIN', 'LKQ', 'LLY', 'LMT', 'LOW', 'LRCX', 'LULU', 'LUV', 'LVS',
+			'LW', 'LYB', 'LYV', 'MA', 'MAA', 'MAR', 'MAS', 'MCD', 'MCHP', 'MCK',
+			'MCO', 'MDLZ', 'MDT', 'MET', 'META', 'MGM', 'MHK', 'MKC', 'MKTX', 'MLM',
+			'MMC', 'MMM', 'MNST', 'MO', 'MOH', 'MOS', 'MPC', 'MPWR', 'MRK', 'MRNA',
+			'MS', 'MSCI', 'MSFT', 'MSI', 'MTB', 'MTD', 'MU', 'NCLH', 'NDAQ', 'NDSN',
+			'NEE', 'NEM', 'NFLX', 'NI', 'NKE', 'NOC', 'NOW', 'NRG', 'NSC', 'NTAP',
+			'NTRS', 'NUE', 'NVDA', 'NVR', 'NWS', 'NWSA', 'NXPI', 'O', 'ODFL', 'OKE',
+			'OMC', 'ON', 'ORCL', 'ORLY', 'OTIS', 'OXY', 'PANW', 'PARA', 'PAYC', 'PAYX',
+			'PCAR', 'PCG', 'PEG', 'PEP', 'PFE', 'PFG', 'PG', 'PGR', 'PH', 'PHM',
+			'PKG', 'PLD', 'PLTR', 'PM', 'PNC', 'PNR', 'PNW', 'PODD', 'POOL', 'PPG',
+			'PPL', 'PRU', 'PSA', 'PTC', 'PWR', 'PYPL', 'QCOM', 'QRVO', 'RCL', 'REG',
+			'REGN', 'RF', 'RJF', 'RL', 'RMD', 'ROK', 'ROL', 'ROP', 'ROST', 'RSG',
+			'RTX', 'RVTY', 'SBAC', 'SBUX', 'SCHW', 'SHW', 'SJM', 'SLB', 'SMCI', 'SNA',
+			'SNPS', 'SO', 'SOLV', 'SPG', 'SPGI', 'SRE', 'STE', 'STL', 'STT', 'STX',
+			'STZ', 'SWK', 'SWKS', 'SYF', 'SYK', 'SYY', 'T', 'TAP', 'TDG', 'TDY',
+			'TECH', 'TEL', 'TER', 'TFC', 'TFX', 'TGT', 'TJX', 'TMO', 'TMUS', 'TPR',
+			'TRGP', 'TRMB', 'TROW', 'TRV', 'TSCO', 'TSLA', 'TSN', 'TT', 'TTWO', 'TXN',
+			'TXT', 'TYL', 'UAL', 'UBER', 'UDR', 'UHS', 'ULTA', 'UNH', 'UNP', 'UPS',
+			'URI', 'USB', 'V', 'VICI', 'VLO', 'VMC', 'VRSK', 'VRSN', 'VRTX', 'VTR',
+			'VTRS', 'VST', 'VZ', 'WAB', 'WAT', 'WBA', 'WBD', 'WDC', 'WDAY', 'WEC',
+			'WELL', 'WFC', 'WM', 'WMB', 'WMT', 'WRB', 'WRK', 'WTW', 'WY', 'WYNN',
+			'XEL', 'XOM', 'XYL', 'YUM', 'ZBH', 'ZBRA', 'ZTS'
+		];
+
+		var tabledata = [];
+		var tabledata15 = [];
+		var tenc = 1;
+		var fifc = 0;
+		var DATA_VERSION = '20260902';   // bump when data/*.json is regenerated
+		var dataset = 'all';         // 'all' | 'sp' | 'dow' | 'alt'
+		var alt_stocks = [];
+		var opt_stocks = [];
+
+		// Company profiles for ordinary tickers, pulled from Yahoo Finance by
+		// build_ticker_info.py and served as a separate file to keep this page small.
+		var ticker_info = {};
+
+		function infoFor(sym) {
+			// hand-written entries win: Yahoo has no profile for CBOE indices
+			if (alt_info[sym]) { return {title: sym, body: alt_info[sym], sub: ""}; }
+			var m = ticker_info[sym];
+			if (!m) { return null; }
+			var sub = m.s ? m.s + (m.i && m.i !== m.s ? " \u00b7 " + m.i : "") : "";
+			return {title: (m.n || sym), body: (m.d || ""), sub: sub};
+		}
+
+		// Plain-language descriptions for the alternative instruments.
+		// These are not ordinary equities, so the table shows an (i) hint for each.
+		var alt_info = {
+			'BTC-USD': 'Bitcoin \u2014 the largest cryptocurrency, quoted in US dollars. Trades 365 days a year, including weekends, unlike stock markets.',
+			'ETH-USD': 'Ether \u2014 the cryptocurrency of the Ethereum network, quoted in US dollars. Also trades 365 days a year. Price history begins in late 2017, so it appears in the 10-year table only.',
+			'GLD':     'SPDR Gold Shares \u2014 an exchange-traded fund backed by physical gold bullion. Widely used as a safe-haven asset.',
+			'SLV':     'iShares Silver Trust \u2014 an exchange-traded fund backed by physical silver. Silver is both a precious metal and an industrial input, so it is more volatile than gold.',
+			'PPLT':    'abrdn Physical Platinum Shares \u2014 an exchange-traded fund backed by physical platinum, a precious metal used heavily in industry.',
+			'DBC':     'Invesco DB Commodity Index Tracking Fund \u2014 tracks a basket of commodities including energy, metals and agriculture.',
+			'TLT':     'iShares 20+ Year Treasury Bond ETF \u2014 holds long-dated US government bonds. Its price moves inversely to long-term interest rates.',
+			'LQD':     'iShares iBoxx Investment Grade Corporate Bond ETF \u2014 holds bonds issued by financially sound corporations.',
+			'VNQ':     'Vanguard Real Estate ETF \u2014 holds real estate investment trusts (REITs), giving exposure to commercial property.',
+
+			// --- Option-based strategy benchmarks ---
+			// Defined risk
+			'BFLY': 'CBOE S&P 500 Iron Butterfly Index \u2014 sells an at-the-money straddle and buys wings for protection. Profits when the market stays flat; losses are capped.',
+			'CNDR': 'CBOE S&P 500 Iron Condor Index \u2014 sells out-of-the-money put and call spreads. Profits while the market stays within a range; losses are capped.',
+			// Long protection
+			'CLL':  'CBOE S&P 500 95-110 Collar Index \u2014 holds the index, buys a 5% out-of-the-money put for protection and sells a 10% out-of-the-money call to help pay for it.',
+			'CLLZ': 'CBOE S&P 500 Zero-Cost Collar Index \u2014 a collar in which the protective put is fully financed by selling calls, so the hedge costs nothing up front.',
+			'PPUT': 'CBOE S&P 500 5% Put Protection Index \u2014 holds the index and continuously buys 5% out-of-the-money puts as insurance against declines.',
+			'SPRO': 'CBOE S&P 500 Protective Put Index \u2014 holds the index together with protective puts, limiting downside at the cost of the option premium.',
+			'SWAN': 'Amplify BlackSwan Growth & Treasury Core ETF \u2014 mostly US Treasuries combined with long-dated SPX call options, aiming for equity upside with a bond-like floor.',
+			'TAIL': 'Cambria Tail Risk ETF \u2014 holds Treasuries and buys out-of-the-money SPX puts. Designed to gain during market crashes, and to lose money slowly the rest of the time.',
+			'VXTH': 'CBOE VIX Tail Hedge Index \u2014 holds the index and buys VIX call options when volatility is low, hedging against sudden spikes in volatility.',
+			// Short volatility / income
+			'BXM':  'CBOE S&P 500 BuyWrite Index \u2014 holds the index and sells at-the-money call options each month, trading away upside for option income.',
+			'BXMC': 'CBOE S&P 500 Conditional BuyWrite Index \u2014 a BuyWrite that only sells calls when volatility conditions make the premium attractive.',
+			'BXMD': 'CBOE S&P 500 30-Delta BuyWrite Index \u2014 sells further out-of-the-money (30-delta) calls, keeping more upside than a standard BuyWrite.',
+			'BXMW': 'CBOE S&P 500 Multi-Week BuyWrite Index \u2014 a BuyWrite whose calls are rolled weekly rather than monthly.',
+			'BXN':  'CBOE NASDAQ-100 BuyWrite Index \u2014 the BuyWrite strategy applied to the NASDAQ-100 instead of the S&P 500.',
+			'BXR':  'CBOE Russell 2000 BuyWrite Index \u2014 the BuyWrite strategy applied to the Russell 2000 small-cap index.',
+			'BXY':  'CBOE S&P 500 2% OTM BuyWrite Index \u2014 sells calls 2% above the market, retaining a little more upside than the standard BuyWrite.',
+			'CMBO': 'CBOE S&P 500 Covered Combo Index \u2014 holds the index while selling both an out-of-the-money put and an out-of-the-money call.',
+			'PBP':  'Invesco S&P 500 BuyWrite ETF \u2014 an exchange-traded fund that tracks the CBOE BuyWrite (BXM) strategy.',
+			'PUT':  'CBOE S&P 500 PutWrite Index \u2014 sells at-the-money SPX put options and holds Treasury bills as collateral, earning the option premium.',
+			'PUTR': 'CBOE S&P 500 30-Delta PutWrite Index \u2014 sells further out-of-the-money (30-delta) puts, a more conservative version of PutWrite.',
+			'PUTY': 'CBOE S&P 500 2% OTM PutWrite Index \u2014 sells puts 2% below the market, collecting a smaller premium in exchange for a larger cushion.',
+			'QYLD': 'Global X NASDAQ-100 Covered Call ETF \u2014 holds the NASDAQ-100 and sells covered calls, distributing the premium as monthly income.',
+			'RXM':  'CBOE Russell 2000 PutWrite Index \u2014 the PutWrite strategy applied to the Russell 2000 small-cap index.',
+			'WPUT': 'CBOE S&P 500 One-Week PutWrite Index \u2014 sells at-the-money puts that expire weekly, so positions turn over far more often.',
+			'XYLD': 'Global X S&P 500 Covered Call ETF \u2014 holds the S&P 500 and sells covered calls for monthly income.',
+			// Volatility premium
+			'VPD':  'CBOE VIX Premium Strategy Index \u2014 sells VIX call options, harvesting the premium that buyers pay for volatility protection.',
+			'VPN':  'CBOE Capped VIX Premium Strategy Index \u2014 the VIX premium strategy with a cap that limits losses when volatility spikes.'
+		};
+		var table;
+		var ten_prop = document.getElementById("10yr-btn");
+		var fif_prop = document.getElementById("15yr-btn");
+
+		function processData(raw) {
+			var out = [];
+			for (var i = 0; i < raw.length; i++) {
+				var r = raw[i];
+				if (!r) continue;
+				if (sp_stocks.includes(r['symbol']) || dow_stocks.includes(r['symbol']) || alt_stocks.includes(r['symbol']) || opt_stocks.includes(r['symbol'])) {
+					out.push({
+						'symbol': r['symbol'],
+						'dbeta': parseFloat(r['dbeta']).toFixed(4),
+						'cdar_beta': parseFloat(r['cdar_beta']).toFixed(4),
+						'avg_growth': (parseFloat(r['avg_growth']) * 100).toFixed(2),
+						'beta': parseFloat(r['beta']).toFixed(4),
+						'drawdown': (parseFloat(r['drawdown']) * 100).toFixed(2),
+						'u-ratio': parseFloat(r['u-ratio']).toFixed(4)
+					});
+				}
+			}
+			return out;
+		}
+
+		function buildTable(data) {
+			table = new Tabulator("#example-table", {
+				paginationSize: 50,
+				pagination: "local",
+				data: data,
+				layout: "fitColumns",
+				rowFormatter: function(row) {
+					// tint only when everything is shown together, otherwise the
+					// dataset button already tells the user what they are looking at
+					var el = row.getElement();
+					el.classList.remove("row-alt", "row-opt");
+					if (dataset !== 'all') { return; }
+					var sym = row.getData().symbol;
+					if (alt_stocks.indexOf(sym) !== -1)      { el.classList.add("row-alt"); }
+					else if (opt_stocks.indexOf(sym) !== -1) { el.classList.add("row-opt"); }
+				},
+				columns: [
+					{title: "Ticker", field: "symbol", align: "center", width: 100,
+						formatter: function(cell) {
+							var sym = cell.getValue();
+							if (!infoFor(sym)) { return sym; }
+							var span = document.createElement("span");
+							span.appendChild(document.createTextNode(sym + " "));
+							var hint = document.createElement("span");
+							hint.className = "info-hint";
+							hint.setAttribute("tabindex", "0");
+							hint.setAttribute("role", "button");
+							hint.setAttribute("aria-label", "About " + sym);
+							hint.setAttribute("data-symbol", sym);
+							hint.appendChild(document.createTextNode("i"));
+							span.appendChild(hint);
+							return span;
+						}
+					},
+					{title: "ERoD<sub>0+</sub>-Beta", field: "dbeta", align: "center", width: 120},
+					{title: "CDaR<sub>0.9</sub>-Beta", field: "cdar_beta", align: "center", width: 120},
+					{title: "Standard-Beta", field: "beta", align: "center", width: 150},
+					{title: "Max-Drawdown (%)", field: "drawdown", align: "center", width: 180},
+					{title: "Annual Return (%)", field: "avg_growth", align: "center", width: 180},
+					{title: "U-ratio", field: "u-ratio", align: "center", width: 100}
+				]
+			});
+		}
+
+		function setDatasetButtons() {
+			$(".btn-dataset").removeClass("active-dataset");
+			if (dataset === 'dow')      { $("#dow-btn").addClass("active-dataset"); }
+			else if (dataset === 'alt') { $("#alt-btn").addClass("active-dataset"); }
+			else if (dataset === 'opt') { $("#opt-btn").addClass("active-dataset"); }
+			else if (dataset === 'sp')  { $("#sp-btn").addClass("active-dataset"); }
+			else                        { $("#all-btn").addClass("active-dataset"); }
+		}
+
+		// S&P 500 = index constituents only. DOW names are part of the index, so they
+		// stay; alternative instruments and option-strategy benchmarks are not
+		// constituents of the index and drop out.
+		function applyDataset() {
+			if (dataset === 'dow') {
+				table.setFilter("symbol", "in", dow_stocks);
+			} else if (dataset === 'alt') {
+				table.setFilter("symbol", "in", alt_stocks);
+			} else if (dataset === 'opt') {
+				table.setFilter("symbol", "in", opt_stocks);
+			} else if (dataset === 'sp') {
+				table.setFilter(function(row) {
+					return alt_stocks.indexOf(row.symbol) === -1
+					    && opt_stocks.indexOf(row.symbol) === -1;
+				});
+			} else {
+				table.clearFilter();
+			}
+		}
+
+		function applyFilters() {
+			if (dataset === 'all' && $("#filter-input").val() !== '') {
+				table.setFilter("symbol", "=", $("#filter-input").val().toUpperCase());
+			} else {
+				applyDataset();
+			}
+		}
+
+		function loadQuarter(date) {
+			// cache-buster: browsers cache data/*.json, so a refreshed quarter would not show up
+			fetch('data/' + date + '.json?v=' + DATA_VERSION)
+				.then(function(r) { return r.json(); })
+				.then(function(json) {
+					dow_stocks = json.dow_stocks || [];
+					alt_stocks = json.alt_stocks || [];
+					opt_stocks = json.opt_stocks || [];
+					tabledata = processData(json.db10);
+					tabledata15 = processData(json.db15);
+					if (tenc == 1) {
+						buildTable(tabledata);
+					} else {
+						buildTable(tabledata15);
+					}
+					applyFilters();
+					updateLegend();
+				});
+		}
+
+		// Read date from URL param, fall back to first option
+		var urlParams = new URLSearchParams(window.location.search);
+		var initDate = urlParams.get('date') || document.querySelector('#quarter-select option').value;
+		$('#quarter-select').val(initDate);
+
+		// Load company profiles first so the (i) icons are present on the first render.
+		// If the file is missing the table still works — only the hints are lost.
+		fetch('data/ticker_info.json?v=' + DATA_VERSION)
+			.then(function(r) { return r.ok ? r.json() : {}; })
+			.catch(function() { return {}; })
+			.then(function(j) { ticker_info = j || {}; loadQuarter(initDate); });
+
+		$('#quarter-select').change(function() {
+			var date = $(this).val();
+			history.pushState(null, '', '?date=' + date);
+			loadQuarter(date);
+		});
+
+		$("#search-btn").click(function() {
+			// search spans every instrument, so leave any dataset filter behind
+			dataset = 'all';
+			setDatasetButtons();
+			updateLegend();
+			if ($("#filter-input").val() === '') {
+				table.clearFilter();
+			} else {
+				table.setFilter("symbol", "=", $("#filter-input").val().toUpperCase());
+			}
+		});
+
+		$("#clear-search-btn").click(function() {
+			dataset = 'all';
+			setDatasetButtons();
+			updateLegend();
+			$("#filter-input").val('');
+			table.clearFilter();
+		});
+
+		// --- (i) info modal ---------------------------------------------------
+		// Delegated: table rows are re-created on every filter/quarter change.
+		$(document).on("click", ".info-hint", function(e) {
+			e.stopPropagation();                      // don't trigger row/cell handlers
+			var sym = $(this).data("symbol");
+			var info = infoFor(sym);
+			if (!info) { return; }
+			$("#info-modal-title").text(info.title);
+			// for hand-written entries the title is already the ticker, so no subtitle
+			$("#info-modal-sub").text(info.sub ? sym + "  \u00b7  " + info.sub : "");
+			$("#info-modal-body").text(info.body);
+			$("#info-modal").addClass("open");
+			$("#info-modal-close").focus();
+		});
+
+		$(document).on("keydown", ".info-hint", function(e) {
+			if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $(this).click(); }
+		});
+
+		function closeInfoModal() { $("#info-modal").removeClass("open"); }
+
+		$("#info-modal-close").click(closeInfoModal);
+		$("#info-modal").click(function(e) {
+			if (e.target === this) { closeInfoModal(); }   // click on backdrop only
+		});
+		$(document).on("keydown", function(e) {
+			if (e.key === "Escape") { closeInfoModal(); }
+		});
+
+		function updateLegend() {
+			if (dataset === 'all' && (alt_stocks.length || opt_stocks.length)) {
+				$("#legend").show();
+			} else {
+				$("#legend").hide();
+			}
+		}
+
+		function selectDataset(name) {
+			dataset = name;
+			setDatasetButtons();
+			$("#filter-input").val('');
+			applyDataset();
+			updateLegend();
+			table.redraw(true);      // re-run rowFormatter so tints match the new mode
+		}
+
+		$("#all-btn").click(function() { selectDataset('all'); });
+		$("#sp-btn").click(function()  { selectDataset('sp');  });
+		$("#dow-btn").click(function() { selectDataset('dow'); });
+		$("#alt-btn").click(function() { selectDataset('alt'); });
+		$("#opt-btn").click(function() { selectDataset('opt'); });
+
+		$("#10yr-btn").click(function() {
+			if (tenc == 1) return;
+			ten_prop.style.backgroundColor = "#02307a";
+			ten_prop.style.borderColor = "#02307a";
+			fif_prop.style.backgroundColor = "#24a0ed";
+			fif_prop.style.borderColor = "#24a0ed";
+			tenc = 1;
+			fifc = 0;
+			buildTable(tabledata);
+			applyFilters();
+		});
+
+		$("#15yr-btn").click(function() {
+			if (fifc == 1) return;
+			fif_prop.style.backgroundColor = "#02307a";
+			fif_prop.style.borderColor = "#02307a";
+			ten_prop.style.backgroundColor = "#24a0ed";
+			ten_prop.style.borderColor = "#24a0ed";
+			tenc = 0;
+			fifc = 1;
+			buildTable(tabledata15);
+			applyFilters();
+		});
+
+	});
+
+	</script>
+
+</body>
+</html>
