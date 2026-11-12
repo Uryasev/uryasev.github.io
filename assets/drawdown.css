@@ -20,3 +20,24 @@
     box-sizing: border-box;
     max-width: 100%;
 }
+
+/* main.css sets the site's reading size (1.125em, line-height 1.6) and 24px
+   paragraph margins. The page was built around Bootstrap's 16px/1.5, so under
+   the site sheet the info panel grew much taller than before. Restore the
+   page's own metrics below the header. */
+.panel-group,
+#filter-container,
+#example-table,
+.info-modal-box{
+    font-size: 16px;
+    line-height: 1.5;
+}
+.panel-group p,
+#filter-container p,
+.panel-body p,
+.info-modal-box p{
+    margin: 10px 0;
+}
+.panel-body{
+    padding: 12px 16px;
+}
