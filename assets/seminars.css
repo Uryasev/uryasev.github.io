@@ -2,7 +2,16 @@
    resolves the places where the site stylesheet and the department's
    stylesheet disagree. */
 
-/* The page CSS paints every <nav> with the department's maroon bar. */
+/* The department sheet sets html/body to 14px. main.css sizes the header in
+   em, so without this the site header renders ~12% smaller than elsewhere. */
+html{
+    font-size: 16px;
+}
+body{
+    font-size: 1.125em;
+}
+
+/* The department sheet paints every <nav> with its maroon bar. */
 .site-header nav.site-menu{
     background-color: transparent;
     height: auto;
