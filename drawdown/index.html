@@ -24,7 +24,8 @@
 
 	<style type="text/css">
 		#example-table{
-			width: 950px;
+			width: auto;
+			max-width: 100%;
 			margin: auto;
 		}
 		#filter-input{
@@ -37,7 +38,8 @@
 		#filter-container{
 			padding-top: 20px;
 			padding-bottom: 20px;
-			width: 650px;
+			width: auto;
+			max-width: 100%;
 			margin:auto;
 		}
 		#search-btn{
@@ -50,7 +52,8 @@
 		.panel-group{
 			padding: 20px;
 			border: solid 1px;
-			width: 800px;
+			width: auto;
+			max-width: 100%;
 			margin:auto;
 			border-radius: 5px;
 		}
@@ -86,11 +89,8 @@
 		#dataset-row{
 			text-align: center;
 			padding: 12px 0 14px 0;
-			/* wider than #filter-container so all five buttons sit on one line;
-			   clamped so it never overflows a narrow window */
-			width: min(950px, 100vw);
-			margin-left: max(-150px, calc((100vw - 650px) / -2));
-			margin-right: max(-150px, calc((100vw - 650px) / -2));
+			/* the page is full-width now, so the row simply spans it */
+			width: auto;
 			border-top: solid 1px rgb(220,220,220);
 			border-bottom: solid 1px rgb(220,220,220);
 			margin-bottom: 16px;
@@ -534,12 +534,12 @@
 							return span;
 						}
 					},
-					{title: "ERoD<sub>0+</sub>-Beta", field: "dbeta", align: "center", width: 120},
-					{title: "CDaR<sub>0.9</sub>-Beta", field: "cdar_beta", align: "center", width: 120},
-					{title: "Standard-Beta", field: "beta", align: "center", width: 150},
-					{title: "Max-Drawdown (%)", field: "drawdown", align: "center", width: 180},
-					{title: "Annual Return (%)", field: "avg_growth", align: "center", width: 180},
-					{title: "U-ratio", field: "u-ratio", align: "center", width: 100}
+					{title: "ERoD<sub>0+</sub>-Beta", field: "dbeta", align: "center", minWidth: 120},
+					{title: "CDaR<sub>0.9</sub>-Beta", field: "cdar_beta", align: "center", minWidth: 120},
+					{title: "Standard-Beta", field: "beta", align: "center", minWidth: 150},
+					{title: "Max-Drawdown (%)", field: "drawdown", align: "center", minWidth: 180},
+					{title: "Annual Return (%)", field: "avg_growth", align: "center", minWidth: 180},
+					{title: "U-ratio", field: "u-ratio", align: "center", minWidth: 100}
 				]
 			});
 		}

@@ -41,3 +41,27 @@
 .panel-body{
     padding: 12px 16px;
 }
+
+/* The table is the point of this page, so let it use the window rather than
+   the site's 1000px text column. */
+body{
+    max-width: 1500px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+.site-header{
+    width: auto;
+}
+#example-table,
+#dataset-row{
+    width: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.panel-group{
+    width: auto;
+}
