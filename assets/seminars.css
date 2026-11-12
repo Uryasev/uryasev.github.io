@@ -56,6 +56,18 @@ main.column h1{
     font-weight: bold;
     letter-spacing: normal;
 }
+
+/* main.css gives every heading a drop shadow. It suits the site's own
+   headings but blurs the schedule's, especially the white text on an
+   expanded talk's blue bar. */
+main.column h1,
+main.column h2,
+main.column h3,
+main.column h4,
+main.column p,
+main.column b{
+    text-shadow: none;
+}
 main.column h3{
     /* Arial only: where CenturyExpandedLTW01-Ro is installed the talk titles
        would pick up serifs the original did not have. */
