@@ -1,31 +1,28 @@
-/* Seminar schedules: collapsible semesters.
-   Talks reuse the details.talk / .abstract-box styling from main.css. */
+/* The seminar pages keep their own markup and stylesheets. This file only
+   resolves the places where the site stylesheet and the department's
+   stylesheet disagree. */
 
-details.semester{
-    margin: 0 0 6px 0;
+/* The page CSS paints every <nav> with the department's maroon bar. */
+.site-header nav.site-menu{
+    background-color: transparent;
+    height: auto;
 }
-details.semester > summary{
-    display: block;                  /* hides the default disclosure triangle */
-    cursor: pointer;
-    list-style: none;
-}
-details.semester > summary::-webkit-details-marker{ display: none; }
-details.semester > summary h2{
-    display: inline-block;
-    margin: 0.4em 0;
-}
-details.semester > summary h2::before{
-    content: "\25B8";
-    display: inline-block;
-    width: 0.8em;
-    margin-right: 0.25em;
-    font-size: 0.7em;
-    vertical-align: middle;
-    color: #b2132e;
-}
-details.semester[open] > summary h2::before{ content: "\25BE"; }
-details.semester > summary:hover h2{ color: #b2132e; }
 
-details.semester > p{
-    margin: 0.35em 0 0.35em 1.6em;
+/* The schedule was laid out for a wider column than the site body, so let
+   its boxes use whatever width they are given. */
+main.column,
+main.column .column,
+main.column .accordion{
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* main.css sizes paragraphs for its own text column; inside an accordion
+   that makes them wider than the panel, which then clips them. */
+main.column .accordion p,
+main.column .accordion ul,
+main.column .accordion ol{
+    width: auto;
+    max-width: 100%;
 }
