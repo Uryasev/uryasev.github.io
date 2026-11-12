@@ -36,27 +36,6 @@ main.column .accordion ol{
     max-width: 100%;
 }
 
-/* Below the site header the page keeps the look it had on the department's
-   server: main.css would otherwise restyle the heading and body text in
-   Roboto / Roboto Slab and recolour them. */
-main.column,
-main.column p,
-main.column b,
-main.column li,
-main.column td,
-main.column h1,
-main.column h2,
-main.column h3,
-main.column h4{
-    font-family: 'Effra W01', 'CenturyExpandedLTW01-Ro', Arial, sans-serif;
-    color: #000;
-}
-main.column h1{
-    font-size: 32px;
-    font-weight: bold;
-    letter-spacing: normal;
-}
-
 /* main.css gives every heading a drop shadow. It suits the site's own
    headings but blurs the schedule's, especially the white text on an
    expanded talk's blue bar. */
@@ -67,10 +46,4 @@ main.column h4,
 main.column p,
 main.column b{
     text-shadow: none;
-}
-main.column h3{
-    /* Arial only: where CenturyExpandedLTW01-Ro is installed the talk titles
-       would pick up serifs the original did not have. */
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
 }
