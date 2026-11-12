@@ -1,0 +1,31 @@
+/* Seminar schedules: collapsible semesters.
+   Talks reuse the details.talk / .abstract-box styling from main.css. */
+
+details.semester{
+    margin: 0 0 6px 0;
+}
+details.semester > summary{
+    display: block;                  /* hides the default disclosure triangle */
+    cursor: pointer;
+    list-style: none;
+}
+details.semester > summary::-webkit-details-marker{ display: none; }
+details.semester > summary h2{
+    display: inline-block;
+    margin: 0.4em 0;
+}
+details.semester > summary h2::before{
+    content: "\25B8";
+    display: inline-block;
+    width: 0.8em;
+    margin-right: 0.25em;
+    font-size: 0.7em;
+    vertical-align: middle;
+    color: #b2132e;
+}
+details.semester[open] > summary h2::before{ content: "\25BE"; }
+details.semester > summary:hover h2{ color: #b2132e; }
+
+details.semester > p{
+    margin: 0.35em 0 0.35em 1.6em;
+}
