@@ -39,7 +39,9 @@ main.column .accordion ol{
 /* main.css restyles every heading in Roboto Slab. The schedule was built with
    the department's own stack, so keep its headings as they were. */
 main.column h3{
-    font-family: 'Effra W01', 'CenturyExpandedLTW01-Ro', Arial, sans-serif;
+    /* Arial only: the department's stack lists CenturyExpandedLTW01-Ro as a
+       fallback, and where that font is installed the titles pick up serifs. */
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     letter-spacing: normal;
 }
