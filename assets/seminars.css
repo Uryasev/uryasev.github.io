@@ -36,16 +36,10 @@ main.column .accordion ol{
     max-width: 100%;
 }
 
-/* The department sheet sets main to 16px and its own font stack. Use the
-   site's reading size instead, so these pages match the rest of the site. */
-main.column{
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-}
-main.column h1{
-    font-size: 48px;
-}
-/* Accordion headers inherit the department's 16px; let them follow suit. */
-main.column .accordion h3{
-    font-size: 18px;
+/* main.css restyles every heading in Roboto Slab. The schedule was built with
+   the department's own stack, so keep its headings as they were. */
+main.column h3{
+    font-family: 'Effra W01', 'CenturyExpandedLTW01-Ro', Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: normal;
 }
