@@ -1,0 +1,22 @@
+/* The Drawdown page has its own Bootstrap layout and only borrows the site
+   header. main.css styles the page chrome for its own text column, which
+   this undoes for the parts the page lays out itself. */
+
+/* main.css gives every <p> a fixed 900px width, which it cancels again under
+   .content — a class this page does not use. Without that the info panel and
+   the table controls overflow their boxes. */
+.panel-group p,
+#filter-container p,
+.panel-body p,
+.info-modal-box p,
+#legend p{
+    width: auto;
+    max-width: 100%;
+    margin: 16px 0;
+}
+
+/* Keep the panel and the table inside the page, not the site text column. */
+.panel-group{
+    box-sizing: border-box;
+    max-width: 100%;
+}
