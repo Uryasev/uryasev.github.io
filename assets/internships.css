@@ -75,13 +75,20 @@ table.intern-table th.c-role{
     white-space: nowrap;
 }
 table.intern-table td.c-role{
-    width: 28%;
+    width: 38%;
 }
-table.intern-table .c-deg,
-table.intern-table .c-loc{
+table.intern-table .c-deg{
     white-space: nowrap;
     font-size: 0.9em;
     color: #6a6a6a;
+}
+/* Several roles list four or five cities. Let that column wrap instead of
+   holding the table open at its widest line. */
+table.intern-table .c-loc{
+    white-space: normal;
+    font-size: 0.9em;
+    color: #6a6a6a;
+    width: 16%;
 }
 table.intern-table tr.intern-cont td{
     border-top: none;
