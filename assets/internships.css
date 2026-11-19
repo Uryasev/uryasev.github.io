@@ -47,8 +47,12 @@ table.intern-table td:nth-child(3){
 .intern-open{
     color: #2e7d32;
     font-weight: 600;
-    display: inline-block;
-    margin: 1px 0;
+    display: block;
+    margin: 0 0 6px 0;
+    line-height: 1.35;
+}
+.intern-open:last-child{
+    margin-bottom: 0;
 }
 .intern-closed{
     color: #a09a92;
