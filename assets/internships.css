@@ -1,0 +1,37 @@
+/* Internship list: a plain two-column table of firms. */
+
+.intern-count{
+    color: #7a7a7a;
+    font-size: 0.9em;
+}
+
+table.intern-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0 3em 0;
+}
+table.intern-table th{
+    text-align: left;
+    padding: 8px 12px;
+    background: #f0eef1;
+    color: #52739e;
+    border-bottom: 2px solid #dcd8dd;
+    font-size: 0.95em;
+}
+table.intern-table td{
+    padding: 7px 12px;
+    border-bottom: 1px solid #ebe8ec;
+    vertical-align: top;
+}
+table.intern-table tr:hover td{
+    background: #faf7f8;
+}
+table.intern-table td:nth-child(2){
+    color: #7a7a7a;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 640px){
+    table.intern-table td:nth-child(2){ white-space: normal; }
+}
