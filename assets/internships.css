@@ -29,9 +29,22 @@ table.intern-table tr:hover td{
 table.intern-table td:nth-child(2){
     color: #7a7a7a;
     font-size: 0.9em;
-    white-space: nowrap;
 }
 
 @media only screen and (max-width: 640px){
     table.intern-table td:nth-child(2){ white-space: normal; }
+}
+
+/* Third column: whether a Summer 2027 posting is still open. */
+table.intern-table td:nth-child(3),
+table.intern-table th:nth-child(3){
+    white-space: nowrap;
+    width: 1%;
+}
+.intern-open{
+    color: #2e7d32;
+    font-weight: 600;
+}
+.intern-closed{
+    color: #a09a92;
 }
