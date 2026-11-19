@@ -53,15 +53,16 @@
         });
     }
 
-    function cities(row) {
-        return (row.getAttribute('data-loc') || '').split(';').map(function (c) {
-            return c.trim();
-        }).filter(Boolean);
+    /* data-deg and data-loc each hold the groups a role answers to, pipe
+     * separated: a role open to both degrees is listed under each of them,
+     * and a role offered in several cities under each of their areas. */
+    function has(row, attr, want) {
+        return (row.getAttribute(attr) || '').split('|').indexOf(want) !== -1;
     }
 
     function matches(row, wantDeg, wantLoc) {
-        if (wantDeg && row.getAttribute('data-deg') !== wantDeg) { return false; }
-        if (wantLoc && cities(row).indexOf(wantLoc) === -1) { return false; }
+        if (wantDeg && !has(row, 'data-deg', wantDeg)) { return false; }
+        if (wantLoc && !has(row, 'data-loc', wantLoc)) { return false; }
         return true;
     }
 
