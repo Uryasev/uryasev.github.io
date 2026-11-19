@@ -35,15 +35,20 @@ table.intern-table td:nth-child(2){
     table.intern-table td:nth-child(2){ white-space: normal; }
 }
 
-/* Third column: whether a Summer 2027 posting is still open. */
-table.intern-table td:nth-child(3),
+/* Third column: the Summer 2027 roles still open, or "Closed". A firm may
+   list more than one role, so this column wraps rather than staying on one
+   line like the other two. */
 table.intern-table th:nth-child(3){
     white-space: nowrap;
-    width: 1%;
+}
+table.intern-table td:nth-child(3){
+    width: 30%;
 }
 .intern-open{
     color: #2e7d32;
     font-weight: 600;
+    display: inline-block;
+    margin: 1px 0;
 }
 .intern-closed{
     color: #a09a92;
