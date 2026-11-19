@@ -111,3 +111,29 @@ table.intern-table tr:not(.intern-cont) td{
     line-height: 1.5;
     margin-top: -1.5em;
 }
+
+/* Firm-type filter. Hidden until the script reveals it, so that without
+   JavaScript the full table is shown rather than a control that does nothing. */
+.intern-filter{
+    margin: 0 0 1em 0;
+    color: #6a6a6a;
+    font-size: 0.9em;
+}
+.intern-filter[hidden]{
+    display: none;
+}
+.intern-filter label{
+    margin-right: 6px;
+}
+.intern-filter select{
+    font-family: inherit;
+    font-size: 1em;
+    color: #52739e;
+    padding: 3px 6px;
+    border: 1px solid #dcd8dd;
+    border-radius: 3px;
+    background: #fff;
+}
+.intern-filter-count{
+    margin-left: 10px;
+}
