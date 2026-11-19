@@ -26,7 +26,7 @@ table.intern-table td{
 table.intern-table tr:hover td{
     background: #faf7f8;
 }
-table.intern-table td:nth-child(2){
+table.intern-table td.c-type{
     color: #7a7a7a;
     font-size: 0.9em;
 }
@@ -34,14 +34,11 @@ table.intern-table td:nth-child(2){
 /* Five columns do not fit a narrow window: drop the type, and let the
    degree and location wrap. */
 @media only screen and (max-width: 820px){
-    table.intern-table th:nth-child(2),
-    table.intern-table td:nth-child(2){
+    table.intern-table .c-type{
         display: none;
     }
-    table.intern-table th:nth-child(4),
-    table.intern-table th:nth-child(5),
-    table.intern-table td:nth-child(4),
-    table.intern-table td:nth-child(5){
+    table.intern-table .c-deg,
+    table.intern-table .c-loc{
         white-space: normal;
     }
     table.intern-table td,
@@ -54,7 +51,7 @@ table.intern-table td:nth-child(2){
         table-layout: fixed;
         width: 100%;
     }
-    table.intern-table td:nth-child(3){
+    table.intern-table td.c-role{
         width: auto;
     }
     table.intern-table td,
@@ -66,8 +63,7 @@ table.intern-table td:nth-child(2){
 /* Below the site's own fixed width the page scrolls anyway; keep the table
    from adding to it. */
 @media only screen and (max-width: 620px){
-    table.intern-table th:nth-child(4),
-    table.intern-table td:nth-child(4){
+    table.intern-table .c-deg{
         display: none;
     }
 }
@@ -75,16 +71,14 @@ table.intern-table td:nth-child(2){
 /* Summer 2027 column: one role per table row, so each lines up with its
    own degree and location. Rows after the first in a firm's block lose the
    divider, keeping the firm's roles visually together. */
-table.intern-table th:nth-child(3){
+table.intern-table th.c-role{
     white-space: nowrap;
 }
-table.intern-table td:nth-child(3){
+table.intern-table td.c-role{
     width: 28%;
 }
-table.intern-table th:nth-child(4),
-table.intern-table th:nth-child(5),
-table.intern-table td:nth-child(4),
-table.intern-table td:nth-child(5){
+table.intern-table .c-deg,
+table.intern-table .c-loc{
     white-space: nowrap;
     font-size: 0.9em;
     color: #6a6a6a;
