@@ -35,24 +35,33 @@ table.intern-table td:nth-child(2){
     table.intern-table td:nth-child(2){ white-space: normal; }
 }
 
-/* Third column: the Summer 2027 roles still open, or "Closed". A firm may
-   list more than one role, so this column wraps rather than staying on one
-   line like the other two. */
+/* Summer 2027 column: one role per table row, so each lines up with its
+   own degree and location. Rows after the first in a firm's block lose the
+   divider, keeping the firm's roles visually together. */
 table.intern-table th:nth-child(3){
     white-space: nowrap;
 }
 table.intern-table td:nth-child(3){
-    width: 30%;
+    width: 28%;
+}
+table.intern-table th:nth-child(4),
+table.intern-table th:nth-child(5),
+table.intern-table td:nth-child(4),
+table.intern-table td:nth-child(5){
+    white-space: nowrap;
+    font-size: 0.9em;
+    color: #6a6a6a;
+}
+table.intern-table tr.intern-cont td{
+    border-top: none;
+}
+table.intern-table tr:not(.intern-cont) td{
+    border-top: 1px solid #ebe8ec;
 }
 .intern-open{
     color: #2e7d32;
     font-weight: 600;
-    display: block;
-    margin: 0 0 6px 0;
     line-height: 1.35;
-}
-.intern-open:last-child{
-    margin-bottom: 0;
 }
 .intern-closed{
     color: #a09a92;
